@@ -1,0 +1,364 @@
+<?php
+
+namespace Sf\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Mail
+ *
+ * @ORM\Table(name="mail")
+ * @ORM\Entity(repositoryClass="Sf\AdminBundle\Entity\MailRepository")
+ * @ORM\HasLifecycleCallbacks
+ */
+class Mail {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="subject", type="string", length=128)
+     */
+    private $subject;
+
+    /**
+     * @var text
+     * @ORM\Column(name="text", type="text")
+     */
+    private $text;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="send_at", type="datetime")
+     */
+    private $sendAt;
+
+    /**
+     *
+     *  @ORM\ManyToOne(targetEntity="Sf\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="sender_account_id", referencedColumnName="id", nullable = true)
+     */
+    private $senderUser;
+
+    /**
+     *
+     *  @ORM\ManyToOne(targetEntity="Brand")
+     * @ORM\JoinColumn(name="sender_brand_id", referencedColumnName="id", nullable = true)
+     */
+    private $senderBrand;
+
+    /**
+     *
+     *  @ORM\ManyToOne(targetEntity="Sf\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="receiver_account_id", referencedColumnName="id", nullable = true)
+     */
+    private $receiverUser;
+
+    /**
+     *
+     *  @ORM\ManyToOne(targetEntity="Brand")
+     *  @ORM\JoinColumn(name="receiver_brand_id", referencedColumnName="id", nullable = true)
+     */
+    private $receiverBrand;
+
+    /**
+     *
+     *  @ORM\ManyToOne(targetEntity="Order", inversedBy="mails")
+     */
+    private $order;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="type", type="string", length=16)
+     */
+    private $type = 'admin';
+    
+    /**
+     * @var string
+     * @ORM\Column(name="type_receiver", type="string", length=16)
+     */
+    private $typeReceiver = 'shop';
+
+    
+    
+    public function getSenderLabel() {
+        
+         if ($this->type =='admin' ){
+               $class="red";
+          $ico = ' <span class="red glyphicon glyphicon-user"></span> ' ;  
+         }elseif ($this->type =='shop' ){
+               $class="blue";
+          $ico = ' <span class="blue glyphicon glyphicon-home"></span> ' ;  
+         }elseif ($this->type =='brand' ){
+              $class="cyan";
+          $ico = ' <span class="cyan glyphicon glyphicon-bookmark"></span> ' ;  
+         }elseif ($this->type =='customer' ){
+               $class="green";
+          $ico = ' <span class="green glyphicon glyphicon-user"></span> ' ;  
+         }
+            
+        $senderLabel = "?";
+        if ($this->getSenderUser() != null) {
+           $senderLabel = $this->getSenderUser()->getLabel();
+        } elseif ($this->getSenderBrand() != null) {
+          $senderLabel = $this->getSenderBrand()->getName();
+        }
+        return $ico.'<span class="'.$class.'">'.$senderLabel.'</span>';
+    }
+     public function getReceiverLabel() {
+        
+         if ($this->typeReceiver =='admin' ){
+             $class="red";
+          $ico = ' <span class="red glyphicon glyphicon-user"></span> ' ;  
+         }elseif ($this->typeReceiver =='shop' ){
+              $class="blue";
+          $ico = ' <span class="blue glyphicon glyphicon-home"></span> ' ;  
+         }elseif ($this->typeReceiver =='brand' ){
+              $class="cyan";
+          $ico = ' <span class="cyan glyphicon glyphicon-bookmark"></span> ' ;  
+         }elseif ($this->typeReceiver =='customer' ){
+              $class="green";
+          $ico = ' <span class="green glyphicon glyphicon-user"></span> ' ;  
+         }
+            
+        $Label = "?";
+        if ($this->getReceiverUser() != null) {
+           $Label = $this->getReceiverUser()->getLabel();
+        } elseif ($this->getReceiverBrand() != null) {
+          $Label = $this->getReceiverBrand()->getName();
+        }
+        return $ico.'<span class="'.$class.'">'.$Label.'</span>';
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     * @return Mail
+     */
+    public function setSubject($subject) {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return string 
+     */
+    public function getSubject() {
+        return $this->subject;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Mail
+     */
+    public function setText($text) {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText() {
+        return $this->text;
+    }
+
+    /**
+     * Set sendAt
+     *
+     * @param \DateTime $sendAt
+     * @return Mail
+     */
+    public function setSendAt($sendAt) {
+        $this->sendAt = $sendAt;
+
+        return $this;
+    }
+
+    /**
+     * Get sendAt
+     *
+     * @return \DateTime 
+     */
+    public function getSendAt() {
+        return $this->sendAt;
+    }
+
+    /**
+     * Set senderUser
+     *
+     * @param \Sf\UserBundle\Entity\User $senderUser
+     * @return Mail
+     */
+    public function setSenderUser(\Sf\UserBundle\Entity\User $senderUser = null) {
+        $this->senderUser = $senderUser;
+
+        return $this;
+    }
+
+    /**
+     * Get senderUser
+     *
+     * @return \Sf\UserBundle\Entity\User 
+     */
+    public function getSenderUser() {
+        return $this->senderUser;
+    }
+
+    /**
+     * Set senderBrand
+     *
+     * @param \Sf\AdminBundle\Entity\Brand $senderBrand
+     * @return Mail
+     */
+    public function setSenderBrand(\Sf\AdminBundle\Entity\Brand $senderBrand = null) {
+        $this->senderBrand = $senderBrand;
+
+        return $this;
+    }
+
+    /**
+     * Get senderBrand
+     *
+     * @return \Sf\AdminBundle\Entity\Brand 
+     */
+    public function getSenderBrand() {
+        return $this->senderBrand;
+    }
+
+    /**
+     * Set receiverUser
+     *
+     * @param \Sf\UserBundle\Entity\User $receiverUser
+     * @return Mail
+     */
+    public function setReceiverUser(\Sf\UserBundle\Entity\User $receiverUser = null) {
+        $this->receiverUser = $receiverUser;
+
+        return $this;
+    }
+
+    /**
+     * Get receiverUser
+     *
+     * @return \Sf\UserBundle\Entity\User 
+     */
+    public function getReceiverUser() {
+        return $this->receiverUser;
+    }
+
+    /**
+     * Set receiverBrand
+     *
+     * @param \Sf\AdminBundle\Entity\Brand $receiverBrand
+     * @return Mail
+     */
+    public function setReceiverBrand(\Sf\AdminBundle\Entity\Brand $receiverBrand = null) {
+        $this->receiverBrand = $receiverBrand;
+
+        return $this;
+    }
+
+    /**
+     * Get receiverBrand
+     *
+     * @return \Sf\AdminBundle\Entity\Brand 
+     */
+    public function getReceiverBrand() {
+        return $this->receiverBrand;
+    }
+
+    /**
+     * Set order
+     *
+     * @param \Sf\AdminBundle\Entity\Order $order
+     * @return Mail
+     */
+    public function setOrder(\Sf\AdminBundle\Entity\Order $order = null) {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return \Sf\AdminBundle\Entity\Order 
+     */
+    public function getOrder() {
+        return $this->order;
+    }
+
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Mail
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set typeReceiver
+     *
+     * @param string $typeReceiver
+     * @return Mail
+     */
+    public function setTypeReceiver($typeReceiver)
+    {
+        $this->typeReceiver = $typeReceiver;
+
+        return $this;
+    }
+
+    /**
+     * Get typeReceiver
+     *
+     * @return string 
+     */
+    public function getTypeReceiver()
+    {
+        return $this->typeReceiver;
+    }
+}

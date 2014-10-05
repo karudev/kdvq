@@ -1,0 +1,38 @@
+
+{% if type =='shipping' %}
+    <h2> {{'Votre adresse de livraison'|trans}}</h2>
+
+    <div class="shipping">
+        {{form_start(form)}}
+        {{form_row(form)}}
+    </div>
+    <div class="hidden">
+    {{form_rest(form)}}
+</div>
+<button class="submit">{{'Valider'|trans}}</button>
+{{form_end(form)}}
+
+{% else %}
+    <h2>   {{'Votre adresse de facturation'|trans}}</h2>
+    
+    {% set style = 'block' %}
+    {% if boolAddress == false %}
+       {% set style = 'none' %}  
+    <div>
+        <button id="billing" class="btn btn-link">
+            <span class="glyphicon glyphicon-plus"></span>
+            {{'Ajouter une adresse de facturation si elle diffère de l\'adresse de livraison'|trans|raw}}
+        </button>
+    </div>
+    {% endif %}
+    <div style="display:{{style}}" class="billing">
+        {{form_start(form)}}
+        {{form_row(form)}}
+        <div class="hidden">
+    {{form_rest(form)}}
+</div>
+<button class="submit">{{'Valider'|trans}}</button>
+{{form_end(form)}}
+    </div>
+{% endif %}
+

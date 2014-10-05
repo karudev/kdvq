@@ -1,0 +1,53 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+   <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %} 
+{% block ariane %}
+PRESSE
+{% endblock %}
+{% block body %}
+    <div id="main-content"  class="container">
+        <div class="table-responsive col-md-10">
+            <table class="table table-condensed table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Parution</th>
+                        <th>Mise à jour le</th>
+                        <th>Actif ?</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                          
+                            <td>
+                                {% if entity.secondPictureUrl is not null %}
+                                    <img style="max-width:70px"  src="{{ asset(['/uploads/press/', entity.secondPictureUrl]|join) }}" />
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if entity.mainPictureUrl is not null %}
+                                    <img style="max-width:200px"  src="{{ asset(['/uploads/press/', entity.mainPictureUrl]|join) }}" />
+                                {% endif %}
+                            </td>
+                            <td><a href="{{ path('admin_press_update', { 'press' : entity.id }) }}">{{ entity.parutionTitle }}</a><br/>{{ entity.parutionSubTitle }}</td>
+                            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('d/m/Y H:i') }}{% endif %}</td>
+                              <td>
+                                <span class="glyphicon glyphicon-{% if  entity.active %}ok{% else %}ban{%endif%}-circle"></span>
+                            </td>
+                            <td> 
+                                <a title="Modifier" href="{{ path('admin_press_update', { 'press' : entity.id }) }}"><span class="glyphicon glyphicon-pencil"></span> </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ path('admin_press_update') }}">
+            <button type="button" class="submit">Créer un nouvel article de presse</button>
+        </a>
+    </div>
+{% endblock %}

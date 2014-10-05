@@ -1,0 +1,19 @@
+<p>{{ 'Bonjour '|trans({'%username%': user.firstname~' '~user.lastname},'SfFrontBundle') }},</p>
+<p>{{ 'Félicitation, vous êtes maintenant inscrit sur Qwinsport.'|trans({},'SfFrontBundle') }}</p>
+<p>{{ 'Veuillez valider votre compte en cliquant sur le lien ci-dessous.'|trans({},'SfFrontBundle') }}</p>
+<p><a href="{{url}}">{{url}}</a></p>
+<br/>
+<p><b>{{ 'Rappel de vos paramètres de connexion : '|trans({},'SfFrontBundle') }}</b></p>
+<p>{{ 'Identifiant : '|trans({},'SfFrontBundle') }}{{user.email}}</p>
+<p>{{ 'Mot de passe : '|trans({},'SfFrontBundle') }}{{user.plainPassword}}</p>
+<p>{{ 'Type : '|trans({},'SfFrontBundle') }} 
+    {% if user.hasRole('ROLE_SHOP') == true %}
+        {{ 'Compte Boutique'|trans({},'SfFrontBundle') }}
+    {% else %}
+     {{ 'Compte Client'|trans({},'SfFrontBundle') }}   
+    {% endif %}
+</p>
+<br/>
+
+<p>Qwinsport.</p>
+

@@ -1,0 +1,104 @@
+<div class="order">
+    <h3>{{'Commande'|trans()}} #{{order.number}} - {{order.amountTtc|number_format('2',',',' ')}} € ({{'%nb% mail'|trans({'%nb%':order.mails|length})}}{{order.mails|length>1 ? 's'}}) </h3>
+
+    <div class="sep"></div>
+    <div style="{{number is defined and number == key ? 'display:block'}}" data-key="{{key}}" class="details">
+        <div class="col-xs-6">
+
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <b>{{'Compte'|trans()}} :</b>
+                </div>
+                <div class="col-xs-6">
+                    {{order.account.label}}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <b>{{'Date de commande'|trans()}} :</b>
+                </div>
+                <div class="col-xs-6">
+                    {{order.orderDate|date('Y/m/d H:i')}}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <b>{{'Montant Total'|trans()}} :</b>
+                </div>
+                <div class="col-xs-6">
+                    {{order.amountTtc|number_format('2',',',' ')}} € TTC
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <b>{{'Statuts de la commande'|trans()}} :</b>
+                </div>
+                <div class="col-xs-6">
+
+
+                    {% for key,s in order.orderStatus %}
+                        {{key > 0 ? '|' : ''}} {{s.status|trans|capitalize}} 
+                    {% endfor %}
+
+                </div>
+
+            </div>  <div class="clearfix"></div>
+            {% if order.transaction is not null %}
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <b>{{'Statut de la transaction'|trans()}} :</b>
+                    </div>
+                    <div class="col-xs-6">
+                        {{order.transaction.state|trans}}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <b>{{'N° de suivi colisposte'|trans()}} :</b>
+                </div>
+                <div class="col-xs-6">
+                    <a target="_blank" href="{{coliposteUrl|replace({'@':order.colisposteNumber})}}">{{order.colisposteNumber}}</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="padding-top: 10px;padding-bottom: 10px"  class="col-xs-12">
+                    {% if order.status == 'Completed' and order.invoice is not null %}
+                        <a target="_blank" href="{{path('invoice_download',{invoice : order.invoice.id})}}" ><button class="btn-fridging">{{'Editer la facture'|trans()}}</button></a>
+                        {% endif %}
+                        {% if app.user.hasRole('ROLE_ADMIN') and order.status != 'Completed' %}
+                        <button  data-id="{{order.id}}" data-toggle="modal" data-target="#order" class="update btn-fridging">{{'Mettre à jours'|trans()}}</button>
+                    {% endif %}
+                </div>
+                {% if  haveShoppingCartHistory(order) == true %}
+                <div style="padding-bottom: 10px"  class="col-xs-12">
+                   
+                    <button data-order="{{order.id}}" class="load btn-fridging"><a href="#" >{{'Récupérer ce panier'|trans()}}</a></button>
+                  
+                </div>
+                    {% endif %}
+            </div>
+
+        </div> 
+        <div class="col-xs-6 mail">
+            <div class="btn-mail"><button  data-order-id="{{order.id}}" data-toggle="modal" data-target="#mail"  class="update-mail btn-fridging">{{'Envoyer un mail'|trans()}}</button></div>
+
+            {% for m in getMails(order) %}
+                <div class="{{m.type}}">
+                    <span class="title">
+                        {{m.senderLabel|raw}} => {{m.receiverLabel|raw}}
+                    </span>, {{m.sendAt|date('Y/m/d H:i')}} :
+                    <br/>
+                    <h5>{{m.subject|raw}}</h5>
+
+                    {{m.text|raw}}
+                </div>
+            {% endfor %}
+
+
+        </div>
+        <div class="clearfix"></div> 
+    </div>               
+</div> 
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/jquery-ui-1.11.0/jquery-ui.css')}}" rel="stylesheet">
+  <link href="{{asset('bundles/sfadmin/css/admin.css')}}?v={{version}}" rel="stylesheet">
+  <script src="{{asset('assets/jquery-ui/js/jquery-1.10.2.js')}}"></script>
+<script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/jquery-ui-1.11.0/jquery-ui.js')}}"></script>
+<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+ {# <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+#}
+</head>
+
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+    
+      <a  class="navbar-brand" href="">
+          <img width="40px" src="{{asset('/bundles/sffront/images/common/logo_zandz.png')}}"><small> V{{version}}</small>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        {% set route = app.request.get('_route') %}
+       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+        <li{% if route =="admin_brand" or route =="admin_brand_new" or route =="admin_brand_edit" %} class="active"{% endif %}><a href="{{ path('admin_brand') }}">Marques</a></li>
+        <li{% if route =="admin_product" or route =="admin_product_update" %} class="active"{% endif %}><a href="{{ path('admin_product') }}">Produits</a></li>
+           
+      <li style="padding: 15px;">
+          <span><b>{{app.user.username}}</b>
+        <a href="{{ path('fos_user_security_logout') }}">
+        <span class=" glyphicon glyphicon-off"></span> 
+        </a></span>
+    {% else %}
+          <h3>Gestion de Fridging</h3>
+       {# <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+    </li>{% endif %}
+        {% if is_granted("ROLE_EDIT_USER") %}
+          <li{% if route =="user" %} class="active"{% endif %}><a href="{{ path('user') }}">Users</a></li>
+        {% endif %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <div class="dropdown">
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+             
+            {% if app.request.locale == "fr" %}FR
+            {% elseif app.request.locale == "en" %}EN
+            {% elseif app.request.locale == "es" %}
+             ES
+            {% endif %}
+                
+            <span class="caret"></span>
+          </button>{% endif %}
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">FR</a></li>
+            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a></li>
+            <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'})) }}">ES</a></li>
+           
+          </ul>
+          </div>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="bloc col-lg-12">
+{% block body %}
+{% endblock %}
+    </div>
+</div>
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+<script src="{{asset('bundles/sffront/js/vegas/jquery.vegas.js')}}?v={{version}}"></script>
+<script src="{{asset('bundles/sfadmin/js/admin.js')}}?v={{version}}"></script>
+{% block js %}
+
+{% endblock %}
+</html>

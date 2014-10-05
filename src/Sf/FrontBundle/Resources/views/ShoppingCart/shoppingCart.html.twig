@@ -1,0 +1,109 @@
+<div class="col-sm-9 col-md-10">
+    <div class="product panier col-sm-12">		
+        <h2>Votre panier</h2>
+        <div class="col-sm-6 col-md-8">
+            {% for p in products %}
+                <div class="col-md-12 panier-content">
+                    <div class="col-md-3">
+                        <img width="100%" src="{{ asset(['/uploads/products/', p.product.mainPictureUrl]|join) }}" />
+                    </div>
+                    <div class="col-md-6 panier-bloc">
+                        <h2>{{p.product.name}}</h2>
+                        <span class="note"> 
+                            {% if p.size is defined and p.size is not null %}
+                                {{getEntityName('Size',p.size,';')}}
+                            {% endif %}
+                            {% if p.color is defined and p.color is not null %}
+                                {{getEntityName('Color',p.color,';')}}
+                            {% endif %}
+                            {% if p.material is defined and p.material is not null %}
+                                {{getEntityName('Material',p.material)}}
+                            {% endif %}</span><br/>
+                        <a data-id="{{p.product.id}}" class="remove" href="javascript:void(0)">{{'Supprimer'|trans}}</a>
+
+                    </div>
+                    <div class="col-md-3inline-block">
+                        <p class="panier-price">{{p.product.priceTtc * p.quantity|number_format(2,',',' ') }} € TTC</p>
+                        <p>Dont Tva : {{p.product.tva * p.quantity|number_format(2,',',' ') }} €</p>
+
+                        <div> <input style="width: 50px" maxlength="4" class="quantity" data-id="{{p.product.id}}" type="text" value="{{p.quantity}}" /> </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-6 col-md-4 total-achat">
+            <div class="achat-bloc">
+                <br/><h2>Total de vos achats</h2>
+                <label>
+                    <input id="cgv" type="checkbox"> En cochant cette case,
+                    j'accepte et je reconnais avoir pris connaissance des conditions générales de vente
+                    en vigueur.
+                </label><br/><br/>
+                <table class="table table-bordered">
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td>Frais de livraison</td>
+                            <td>{{price['shippingCosts']|number_format('2',',',' ')}} €</td>
+                        </tr>
+                        <tr>
+                            <td>Total des produits</td>
+                            <td>{{price['ht']|number_format('2',',',' ')}} €</td>
+                        </tr>
+                        <tr>
+                            <td class="special">Total TTC : </td>
+                            <td class="special prix">{{price['ttc']|number_format('2',',',' ')}} €</td>
+                        </tr>
+                        <tr>
+                            <td>dont TVA</td>
+                            <td colspan="2">{{price['tva']|number_format('2',',',' ')}} €</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img class="full" src="{{asset('bundles/sffront/images/shop/paypal.png')}}" alt="Paiement via Paypal">
+                {% if token is not null and (hasRole(user,'ROLE_CUSTOMER') or hasRole(user,'ROLE_ADMIN'))  %}
+
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="{{paypalEmail}}">
+                        <input type="hidden" name="lc" value="{{app.request.locale|upper}}">
+                        <input type="hidden" name="item_name" value="{{'Commande'|trans}} #{{order.number}}">
+                        <input type="hidden" name="amount" value={{price['ht']}}>
+                        <input type="hidden" name="currency_code" value="{{price['currency']}}">
+                        <input type="hidden" name="button_subtype" value="services">
+                        <input type="hidden" name="no_note" value="0">
+                        <input type="hidden" name="cn" value="{{'Commande'|trans}} #{{order.id}}">
+                        <input type="hidden" name="shipping" value="{{price['shippingCosts']}}">
+                        <input type="hidden" name="no_shipping" value="2">
+                        <input type="hidden" name="rm" value="1">
+                        <input type="hidden" name="first_name" value="{{app.user.firstname}}">
+                        <input type="hidden" name="last_name" value="{{app.user.lastname}}">
+                        <input type="hidden" name="address1" value="{{address.address}}">
+                        <input type="hidden" name="address2" value="{{address.additionalAddress}}">
+                        <input type="hidden" name="city" value="{{address.city}}">
+                        <input type="hidden" name="state" value="">
+                        <input type="hidden" name="zip" value={{address.zipCode}}>
+                        <input type="hidden" name="night_phone_a" value="{{app.user.phone}}">
+                        <input type="hidden" name="email" value="{{app.user.email}}">
+                        <input type="hidden" name="tax" value="{{price['tva']}}">
+                        <input type="hidden" name="custom" value="{{token}}">
+                        <input type="hidden" name="notify_url" value="{{ app.request.schemeAndHttpHost }}{{path('transaction_ipn') }}">
+                        <input type="hidden" name="return" value="{{ app.request.schemeAndHttpHost }}{{path('transaction_confirm',{token : token}) }}">
+                        <input type="hidden" name="cancel_return" value="{{ app.request.schemeAndHttpHost }}{{path('transaction_cancel',{token : token}) }}">
+                        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+                        <button id="achat" type="submit"  disabled class="btn btn-primary">{{'Acheter'|trans}}</button>
+
+                    </form>
+
+                {% elseif shippingAddress == false  %}
+                    <a href="{{path('account',{'message' : 1})}}"><button disabled id="achat" class="btn btn-primary">{{'Acheter'|trans}}</button></a>
+                    {% else %}
+                    <a href="{{path('account')}}"><button disabled id="achat" class="btn btn-primary">{{'Se connecter puis acheter'|trans}}</button></a>
+                    {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</div>

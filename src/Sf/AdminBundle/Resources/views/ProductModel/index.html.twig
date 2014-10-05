@@ -1,0 +1,91 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+
+{% endblock %}
+{% block ariane %}
+    Gestion du stock <div class="sous-categorie">{{product.name|upper}}</div>
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+        <div>
+            <a style="float:left" href="{{ path('admin_product') }}">
+                <button type="button" class="submit">Retour aux produits</button>
+            </a>
+                 <a style="margin-left: 5px" href="{{ path('admin_product_model_stock',{product : product.id}) }}">
+                <button type="button" class="submit">Ajouter du stock</button>
+            </a>
+        </div>
+
+        <div class="table-responsive col-md-10">
+           
+                <table class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+
+                            <th>Ref</th>
+                            <th>Nom</th>
+                            <th>Quantité</th>
+                            <th>Taille</th>
+                            <th>Couleur</th>
+                            <th>Matière</th>
+
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+                            <tr>
+
+                                <td><a href="{{ path('admin_product_model_update', {'number': entity['number']  }) }}">{{ entity['number']   }}</a></td>
+                                <td><a href="{{ path('admin_product_model_update', {'number': entity['number']  }) }}">{{ entity['name']  }}</a></td>
+                                <td class="text-center">{{ entity['quantity']  }}</td>
+                                <td>{{ entity['size'] is not null ? entity['size']  }}</td>
+                                <td>{{ entity['color']  is not null ? entity['color']  }}</td>
+                                <td>{{ entity['material']  is not null ? entity['material'] }} </td>
+
+                                <td>
+                                    <a title="Modifier" href="{{ path('admin_product_model_update', {'number': entity['number'] }) }}"><span class="glyphicon glyphicon-pencil"></span> </a>
+                                    <a class="del" data-toggle="modal" data-productId ="{{ entity['productId'] }}" data-number="{{ entity['number'] }}" data-target="#del" title="Supprimer" href="javascript:void(0)"><span class="glyphicon glyphicon-trash"></span> </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+           
+        </div>
+        <div class="clearfix"></div>
+     
+    </div>
+ <form >
+    <div id="del" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">{{'Suppressions des modèles'|trans}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <label>{{'Combien voulez vous supprimer ?'|trans}}</label>
+                         <div class="clearfix"></div>
+                        <input class="col-xs-2" maxlength="3" type="text" value="1" name="quantity" />
+                        <input  type="hidden"  id="number" name="number" />
+                        <input  type="hidden"  id="productId" name="productId" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="submit" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="submit">Confirmer</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+     </form >
+{% endblock %}
+
+{% block js %}
+    <script src="{{asset('bundles/sfadmin/js/product_model/productModel.js')}}?v={{version}}"></script>
+{% endblock %}  
+
+

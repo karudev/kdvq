@@ -1,0 +1,36 @@
+
+{% if app.user.hasRole('ROLE_ADMIN') == false %}
+    {% include 'SfAdminBundle:Account:submenu.html.twig' %}
+{% endif %}
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">{{ordersInProgress|length}} {{'Commande(s) en cours'|trans()}}</a></li>
+        <li><a href="#tabs-2">{{ordersCompleted|length}} {{'Commande(s) terminée(s)'|trans()}}</a></li>
+    </ul>
+    <div id="tabs-1">
+
+        {% if ordersInProgress|length == 0 %}
+            <div class="alert alert-info">
+                {{'Aucune commande en cours'|trans}}
+            </div>
+        {% else %}
+            {% for key,order in ordersInProgress %}
+                {% include 'SfAdminBundle:Order:order.html.twig'%}
+            {% endfor %}
+
+        {% endif %}
+    </div>
+    <div id="tabs-2">
+        {% if ordersCompleted|length == 0 %}
+            <div class="alert alert-info">
+                {{'Aucune commande terminée'|trans}}
+            </div>
+        {% else %}
+            {% for key,order in ordersCompleted %}
+                {% include 'SfAdminBundle:Order:order.html.twig'%}
+            {% endfor %}
+
+        {% endif %}</div>
+</div>
+

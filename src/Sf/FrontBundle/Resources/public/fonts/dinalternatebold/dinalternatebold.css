@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'DINAlternateBold';
+    src: url('dinalternatebold.eot');
+    src: url('dinalternatebold.eot') format('embedded-opentype'),
+         url('dinalternatebold.woff2') format('woff2'),
+         url('dinalternatebold.woff') format('woff'),
+         url('dinalternatebold.ttf') format('truetype'),
+         url('dinalternatebold.svg#DINAlternateBold') format('svg');
+}

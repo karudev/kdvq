@@ -1,0 +1,16 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block ariane %}VOTRE PANIER{% endblock %}
+{% block title %}Qwinsport - Votre panier{% endblock %}
+{% block arianne %}Panier{% endblock %}
+{% block body %}
+    <div id="main-content" class="shopping-cart container">
+        {{render(controller('SfFrontBundle:ShoppingCart:shoppingCart'))}}
+    </div>
+{% endblock %}
+
+{% block js %}
+     <script src="{{asset('bundles/sffront/js/shopping-cart.js')}}?v={{version}}"></script>
+{% endblock%}

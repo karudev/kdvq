@@ -1,0 +1,95 @@
+<?php
+
+namespace Sf\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * OrderBrand
+ *
+ * @ORM\Table(name="order_brand")
+ * @ORM\Entity(repositoryClass="Sf\AdminBundle\Entity\OrderBrandRepository")
+ */
+class OrderBrand 
+{
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    
+   /**
+     * @ORM\ManyToOne(targetEntity="Order")
+     */
+    private $order;
+    
+    /**
+     *
+     *  @ORM\ManyToOne(targetEntity="Brand" )
+     */
+    private $brand;
+
+   
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set order
+     *
+     * @param \Sf\AdminBundle\Entity\Order $order
+     * @return OrderBrand
+     */
+    public function setOrder(\Sf\AdminBundle\Entity\Order $order = null)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return \Sf\AdminBundle\Entity\Order 
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param \Sf\AdminBundle\Entity\Brand $brand
+     * @return OrderBrand
+     */
+    public function setBrand(\Sf\AdminBundle\Entity\Brand $brand = null)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return \Sf\AdminBundle\Entity\Brand 
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+}

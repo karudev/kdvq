@@ -1,0 +1,82 @@
+.billing{
+    display:none;
+}
+.sep{
+    height: 1px;
+    border: 1px dashed #999;
+    width: 100%;
+    margin: 10px;
+}
+
+.mail .shop{
+    background-color: #FFF;
+    border: 2px solid #205899;
+    margin-bottom: 5px;
+    padding: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+.mail .admin{
+    font-size: 11px;
+    background-color: #FFF;
+    border: 2px solid #BF4646;
+    margin-bottom: 5px;
+    padding: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.mail .customer{
+    font-size: 11px;
+    background-color: #FFF;
+    border: 2px solid #5CB85C;
+    margin-bottom: 5px;
+    padding: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.mail .brand{
+    font-size: 11px;
+    background-color: #FFF;
+    border: 2px solid #24A09C;
+    margin-bottom: 5px;
+    padding: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.mail .title{
+    font-size: 12px;
+    
+}
+.btn-mail{
+    margin-top: 10px;
+      margin-bottom: 10px;
+}
+
+#orders .details{
+    display: none;
+}
+
+#orders h3:hover{
+   text-decoration: underline;
+   cursor: pointer;
+}
+
+.note-editable p,.mail p{
+    margin: 0px;
+}
+.submenu a{
+    padding: 5px;
+    border: 1px dashed #2f2f2f;
+    color: #2f2f2f;
+}
+.submenu div{
+   
+    margin-bottom: 13px;
+   
+}

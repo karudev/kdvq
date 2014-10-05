@@ -1,0 +1,39 @@
+# Form field labels
+form:
+    firstname: "Prénom :"
+    lastname: "Nom :"
+    job: "Fonction :"
+    company_name: "Société :"
+    
+security:
+    login:
+        email: "Email :"
+    title: Connectez vous à votre espace CRM
+        
+registration:
+    account:
+        actived: Votre compte est maintenant activé.
+    reset: Annuler
+    signup: Inscrivez vous !
+    password:
+        message: Le mot de passe doit contenir 8 caractères minimum!
+        
+resetting:
+    title:
+        reset_password: Innitialiser votre mot de passe
+    request:
+        email: "Votre email :"
+        submit: Envoyer
+        invalid_email: L'email "%email%" n'existe pas.
+
+email:
+    account:
+        active: 
+            subject: Activer votre compte maintenant
+
+mail:
+    active:
+        account:
+            header: Bonjour %username%,
+            body:  Veuillez confirmer votre compte en cliquant sur ce lien
+            

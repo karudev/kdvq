@@ -1,0 +1,36 @@
+# src/Acme/UserBundle/Resources/config/validation.yml
+Sf\UserBundle\Entity\User:
+  
+   properties:
+      firstname:
+        - NotBlank: { message: "Entrer un prénom" }
+        - Length: { min: 2, max: 255,exactMessage: "Entrer un prénom avec 2 caratères minimum"}
+        
+      lastname:
+        - NotBlank: { message: "Entrer un nom" }
+        - Length: { min: 2, max: 255,exactMessage: "Entrer un nom avec 2 caratères minimum"}
+      
+      phone:
+        - Length: { min: 6, max: 255}
+        
+      email:
+        - NotBlank: { message: "Entrer une adresse email valide"}
+        - Email:
+            checkMX: true
+            checkHost: true
+            
+      plainPassword:
+        - NotBlank: { message: "Entrer un mot de passe", groups: [registration] }
+        - Length: { min: 8, max: 255,exactMessage: "Entrer un mot de passe avec 2 caratères minimum", groups: [registration]}
+        
+      siret:
+        - Length: { min: 14, max: 14}
+
+      
+      tradeName:
+        - NotBlank: ~
+        - Length: { min: 2, max: 255}
+      
+      socialName:
+        - NotBlank: { groups: [shop] }
+        - Length: { min: 2, max: 255,groups: [shop]}

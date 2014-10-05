@@ -1,0 +1,10 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+    <div style="padding-top: 20px" id="main-content" class="container">
+        <div class="alert alert-success">
+            {{ 'resetting.check_email'|trans({'%email%': email}) }}
+        </div>
+    </div>
+{% endblock %}
+

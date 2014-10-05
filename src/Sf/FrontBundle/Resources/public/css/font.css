@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'AlleyCatRegular';
+    src: url('../fonts/alleycat/alleycat.eot');
+    src: url('../fonts/alleycat/alleycat.eot') format('embedded-opentype'),
+         url('../fonts/alleycat/alleycat.woff') format('woff'),
+         url('../fonts/alleycat/alleycat.ttf') format('truetype'),
+         url('../fonts/alleycat/alleycat.svg#AlleyCatRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'DINAlternateBold';
+    src: url('../fonts/dinalternatebold/dinalternatebold.eot');
+    src: url('../fonts/dinalternatebold/dinalternatebold.eot') format('embedded-opentype'),
+         url('../fonts/dinalternatebold/dinalternatebold.woff') format('woff'),
+         url('../fonts/dinalternatebold/dinalternatebold.ttf') format('truetype'),
+         url('../fonts/dinalternatebold/dinalternatebold.svg#DINAlternateBold') format('svg');
+}
+
+@font-face {
+    font-family: 'DINProBlack';
+    src: url('../fonts/dinpro-black/dinpro-black.eot');
+    src: url('../fonts/dinpro-black/dinpro-black.eot') format('embedded-opentype'),
+         url('../fonts/dinpro-black/dinpro-black.woff') format('woff'),
+         url('../fonts/dinpro-black/dinpro-black.ttf') format('truetype'),
+         url('../fonts/dinpro-black/dinpro-black.svg#DINProBlack') format('svg');
+}
+
+@font-face {
+    font-family: 'DINProLight';
+    src: url('../fonts/dinpro-light/dinpro-light.eot');
+    src: url('../fonts/dinpro-light/dinpro-light.eot') format('embedded-opentype'),
+         url('../fonts/dinpro-light/dinpro-light.woff') format('woff'),
+         url('../fonts/dinpro-light/dinpro-light.ttf') format('truetype'),
+         url('../fonts/dinpro-light/dinpro-light.svg#DINProLight') format('svg');
+}

@@ -1,0 +1,439 @@
+<?php
+
+namespace Sf\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Translatable\Translatable;
+
+use Symfony\Component\Filesystem\Filesystem;
+
+/**
+ * RubricPicture
+ *
+ * @ORM\Table(name="rubric_picture")
+ * @ORM\Entity(repositoryClass="Sf\AdminBundle\Entity\RubricPictureRepository")
+ * @ORM\HasLifecycleCallbacks
+
+ */
+class RubricPicture
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     *
+     * @Assert\Image(maxSize="6000000")
+     */
+    private $pictureFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture_url", type="string", length=255, nullable=true)
+     */
+    private $pictureUrl;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", nullable=true)
+     */
+    private $active;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=128, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="title", type="string", length=128, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="subtitle", type="string", length=128, nullable=true)
+     */
+    private $subtitle;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="title2", type="string", length=128, nullable=true)
+     */
+    private $title2;
+
+    /**
+     * @var text
+     * @Gedmo\Translatable
+     * @ORM\Column(name="mainText", type="text", nullable=true)
+     */
+    private $mainText;
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="footText", type="text", nullable=true)
+     */
+    private $footText;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set pictureUrl
+     *
+     * @param string $pictureUrl
+     * @return RubricPicture
+     */
+    public function setPictureUrl($pictureUrl)
+    {
+        $this->pictureUrl = $pictureUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureUrl
+     *
+     * @return string
+     */
+    public function getPictureUrl()
+    {
+        return $this->pictureUrl;
+    }
+
+    /**
+    * Set pictureFile
+    *
+    * @param object $pictureFile
+    */
+    public function setPictureFile($pictureFile)
+    {
+    $this->pictureFile = $pictureFile;
+    }
+
+    /**
+    * Get pictureFile
+    *
+    * @return object
+    */
+    public function getPictureFile()
+    {
+    return $this->pictureFile;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return RubricPicture
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return RubricPicture
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return RubricPicture
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return RubricPicture
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function CcreatedDateTime() {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function updatedDateTime(){
+      $this->updatedAt = new \dateTime();
+    }
+
+   /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->pictureFile) {
+            $this->pictureUrl = uniqid().'.'.$this->pictureFile->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->pictureFile) {
+            return;
+        }
+
+        $this->pictureFile->move($this->getUploadRootDir(), $this->pictureUrl);
+        unset($this->pictureFile);
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($pictureFile = $this->getAbsolutePath()) {
+          $fs = new Filesystem();
+          if($fs->exists($this->getAbsolutePath())){
+            unlink($pictureFile);
+          }
+        }
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->pictureUrl ? null : $this->getUploadRootDir().'/'.$this->pictureUrl;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->pictureUrl ? null : $this->getUploadDir().'/'.$this->pictureUrl;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/rubricPictures';
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return RubricPicture
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set subtitle
+     *
+     * @param string $subtitle
+     * @return RubricPicture
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
+    /**
+     * Get subtitle
+     *
+     * @return string
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * Set title2
+     *
+     * @param string $title2
+     * @return RubricPicture
+     */
+    public function setTitle2($title2)
+    {
+        $this->title2 = $title2;
+
+        return $this;
+    }
+
+    /**
+     * Get title2
+     *
+     * @return string
+     */
+    public function getTitle2()
+    {
+        return $this->title2;
+    }
+
+    /**
+     * Set mainText
+     *
+     * @param string $mainText
+     * @return RubricPicture
+     */
+    public function setMainText($mainText)
+    {
+        $this->mainText = $mainText;
+
+        return $this;
+    }
+
+    /**
+     * Get mainText
+     *
+     * @return string
+     */
+    public function getMainText()
+    {
+        return $this->mainText;
+    }
+
+    /**
+     * Set footText
+     *
+     * @param string $footText
+     * @return RubricPicture
+     */
+    public function setFootText($footText)
+    {
+        $this->footText = $footText;
+
+        return $this;
+    }
+
+    /**
+     * Get footText
+     *
+     * @return string
+     */
+    public function getFootText()
+    {
+        return $this->footText;
+    }
+}

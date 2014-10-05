@@ -1,0 +1,180 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sffront/css/products.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block ariane %}<a href="{{path('front_products',{'categorySlug' : product.category.slug})}}">PRODUITS</a><div class="sous-categorie">{{product.name}}</div>{% endblock %}
+{% block title %}Qwinsport - {{product.name}}{% endblock %}
+{% block body %}
+    <div class="container">
+    <div style="margin-top: 30px;"  class="col-sm-9 col-md-10">
+         <div id="alert" class="col-md-12">
+
+        </div>
+        <div class="product col-sm-12">
+            <div class="border_ col-sm-12">
+                <div class="col-sm-6">
+                    <img id="mainPicture" class="full" src="{{ asset(['/uploads/products/', product.mainPictureUrl]|join) }}" alt="">
+                </div>
+                <div class="col-sm-6 details-product">
+                    <h1>{{product.name}}<br/>{{ product.priceTtc|number_format(2,',',' ') }} €</h1>
+                    <h6><a href="" title="">&raquo; Voir la description</a></h6><hr/>
+                    {#<form action="product.html" method="post">
+                        <label><span>Coloris</span>
+                            <img src="{{asset('bundles/sffront/images/products/coloris-1.png')}}" alt="">
+                            <img src="{{asset('bundles/sffront/images/products/coloris-2.png')}}" alt="">
+                            <img src="{{asset('bundles/sffront/images/products/coloris-3.png')}}" alt="">
+                            <img src="{{asset('bundles/sffront/images/products/coloris-4.png')}}" alt="">
+                            <img src="{{asset('bundles/sffront/images/products/coloris-5.png')}}" alt="">
+                        </label>
+                        <label><span>Tailles</span>
+                            <select name="tailles" size="1">
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                            </select>
+                        </label>
+                        <label><span>Quantité</span>
+                            <select name="tailles" size="1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </label>
+                        <label>Personnaliser le vêtement <img src="{{asset('bundles/sffront/images/products/option_personnaliser.png')}}" alt=""></label>
+                    </form>#}
+                    {% if stock > 0 %}
+                        <form action="{{path('front_shopping_cart_add',{'product' : product.id})}}" method="post">
+                            <input type="hidden" id="product_id" value="{{product.id}}"/>
+                            {% if sizes|length > 0 %}
+                                <div class=" col-md-12 form-group">
+                                    <div class=" col-md-3">
+                                        <label>{{'Taille'|trans}}</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="size" name="params[size]"  >
+                                            <option value=""></option>
+                                            {% for s in sizes %}
+                                                <option value="{{s.id}}">{{s.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if colors|length > 0 %}
+                                <div class=" col-md-12 form-group">
+                                    <div class=" col-md-3">
+                                        <label>{{'Couleur'|trans}}</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="color" name="params[color]"  >
+                                            <option value=""></option>
+                                            {% for c in colors %}
+                                                <option value="{{c.id}}">{{c.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if materials|length > 0 %}
+                                <div class=" col-md-12 form-group"> 
+                                    <div class=" col-md-3 form-group">
+                                        <label>{{'Matière'|trans}}</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="material" name="params[material]"  >
+                                            <option value=""></option>
+                                            {% for m in materials %}
+                                                <option value="{{m.id}}">{{m.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class=" col-md-12 form-group">
+                                <div class=" col-md-3">
+                                    <label>{{'Quantité'|trans}}</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input style="width:40px"  name="params[quantity]" type="text"  value="1" required />
+                                </div>
+                            </div>
+                            <div class=" col-md-12 text-right">
+                                <span id="no-stock" style="display:none" class="label label-danger">{{'Indisponible'|trans}}</span>
+                            </div>
+                           
+                            <input type="submit" value="" id="add-to-shopping-cart" class="ico_ajout" />
+                        
+                        </form>
+                    {% else %}
+                        <p class="text-right"><span class="label label-danger">{{'Indisponible'|trans}}</span></p>
+                        {% endif %}
+                </div>
+
+            </div>
+            <div class="cover-top col-md-12">
+                {% for pp in product.productPictures %}
+                    <div class="col-md-4"> 
+                        <img class=" " src="{{ asset(['/uploads/product_pictures/', pp.pictureUrl]|join) }}" alt="">
+                    </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="product-information">
+                {% if product.description is not null %}
+                    <h2>Description de l'article</h2>
+                    <div>{{product.description|raw}}</div>
+                {% endif %}
+                <div class="more">
+                    {% if product.details is not null %}
+                        <h3>Détails</h3>
+                        <div>{{product.details|raw}}</div>
+                    {% endif %}
+                    {% if product.composition is not null %}
+                        <h3>Composition</h3>
+                        <div>{{product.composition|raw}}</div>
+                    {% endif %}
+                    {% if product.boardMaintenance is not null %}
+                        <h3>Conseil d'entretien</h3>
+                        <div>{{product.boardMaintenance|raw}}</div>
+                    {% endif %}
+                </div><hr/>
+                <h3 class="big-title">
+                    Vous aimerez<br><span class="din-bold">également</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                </h3>
+                <div class="other-products">
+                    {% for m in moreProducts %}
+                        <div class="col-md-4">
+                            {% if getStock(m) > 0 %}
+                                <a href="{{path('front_product',{'slug' : m.slug} )}}" title="">
+                                    <img style="width: 90%;" src="{{ asset(['/uploads/products/', m.mainPictureUrl]|join) }}" alt="">
+                                </a>
+                            {% else %}
+                                <img style="width: 90%;" src="{{ asset(['/uploads/products/', m.mainPictureUrl]|join) }}" alt="">
+                            {% endif %}
+                            <div class="article-price">
+                                <div class="border-price">
+                                    <p class="price">{{ m.priceTtc|number_format(2,',',' ') }} €</p>
+                                </div>
+                            </div>
+                            <h2>{{ m.name}}</h2>
+                            {% if getStock(m) == 0 %}
+                                <div><span class="label label-danger">Indisponible</span></div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{{asset('bundles/sffront/js/product.js')}}?v={{version}}"></script>
+    <script src="{{asset('bundles/sffront/js/zoom/jquery.loupe.min.js')}}"></script>
+{% endblock %}

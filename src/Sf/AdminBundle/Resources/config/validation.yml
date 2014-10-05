@@ -1,0 +1,17 @@
+# src/Acme/UserBundle/Resources/config/validation.yml
+Sf\AdminBundle\Entity\Brand:
+   properties:
+      reference:
+        - NotBlank: ~
+        - Length: { min: 2, max: 4}
+        
+      email:
+        - NotBlank: ~
+        - Email:
+            checkMX: true
+            checkHost: true
+
+Sf\AdminBundle\Entity\Mail:
+   properties:
+      text:
+        - NotBlank: ~

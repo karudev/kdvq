@@ -1,0 +1,85 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block ariane %}
+    <div class="container">
+        <div class="col-md-12 ariane">{{'LES MARQUES'|trans|upper}}</div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+        <div class="table-responsive">
+            <table class="table table-condensed table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        
+                        <th>{{'Ref'|trans}}</th>
+                        <th>{{'Nom'|trans}}</th>
+                        <th>{{'Tva'|trans}}</th>
+                        <th>{{'Minimum de commande'|trans}}</th>
+                        <th>{{'Frais de port'|trans}}</th>
+                        <th>{{'Franco de port'|trans}}</th>
+                        <th>{{'Email'|trans}}</th>
+                        <th>{{'Langue'|trans}}</th>
+                        <th>{{'Actif ?'|trans}}</th>
+                        <th>{{'Actions'|trans}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td>
+                                {% if entity.logoUrl is not null %}
+                                    <img style="max-width:70px"  src="{{ asset(['/uploads/brands/', entity.logoUrl]|join) }}" />
+                                {% endif %}
+                            </td>
+                            
+                            <td>{{ entity.reference }}</td>
+                            <td>{{ entity.name }}<br/>{{ entity.subTitle }}</td>
+                            <td class="text-right">
+                                {% if entity.tvaPercent is not null %}
+                                    {{ entity.tvaPercent }} %
+                                {% else %}
+                                    {{'Tva non applicable'|trans}}
+                                {% endif %}
+                            </td>
+                            <td class="text-right"><span class="btob">{{ entity.minOrderBtoB }} €</span> | <span class="btoc">{{ entity.minOrderBtoC }} €</span></td>
+                            <td class="text-right"><span class="btob">{{ entity.shippingBtoB }} {{ entity.shippingUnitBtoB }}</span> | <span class="btoc">{{ entity.shippingBtoC }} {{ entity.shippingUnitBtoC }}</span></td>
+                            <td class="text-right"><span class="btob">{{ entity.carriageBtoB }} €</span> | <span class="btoc">{{ entity.carriageBtoC }} €</span></td>
+
+                            <td>{{ entity.email }}</td>
+                            <td>{{ entity.lang }}</td>
+                            <td>
+                                <span class="glyphicon glyphicon-{% if  entity.active %}ok{% else %}ban{%endif%}-circle"></span>
+                            </td>
+                            <td>
+                                <a title="Ajouter les groupes de produits" href="{{ path('admin_group', { 'brand': entity.id }) }}"><span class="glyphicon glyphicon-folder-open"></span> </a>
+                                <a title="Modifier cette marque" href="{{ path('admin_brand_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-pencil"></span> </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="{{ path('admin_brand_new') }}">
+            <button type="button" class="btn-fridging-blue">
+                Créer une nouvelle marque
+            </button>
+        </a>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+
+        $(document).ready(function() {
+            tinymce.init({
+                plugins: "link",
+                forced_root_block: false,
+                force_br_newlines: true,
+                force_p_newlines: false,
+                selector: "textarea",
+                height: 100
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_row %}
+    {% spaceless %}
+        <div class="form-group {{ errors|length > 0 ? 'has-error' : '' }}">
+            {{ form_label(form) }}
+            <div class="clearfix"></div>
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+             <div class="clearfix"></div>
+        </div>
+            
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block textarea_widget %}
+    {#{% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}#}
+    {{ parent() }}
+{% endblock textarea_widget %}
+
+{% block form_widget_simple %}
+    {#{% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'})#}
+    {{ parent() }}
+{% endblock form_widget_simple %}
+
+{% block form_label %}
+    {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label')|trim}) %}
+    {{ parent() }}
+{% endblock form_label %}
+
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <span class="help-block alert-danger">
+                {% for error in errors %}
+                    {{ error.message }}<br />
+                {% endfor %}
+            </span>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
+
+
+{% block button_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+        {% set class="" %}
+    {% if label=="Update"%}
+        {% set class="pull-left glyphicon glyphicon-pencil" %}
+    {% endif %}
+
+    {% if label=="Delete"%}
+        {% set class="glyphicon glyphicon-trash" %}
+        <button type="button" class="btn {{class}}" data-toggle="modal" data-target="#validDelete">
+          Supprimer
+        </button>
+        <div class="modal fade" id="validDelete">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <p>Confirmer la supression</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button class='btn {{class}}' type="{{ type|default('button') }}" style="margin-right:10px" {{ block('button_attributes') }}>Supprimer</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+    {% else %}
+      <button class='btn {{class}}' type="{{ type|default('button') }}" style="margin-right:10px" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+    {% endif %}
+
+
+
+
+{% endspaceless %}
+{% endblock button_widget %}

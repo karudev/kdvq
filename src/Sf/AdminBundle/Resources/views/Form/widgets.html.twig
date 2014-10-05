@@ -1,0 +1,111 @@
+{% block brandCreators_widget %}
+
+
+    {% set image = form.vars.data %}
+    {% if image is not null %}
+        <div style="margin-bottom: 5px" >
+            <button type="button" class="btn glyphicon glyphicon-minus btn-xs remove_image">Supprimer la photo</button>
+        </div>
+        <img src="{{ asset(['/uploads/brand_creators/', image.pictureUrl]|join) }}"  width="250px">
+    {% endif %}
+
+
+    {{ form_row(form.picture) }}
+
+    {{ form_rest(form) }}
+
+    {{ form_widget(form) }}
+
+{% endblock %}
+{% block productPictures_widget %}
+
+
+    {% set image = form.vars.data %}
+    {% if image is not null %}
+        <div style="margin-bottom: 5px" >
+            <button type="button" class="btn glyphicon glyphicon-minus btn-xs remove_image">Supprimer la photo</button>
+        </div>
+        <img src="{{ asset(['/uploads/product_pictures/', image.pictureUrl]|join) }}"  width="250px">
+    {% endif %}
+
+
+    {{ form_row(form.pictureFile) }}
+
+    {{ form_rest(form) }}
+
+    {{ form_widget(form) }}
+
+{% endblock %}
+{% block rubricLinks_widget %}
+    <button type="button" class="btn glyphicon glyphicon-minus btn-xs remove_link">Supprimer le lien</button>
+
+    {{ form_widget(form) }}
+
+    {# {% set file = getBaseFile(form.vars.name, form.parent.vars.data) %} #}
+{% endblock %}
+
+
+{% block customerInfos_widget %}
+    <button type="button" class="btn glyphicon glyphicon-minus btn-xs remove_info">Supprimer l'information</button>
+
+    {{ form_widget(form) }}
+
+
+    {# {% set file = getBaseFile(form.vars.name, form.parent.vars.data) %} #}
+{% endblock %}
+
+
+
+
+
+{% block carrouselstep_widget %}
+    <button type="button" class="btn glyphicon glyphicon-minus btn-xs remove_step">Supprimer l'étape</button>
+    {{ form_widget(form) }}
+
+    {# {% set file = getBaseFile(form.vars.name, form.parent.vars.data) %} #}
+{% endblock %}
+
+
+
+{% block contactlist_widget %}
+    {{ form_widget(form) }}
+    <a href="#" class="remove_contactList">Supprimer</a>
+
+    {# {% set file = getBaseFile(form.vars.name, form.parent.vars.data) %} #}
+{% endblock %}
+
+
+
+{% block contact_widget%}
+    {{ form_widget(form) }}
+
+    <a href="#" id="add_contactList">ajouter un contact</a>
+
+    <script>
+        $(document).ready(function() {
+
+            var containerImage = $('#contact_contactLists');
+
+            function add_step() {
+                index = containerImage.children().length;
+                containerImage.append(
+                        $(containerImage.attr('data-prototype').replace(/__name__/g, index))
+                        );
+
+            }
+
+            $('#add_contactList').click(function() {
+                event.preventDefault();
+                add_step();
+            });
+
+
+            $('.remove_contactList').click(function() {
+                event.preventDefault();
+                $(this).parent().remove();
+            });
+        });
+
+    </script>
+
+{% endblock %}

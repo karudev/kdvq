@@ -1,0 +1,21 @@
+[12-Sep-2014 13:49:08 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Controller\IpnListener' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Controller/TransactionController.php on line 84
+[12-Sep-2014 13:49:34 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Controller\IpnListener' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Controller/TransactionController.php on line 84
+[12-Sep-2014 14:17:28 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Service\OrderManager::invalid() in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Controller/TransactionController.php on line 188
+[12-Sep-2014 14:18:49 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Service\OrderManager::invalid() in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Controller/TransactionController.php on line 190
+[12-Sep-2014 14:18:57 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Service\OrderManager::invalid() in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Controller/TransactionController.php on line 190
+[12-Sep-2014 14:22:46 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:24:02 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:25:18 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:25:43 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:26:01 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:26:29 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:26:55 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:27:49 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:27:56 UTC] PHP Fatal error:  Class 'Sf\FrontBundle\Service\PaypalIpn\Exception' not found in /Applications/MAMP/htdocs/fridging/src/Sf/FrontBundle/Service/PaypalIpn/IpnListener.php on line 309
+[12-Sep-2014 14:29:02 UTC] Invalid HTTP request method.
+[12-Sep-2014 14:29:04 UTC] Invalid HTTP request method.
+[12-Sep-2014 15:21:15 UTC] Invalid HTTP request method.
+[12-Sep-2014 15:34:49 UTC] Invalid HTTP request method.
+[12-Sep-2014 15:35:16 UTC] Invalid HTTP request method.
+[19-Sep-2014 09:04:42 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /Applications/MAMP/htdocs/fridging/src/Sf/AdminBundle/Service/OrderManager.php on line 42
+[22-Sep-2014 15:27:53 UTC] Invalid HTTP request method.

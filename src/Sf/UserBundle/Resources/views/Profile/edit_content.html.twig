@@ -1,0 +1,16 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_profile_edit', { 'userId': user.id }) }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+    {{ form_widget(form) }}
+    <hr/>
+    <div>
+      <a href="{{ path('rubric') }}" style="color:black">
+        <button type="button" class="btn pull-left glyphicon glyphicon-arrow-left" style="margin-right:10px">
+          Retour
+        </button>
+      </a>
+      <div class="pull-right">
+        <button class='btn glyphicon glyphicon-pencil' type="submit" style="margin-right:10px" >Update</button>
+      </div>
+    </div>
+</form>

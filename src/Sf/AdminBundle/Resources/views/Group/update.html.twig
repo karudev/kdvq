@@ -1,0 +1,39 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block ariane %}
+   <div class="container">
+    <div class="col-md-12 ariane">{{title|trans|upper}}</div>
+   </div>
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+
+
+    {{ form_start(form)}}
+
+
+<div class="row">
+    <div class="col-xs-6">
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.subTitle) }}
+    {{ form_row(form.active) }}
+
+    </div>
+    
+</div>
+
+<div class="row">
+    <a href="{{ path('admin_group',{ 'brand' : entity.brand.id }) }}" style="color:black">
+        <button type="button" class="btn pull-left glyphicon glyphicon-arrow-left" style="margin-right:10px">
+            {{'Retour'|trans}}
+        </button>
+    </a>
+    <div class="pull-right">
+
+{{ form_rest(form) }}
+    </div>
+{{ form_end(form)}}
+    
+</div>
+</div>
+{% endblock %}

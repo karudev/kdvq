@@ -1,0 +1,161 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block ariane %}
+   <div class="container">
+    <div class="col-md-12 ariane">{{'Création d\'une nouvelle marque'|trans|upper}}</div>
+   </div>
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+        <div class="col-xs-12 row">
+             <a href="{{ path('admin_brand') }}" style="color:black">
+                <button type="button" class="btn pull-left glyphicon glyphicon-arrow-left" style="margin-right:10px">
+                    Retour
+                </button>
+            </a>
+        </div>
+       
+        {{ form_start(form)}}
+
+
+        <div class="row">
+            <div class="col-xs-6">
+               <div class="col-xs-4">
+                    {{ form_row(form.active) }}
+                </div>
+                <div class="col-xs-4">
+                    {{ form_row(form.allowFilter) }}
+                </div>
+                <div class="col-xs-4">
+                    {{ form_row(form.isInCatalog) }}
+                </div>
+                {{ form_row(form.reference) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.subTitle) }} 
+                <div class="form-group ">
+                    <div class="row col-xs-6">
+                        {{ form_row(form.email) }}
+                    </div>
+                    <div class="col-xs-2">
+                        {{ form_row(form.lang) }}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                
+                 <div class="form-group ">
+                    {{ form_label(form.tvaPercent) }}
+                    <div class="clearfix"></div>
+                    {{ form_widget(form.tvaPercent) }} <label style="padding:5px"> % </label>
+                    <div class="clearfix"></div> 
+                </div>
+                 <div class="form-group ">
+                    <div class=" row col-xs-4">
+                    {{ form_label(form.shippingBtoB) }}
+                    <div class="clearfix"></div>
+                    {{ form_widget(form.shippingBtoB) }}  {{ form_widget(form.shippingUnitBtoB) }} 
+                    <div class="clearfix"></div> 
+                    </div>
+                    <div class="row col-xs-4">
+                    {{ form_label(form.minOrderBtoB) }}
+                    <div class="clearfix"></div>
+                    {{ form_widget(form.minOrderBtoB) }}  <label style="padding:5px"> € </label>
+                    <div class="clearfix"></div> 
+                    </div>
+                    <div class="row col-xs-4">
+                    {{ form_label(form.carriageBtoB) }}
+                    <div class="clearfix"></div>
+                    {{ form_widget(form.carriageBtoB) }}  <label style="padding:5px"> € </label>
+                    <div class="clearfix"></div> 
+                    </div>
+                      <div class="clearfix"></div> 
+                </div>
+                    
+                 <div class="form-group ">
+                    <div class=" row col-xs-4">
+                    {{ form_label(form.shippingBtoC) }}
+                    <div class="clearfix"></div>
+                    {{ form_widget(form.shippingBtoC) }}  {{ form_widget(form.shippingUnitBtoC) }} 
+                    <div class="clearfix"></div> 
+                    </div>
+                    <div class="row col-xs-4">
+                    {{ form_label(form.minOrderBtoC) }}
+                    <div class="clearfix"></div>
+                    {{ form_widget(form.minOrderBtoC) }}  <label style="padding:5px"> € </label>
+                    <div class="clearfix"></div> 
+                    </div>
+                    <div class="row col-xs-4">
+                    {{ form_label(form.carriageBtoC) }}
+                    <div class="clearfix"></div>
+                    {{ form_widget(form.carriageBtoC) }}  <label style="padding:5px"> € </label>
+                    <div class="clearfix"></div> 
+                    </div>
+                      <div class="clearfix"></div> 
+                </div>
+                
+
+                {{ form_label(form.logo) }}
+                {{ form_widget(form.logo) }}
+                {{ form_errors(form.logo) }}
+
+              {#  {{ form_label(form.iconLegend) }}
+                {{ form_widget(form.iconLegend) }}
+                {{ form_errors(form.iconLegend) }}#}
+
+                {{ form_label(form.illustrativePicture) }}
+                {{ form_widget(form.illustrativePicture) }}
+                {{ form_errors(form.illustrativePicture) }}
+
+                
+
+            </div>
+            <div class="col-xs-6">
+                {{ form_row(form.brandCreators) }}
+
+            </div>
+        </div>
+
+        <div class="row">
+           
+            <div class="pull-right">
+
+                {{ form_rest(form) }}
+            </div>
+            {{ form_end(form)}}
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block js %}
+        <script>
+        $(document).ready(function() {
+
+  
+                tinymce.init({
+                    plugins: "link",
+                    forced_root_block: false,
+                    force_br_newlines: true,
+                    force_p_newlines: false,
+                    selector: "textarea",
+                    height: 100
+                });
+
+
+            var containerImage = $('#brand_brandCreators');
+
+            function add_image() {
+                index = containerImage.children().length;
+                containerImage.append(
+                        $(containerImage.attr('data-prototype').replace(/__name__/g, index)).addClass('image')
+                        );
+
+            }
+
+
+            add_image();
+
+
+        });
+
+    </script>
+
+    {% endblock %}

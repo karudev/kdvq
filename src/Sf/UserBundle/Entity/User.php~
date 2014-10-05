@@ -1,0 +1,306 @@
+<?php
+
+namespace Sf\UserBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Table(name="account")
+ * @ORM\Entity(repositoryClass="Sf\UserBundle\Entity\UserRepository")
+ */
+class User extends BaseUser {
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="firstname", type="string", length=128, nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     * @ORM\Column(name="lastname", type="string", length=128, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     * @ORM\Column(name="phone", type="string", length=128, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     * @ORM\Column(name="status", type="string", length=64, nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     * @ORM\Column(name="civility", type="string", length=4, nullable=true)
+     */
+    private $civility;
+
+    /**
+     * @var string
+     * @ORM\Column(name="trade_name", type="string", length=128, nullable=true)
+     */
+    private $tradeName;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="social_name", type="string", length=128, nullable=true)
+     */
+    private $socialName;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="siret", type="string", length=14, nullable=true)
+     */
+    private $siret;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="background", type="text", nullable=true)
+     */
+    private $background;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="country", type="string", length=128, nullable=true)
+     */
+    private $country;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="auto_entrepreneur", type="boolean")
+     */
+    private $autoEntrepreneur = false;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="tva", type="float")
+     */
+    private $tva = 0;
+    
+    /**
+     *
+     *  @ORM\OneToMany(targetEntity="Address", mappedBy="account" )
+     */
+    private $addresses;
+    
+    /**
+     *
+     *  @ORM\OneToMany(targetEntity="Sf\AdminBundle\Entity\Order", mappedBy="account" )
+     */
+    private $orders;
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+     
+    public function getFullname() {
+        return $this->firstname.' '.$this->lastname;
+    }
+   
+    public function getLabel() {
+        return $this->firstname == null && $this->lastname == null ? $this->email : $this->firstname.' '.$this->lastname;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     * @return User
+     */
+    public function setFirstname($firstname) {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname() {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     * @return User
+     */
+    public function setLastname($lastname) {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname() {
+        return $this->lastname;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return User
+     */
+    public function setStatus($status) {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus() {
+        return $this->status;
+    }
+
+    /**
+     * Set civility
+     *
+     * @param string $civility
+     * @return User
+     */
+    public function setCivility($civility) {
+        $this->civility = $civility;
+
+        return $this;
+    }
+
+    /**
+     * Get civility
+     *
+     * @return string 
+     */
+    public function getCivility() {
+        return $this->civility;
+    }
+
+  
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return User
+     */
+    public function setPhone($phone) {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone() {
+        return $this->phone;
+    }
+
+    public function setPassword($password) {
+        if (false == empty($password)) {
+            $this->password = $password;
+        }
+    }
+
+
+    /**
+     * Add addresses
+     *
+     * @param \Sf\UserBundle\Entity\Address $addresses
+     * @return User
+     */
+    public function addAddress(\Sf\UserBundle\Entity\Address $addresses)
+    {
+        $this->addresses[] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Remove addresses
+     *
+     * @param \Sf\UserBundle\Entity\Address $addresses
+     */
+    public function removeAddress(\Sf\UserBundle\Entity\Address $addresses)
+    {
+        $this->addresses->removeElement($addresses);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * Add orders
+     *
+     * @param \Sf\AdminBundle\Entity\Order $orders
+     * @return User
+     */
+    public function addOrder(\Sf\AdminBundle\Entity\Order $orders)
+    {
+        $this->orders[] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Remove orders
+     *
+     * @param \Sf\AdminBundle\Entity\Order $orders
+     */
+    public function removeOrder(\Sf\AdminBundle\Entity\Order $orders)
+    {
+        $this->orders->removeElement($orders);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+}

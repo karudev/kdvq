@@ -1,0 +1,115 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}
+
+{% block ariane %}
+{{title}}
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container" >
+
+
+    {{ form_start(form)}}
+
+
+    <div class="row">
+        <div class="col-md-6">
+        
+           
+             {{ form_label(form.mainPicture) }}
+            <br/>
+            {% if entity.mainPictureUrl is not null %}
+                <img height="250px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" />
+            {% endif %}
+            {{ form_widget(form.mainPicture) }}
+            {{ form_errors(form.mainPicture) }}
+            <br/>
+           
+
+          
+            
+            {{ form_row(form.category) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.active) }}
+            {{ form_row(form.subTitle) }}
+            {{ form_row(form.description) }}
+            {{ form_row(form.details) }}
+            {{ form_row(form.composition) }}
+            {{ form_row(form.boardMaintenance) }}
+            {{ form_row(form.youtubeId) }}
+            {{ form_row(form.priceHt) }}
+            {{ form_row(form.tva) }}
+           
+           
+
+
+           
+
+           
+
+        </div>
+        <div class="col-xs-4">
+            {{ form_row(form.productPictures) }}
+
+            <button type="button" class="btn glyphicon glyphicon-plus" id="add_image">
+                ajouter une photo
+            </button>
+        </div> 
+
+    </div>
+
+    <div class="row">
+        <a href="{{ path('admin_product') }}" style="color:black">
+            <button type="button" class="btn pull-left glyphicon glyphicon-arrow-left" style="margin-right:10px">
+                Retour
+            </button>
+        </a>
+        <div class="pull-right">
+
+            {{ form_rest(form) }}
+        </div>
+        {{ form_end(form)}}
+
+
+    </div>
+    </div>
+
+
+    {% endblock %}
+
+    {% block js %}
+        <script>
+
+            $(document).ready(function() {
+                tinymce.init({
+                    plugins: "link",
+                    forced_root_block: false,
+                    force_br_newlines: true,
+                    force_p_newlines: false,
+                    selector: "textarea",
+                    height: 100
+                });
+
+                /*$("#sf_adminbundle_product_productPictures input[type='file']").change(function() {
+                    $(this).parent().parent().find(".updateAt").val(new Date().toJSON().slice(0, 19));
+                });*/
+                var containerImage = $('#product_productPictures');
+                function add_image() {
+                    index = containerImage.children().length;
+                    containerImage.append(
+                            $(containerImage.attr('data-prototype').replace(/__name__/g, index)).addClass('image')
+                            );
+                }
+
+                $('#add_image').click(function(event) {
+                    event.preventDefault();
+                    add_image();
+                });
+                $(document).on('click', '.remove_image', function(event) {
+                    event.preventDefault();
+                    $(this).parent().remove();
+                });
+            });
+        </script>
+    {% endblock %}

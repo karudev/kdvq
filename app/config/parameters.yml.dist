@@ -1,0 +1,23 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     null
+    database_name:     database
+    database_user:     root
+    database_password: root
+    mailer_port: ~
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+    mailer_admin: ~
+    mailer_name: 'Fridging'
+    paypal_email: drenault971@gmail.com
+    colisposte_url: https://www.coliposte.net/pro/services/main.jsp?m=12003010&colispro=@
+
+    locale:            fr
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: true

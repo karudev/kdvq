@@ -1,0 +1,19 @@
+sf_front:
+    resource: "@SfFrontBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_user:
+    resource: "@SfUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sf_admin:
+    resource: "@SfAdminBundle/Resources/config/routing.yml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+JMSTranslationBundle_ui:
+    resource: @JMSTranslationBundle/Controller/
+    type:     annotation
+    prefix:   /admin/traduction

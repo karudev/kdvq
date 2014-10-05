@@ -1,0 +1,72 @@
+{{form_start(form)}}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title">{{'Nouveau mail pour la commande #%order%'|trans({'%order%' : form.vars.data.order.number})}}</h4>
+</div>
+<div class="modal-body">
+    {{form_row(form.subject)}}
+    {% if app.user.hasRole('ROLE_ADMIN') %}  
+        <div class="form-group ">
+            <label for="from" class="control-label required">{{'From'|trans}}</label>
+            <div class="clearfix"></div>
+
+            <select name="from" required id="from">
+                <option value="{{app.user.id}}-A">{{'Admin'|trans}} : {{app.user.label}} - {{app.user.email}}</option>
+                {% for b in brands %}
+                    <option value="{{b.brand.id}}-B">{{'Marque'|trans}} : {{b.brand.name}} - {{b.brand.email}}</option>
+                {% endfor %}
+
+                {% if form.vars.data.order.account.hasRole('ROLE_SHOP') %}
+                    <option value="{{form.vars.data.order.account.id}}-S">
+                        {{'Boutique'|trans}}
+                    {% elseif form.vars.data.order.account.hasRole('ROLE_CUSTOMER') %}
+                    <option value="{{form.vars.data.order.account.id}}-C">
+                        {{'Client'|trans}}
+                    {% endif %}
+                    : 
+                    {{form.vars.data.order.account.label}} - {{form.vars.data.order.account.email}}
+                </option>
+
+            </select>
+            <div class="clearfix"></div>   
+        </div>
+
+        <div class="form-group ">
+            <label for="to" class="control-label required">{{'To'|trans}}</label>
+            <div class="clearfix"></div>
+            <select name="to" required id="to">
+                {% for b in brands %}
+                    <option value="{{b.brand.id}}-B">{{'Marque'|trans}} : {{b.brand.name}} - {{b.brand.email}}</option>
+                {% endfor %}
+
+                {% if form.vars.data.order.account.hasRole('ROLE_SHOP') %}
+                    <option value="{{form.vars.data.order.account.id}}-S">
+                        {{'Boutique'|trans}}
+                    {% elseif form.vars.data.order.account.hasRole('ROLE_CUSTOMER') %}
+                    <option value="{{form.vars.data.order.account.id}}-C">
+                        {{'Client'|trans}}
+                    {% endif %}
+                    : 
+                    {{form.vars.data.order.account.label}} - {{form.vars.data.order.account.email}}
+                </option>
+                <option value="{{app.user.id}}-A">{{'Admin'|trans}} : {{app.user.label}} - {{app.user.email}}</option>
+            </select>
+            <div class="clearfix"></div>   
+        </div>
+    {% endif %}
+    {{form_row(form.text)}}
+    {% if app.user.hasRole('ROLE_ADMIN') %}  
+        <div class="form-group ">
+            <label for="sendEmail" class="control-label required">{{'Envoyer l\'email'|trans}}</label>
+            <div class="clearfix"></div>
+            <input type="checkbox" value="1" checked name="sendEmail" />
+            <div class="clearfix"></div>   
+        </div>{% else %}
+        <input type="hidden" value="1" checked name="sendEmail" />
+    {% endif %}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">{{'Fermer'|trans()}}</button>
+    <button type="submit" class="btn btn-primary">{{'Envoyer'|trans()}}</button>
+</div>
+{{form_end(form)}}

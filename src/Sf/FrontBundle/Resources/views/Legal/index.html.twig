@@ -1,0 +1,28 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% block css %}
+
+{% endblock %}
+{% block ariane %}
+    <div class="container">
+        <div class="col-md-12 ariane">{{'Mentions Légales'|upper}}</div>
+    </div>
+{% endblock %}
+{% block title %}Fridging - {{'Mentions Légales'|trans}}{% endblock %}
+
+
+{% block body %}
+
+    <div id="main-content" class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                {% if  entity.text is defined  %}
+                    {{entity.text|raw}}
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+

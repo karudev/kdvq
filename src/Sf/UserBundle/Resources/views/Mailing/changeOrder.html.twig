@@ -1,0 +1,6 @@
+<p>{{ 'Commande '|trans({},'SfFrontBundle')}}<b>{{order.number}}</b></p>
+<p>{{ 'Les informations relatives à votre commande ont été mise à jours'|trans({},'SfFrontBundle') }}.</p>
+<p>{{ 'Status '|trans({},'SfFrontBundle') }} : {{ order.status |trans({},'SfFrontBundle') }} </p>
+<p>{{ 'N° de suivi colisposte'|trans({},'SfFrontBundle')}} :  <a target="_blank" href="{{coliposteUrl|replace({'@':order.colisposteNumber})}}">{{order.colisposteNumber}}</a> </p>
+<p>{{mailer_name}}.</p>
+

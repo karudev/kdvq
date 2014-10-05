@@ -1,0 +1,21 @@
+<p>
+    {% if order.type =='S' %}
+       {{ 'Votre commande d\'un montant de  <b>%amount% € TTC</b> est en cours de traitement.'|trans({'%amount%':order.amountTtc|number_format(2,',',' ')},'SfFrontBundle')|raw }}
+    {% else %}
+        {{ 'Votre transaction d\'un montant de <b>%amount% € TTC</b> a été validée, et votre commande est en cours de traitement.'|trans({'%amount%':order.amountTtc|number_format(2,',',' ')},'SfFrontBundle')|raw }}
+    {% endif %}
+    </p>
+{#<p>{{ 'La date de livraison estimée est le : '|trans({},'SfFrontBundle') }} {{order.estimatedDelivaryDate|date('Y/m/d')}} </p>
+<p>{{ 'à l\'adresse suivante : '|trans({},'SfFrontBundle') }}</p>
+<p>
+    {% if order.titleAddress is not null %}
+        {{order.titleAddress}}    <br/>
+    {% endif %}
+        {{order.address}}
+        {{order.additionalAddress}}<br/>
+        {{order.zipCode}} {{order.city}}, {{order.country}} 
+</p>#}
+<p><b>{{ 'Récapitulatif de la commande'|trans({},'SfFrontBundle') }} {{order.number}} : </b></p>
+<p>{% include 'SfUserBundle:Mailing:resumeOrder.html.twig' with {order : order} %}</p>
+<p>{{mailer_name}}.</p>
+

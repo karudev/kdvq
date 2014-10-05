@@ -1,0 +1,11 @@
+{% if is_granted("ROLE_CUSTOMER") or is_granted("ROLE_SHOP") %} 
+    <div class="submenu">
+        <div>
+            <a href="{{ path('account') }}">{{'Votre profil'|trans()}}</a>
+        </div>
+
+        <div>
+            <a href="{{ path('orders') }}">{{'Vos commandes'|trans()}}</a>
+        </div>
+    </div>
+{% endif %}

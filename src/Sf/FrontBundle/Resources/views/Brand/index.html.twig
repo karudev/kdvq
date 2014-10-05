@@ -1,0 +1,55 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% block title %}Qwinsport - La marque{% endblock %}
+{% block ariane %}LA MARQUE
+{% endblock %}
+{% block bandeauClass %}brand
+{% endblock %}
+{% block css %}
+     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <div id="main-content">
+    <div class="col-sm-9 col-md-10">
+        <div class="product col-sm-12">		
+            <div class="article press">
+                <div class="col-xs-12 col-md-3">
+                    <img class="full" src="{{asset('bundles/sffront/images/brand/model1.png')}}" alt="">
+                </div>
+                <div class="col-xs-12 col-md-9 brand-details">
+                    <img class="full" src="images/brand/mark.png" alt="">
+                    <h6>Marinette PICHON<br/>Marraine officielle de qwinsport</h6>
+                    <p>Nam at tortor lobortis, sagittis lorem bibendum, sollicitudin neque. Maecenas 
+                        vitae est ex. Morbi sed tellus blandit, vestibulum mauris cursus, accumsan turpis. 
+                        Phasellus quis purus et felis semper interdum. Donec sed maximus ex. Pellentesque 
+                        nunc augue, euismod vel interdum a, tincidunt gravida urna. Nulla semper volutpat 
+                        sapien, sit amet euismod nunc posuere vitae. Donec posuere in augue eget.</p>
+                </div>
+                <h3 class="big-title">
+                    Une production<br><span class="din-bold">made in france</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                </h3><br/>
+                <div class="col-md-12 text-center">
+                <img class="full" src="{{asset('bundles/sffront/images/brand/prod_fr.png')}}" alt=""><br/><br/>
+                </div>
+                
+                <div class="col-md-8 col-md-offset-2">
+                    <h3 class="big-title">
+                        Pour la petite<br><span class="din-bold">histoire...</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                    </h3>
+                    <div class="col-xs-12 col-md-4">
+                        <img class="full" src="{{asset('bundles/sffront/images/brand/model2.png')}}" alt="">
+                    </div>
+                    <div class="col-xs-12 col-md-8 brand-details">
+                        <img class="full" src="{{asset('bundles/sffront/images/brand/mark2.png')}}" alt="">
+                        <h6>Audrey PARCINEAU<br/>Fondatrice de qwinsport</h6>
+                        <p>Nam at tortor lobortis, sagittis lorem bibendum, sollicitudin neque. Maecenas 
+                            vitae est ex. Morbi sed tellus blandit, vestibulum mauris cursus, accumsan turpis. 
+                            Phasellus quis purus et felis semper interdum. Donec sed maximus ex. Pellentesque 
+                            nunc augue, euismod vel interdum a, tincidunt gravida urna. Nulla semper volutpat 
+                            sapien, sit amet euismod nunc posuere vitae. Donec posuere in augue eget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

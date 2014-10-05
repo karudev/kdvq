@@ -1,0 +1,23 @@
+.ico_social_f{
+	height: 28px;
+	width: 28px;
+	background-image: url('../images/ico/ico_social_f.png');
+	display: inline-block;
+	margin:0 5px;
+}
+
+.ico_social_t{
+	height: 28px;
+	width: 28px;
+	background-image: url('../images/ico/ico_social_t.png');
+	display: inline-block;
+	margin:0 5px;
+}
+
+.ico_social_g{
+	height: 28px;
+	width: 28px;
+	background-image: url('../images/ico/ico_social_g.png');
+	display: inline-block;
+	margin:0 5px;
+}

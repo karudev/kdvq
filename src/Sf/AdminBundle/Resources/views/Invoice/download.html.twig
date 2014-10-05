@@ -1,0 +1,284 @@
+
+<style>
+    .recap
+    {
+        margin-top : 120px;
+    }
+    table {
+        background-color: transparent;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    .table {
+        margin-bottom: 20px;
+    }
+    .table th,
+    .table td {
+        padding: 5px;
+        line-height: 20px;
+        text-align: left;
+        vertical-align: top;
+    }
+    .table th {
+        font-weight: bold;
+    }
+    .table thead th {
+        vertical-align: bottom;
+    }
+    table.client{
+        right : 225px;
+        margin-top:-20px;
+        position : relative;
+    }
+    table.condition{
+        top : 800px;
+        position : absolute;
+    }
+    table.client td {
+        text-align: right;
+    }
+    .bulle th,.bulle td{
+        padding: 3px;
+        text-align: center;
+        border:1px solid #282828;
+        width : 160px;
+    }
+    .bulle th{
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .bulle td{
+        -webkit-border-bottom-right-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .totaux th,.totaux td{
+        padding: 7px;
+        text-align: center;
+        border:1px solid #282828;
+    }
+    .totaux td{
+    }
+    .totaux tr.first td.first{
+        -webkit-border-top-left-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        border-top-left-radius: 5px;
+    }
+    .totaux tr.first td.second{
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-right-radius: 5px;
+        
+    }
+    .totaux tr.second td.second{
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .totaux tr.second td.first{
+        -webkit-border-bottom-left-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .tableau th,.tableau td{
+        padding: 3px;
+        text-align: center;
+        border:1px solid #282828;
+    }
+    .tableau th{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: none;
+    }
+    .tableau td{
+        padding-top: 10px;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+    }
+    .tab{
+        padding: 3px;
+        text-align: center;
+        border:1px solid #282828;
+        height: 600px;
+    }
+    .rib{
+        margin-left:-5px;
+    }
+    .rib th,.rib td{
+        padding : 5px;
+    }
+    .critere{
+       font-style: italic;
+       font-size: 10px;
+    }
+</style><page>
+    <page_header>
+        <img src="{{ app.request.schemeAndHttpHost }}{{ asset('bundles/sffront/images/image_interface/elements_recurrents/home.png') }}" />
+        <p>
+            <b>{{addressAdmin.title}}</b><br/>
+            {{addressAdmin.address}} {{addressAdmin.additionalAddress}}<br/>
+            {{addressAdmin.zipCode}} {{addressAdmin.city}}, {{addressAdmin.country}}<br/>
+            Siret : {{app.user.siret}}
+           
+        </p>
+    </page_header>
+    <table class="recap">
+        <tr><td><i></i></td></tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+    <table class="client">
+        <tr>
+            <td><b>{{invoice.titleAddress}}</b></td>
+        </tr>
+        <tr>
+            <td>{{invoice.address}} {{invoice.additionalAddress}}</td>
+        </tr>
+        <tr>
+            <td>{{invoice.zipCode}} {{invoice.city}}, {{invoice.country}}</td>
+        </tr>
+    </table>
+    <table style="margin-bottom:120px;">
+        <tr>
+            <td><h2>{{'Facture'|trans}} {{invoice.number}}</h2></td>
+        </tr>
+        <tr>
+            <td><br/><br/><b>{{'Date'|trans}} : {{invoice.createdAt|date('Y/m/d')}}</b></td>
+           {# <td style="width:195px">
+                <table class="bulle">
+                    <tr><th>MODE DE REGLEMENT</th></tr>
+                    <tr>
+                        <td>{{facture.methodpayment}}</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width:195px" >
+                <table class="bulle">
+                    <tr><th>DATE D'ECHEANCE</th></tr>
+                    <tr>
+                        <td>{{facture.paymentDelay}}</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="bulle">
+                    <tr><th>TVA Intracommunautaire</th></tr>
+                    <tr>
+                        <td>Non assujetti &agrave; la TVA</td>
+                    </tr>
+                </table>
+            </td>#}
+        </tr>
+    </table>
+    <hr style="clear:both" />
+    <div class="tab">
+        <table class="tableau">
+            <tr>
+                <th style="width: 150px;border-left:none;" >{{'Ref'|trans}}</th>
+                <th style="width: 285px" >{{'Désignation'|trans}}</th>
+                <th>{{'Quantité'|trans}}</th>
+                <th style="width: 59px">{{'Montant HT'|trans}}</th>
+                <th style="width: 59px">{{'Montant TVA'|trans}}</th>
+                <th style="width: 59px;border-right:none">{{'Montant TTC'|trans}}</th>
+            </tr>
+          
+            {% for d in details %}
+                {% if invoice.account.hasRole('ROLE_SHOP') %}
+                    {% set amountHt = d['sellerPrice'] %}
+                    {% set tva = d['tvaBtoB']   %}
+                    {% set amounTtc = amountHt + tva %}
+                  
+                    
+                {% else %}
+                    {% set amountHt = d['recommendedRetailPrice']  %}
+                    {% set tva = d['tvaBtoC']  %}
+                    {% set amounTtc = amountHt + tva%}
+                    
+                {% endif %}
+                <tr>
+                    <td  style="text-align:left">{{d['number']}}</td>
+                    <td style="text-align:left" >{{d['name']}}<br/>
+                    <span class="critere">{% if d['size'] is not null %}
+                        {{d['size']}};
+                    {% endif %}
+                    {% if d['color'] is not null %}
+                        {{d['color']}};
+                    {% endif %}
+                    {% if d['material'] is not null %}
+                        {{d['material']}};
+                    {% endif %}
+                    </span></td>
+                    <td >{{d['quantity']}}</td>
+                   
+                    <td style="text-align: right;">{{amountHt|number_format('2',',',' ')}} €</td>
+                    <td style="text-align: right;">{{tva|number_format('2',',',' ')}} €</td>
+                    <td style="text-align: right;">{{amounTtc|number_format('2',',',' ')}} €</td>
+                </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+        {#{% render 'KarudevAppsBundle:Facture:showinsertions' with {'idFacture': facture.id, 'serverName' : serverName } %} #}
+    <div style="margin-top: 10px;">
+       {# <b>Condition de réglement</b><br/><br/>
+        {% if facture.termOfPayment > 0 %}
+            Le délai de paiement est fixé &agrave; <b>{{facture.termOfPayment}} jours</b>, après réception de la facture.<br/>
+            La somme impayée dans le délai imparti est productive d’un intérêt de retard &agrave; un taux égal &agrave; une fois et demie le taux d’intérêt légal en vigueur &agrave; la date échéante.
+        {% else %}
+            Paiement &agrave; la réception de la facture.
+        {% endif %}#}
+    </div>
+    <div style="margin-top: 20px;">
+       {# <b>Coordonnées bancaires</b><br/><br/>
+        <table class="rib">
+            <tr>
+                <th><b>Banque</b></th>
+                <th><b>Guichet</b></th>
+                <th><b>Numéro de compte</b></th>
+                <th><b>Clé</b></th>
+            </tr>
+            <tr>
+                <td>{{facture.freelanceOrg.bankNumber}}</td>
+                <td>{{facture.freelanceOrg.guichetNumber}}</td>
+                <td>{{facture.freelanceOrg.AccountNumber}}</td>
+                <td>{{facture.freelanceOrg.keyNumber}}</td>
+            </tr>
+        </table>#}
+    </div>
+    <div style="margin-left: 550px">
+        <table class="totaux">
+            <tr class="first">
+                <td class="first"><b>{{'Total HT'|trans}}</b></td> <td style="text-align:right"class="second">{{invoice.amountHt|number_format('2',',',' ')}} €</td>
+            </tr>
+            <tr >
+                <td class="first"><b>{{'Total TVA'|trans}}</b></td> <td style="text-align:right" class="second">{{invoice.tva|number_format('2',',',' ')}} €</td>
+            </tr>
+            <tr >
+                <td class="first"><b>{{'Frais de livraison'|trans}}</b></td> <td style="text-align:right" class="second">{{invoice.shippingCosts|number_format('2',',',' ')}} €</td>
+            </tr>
+            <tr class="second">
+                <td class="first"><b>{{'Total TTC'|trans}}</b></td> <td style="text-align:right" class="second">{{invoice.amountTtc|number_format('2',',',' ')}} €</td>
+            </tr>
+        </table>
+    </div>
+    {#<div style="margin-left: 520px;margin-top: 10px"> TVA non applicable, art. 293 B du CGI</div>#}
+    <page_footer>
+        {#<table>
+        <tr>
+        <td style="font-style: italic">Facture édité le {{"now"|date('d/m/Y')}} <br/>par {{facture.idFreelance.idContact.prenom}} {{facture.idFreelance.idContact.nom}}</td>
+        </tr>
+        </table>#}
+    </page_footer>
+</page>

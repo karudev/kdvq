@@ -1,0 +1,90 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block ariane %}
+    <div class="container">
+        <div class="col-md-12 ariane">{{'Nouvel actualité'|trans}}</div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div id="main-content"  class="container">
+
+
+        {{ form_start(form)}}
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-xs-3">
+                    {{ form_row(form.active) }}
+                </div>
+                <div class="col-xs-3">
+                    {{ form_row(form.isBackground) }}
+                </div>
+                <div class="col-xs-3">
+                    {{ form_row(form.showDate) }}
+                </div>
+                <div class="col-xs-3">
+                    {{ form_row(form.textColor) }}
+                </div>
+                <div class="clearfix"></div>
+
+                {{ form_row(form.title) }}
+                {{ form_row(form.subTitle) }}
+                {{ form_row(form.link) }}
+                {{ form_row(form.date) }}
+                
+
+            </div>
+            <div class="col-md-6">
+                {{ form_label(form.picture) }}
+                <br/>
+                {% if form.vars.data.pictureUrl is not null %}
+                    <img src="{{ asset(['/uploads/actualities/', form.vars.data.pictureUrl]|join) }}" />
+                {% endif %}
+                {{ form_widget(form.picture) }}
+                {{ form_errors(form.picture) }}
+                {{ form_row(form.text) }}
+ 
+            </div>
+
+        </div>
+
+        <div style="margin-top: 20px" class="row">
+            <a href="{{ path('admin_actuality') }}" style="color:black">
+                <button type="button" class="btn-fridging" style="margin-right:10px">
+                    {{'Retour'|trans}}
+                </button>
+            </a>
+            <div class="pull-right">
+                <button type="submit" class="btn-fridging-blue" style="margin-right:10px">
+                    {{'Enregistrer'|trans}}
+                </button>
+                {{ form_rest(form) }}
+            </div>
+            {{ form_end(form)}}
+
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function() {
+
+
+            tinymce.init({
+                plugins: "link",
+                forced_root_block: false,
+                force_br_newlines: true,
+                force_p_newlines: false,
+                selector: "textarea",
+                height: 300
+            });
+
+
+
+
+
+        });
+
+    </script>
+
+{% endblock %}

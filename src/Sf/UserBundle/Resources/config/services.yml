@@ -1,0 +1,9 @@
+services:
+    
+    sf_user.user_manager:
+        class: Sf\UserBundle\Service\Manager\UserManager
+        arguments: [@service_container]
+        
+    sf_user.mail_helper:
+        class: Sf\UserBundle\Service\Helper\MailHelper
+        arguments: [@service_container,%mailer_admin%,%mailer_name%]

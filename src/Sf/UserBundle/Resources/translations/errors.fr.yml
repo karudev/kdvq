@@ -1,0 +1,8 @@
+# Form field labels
+form:
+    email: 
+        unique: "Cet email existe déjà"
+    username: 
+        unique: "Cet username existe déjà"
+        
+

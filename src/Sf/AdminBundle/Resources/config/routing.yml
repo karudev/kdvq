@@ -1,0 +1,242 @@
+
+
+
+front_actus_show:
+    path: /actualities/show/{year}
+    defaults: { _controller: SfFrontBundle:Actuality:show, year:null }
+    options:
+        expose: true
+    
+fos_user_security_login:
+    path:  /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+    options:
+        i18n: false
+
+fos_user_security_check:
+    path:  /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+    requirements: { _method: POST }
+    options:
+        i18n: false
+   
+account:
+    path: /mon-compte/{message}
+    defaults: { _controller: "SfAdminBundle:Account:index", message: null }
+    
+orders:
+    path: /les-commandes
+    defaults: { _controller: "SfAdminBundle:Order:index", message: null }
+    
+control:
+    path:     /control
+    defaults: { _controller: "SfAdminBundle:Account:control" }
+    options: { i18n: false }
+
+order_orders:
+    path:     /les-commandes/{number}
+    defaults: { _controller: "SfAdminBundle:Order:orders",number:0 }
+
+order_update:
+    path:     /order/update/{order}/{number}
+    defaults: { _controller: "SfAdminBundle:Order:update" ,number:0}
+    options:
+        expose: true
+        
+order_load_shoppingcart:
+    path:     /order/load-shopping-cart/{order}
+    defaults: { _controller: "SfAdminBundle:Order:loadShoppingCart"}
+    options: { i18n: false,expose: true }
+
+mail_update:
+    path:     /mail/{order}/{number}
+    defaults: { _controller: "SfAdminBundle:Mail:update" ,number:0}
+    options:
+        expose: true
+        i18n: false
+        
+address:
+    path:     /address/{type}/{redirect}
+    defaults: { _controller: "SfAdminBundle:Account:address", redirect: null }
+    options:
+        i18n: false
+
+shop_order_validate:
+    path:     /shop/order/validate
+    defaults: { _controller: "SfAdminBundle:Order:validate" }
+    options:
+        i18n: false
+
+invoice_download:
+    path:  invoice/download/{invoice}
+    defaults: { _controller: "SfAdminBundle:Invoice:dowload" }
+
+admin_brand:
+    path:  /brands
+    defaults: { _controller: "SfAdminBundle:Brand:index" }
+    options: { i18n_prefix: admin }
+        
+admin_brand_up:
+    path:  /brand/{id}/up
+    defaults: { _controller: "SfAdminBundle:Brand:up" }
+    options: { i18n_prefix: admin }
+
+admin_brand_down:
+    path:  /brand/{id}/down
+    defaults: { _controller: "SfAdminBundle:Brand:down" }
+    options: { i18n_prefix: admin }
+
+admin_brand_new:
+    path:  /brand/new
+    defaults: { _controller: "SfAdminBundle:Brand:new" }
+    options: { i18n_prefix: admin }
+
+admin_brand_create:
+    path:  /brand/create
+    defaults: { _controller: "SfAdminBundle:Brand:create" }
+    requirements: { _method: post }
+    options: { i18n_prefix: admin }
+
+admin_brand_edit:
+    path:  /brand/{id}/edit
+    defaults: { _controller: "SfAdminBundle:Brand:edit" }
+    options: { i18n_prefix: admin }
+
+admin_brand_update:
+    path:  /brand/{id}/update
+    defaults: { _controller: "SfAdminBundle:Brand:update" }
+    requirements: { _method: post|put }
+    options: { i18n_prefix: admin }
+
+admin_brand_delete:
+    path:  /brand/{id}/delete
+    defaults: { _controller: "SfAdminBundle:Brand:delete" }
+    requirements: { _method: post|delete }
+    options: { i18n_prefix: admin }
+
+admin_brand_show:
+    path:  /brand/{slug}
+    defaults: { _controller: "SfAdminBundle:Brand:show" }
+    options: { i18n_prefix: admin }
+
+admin_config:
+    path:  /configuration
+    defaults: { _controller: "SfAdminBundle:Config:index" }
+    options: { i18n_prefix: admin }
+
+admin_group:
+    path:  /group/{brand}
+    defaults: { _controller: "SfAdminBundle:Group:index" }
+    options: { i18n_prefix: admin }
+
+admin_group_update:
+    path:  /group/update/{brand}/{id}
+    defaults: { _controller: "SfAdminBundle:Group:update", id : null}
+    options: { i18n_prefix: admin }
+
+
+admin_product:
+    path:  /admin/produits
+    defaults: { _controller: "SfAdminBundle:Product:index"}
+
+admin_product_update:
+    path:  /admin/produits/mis-à-jours/{id}
+    defaults: { _controller: "SfAdminBundle:Product:update", id : null}
+
+
+admin_product_model:
+    path:  /admin/modèles-du-produit/{product}
+    defaults: { _controller: "SfAdminBundle:ProductModel:index"}
+    requirements:
+        { _method: get, product:  \d+ }
+
+admin_product_model_expose:
+    path:  /admin/en/product-model/{product}
+    defaults: { _controller: "SfAdminBundle:ProductModel:index"}
+    requirements:
+        { _method: get, product:  \d+ }
+    options:
+        expose: true
+        i18n: false
+
+admin_product_model_stock:
+    path:  /admin/modèles-du-produit/stock/{product}
+    defaults: { _controller: "SfAdminBundle:ProductModel:stock", product : null}
+    requirements:
+        { _method: get|post, product:  \d+ }
+        
+admin_product_model_update:
+    path:  /product-model/update/{number}
+    defaults: { _controller: "SfAdminBundle:ProductModel:update"}
+    requirements:
+        productModel:  \d+
+    options: { i18n_prefix: admin }
+           
+admin_product_model_delete:
+    path:  /admin/en/product-model/delete
+    defaults: { _controller: "SfAdminBundle:ProductModel:delete", _locale: fr}
+    options:
+        expose: true
+        i18n: false
+        
+
+    
+admin_accounts:
+    path:  /les-comptes
+    defaults: { _controller: "SfAdminBundle:Account:list" }
+
+admin_accounts_list:
+    path:     /les-comptes/liste
+    defaults: { _controller: "SfAdminBundle:Account:accountslist" }
+    options: { i18n_prefix: admin,expose : true, i18n: false}
+    
+admin_account_update:
+    path:     /les-comptes/mise-a-jour/{user}
+    defaults: { _controller: "SfAdminBundle:Account:update" , user :null}
+    options: { expose : true, i18n: false}
+    
+admin_about_us:
+    path:     /about-us
+    defaults: { _controller: "SfAdminBundle:AboutUs:index"}
+    options: { i18n_prefix: admin }
+
+admin_legals:
+    path:     /legals
+    defaults: { _controller: "SfAdminBundle:Legal:index"}
+    options: { i18n_prefix: admin }
+    
+admin_press:
+    path:     /admin/presse
+    defaults: { _controller: "SfAdminBundle:Press:index"}
+    
+admin_press_update:
+    path:     /admin/press/update/{press}
+    defaults: { _controller: "SfAdminBundle:Press:update",press:null}
+    
+admin_catalog:
+    path:     /catalog
+    defaults: { _controller: "SfAdminBundle:Catalog:index"}
+    options: { i18n_prefix: admin }
+
+admin_catalog_last:
+    path:     /catalog/last/{lastCatalog}
+    defaults: { _controller: "SfAdminBundle:Catalog:last",lastCatalog:null}
+    options: { i18n_prefix: admin }
+    
+admin_catalog_update:
+    path:     /catalog/update/{catalog}
+    defaults: { _controller: "SfAdminBundle:Catalog:update",catalog:null}
+    options: { i18n_prefix: admin }
+    
+admin_actuality:
+    path:     /admin/actuality
+    defaults: { _controller: "SfAdminBundle:Actuality:index"}
+
+admin_actuality_update:
+    path:     /admin/actuality/update/{actuality}
+    defaults: { _controller: "SfAdminBundle:Actuality:update",actuality:null}
+    
+
+ 
+ 
+ 

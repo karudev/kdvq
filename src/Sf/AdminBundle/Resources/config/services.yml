@@ -1,0 +1,33 @@
+parameters:
+#    sf_admin.example.class: Sf\AdminBundle\Example
+
+services:
+    sf.twig.extension:
+        class: Sf\AdminBundle\Twig\SfExtension
+        tags:
+            -  { name: twig.extension }
+        arguments: ["@doctrine.orm.entity_manager","@service_container"]
+        
+    shoppingcart:
+        class: Sf\AdminBundle\Service\ShoppingCartManager
+        arguments: [@service_container]
+        
+    order:
+        class: Sf\AdminBundle\Service\OrderManager
+        arguments: [@service_container]
+    
+    invoice:
+        class: Sf\AdminBundle\Service\InvoiceManager
+        arguments: [@service_container]
+    
+    transaction:
+        class: Sf\AdminBundle\Service\TransactionManager
+        arguments: [@service_container]
+    
+    product:
+        class: Sf\AdminBundle\Service\ProductManager
+        arguments: [@service_container]
+    
+    mail:
+        class: Sf\AdminBundle\Service\MailManager
+        arguments: [@service_container]

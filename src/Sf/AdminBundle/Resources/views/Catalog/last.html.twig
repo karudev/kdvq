@@ -1,0 +1,84 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block ariane %}
+    <div class="container">
+        <div class="col-md-12 ariane">{{'Catalogue principal'|upper|trans}}</div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div id="main-content"  class="container">
+
+
+        {{ form_start(form)}}
+
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.title) }}
+                {{ form_row(form.text) }}
+
+
+
+
+            </div>
+            <div class="col-md-6">
+                {{ form_label(form.picture) }}
+                <br/>
+                {% if form.vars.data.pictureUrl is not null %}
+                    <img style="max-width:365px;width: 100%" src="{{ asset(['/uploads/catalogs/', form.vars.data.pictureUrl]|join) }}" />
+                {% endif %}
+                {{ form_widget(form.picture) }}
+                {{ form_errors(form.picture) }}
+
+                {{ form_label(form.file) }}
+                <br/>
+                {% if form.vars.data.fileUrl is not null %}
+                    <a target="_blank" href="{{asset('/uploads/catalogs/'~form.vars.data.fileUrl)}}">{{'Catalogue'|trans}}</a>
+                {% endif %}
+                {{ form_widget(form.file) }}
+                {{ form_errors(form.file) }}
+
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <a href="{{ path('admin_catalog') }}" style="color:black">
+                <button type="button" class="btn-fridging" style="margin-right:10px">
+                    {{'Retour'|trans}}
+                </button>
+            </a>
+            <div class="pull-right">
+                <button type="submit" class="btn-fridging-blue" style="margin-right:10px">
+                    {{'Enregistrer'|trans}}
+                </button>
+                {{ form_rest(form) }}
+            </div>
+            {{ form_end(form)}}
+
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function() {
+
+
+            tinymce.init({
+                plugins: "link",
+                forced_root_block: false,
+                force_br_newlines: true,
+                force_p_newlines: false,
+                selector: "textarea",
+                height: 300
+            });
+
+
+
+
+
+        });
+
+    </script>
+
+{% endblock %}

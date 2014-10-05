@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2014-09-30T18:10:45Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="c236e0e184c968726a399ebf7495bda5a24aae6a" resname="%mailer_name% : Activation de votre compte">
+        <source>%mailer_name% : Activation de votre compte</source>
+        <target state="new">%mailer_name% : Activation de votre compte</target>
+        <jms:reference-file line="34">Service/Helper/MailHelper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="411cde0176b583b6b5620e9891f8e1f7cbe5da17" resname="%mailer_name% : Informations sur la transaction">
+        <source>%mailer_name% : Informations sur la transaction</source>
+        <target state="new">%mailer_name% : Informations sur la transaction</target>
+        <jms:reference-file line="76">Service/Helper/MailHelper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ed3e0f77a27a8114721acc02f11c1d301b377231" resname="%mailer_name% : Informations sur votre commande">
+        <source>%mailer_name% : Informations sur votre commande</source>
+        <target state="new">%mailer_name% : Informations sur votre commande</target>
+        <jms:reference-file line="47">Service/Helper/MailHelper.php</jms:reference-file>
+        <jms:reference-file line="62">Service/Helper/MailHelper.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b1d4fd3051d54f9774651329d7057705d142479d" resname="Activer le mode BtoC">
+        <source>Activer le mode BtoC</source>
+        <target state="new">Activer le mode BtoC</target>
+        <jms:reference-file line="12">views/Config/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b02728f06093b1c14d0889493d4bb7e3c8b1db6" resname="Addresse de facturation">
+        <source>Addresse de facturation</source>
+        <target state="new">Addresse de facturation</target>
+        <jms:reference-file line="53">views/Account/update.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dce42f5609fc16c7565ca017cd43edab739a11d9" resname="Addresse de livraison">
+        <source>Addresse de livraison</source>
+        <target state="new">Addresse de livraison</target>
+        <jms:reference-file line="45">views/Account/update.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="104e9a2c9bfd5c36a1346c9b7efb8a583242df57" resname="Bonjour ">
+        <source>Bonjour </source>
+        <target state="new">Bonjour </target>
+        <jms:reference-file line="1">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c816d973298f8e0c7f0aa6020b0a16de233cda31" resname="Cette email existe déja">
+        <source>Cette email existe déja</source>
+        <target state="new">Cette email existe déja</target>
+        <jms:reference-file line="33">Service/Manager/UserManager.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="649ea0bdb1d6228c58cbedb5e1d7c2dc52f8c166" resname="Cette transaction a échouée">
+        <source>Cette transaction a échouée</source>
+        <target state="new">Cette transaction a échouée</target>
+        <jms:reference-file line="50">FrontBundle/Controller/TransactionController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9798eae694bb8e410c148df1254e222c1858e5b8" resname="Commande ">
+        <source>Commande </source>
+        <target state="new">Commande </target>
+        <jms:reference-file line="1">views/Mailing/changeOrder.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fa6ef9ee51e3e2a9ba24186e10714f5bbac22279" resname="Compte Boutique">
+        <source>Compte Boutique</source>
+        <target state="new">Compte Boutique</target>
+        <jms:reference-file line="11">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6c508b25c8cff68c4b06c005fbc5859254955acb" resname="Compte Client">
+        <source>Compte Client</source>
+        <target state="new">Compte Client</target>
+        <jms:reference-file line="13">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="20ae882304bcd49e0534a0b809bbfc898a1c0d57" resname="Configuration du site">
+        <source>Configuration du site</source>
+        <target state="new">Configuration du site</target>
+        <jms:reference-file line="5">views/Config/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="74615bc026ca4b2e2cb50fcff230e47c2549d8cd" resname="Créer un nouveau compte">
+        <source>Créer un nouveau compte</source>
+        <target state="new">Créer un nouveau compte</target>
+        <jms:reference-file line="12">views/Account/list.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f7c8bcd8b213a6cc4a0cfd3462bd1379e4ef9689" resname="Enregistrer">
+        <source>Enregistrer</source>
+        <target state="new">Enregistrer</target>
+        <jms:reference-file line="65">views/Account/update.html.twig</jms:reference-file>
+        <jms:reference-file line="25">views/Config/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5ab4ec640d654dc4cb487135d6cb944aaeaa07fc" resname="Fermer">
+        <source>Fermer</source>
+        <target state="new">Fermer</target>
+        <jms:reference-file line="64">views/Account/update.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="48d95cf1180ac5f17a28716d899ac8c8953d5883" resname="Félicitation, vous êtes maintenant inscrit sur Fridging.">
+        <source>Félicitation, vous êtes maintenant inscrit sur Fridging.</source>
+        <target state="new">Félicitation, vous êtes maintenant inscrit sur Fridging.</target>
+        <jms:reference-file line="2">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e8aecb45006d86ca615f7a0331719e2dca8a69da" resname="Identifiant : ">
+        <source>Identifiant : </source>
+        <target state="new">Identifiant : </target>
+        <jms:reference-file line="7">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9389a85e797ebc26ec1f142d22fe60a9a5545412" resname="Informations sur la boutique">
+        <source>Informations sur la boutique</source>
+        <target state="new">Informations sur la boutique</target>
+        <jms:reference-file line="11">views/Account/update.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6c9a165ec699ee02387c49dacf492b9f0159d499" resname="L'email est obligatoire">
+        <source>L'email est obligatoire</source>
+        <target state="new">L'email est obligatoire</target>
+        <jms:reference-file line="53">FrontBundle/Controller/CatalogController.php</jms:reference-file>
+        <jms:reference-file line="51">FrontBundle/Controller/ContactController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dfa4c834f33deef6a4edc50cd65a91bdef954b88" resname="La transaction a échouée, suite aux paramêtres envoyés par le prestataire de paiement">
+        <source>La transaction a échouée, suite aux paramêtres envoyés par le prestataire de paiement</source>
+        <target state="new">La transaction a échouée, suite aux paramêtres envoyés par le prestataire de paiement</target>
+        <jms:reference-file line="6">views/Mailing/fraud.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7314f43307ace526c0542d47d14f9870bf73aeaa" resname="Le message est obligatoire">
+        <source>Le message est obligatoire</source>
+        <target state="new">Le message est obligatoire</target>
+        <jms:reference-file line="56">FrontBundle/Controller/ContactController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ff5c61e66769658b0bfb26517d296ef809785d2a" resname="Le nom est obligatoire">
+        <source>Le nom est obligatoire</source>
+        <target state="new">Le nom est obligatoire</target>
+        <jms:reference-file line="46">FrontBundle/Controller/CatalogController.php</jms:reference-file>
+        <jms:reference-file line="33">FrontBundle/Controller/ContactController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c4439429ea7946688603ae40939ffd5386874220" resname="Le sujet est obligatoire">
+        <source>Le sujet est obligatoire</source>
+        <target state="new">Le sujet est obligatoire</target>
+        <jms:reference-file line="40">FrontBundle/Controller/ContactController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="43da3ad8ec8b4a9498fee91dc1cd550c359ec148" resname="Le téléphone est obligatoire">
+        <source>Le téléphone est obligatoire</source>
+        <target state="new">Le téléphone est obligatoire</target>
+        <jms:reference-file line="45">FrontBundle/Controller/ContactController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5fea9f5b3a61b3eb74c0dc7cc93fa011dfe1de55" resname="Les comptes">
+        <source>Les comptes</source>
+        <target state="new">Les comptes</target>
+        <jms:reference-file line="4">views/Account/list.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c06faddfe272ca46b3bce3bc916322b2d4108f0c" resname="Les informations relatives à votre commande ont été mise à jours">
+        <source>Les informations relatives à votre commande ont été mise à jours</source>
+        <target state="new">Les informations relatives à votre commande ont été mise à jours</target>
+        <jms:reference-file line="2">views/Mailing/changeOrder.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7e7d93b3de000e328bbce015859552b7290d1a71" resname="Lien Facebook">
+        <source>Lien Facebook</source>
+        <target state="new">Lien Facebook</target>
+        <jms:reference-file line="16">views/Config/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3877010e801c6933ed5de085bb0476dac4429b5a" resname="Lien Twitter">
+        <source>Lien Twitter</source>
+        <target state="new">Lien Twitter</target>
+        <jms:reference-file line="20">views/Config/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b12c55699da5fcf2d4812aabe2ba770f5e5a1190" resname="Mon compte">
+        <source>Mon compte</source>
+        <target state="new">Mon compte</target>
+        <jms:reference-file line="8">views/Order/index_old.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7444ea694bdfdf46b48fb0dbecfeab271791bec0" resname="Mot de passe : ">
+        <source>Mot de passe : </source>
+        <target state="new">Mot de passe : </target>
+        <jms:reference-file line="8">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2a40a4a6febc675cf64e5988e1f5e951cc36369c" resname="Nouvelle boutique">
+        <source>Nouvelle boutique</source>
+        <target state="new">Nouvelle boutique</target>
+        <jms:reference-file line="5">views/Account/update.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7a73bd61cb3197c19d156cdc6e1fc997f91f1ec4" resname="N° de suivi colisposte">
+        <source>N° de suivi colisposte</source>
+        <target state="new">N° de suivi colisposte</target>
+        <jms:reference-file line="4">views/Mailing/changeOrder.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cc0dbb46d04ce16c189c2b152d85b1e362ed1b79" resname="Pour une commande de &lt;b&gt;%amountTtc% € TTC&lt;/b&gt; chez la marque &lt;b&gt;%brand%&lt;/b&gt;, vos frais de livraison sont offert !">
+        <source><![CDATA[Pour une commande de <b>%amountTtc% € TTC</b> chez la marque <b>%brand%</b>, vos frais de livraison sont offert !]]></source>
+        <target state="new"><![CDATA[Pour une commande de <b>%amountTtc% € TTC</b> chez la marque <b>%brand%</b>, vos frais de livraison sont offert !]]></target>
+        <jms:reference-file line="85">AdminBundle/Service/ShoppingCartManager.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="062e0a274d8806d65c983db1ea80f012586f6df2" resname="Rappel de vos paramètres de connexion : ">
+        <source>Rappel de vos paramètres de connexion : </source>
+        <target state="new">Rappel de vos paramètres de connexion : </target>
+        <jms:reference-file line="6">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="866a59769ddeb2a9cfd9c760ec39c76bd28c6e70" resname="Récapitulatif de la commande">
+        <source>Récapitulatif de la commande</source>
+        <target state="new">Récapitulatif de la commande</target>
+        <jms:reference-file line="18">views/Mailing/confirmOrder.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6ca228aa1fed81f9077b541077f0914b6a33579b" resname="Status ">
+        <source>Status </source>
+        <target state="new">Status </target>
+        <jms:reference-file line="3">views/Mailing/changeOrder.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0cdbba21a184278f8edc40cf09ae3368369bc7cf" resname="Toutes vos commandes">
+        <source>Toutes vos commandes</source>
+        <target state="new">Toutes vos commandes</target>
+        <jms:reference-file line="11">views/Order/index_old.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2d2d2f6a2dee01bf07a0fb8ea8e5daa3dd80450a" resname="Type : ">
+        <source>Type : </source>
+        <target state="new">Type : </target>
+        <jms:reference-file line="9">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4948eaebfacfcbbf52fcefc99bd0dc965e8d66d2" resname="Une commande d'un minimun de &lt;b&gt;%amountTtc% € TTC&lt;/b&gt; est requise pour la marque &lt;b&gt;%brand%&lt;/b&gt;">
+        <source><![CDATA[Une commande d'un minimun de <b>%amountTtc% € TTC</b> est requise pour la marque <b>%brand%</b>]]></source>
+        <target state="new"><![CDATA[Une commande d'un minimun de <b>%amountTtc% € TTC</b> est requise pour la marque <b>%brand%</b>]]></target>
+        <jms:reference-file line="80">AdminBundle/Service/ShoppingCartManager.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dc81fcbaa266acf29e385b2c874e6c6082aadea9" resname="Veuillez renseigner votre adresse de livraison pour valider vos achats">
+        <source>Veuillez renseigner votre adresse de livraison pour valider vos achats</source>
+        <target state="new">Veuillez renseigner votre adresse de livraison pour valider vos achats</target>
+        <jms:reference-file line="138">AdminBundle/Controller/AccountController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a2d56390c93a597d23e3b125d34d018c416e6124" resname="Veuillez valider votre compte en cliquant sur le lien ci-dessous.">
+        <source>Veuillez valider votre compte en cliquant sur le lien ci-dessous.</source>
+        <target state="new">Veuillez valider votre compte en cliquant sur le lien ci-dessous.</target>
+        <jms:reference-file line="3">views/Mailing/activeAccount.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="39780cfc14817f9376a93deee1aa3e131c7e6423" resname="Vos informations personnelles ont bien été sauvegardées">
+        <source>Vos informations personnelles ont bien été sauvegardées</source>
+        <target state="new">Vos informations personnelles ont bien été sauvegardées</target>
+        <jms:reference-file line="167">AdminBundle/Controller/AccountController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eb2abc741b1d2f0ad7fa3cff2f533a0f1dc60d11" resname="Votre adresse a été sauvegardée">
+        <source>Votre adresse a été sauvegardée</source>
+        <target state="new">Votre adresse a été sauvegardée</target>
+        <jms:reference-file line="201">AdminBundle/Controller/AccountController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3c34543d33a01ae12cc29b3b8788f517ec555318" resname="Votre commande d'un montant de  &lt;b&gt;%amount% € TTC&lt;/b&gt; est en cours de traitement.">
+        <source><![CDATA[Votre commande d'un montant de  <b>%amount% € TTC</b> est en cours de traitement.]]></source>
+        <target state="new"><![CDATA[Votre commande d'un montant de  <b>%amount% € TTC</b> est en cours de traitement.]]></target>
+        <jms:reference-file line="3">views/Mailing/confirmOrder.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ab1427f360b7b00c6cc42c4c1245e85684ddec4b" resname="Votre compte a été crée, veuillez l'activer depuis l'email que vous avez reçu">
+        <source>Votre compte a été crée, veuillez l'activer depuis l'email que vous avez reçu</source>
+        <target state="new">Votre compte a été crée, veuillez l'activer depuis l'email que vous avez reçu</target>
+        <jms:reference-file line="62">Service/Manager/UserManager.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bd7530cec0caf0c487fef9bab0d7e444160bf458" resname="Votre compte est maintenant activé">
+        <source>Votre compte est maintenant activé</source>
+        <target state="new">Votre compte est maintenant activé</target>
+        <jms:reference-file line="112">UserBundle/Controller/RegistrationController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="911477bf7757e46b366c711ad78450f70a52ed80" resname="Votre email a été envoyé">
+        <source>Votre email a été envoyé</source>
+        <target state="new">Votre email a été envoyé</target>
+        <jms:reference-file line="79">FrontBundle/Controller/ContactController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c0e2f1d4597f5e83ca32a51550f38026e1e9cea0" resname="Votre panier a été mise à jour">
+        <source>Votre panier a été mise à jour</source>
+        <target state="new">Votre panier a été mise à jour</target>
+        <jms:reference-file line="202">AdminBundle/Controller/OrderController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="009ac5c9c79df682af61755fc59e7450ecf8603a" resname="Votre transaction a été annulée">
+        <source>Votre transaction a été annulée</source>
+        <target state="new">Votre transaction a été annulée</target>
+        <jms:reference-file line="35">FrontBundle/Controller/TransactionController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b32b6966dba4a087b7ae86e0e369b441570746c9" resname="Votre transaction d'un montant de &lt;b&gt;%amount% € TTC&lt;/b&gt; a été validée, et votre commande est en cours de traitement.">
+        <source><![CDATA[Votre transaction d'un montant de <b>%amount% € TTC</b> a été validée, et votre commande est en cours de traitement.]]></source>
+        <target state="new"><![CDATA[Votre transaction d'un montant de <b>%amount% € TTC</b> a été validée, et votre commande est en cours de traitement.]]></target>
+        <jms:reference-file line="5">views/Mailing/confirmOrder.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3b1a36b4ee9ce73af1a2aca161f4de13c46ab0fc" resname="Votre transaction et votre commande sont en cours de vérification, vous allez recevoir un email de confirmation">
+        <source>Votre transaction et votre commande sont en cours de vérification, vous allez recevoir un email de confirmation</source>
+        <target state="new">Votre transaction et votre commande sont en cours de vérification, vous allez recevoir un email de confirmation</target>
+        <jms:reference-file line="64">FrontBundle/Controller/TransactionController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="33f60ee7572029e5d0a32822faba67f5ac4df949" resname="Vous n'avez pas encore passé de commandes">
+        <source>Vous n'avez pas encore passé de commandes</source>
+        <target state="new">Vous n'avez pas encore passé de commandes</target>
+        <jms:reference-file line="14">views/Order/index_old.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c77bcc6207f70046ed074864ac2501d85f18113f" resname="Vous êtes inscrit à la newsletter">
+        <source>Vous êtes inscrit à la newsletter</source>
+        <target state="new">Vous êtes inscrit à la newsletter</target>
+        <jms:reference-file line="74">FrontBundle/Controller/CatalogController.php</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

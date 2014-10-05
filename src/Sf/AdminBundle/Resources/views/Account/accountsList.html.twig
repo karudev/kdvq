@@ -1,0 +1,70 @@
+<table class="table table-condensed table-striped ">
+    <thead>
+        <tr>
+            <th>{{'Type'|trans}}</th>
+            <th>{{'Nom'|trans}}</th>
+            <th>{{'Email'|trans}}</th>
+            <th>{{'Téléphone'|trans}}</th>
+            <th>{{'Adresses'|trans}}</th>
+            <th>{{'Nb Com.'|trans}}</th>
+            <th>{{'Dernière date de con.'|trans}}</th>
+            <th>{{'Activé ?'|trans}}</th>
+            <th>{{'Bannis ?'|trans}}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in accounts %}
+            <tr>
+                <td>
+                    {% if a.hasRole('ROLE_ADMIN') %}
+                        <span class="red glyphicon glyphicon-user"></span>
+                    {% elseif a.hasRole('ROLE_CUSTOMER') %}
+                        <span class="green glyphicon glyphicon-user"></span>
+                    {% elseif a.hasRole('ROLE_SHOP') %}
+                        <span class="blue glyphicon glyphicon-home"></span>
+                    {% endif %}
+                </td>
+                <td>{{a.fullname}}</td>
+                <td>{{a.email}}</td>
+                <td>{{a.phone}}</td>
+                <td> 
+                    {% for add in a.addresses %}
+
+                        {% if add.type =='shipping' %}
+                            <b>{{'Adresse de livraison'|upper|trans}}</b><br/>
+                        {% endif %}
+                        {% if add.type =='billing' %}
+                            <b>{{'Adresse de facturation'|upper|trans}}</b><br/>
+                        {% endif %}
+                        {% if add.title is not null %}
+                            {{add.title}}    <br/>
+                        {% endif %}
+                    
+                        {{add.address}}
+                        {{add.additionalAddress}}<br/>
+                        {{add.zipCode}} {{add.city}}, {{add.country}} 
+                        
+                        </br>
+                    {% endfor %}
+                </td>
+                <td>{{getNbOrder(a)}}</td>
+                <td>{{a.lastLogin|date('d/m/Y H:i')}}</td>
+                <td class="text-center">  
+                    {% if a.enabled == true %}
+                        <span class=" glyphicon glyphicon-ok"></span>
+                    {% endif %}
+                </td>
+                <td class="text-center">{% if a.locked == true %}
+                    <span class=" glyphicon glyphicon-ok"></span>
+                    {% endif %}
+                </td>
+               <td class="text-center">
+                    <span data-id="{{a.id}}" data-toggle="modal" data-target="#account"  class="update glyphicon glyphicon-pencil"></span> 
+                </td>
+                </tr>
+                
+                
+                {% endfor %}
+                </tbody>
+            </table>

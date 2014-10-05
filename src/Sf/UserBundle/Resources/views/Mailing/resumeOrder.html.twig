@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th style="width: 140px">{{'Réf'|trans}}</th>
+            <th style="width: 160px">{{'Description'|trans}}</th>
+            <th style="width: 70px">{{'Quantité'|trans}}</th>
+            <th style="width: 150px">{{'Marque'|trans}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in getProductModelsGroupByRef(order) %}
+            <tr>
+                <td>{{p['number']}}</td>
+                <td><b>{{p['name']}}</b><br/>
+                    {% if p['size'] is not null %}
+                        {{p['size']}};
+                    {% endif %}
+                    {% if p['color'] is not null %}
+                        {{p['color']}};
+                    {% endif %}
+                    {% if p['material'] is not null %}
+                        {{p['material']}};
+                    {% endif %}
+                </td>
+                <td>{{p['quantity']}}</td>
+                <td>{{p['brand']}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

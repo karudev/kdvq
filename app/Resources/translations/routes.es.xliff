@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2014-09-30T18:10:45Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="ca20728d35f00c3a4c21b1fc8b0086b59f89df2d" resname="account">
+        <source>/my-account/{message}</source>
+        <target>/mi-cuenta/{message}</target>
+      </trans-unit>
+      <trans-unit id="449c5abdc3fe9e6f3c6e833c3280040d3cdc3452" resname="admin_about_us">
+        <source>/about-us</source>
+        <target>/sobre-nosotros</target>
+      </trans-unit>
+      <trans-unit id="0316704eac15bb3861dad892b5009ce546a387db" resname="admin_accounts">
+        <source>/accounts</source>
+        <target>/mi-cuentas</target>
+      </trans-unit>
+      <trans-unit id="2cc95f7996f5bb8d1c51e00d4b963c5d9d3b8b7a" resname="admin_actuality">
+        <source>/actuality</source>
+        <target state="new">/actuality</target>
+      </trans-unit>
+      <trans-unit id="fe7eef1bc270c64cd78264f6ab10020d8f092671" resname="admin_actuality_update">
+        <source>/actuality/update/{actuality}</source>
+        <target state="new">/actuality/update/{actuality}</target>
+      </trans-unit>
+      <trans-unit id="9b146a57934b86bd4a951e87d5ecc72ad943ace9" resname="admin_brand">
+        <source>/brands</source>
+        <target>/marcas</target>
+      </trans-unit>
+      <trans-unit id="d36c9101a8a13a30d14575bdeeb4cdfa6089e040" resname="admin_brand_create">
+        <source>/brand/create</source>
+        <target>/marca/create</target>
+      </trans-unit>
+      <trans-unit id="5e310dc1b1f9bb53ec5ec2322624365979352028" resname="admin_brand_delete">
+        <source>/brand/{id}/delete</source>
+        <target>/marca/{id}/delete</target>
+      </trans-unit>
+      <trans-unit id="a11c8b7ba98d351ce17965fd5f622efe3d900577" resname="admin_brand_down">
+        <source>/brand/{id}/down</source>
+        <target>/marca/{id}/down</target>
+      </trans-unit>
+      <trans-unit id="22f8e49f028c7782d1a4d7090a068fc482de560a" resname="admin_brand_edit">
+        <source>/brand/{id}/edit</source>
+        <target>/marca/{id}/edit</target>
+      </trans-unit>
+      <trans-unit id="4243620fb381e67103e933655b6fd7462ce2f8bd" resname="admin_brand_new">
+        <source>/brand/new</source>
+        <target>/marca/new</target>
+      </trans-unit>
+      <trans-unit id="476979fc295fff1d987f4bbacc2b2a6710f38873" resname="admin_brand_show">
+        <source>/brand/{slug}</source>
+        <target>/marca/{slug}</target>
+      </trans-unit>
+      <trans-unit id="28c525fe09abe50fce1070d5eb958a20b4558f90" resname="admin_brand_up">
+        <source>/brand/{id}/up</source>
+        <target>/marca/{id}/up</target>
+      </trans-unit>
+      <trans-unit id="82a4dcc6379ce91336ecc6f904fe83a42c30af38" resname="admin_brand_update">
+        <source>/brand/{id}/update</source>
+        <target>/marca/{id}/update</target>
+      </trans-unit>
+      <trans-unit id="dcd8c54da5bdc3aceca631fd861d5485f4ffbd55" resname="admin_catalog">
+        <source>/catalog</source>
+        <target>/catálogo</target>
+      </trans-unit>
+      <trans-unit id="d3a26f6ed2ab9c433ac86ed428991c099685a3ea" resname="admin_catalog_last">
+        <source>/catalog/last/{lastCatalog}</source>
+        <target>/catálogo/last/{lastCatalog}</target>
+      </trans-unit>
+      <trans-unit id="682a6843e0c897fc67b6140eced7bd0840112673" resname="admin_catalog_update">
+        <source>/catalog/update/{catalog}</source>
+        <target>/catálogo/update/{catalog}</target>
+      </trans-unit>
+      <trans-unit id="da902aba9a2bb11a816d47fe55bddb3a3ac1664c" resname="admin_config">
+        <source>/configuration</source>
+        <target>/configuración</target>
+      </trans-unit>
+      <trans-unit id="0a87234fce6c97df8b1cff638eee337513f5e233" resname="admin_group">
+        <source>/group/{brand}</source>
+        <target state="new">/group/{brand}</target>
+      </trans-unit>
+      <trans-unit id="0024842fd89b81d423a9a5eb250e4d08b84c5023" resname="admin_group_update">
+        <source>/group/update/{brand}/{id}</source>
+        <target state="new">/group/update/{brand}/{id}</target>
+      </trans-unit>
+      <trans-unit id="209d8f3f06a4737abc004ba9fd02ad9e38aac6a3" resname="admin_legals">
+        <source>/legals</source>
+        <target>/avisos-legales</target>
+      </trans-unit>
+      <trans-unit id="5eb1ddde13b47f6e51988b4841e13d976556acb2" resname="admin_press">
+        <source>/press</source>
+        <target>/prensa</target>
+      </trans-unit>
+      <trans-unit id="af0fbc408d91c4471417f4ab1431c7eca2fe2042" resname="admin_press_update">
+        <source>/press/update/{press}</source>
+        <target>/prensa/update/{press}</target>
+      </trans-unit>
+      <trans-unit id="e85e9f6276fe5a946845ae20d2256e0acf24f01c" resname="admin_product">
+        <source>/product/{groupId}</source>
+        <target>/producto/{groupId}</target>
+      </trans-unit>
+      <trans-unit id="8256fb3c1cc98f84a10c1c6ec0603434b99a4993" resname="admin_product_model">
+        <source>/product-model/{product}</source>
+        <target>/modelo-del-producto/{product}</target>
+      </trans-unit>
+      <trans-unit id="938d681eccaf7c62c0022cf4bd6d167c9d69ba20" resname="admin_product_model_stock">
+        <source>/product-model/stock/{product}</source>
+        <target>/modelo-del-producto/stock/{product}</target>
+      </trans-unit>
+      <trans-unit id="3ca44fed0c9135d77409e1eba518379aa63842d7" resname="admin_product_model_update">
+        <source>/product-model/update/{number}</source>
+        <target>/modelo-del-producto/update/{number}</target>
+      </trans-unit>
+      <trans-unit id="e7796ab93653ae9738d3d65daf53385af03df423" resname="admin_product_update">
+        <source>/product/update/{id}/{groupId}</source>
+        <target>/producto/update/{id}/{groupId}</target>
+      </trans-unit>
+      <trans-unit id="a140144aecaa71d68517e12910c275748f88b512" resname="fos_js_routing_js">
+        <source>/js/routing.{_format}</source>
+        <target state="new">/js/routing.{_format}</target>
+      </trans-unit>
+      <trans-unit id="3e7a1eb65964daab6c8503cea70e628e3f933ce0" resname="fos_user_change_password">
+        <source>/profile/password/change-password</source>
+        <target state="new">/profile/password/change-password</target>
+      </trans-unit>
+      <trans-unit id="89d9f90f552727a161575b47336d827555229023" resname="fos_user_profile_edit">
+        <source>/admin/{_locale}/{userId}/profile/edit</source>
+        <target state="new">/admin/{_locale}/{userId}/profile/edit</target>
+      </trans-unit>
+      <trans-unit id="a5c247e0ed2953f5e091126240a417a30fe47c12" resname="fos_user_profile_show">
+        <source>/admin/{_locale}/{userId}/profile/</source>
+        <target state="new">/admin/{_locale}/{userId}/profile/</target>
+      </trans-unit>
+      <trans-unit id="a7796b4f4f42c56769357a8303569fc003731e87" resname="fos_user_registration_check_email">
+        <source>/admin/{_locale}/register/check-email</source>
+        <target state="new">/admin/{_locale}/register/check-email</target>
+      </trans-unit>
+      <trans-unit id="22ca20e7a4ac37652a84e45daaf1e68e388eca26" resname="fos_user_registration_confirm">
+        <source>/admin/{_locale}/register/confirm/{token}</source>
+        <target state="new">/admin/{_locale}/register/confirm/{token}</target>
+      </trans-unit>
+      <trans-unit id="43816e069e01819401d9822574dad6c50d82d2d7" resname="fos_user_registration_confirmed">
+        <source>/admin/{_locale}/register/confirmed</source>
+        <target state="new">/admin/{_locale}/register/confirmed</target>
+      </trans-unit>
+      <trans-unit id="693eeded1b8403ebe14463be5de2a9a1ecefbf14" resname="fos_user_registration_register">
+        <source>/admin/{_locale}/register/</source>
+        <target state="new">/admin/{_locale}/register/</target>
+      </trans-unit>
+      <trans-unit id="031c418d91c7b50426906ae4ad5b80194b7e153e" resname="fos_user_resetting_check_email">
+        <source>/resetting/check-email</source>
+        <target state="new">/resetting/check-email</target>
+      </trans-unit>
+      <trans-unit id="57721581c69f4c8163632a830f07d82ee0d719f3" resname="fos_user_resetting_request">
+        <source>/resetting/request</source>
+        <target state="new">/resetting/request</target>
+      </trans-unit>
+      <trans-unit id="3631be6fbf01f3e1ac7ed153ed4648c6469fe0e2" resname="fos_user_resetting_reset">
+        <source>/resetting/reset/{token}</source>
+        <target state="new">/resetting/reset/{token}</target>
+      </trans-unit>
+      <trans-unit id="b68f7e5fae30e8373429c4abe045ae50b8f5f762" resname="fos_user_resetting_send_email">
+        <source>/resetting/send-email</source>
+        <target state="new">/resetting/send-email</target>
+      </trans-unit>
+      <trans-unit id="00fb021cee4fd738a7b66a0f5deb9f30bf059593" resname="fos_user_security_logout">
+        <source>/logout</source>
+        <target>/desconectar</target>
+      </trans-unit>
+      <trans-unit id="e2ff3b78584a736dfede81daaf25bd4b8de0943a" resname="front_about_us">
+        <source>/about-us</source>
+        <target>/sobre-nosotros</target>
+      </trans-unit>
+      <trans-unit id="e021b5fca5463e042004b52d24a7ea91a3c90246" resname="front_actus">
+        <source>/actualities</source>
+        <target state="new">/actualities</target>
+      </trans-unit>
+      <trans-unit id="d7fe335aaade190fa737b55043239c6dd702bc68" resname="front_actus_show">
+        <source>/actualities/show/{year}</source>
+        <target state="new">/actualities/show/{year}</target>
+      </trans-unit>
+      <trans-unit id="edb61a02832b191e433c7d3e7d793c0612acc80f" resname="front_brand">
+        <source>/brand/{slug}</source>
+        <target>/marca/{slug}</target>
+      </trans-unit>
+      <trans-unit id="802d65374395ff58da5a1d375e95dcdabfa37815" resname="front_brands">
+        <source>/brands</source>
+        <target>/marcas</target>
+      </trans-unit>
+      <trans-unit id="f7c98c1e73794179460bd997d97cf9a3a115925d" resname="front_catalog">
+        <source>/catalogs</source>
+        <target>/catálogos</target>
+      </trans-unit>
+      <trans-unit id="3c55268fdfd384e3865389fa00b34d3ae60d7409" resname="front_contact">
+        <source>/contact</source>
+        <target>/contacto</target>
+      </trans-unit>
+      <trans-unit id="787ad3b9af444c3e5a8f6599763cd825a7afe3fd" resname="front_home">
+        <source>/</source>
+        <target state="new">/</target>
+      </trans-unit>
+      <trans-unit id="052b32671a5caef75dc4c435ad2d16d2cf1eb4c0" resname="front_legals">
+        <source>/legals</source>
+        <target>/avisos-legales</target>
+      </trans-unit>
+      <trans-unit id="4c8deab0b75180afa221403aa3984d914e268e51" resname="front_press">
+        <source>/press</source>
+        <target>/prensa</target>
+      </trans-unit>
+      <trans-unit id="d0b71d7631b410aff6d8ba5ae7ed4cd22cf9bc35" resname="front_product">
+        <source>/product/{slug}</source>
+        <target>/producto/{slug}</target>
+      </trans-unit>
+      <trans-unit id="71a570546d49684fda2c6cce0ef2db3495ca2a77" resname="front_registration">
+        <source>/customer-registration</source>
+        <target state="new">/customer-registration</target>
+      </trans-unit>
+      <trans-unit id="d8387d8e3acabfea6860ee67e8f5b3cfcabf43ad" resname="front_shopping_cart">
+        <source>/shopping-cart</source>
+        <target>/carro-de-la-compra</target>
+      </trans-unit>
+      <trans-unit id="2a33c77e427092c2221209f457b6e7675f2659cf" resname="front_shopping_cart_add">
+        <source>/shopping-cart/add/{product}</source>
+        <target>/carro-de-la-compra/add/{product}</target>
+      </trans-unit>
+      <trans-unit id="48fe2ccf7b2f32f2fcddc41af7b80f72bef36849" resname="front_shopping_cart_remove">
+        <source>/shopping-cart/remove/{product}</source>
+        <target>/carro-de-la-compra/remove/{product}</target>
+      </trans-unit>
+      <trans-unit id="0914d57485c9bd540166d436394795b083c074f6" resname="invoice_download">
+        <source>/invoice/download/{invoice}</source>
+        <target>/factura/descargar/{invoice}</target>
+      </trans-unit>
+      <trans-unit id="4ad84eeae2e430c59444f16a588f1c6397c7128f" resname="logout_user">
+        <source>/logout-user</source>
+        <target state="new">/logout-user</target>
+      </trans-unit>
+      <trans-unit id="9658403816409e66eba2175f8eff8b53a9681573" resname="orders">
+        <source>/orders</source>
+        <target>/orden</target>
+      </trans-unit>
+      <trans-unit id="b4e3eb4b98812e4eb33140f77c76f1d533622b0f" resname="product_criterion">
+        <source>/product/criterion/{product}</source>
+        <target>/producto/criterios/{product}</target>
+      </trans-unit>
+      <trans-unit id="df956e0384562e8dfb37aff1ff93a7a4141476cc" resname="sf_user_registration_active_account">
+        <source>/active-account/{token}</source>
+        <target>/activar-la-cuenta/{token}</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

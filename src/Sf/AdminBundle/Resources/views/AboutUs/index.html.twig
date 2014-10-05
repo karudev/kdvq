@@ -1,0 +1,72 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block ariane %}
+    <div class="container">
+        <div class="col-md-12 ariane">{{'A propos'|trans|upper}}</div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+
+
+        {{ form_start(form)}}
+
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_label(form.picture) }}
+                {% if form.vars.data.pictureUrl is not null %}
+                    <img width="100%" src="{{ asset(['/uploads/about-us/', form.vars.data.pictureUrl]|join) }}" />
+                {% endif %}
+                {{ form_widget(form.picture) }}
+                {{ form_errors(form.picture) }}
+
+            </div>
+            <div class="col-md-6">
+
+
+
+                {{ form_row(form.title) }}
+                {{ form_row(form.subTitle) }}
+                {{ form_row(form.subTitle2) }}
+                {{ form_row(form.text) }}
+                {{ form_row(form.active) }}
+            </div>
+
+        </div>
+
+        <div class="row col-md-12">
+            <button class='btn-fridging-blue'>{{'Enregistrer'|trans}}</button>
+
+
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form)}}
+
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+
+    <script>
+        $(document).ready(function() {
+
+            tinymce.init({
+                plugins: "link",
+                forced_root_block: false,
+                force_br_newlines: true,
+                force_p_newlines: false,
+                selector: "textarea",
+                height: 200
+            });
+
+        
+
+
+        });
+      
+
+
+    </script>
+
+{% endblock %}
+

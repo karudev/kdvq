@@ -1,0 +1,42 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block title %}Qwinsport - La catégorie {{categorie}} {% endblock %}
+{% block ariane %}{{categorie|upper}}{% endblock %}
+{% block body %}
+    <div style="margin-top:40px;" class="col-sm-9 col-md-10">
+        <div class="cat">
+            <div class="col-sm-6 col-md-6 separ">
+                <a href="" title="">
+                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p1.jpg')}}" alt="">
+                </a>
+                <a href="" title="">
+                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p5.jpg')}}" alt="">
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <a href="" title="">
+                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p2.jpg')}}" alt="">
+                </a>
+                <a href="" title="">
+                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p3.jpg')}}" alt="">
+                </a>
+                <a href="" title="">
+                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p4.jpg')}}" alt="">
+                </a>
+            </div>
+            <div class="bloc-separation">
+                <div class="separation"></div>
+                <h2>Catalogues des offres clubs 2014/2015</h2>
+                <a href="">
+                    <div class="dl">En téléchargement</div>
+                </a>
+                <div class="separation"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% block bandeauClass %}main{% endblock %}
+{% block title %}Qwinsport{% endblock %}
+{% block body %}
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12 inline-block">
+                <div class="col-sm-4 col-md-4 news-bloc">
+                    <h3>
+                        Dernière<br/><span class="din-bold">nouveautés</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                    </h3>
+                    <div class="home shop-bloc">
+                        {% for p in products %}
+                            <div class="article">
+                                {% if getStock(p) > 0 %}
+                                    <a href="{{path('front_product',{'slug' : p.slug})}}" title="">
+                                        <img style="width:50%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
+                                    </a>
+                                {% else %}
+                                    <img style="width:50%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
+                                {% endif %}
+
+                                <div class="article-price">
+                                    <div class="border-price">
+                                        <p class="price">{{ p.priceTtc|number_format(2,',',' ') }} €</p>
+                                    </div>
+                                </div>
+                                <div class="article-details">
+                                    <h4>{{ p.name }}</h4>
+                                    <p class="cat">{{ p.category.category.name }}</p>
+                                    {% if getStock(p) == 0 %}
+                                         <span class="label label-danger">Indisponible</span>
+                                        {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 newsletter-bloc">
+                    <div class="newsletter-details">
+                        <h3>Lorem ipseum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
+                        <p>occaecat cupidatat non proident, sunt in
+                            culpa qui officia deserunt mollit anim id est laborum. Sed ut
+                            perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab</p>
+                    </div>
+                    <div class="about-marque">
+                        <a href="{{path('front_brand')}}"><div class="ico_fleche_ferme"></div>A propos de la marque</a>
+                    </div>
+                    <div class="newsletter-get">
+                        <h2>Recevoir<br/>la newsletter</h2>
+                        <img src="{{asset('bundles/sffront/images/border-black.png')}}" class="border" alt="">
+                    </div>
+                    <div class="newsletter-input">
+                        <form action="index.html" method="post">
+                            <input type="text" name="nom" autocomplete="off" placeholder="NOM">
+                            <input type="text" name="prenom" autocomplete="off" placeholder="PRENOM">
+                            <input type="text" name="email" autocomplete="off" placeholder="EMAIL">
+                            <button type="submit">ENVOYER</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 actu-bloc">
+                    <div class="actu-bloc-news">
+                        <h3>Les<br/><span class="din-bold">Actus</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt=""></h3>
+                        <div class="actu-info">
+                            <div class="actu-date">22 Oct 2014</div><hr/>
+                            <div class="actu-title"><h1>Du nouveau sur la livraison</h1></div>
+                            <p class="actu-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+                                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                nisi
+                            </p>
+                        </div>
+                        <div class="actu-info">
+                            <div class="actu-date">22 Oct 2014</div><hr/>
+                            <div class="actu-title"><h1>Du nouveau sur la livraison</h1></div>
+                            <p class="actu-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+                                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                nisi
+                            </p>
+                        </div>
+                    </div>
+                    <img src="{{asset('bundles/sffront/images/visuel.jpg')}}" class="visuel" alt="Visuel">
+                </div>
+                <div class="bg_footer hidden-xs "></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% trans_default_domain 'SfFrontBundle' %}
+
+{% block css %}
+     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sfadmin/css/account.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %} 
+{% block ariane %}
+  LES COMMANDES
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+       
+        <div id="orders" class="row col-md-10">
+          {{render(controller('SfAdminBundle:Order:orders'))}}
+        </div>
+        
+    </div>
+    <div id="order" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div id="mail" class="modal fade">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}
+
+{% block js %}
+<script src="{{asset('bundles/sfadmin/js/order/index.js')}}?v={{version}}"></script>
+{% endblock %}

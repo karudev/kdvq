@@ -1,0 +1,16 @@
+.inner-addon { 
+    position: relative; 
+}
+
+.inner-addon .search-icon {
+	position: absolute;
+	padding: 0px;
+	margin: 3px 5px;
+	pointer-events: none;
+}
+
+.left-addon .search-icon  { left:  0px;}
+.right-addon .search-icon { right: 0px;}
+
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }

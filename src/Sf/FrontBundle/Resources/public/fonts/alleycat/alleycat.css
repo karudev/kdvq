@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'AlleyCatRegular';
+    src: url('alleycat.eot');
+    src: url('alleycat.eot') format('embedded-opentype'),
+         url('alleycat.woff2') format('woff2'),
+         url('alleycat.woff') format('woff'),
+         url('alleycat.ttf') format('truetype'),
+         url('alleycat.svg#AlleyCatRegular') format('svg');
+}

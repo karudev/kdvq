@@ -1,0 +1,81 @@
+<?php
+
+namespace Sf\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Carrousel
+ *
+ * @ORM\Table(name="carrousel")
+ * @ORM\Entity
+ */
+class Carrousel
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+    * @ORM\ManyToMany(targetEntity="CarrouselStep", cascade={"remove", "persist"})
+    * @ORM\OrderBy({"position" = "asc"})
+    */
+    protected $steps;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->steps = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Add steps
+     *
+     * @param \Sf\AdminBundle\Entity\CarrouselStep $steps
+     * @return Carrousel
+     */
+    public function addStep(\Sf\AdminBundle\Entity\CarrouselStep $steps)
+    {
+        $this->steps[] = $steps;
+
+        return $this;
+    }
+
+    /**
+     * Remove steps
+     *
+     * @param \Sf\AdminBundle\Entity\CarrouselStep $steps
+     */
+    public function removeStep(\Sf\AdminBundle\Entity\CarrouselStep $steps)
+    {
+        $this->steps->removeElement($steps);
+    }
+
+    /**
+     * Get steps
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSteps()
+    {
+        return $this->steps;
+    }
+}

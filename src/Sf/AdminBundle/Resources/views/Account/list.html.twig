@@ -1,0 +1,29 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+        <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}  
+{% block ariane %}
+ LES COMPTES
+{% endblock %}
+{% trans_default_domain 'SfFrontBundle' %}
+{% block body %}
+    <div id="main-content" class="container">
+        
+        <div class="form-group">
+            <button id="new" data-toggle="modal" data-target="#account" class="submit">{{'Créer un nouveau compte'|trans}}</button>
+        </div>
+        <div id="list" class="table-responsive col-md-10">
+            {{render(controller('SfAdminBundle:Account:accountsList'))}}
+        </div>
+    </div>
+    <div id="account" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div id="form" class="modal-content">
+                
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->                  
+{% endblock %}
+{% block js %}
+    <script src="{{asset('bundles/sfadmin/js/account/list.js')}}?v={{version}}"></script>
+{% endblock %}  

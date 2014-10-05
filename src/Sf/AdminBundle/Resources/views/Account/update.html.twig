@@ -1,0 +1,67 @@
+{% trans_default_domain 'SfFrontBundle' %}
+{{form_start(form)}}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title">{{'Nouvelle boutique'|trans()}}</h4>
+</div>
+<div class="modal-body">
+    <div  class="col-xs-12">
+          
+        <div class="col-xs-12">
+          <h4>{{'Informations sur la boutique'|trans()}}</h4>
+        </div>
+        <div class="col-xs-6">
+            {{form_row(form.tradeName)}} 
+        </div>
+        <div class="col-xs-6">
+            {{form_row(form.socialName)}} 
+        </div>
+        <div class="col-xs-6">
+            {{form_row(form.email)}} 
+        </div>
+        <div class="col-xs-6">
+            {{form_row(form.phone)}}  
+        </div>
+        <div class="col-xs-6">
+            {{form_row(form.siret)}} 
+        </div>
+        <div class="col-xs-6">
+            {{form_row(form.country)}}
+        </div> 
+        <div class="col-xs-6">
+            {{form_row(form.tva)}} 
+        </div>
+        <div class="col-xs-6">
+            {{form_row(form.autoEntrepreneur)}} 
+        </div> 
+        <div class="col-xs-12">
+            {{form_row(form.background)}} 
+        </div>
+
+    </div>
+
+    <div id="address" class="col-xs-12">
+        <div id="left" class="col-xs-6">
+            <h4>{{'Addresse de livraison'|trans()}}</h4>
+            {% if form.addresses[0] is defined %}
+                {{form_row(form.addresses[0])}} 
+            {% else %}
+                {{form_row(form.addresses)}} 
+            {% endif %}
+        </div>
+        <div id="right" class="col-xs-6">
+            <h4>{{'Addresse de facturation'|trans()}}</h4>
+            {% if form.addresses[1] is defined %}
+                {{form_row(form.addresses[1])}} 
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">{{'Fermer'|trans()}}</button>
+    <button type="submit" class="btn btn-primary">{{'Enregistrer'|trans()}}</button>
+</div>
+{{form_end(form)}}

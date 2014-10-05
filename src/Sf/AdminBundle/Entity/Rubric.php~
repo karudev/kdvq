@@ -1,0 +1,770 @@
+<?php
+
+namespace Sf\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Translatable\Translatable;
+use Symfony\Component\Filesystem\Filesystem;
+
+/**
+ * Rubric
+ *
+ * @ORM\Table(name="rubric")
+ * @ORM\Entity(repositoryClass="Sf\AdminBundle\Entity\RubricRepository")
+ * @ORM\HasLifecycleCallbacks
+ */
+class Rubric implements Translatable
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @ORM\Column(name="page", type="string", length=128, nullable=true)
+     */
+    private $page;
+
+    /**
+     * @var string
+     * @ORM\Column(name="template", type="string", length=128)
+     */
+    private $template;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="title", type="string", length=128, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="subTitle", type="string", length=128, nullable=true)
+     */
+    private $subTitle;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="text", type="text", nullable=true)
+     */
+    private $text;
+
+    /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="text2", type="text", nullable=true)
+     */
+    private $text2;
+    /**
+     * @var text
+     * @Gedmo\Translatable
+     * @ORM\Column(name="blockquote", type="text", nullable=true)
+     */
+    private $blockquote;
+    /**
+     * @var text
+     * @Gedmo\Translatable
+     * @ORM\Column(name="blockquoteAuthor", type="text", nullable=true)
+     */
+    private $blockquoteAuthor;
+
+    /**
+     *
+     * @Assert\Image(maxSize="6000000")
+     */
+    private $backgroundFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="backgroundUrl", type="string", length=128, nullable=true)
+     */
+    private $backgroundUrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="backgroundColor", type="string", length=128, nullable=true)
+     */
+    private $backgroundColor;
+
+    /**
+     *
+     *  @ORM\ManyToMany(targetEntity="\Sf\AdminBundle\Entity\RubricPicture", cascade={"persist"})
+
+     */
+    private $rubricPictures;
+
+    /**
+     *
+     *  @ORM\ManyToMany(targetEntity="\Sf\AdminBundle\Entity\RubricLink", cascade={"persist"})
+
+     */
+    private $rubricLinks;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", nullable=true)
+     */
+    private $active;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="position", type="integer")
+     */
+    private $position;
+
+    /**
+     * @var string
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(name="slug", unique=true, length=255)
+     */
+    private $slug;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Sf\AdminBundle\Entity\Service")
+     * @ORM\JoinColumn(name="service_id", referencedColumnName="id")
+     */
+    private $service;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updatedAt;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Rubric
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set subTitle
+     *
+     * @param string $subTitle
+     * @return Rubric
+     */
+    public function setSubTitle($subTitle)
+    {
+        $this->subTitle = $subTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get subTitle
+     *
+     * @return string
+     */
+    public function getSubTitle()
+    {
+        return $this->subTitle;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Rubric
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set backgroundUrl
+     *
+     * @param string $backgroundUrl
+     * @return Rubric
+     */
+    public function setBackgroundUrl($backgroundUrl)
+    {
+        $this->backgroundUrl = $backgroundUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get backgroundUrl
+     *
+     * @return string
+     */
+    public function getBackgroundUrl()
+    {
+        return $this->backgroundUrl;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Rubric
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Rubric
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Rubric
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Rubric
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Rubric
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+
+    /**
+     * Set service
+     *
+     * @param \Sf\AdminBundle\Entity\Service $service
+     * @return Rubric
+     */
+    public function setService(\Sf\AdminBundle\Entity\Service $service = null)
+    {
+        $this->service = $service;
+
+        return $this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return \Sf\AdminBundle\Entity\Service
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+        /**
+     * Set backgroundFile
+     *
+     * @param object $backgroundFile
+     */
+    public function setBackgroundFile($backgroundFile)
+    {
+        $this->backgroundFile = $backgroundFile;
+    }
+
+    /**
+     * Get backgroundFile
+     *
+     * @return object
+     */
+    public function getBackgroundFile()
+    {
+        return $this->backgroundFile;
+    }
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    public function __toString()
+    {
+      return $this->title;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function CcreatedDateTime() {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function updatedDateTime(){
+      $this->updatedAt = new \dateTime();
+    }
+
+   /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->backgroundFile) {
+            $this->backgroundUrl = uniqid().'.'.$this->backgroundFile->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->backgroundFile) {
+            return;
+        }
+
+        $this->backgroundFile->move($this->getUploadRootDir(), $this->backgroundUrl);
+        unset($this->backgroundFile);
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($backgroundFile = $this->getAbsolutePath()) {
+          $fs = new Filesystem();
+          if($fs->exists($this->getAbsolutePath())){
+            unlink($backgroundFile);
+          }
+        }
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->backgroundUrl ? null : $this->getUploadRootDir().'/'.$this->backgroundUrl;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->backgroundUrl ? null : $this->getUploadDir().'/'.$this->backgroundUrl;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/background';
+    }
+
+
+
+    /**
+     * Add rubricPictures
+     *
+     * @param \Sf\AdminBundle\Entity\RubricPicture $rubricPictures
+     * @return Rubric
+     */
+    public function addRubricPicture(\Sf\AdminBundle\Entity\RubricPicture $rubricPictures)
+    {
+        $this->rubricPictures[] = $rubricPictures;
+
+        return $this;
+    }
+
+    /**
+     * Remove rubricPictures
+     *
+     * @param \Sf\AdminBundle\Entity\RubricPicture $rubricPictures
+     */
+    public function removeRubricPicture(\Sf\AdminBundle\Entity\RubricPicture $rubricPictures)
+    {
+        $this->rubricPictures->removeElement($rubricPictures);
+    }
+
+    /**
+     * Get rubricPictures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRubricPictures()
+    {
+        return $this->rubricPictures;
+    }
+
+
+    public function up(){
+      if( $this->position > 0){
+        $this->position = $this->position-1;
+      }
+      return $this;
+    }
+
+    public function down(){
+        $this->position = $this->position+1;
+        return $this;
+    }
+
+    /**
+     * Set page
+     *
+     * @param string $page
+     * @return Rubric
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return string
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    /**
+     * Set template
+     *
+     * @param string $template
+     * @return Rubric
+     */
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    /**
+     * Get template
+     *
+     * @return string
+     */
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+
+    /**
+     * Set blockquote
+     *
+     * @param string $blockquote
+     * @return Rubric
+     */
+    public function setBlockquote($blockquote)
+    {
+        $this->blockquote = $blockquote;
+
+        return $this;
+    }
+
+    /**
+     * Get blockquote
+     *
+     * @return string
+     */
+    public function getBlockquote()
+    {
+        return $this->blockquote;
+    }
+
+    /**
+     * Set textTitle
+     *
+     * @param string $textTitle
+     * @return Rubric
+     */
+    public function setTextTitle($textTitle)
+    {
+        $this->textTitle = $textTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get textTitle
+     *
+     * @return string
+     */
+    public function getTextTitle()
+    {
+        return $this->textTitle;
+    }
+
+
+    /**
+     * Add rubricLinks
+     *
+     * @param \Sf\AdminBundle\Entity\RubricLink $rubricLinks
+     * @return Rubric
+     */
+    public function addRubricLink(\Sf\AdminBundle\Entity\RubricLink $rubricLinks)
+    {
+        $this->rubricLinks[] = $rubricLinks;
+
+        return $this;
+    }
+
+    /**
+     * Remove rubricLinks
+     *
+     * @param \Sf\AdminBundle\Entity\RubricLink $rubricLinks
+     */
+    public function removeRubricLink(\Sf\AdminBundle\Entity\RubricLink $rubricLinks)
+    {
+        $this->rubricLinks->removeElement($rubricLinks);
+    }
+
+    /**
+     * Get rubricLinks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRubricLinks()
+    {
+        return $this->rubricLinks;
+    }
+
+    /**
+     * Set blockquoteAuthor
+     *
+     * @param string $blockquoteAuthor
+     * @return Rubric
+     */
+    public function setBlockquoteAuthor($blockquoteAuthor)
+    {
+        $this->blockquoteAuthor = $blockquoteAuthor;
+
+        return $this;
+    }
+
+    /**
+     * Get blockquoteAuthor
+     *
+     * @return string
+     */
+    public function getBlockquoteAuthor()
+    {
+        return $this->blockquoteAuthor;
+    }
+
+    /**
+     * Set foottext
+     *
+     * @param string $foottext
+     * @return Rubric
+     */
+    public function setFoottext($foottext)
+    {
+        $this->foottext = $foottext;
+
+        return $this;
+    }
+
+    /**
+     * Get foottext
+     *
+     * @return string
+     */
+    public function getFoottext()
+    {
+        return $this->foottext;
+    }
+
+    /**
+     * Set text2
+     *
+     * @param string $text2
+     * @return Rubric
+     */
+    public function setText2($text2)
+    {
+        $this->text2 = $text2;
+
+        return $this;
+    }
+
+    /**
+     * Get text2
+     *
+     * @return string
+     */
+    public function getText2()
+    {
+        return $this->text2;
+    }
+
+    /**
+     * Set backgroundColor
+     *
+     * @param string $backgroundColor
+     * @return Rubric
+     */
+    public function setBackgroundColor($backgroundColor)
+    {
+        $this->backgroundColor = $backgroundColor;
+
+        return $this;
+    }
+
+    /**
+     * Get backgroundColor
+     *
+     * @return string
+     */
+    public function getBackgroundColor()
+    {
+        return $this->backgroundColor;
+    }
+}

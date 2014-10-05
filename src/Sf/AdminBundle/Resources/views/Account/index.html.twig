@@ -1,0 +1,50 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+        <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sfadmin/css/account.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}  
+{% block ariane %}
+  MON COMPTE
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+        {% include 'SfAdminBundle:Account:submenu.html.twig' %}
+        <div class="col-md-6 col-md-offset-3">
+            <h2>{{'Vos informations personnelles'|trans}}</h2>
+            {{form_start(form)}}
+            {{form_label(form.civility)}}
+            <div class="form-group">   
+                {% for choix in form.civility %}
+                    {% if choix.vars.value != '' %}
+                        <div class="col-xs-1">{{ form_widget(choix) }}</div>
+                        <div class="col-xs-2">{{ form_label(choix) }}</div>
+                    {% endif %}
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+
+            {{form_row(form.firstname)}}
+            {{form_row(form.lastname)}}
+            {{form_row(form.phone)}}
+            <div class="hidden">
+                {{form_rest(form)}}
+            </div>
+            <button class="submit">{{'Valider'|trans}}</button>
+            {{form_end(form)}}
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+             <h2>{{'Mot de passe'|trans}}</h2>
+             <a href="{{ path('fos_user_resetting_request') }}">{{'Réinnitialiser votre mot de passe'|trans}}</a>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+            {{render(controller('SfAdminBundle:Account:address',{'type':'shipping','redirect': redirect}))}}
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+            {{render(controller('SfAdminBundle:Account:address',{'type':'billing'}))}}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{asset('bundles/sfadmin/js/account/index.js')}}?v={{version}}"></script>
+{% endblock %}  

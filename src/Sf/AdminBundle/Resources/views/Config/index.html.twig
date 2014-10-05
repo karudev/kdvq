@@ -1,0 +1,29 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% trans_default_domain 'SfFrontBundle' %}
+{% block ariane %}
+    <div class="container">
+        <div class="col-md-12 ariane">{{'Configuration du site'|trans|upper}}</div>
+    </div>
+{% endblock %}
+{% block body %}
+    <div id="main-content" class="container">
+        <form action="{{path('admin_config')}}" method="post">
+            <div class="form-group col-md-8 col-md-offset-2">
+                <div class="col-md-3"><label for="btoc">{{'Activer le mode BtoC'|trans}}</label></div>
+                <div class="col-md-3"><input {{btoc is not null and btoc.value == 1 ? 'checked' }} name="btoc" id="btoc" type="checkbox" value="1" /></div>
+            </div>
+            <div class="form-group col-md-8 col-md-offset-2">
+                <div class="col-md-3"><label for="facebook">{{'Lien Facebook'|trans}}</label></div>
+                <div class="col-md-3"><input value="{{facebook.value}}" name="facebook" id="facebook" type="url" required /></div>
+            </div>
+            <div class="form-group col-md-8 col-md-offset-2">
+                <div class="col-md-3"><label for="twitter">{{'Lien Twitter'|trans}}</label></div>
+                <div class="col-md-3"><input value="{{twitter.value}}" name="twitter" id="twitter" type="url" required /></div>
+            </div>
+            <div class="clearfix"></div>
+            <div style="margin-top: 20px" class="form-group col-md-8 col-md-offset-2 text-center">
+                <button class="btn-fridging-blue">{{'Enregistrer'|trans}}</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
