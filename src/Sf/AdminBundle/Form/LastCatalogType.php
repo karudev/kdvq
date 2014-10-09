@@ -17,10 +17,10 @@ class LastCatalogType extends AbstractType
     {
         $builder
             
-            ->add('picture','file',array('required' => false))
+          //  ->add('picture','file',array('required' => false))
             ->add('file','file',array('required' => false))
-            ->add('title')
-            ->add('text','textarea', array('required' => false))
+          //  ->add('title')
+         //   ->add('text','textarea', array('required' => false))
            ;
 
           

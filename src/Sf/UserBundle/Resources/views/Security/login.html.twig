@@ -13,35 +13,17 @@
         {% endif %}
         <div class="col-md-8 col-md-offset-2">
             <h3>{{ 'Déja inscrit - Se connecter'|upper|trans }}</h3>
-            <div class="col-md-4 col-md-offset-4">
-                <form action="{{ path("fos_user_security_check") }}" method="post" >
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    <div class="form-group">
-                        <label class="control-label" for="username">{{ 'Email'|trans }}</label>
-                        <input  type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="password">{{ 'Mot de passe'|trans }}</label>
-                        <input  type="password" id="password" name="_password" required="required" />
-                    </div>
-                    <div class="text-right">
-                        <a href="{{ path('fos_user_resetting_request') }}">{{ 'Mot de passe oublié'|trans }}</a>
-                    </div>
-                    <div><button class="submit" type="submit" id="_submit" name="_submit" >{{ 'Valider'|trans }}</button>
-                    </div>
-                </form>
+            <div class="col-md-8 col-md-offset-2">
+               {{render(controller('SfUserBundle:User:formLogin'))}}
             </div>
         </div>
         
             <div style="margin-top: 50px" class="col-md-8 col-md-offset-2">
                 <h3>{{ 'Nouvelle Inscription'|upper|trans }}</h3>
-                <div id="registration" class="col-md-4 col-md-offset-4">
+                <div id="registration" class="col-md-8 col-md-offset-2">
                     {{render(controller('SfUserBundle:User:registration'))}}
                 </div>
             </div>
       
     </div> 
-{% endblock %}
-{% block js %}
-    <script src="{{asset('bundles/sfuser/js/login.js')}}?v={{version}}"></script>
 {% endblock %}

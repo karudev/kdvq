@@ -7,6 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Translatable\Translatable;
 use Symfony\Component\Filesystem\Filesystem;
+use Sf\AdminBundle\Service\FileManager;
 
 /**
  * Press
@@ -41,19 +42,20 @@ class Press implements Translatable
      */
     private $parutionSubtitle;
     
-    /**
-     * @var string
-     * @Gedmo\Translatable
-     * @ORM\Column(name="title", type="string", length=128)
-     */
-    private $title;
+   
     
      /**
-     * @var string
-     * @Gedmo\Translatable
-     * @ORM\Column(name="text", type="string")
+     *
+     * @Assert\Image(maxSize="6000000")
      */
-    private $text;
+    private $hdPicture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hd_picture_url", type="string", length=128, nullable=true)
+     */
+    private $hdPictureUrl;
     
      /**
      *
@@ -102,12 +104,7 @@ class Press implements Translatable
      */
     private $updatedAt;
     
-    /**
-     *
-     *  @ORM\ManyToOne(targetEntity="Brand" )
-     */
-    private $brand;
-    
+  
     
     
      /**
@@ -149,33 +146,35 @@ class Press implements Translatable
         return $this->active;
     }
     
-     /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
+    
     public function preUpload()
     {
+        if($this->id != null)
+            $this->removeUpload();
+        
         if (null !== $this->mainPicture) {
             $this->mainPictureUrl = uniqid() . '.' . $this->mainPicture->guessExtension();
+            $this->hdPictureUrl  = 'hd_'.$this->mainPictureUrl;
         }
         if (null !== $this->secondPicture) {
             $this->secondPictureUrl = uniqid() . '.' . $this->secondPicture->guessExtension();
         }
     }
     
-    /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
-     */
+   
     public function upload()
     {   
       
         if ($this->mainPicture != null) {
-            $this->mainPicture->move($this->getUploadRootDir(), $this->mainPictureUrl);
+            $ext = $this->mainPicture->guessExtension(); 
+            $this->mainPicture->move($this->getUploadRootDir(), $this->hdPictureUrl);
+             FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, null,517,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
             unset($this->mainPicture);
         }
         if ($this->secondPicture != null) {
+              $ext = $this->secondPicture->guessExtension(); 
             $this->secondPicture->move($this->getUploadRootDir(), $this->secondPictureUrl);
+             FileManager::resize($this->getUploadRootDir().'/'.$this->secondPictureUrl,$ext, null,113);
             unset($this->secondPicture);
         }
     }
@@ -187,11 +186,15 @@ class Press implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
-            unlink($this->mainPicture);
+        if ($this->mainPictureUrl != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
+            unlink($this->getAbsolutePath($this->mainPictureUrl));
         }
-        if ($fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
-            unlink($this->secondPicture);
+         if ($this->hdPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
+            unlink($this->getAbsolutePath($this->hdPictureUrl));
+        }
+        
+        if ($this->secondPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
+            unlink($this->getAbsolutePath($this->secondPictureUrl));
         }
        
     }
@@ -214,6 +217,26 @@ class Press implements Translatable
     protected function getUploadDir()
     {
         return 'uploads/press';
+    }
+    
+       /**
+     * Set hdPicture
+     *
+     * @param object $hdPicture
+     */
+    public function setHdPicture($hdPicture)
+    {
+        $this->hdPicture = $hdPicture;
+    }
+
+    /**
+     * Get hdPicture
+     *
+     * @return object
+     */
+    public function getHdPicture()
+    {
+        return $this->hdPicture;
     }
     
      /**
@@ -314,51 +337,7 @@ class Press implements Translatable
         return $this->parutionSubtitle;
     }
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Press
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set text
-     *
-     * @param string $text
-     * @return Press
-     */
-    public function setText($text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * Get text
-     *
-     * @return string 
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
+    
 
     /**
      * Set mainPictureUrl
@@ -452,26 +431,28 @@ class Press implements Translatable
         return $this->updatedAt;
     }
 
+    
+
     /**
-     * Set brand
+     * Set hdPictureUrl
      *
-     * @param \Sf\AdminBundle\Entity\Brand $brand
+     * @param string $hdPictureUrl
      * @return Press
      */
-    public function setBrand(\Sf\AdminBundle\Entity\Brand $brand = null)
+    public function setHdPictureUrl($hdPictureUrl)
     {
-        $this->brand = $brand;
+        $this->hdPictureUrl = $hdPictureUrl;
 
         return $this;
     }
 
     /**
-     * Get brand
+     * Get hdPictureUrl
      *
-     * @return \Sf\AdminBundle\Entity\Brand 
+     * @return string 
      */
-    public function getBrand()
+    public function getHdPictureUrl()
     {
-        return $this->brand;
+        return $this->hdPictureUrl;
     }
 }

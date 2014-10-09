@@ -120,7 +120,7 @@ class TransactionController extends Controller {
          */
 
 
-        if (isset($_POST['fridging_command'])) {
+        if (isset($_POST['command'])) {
             $verified = true;
         } else {
             try {

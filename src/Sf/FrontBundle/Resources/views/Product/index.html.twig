@@ -8,9 +8,13 @@
 {% block body %}
   <div class="container">
     <div class="col-sm-9 col-md-10">
-        <div class="product col-sm-12">
+        <div class="product ">
             <div class="min-border"></div>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br/>Ut anim ad minim veniam, quis nostrud exercitation simpson</h5>
+            <div class="col-md-8 col-md-offset-2">
+                <h5>{{intro.value is defined ? intro.value}}</h5>
+               
+            </div>
+                 <div class="clearfix" ></div>
             <div class="min-border"></div><br/><br/>
             <hr/>
             <a href="" title="">
@@ -22,22 +26,23 @@
             <hr/><br/>
 
             <!-- **** products **** -->
+         
             {% if products|length > 0 %}
                 {% for entity in products %}
                     <div class="art col-xs-12 col-sm-12 col-md-4">
                         {% if getStock(entity) > 0 %}
                             <a href="{{path('front_product',{'slug' : entity.slug})}}" title="">
-                                <img style="width:100%;max-width: 300px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
+                                <img style="width:90%" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
                             </a>
                         {% else %}
-                            <img style="width:100%;max-width: 300px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
+                            <img style="width:90%" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
                         {% endif %}
                         <div class="article-price">
                             <div class="border-price">
                                 <p class="price">{{ entity.priceTtc|number_format(2,',',' ') }} €</p>
                             </div>
                         </div>
-                        <h2>{{entity.name}}</h2><hr/>
+                                <h2>{{entity.name|truncate(20)}}</h2><hr/>
                         <h6>
                             {% if getStock(entity) > 0 %}
                                 Actuellement disponible
@@ -47,13 +52,13 @@
                         </h6>
                     </div>
                 {% endfor %}
+          
             {% else %}
                 <div class="alert alert-info">Aucun produit disponible pour cette catégorie</div>
             {% endif%}
-        </div>
+              </div>
+        
     </div>
   </div>
 {% endblock %}
-{% block js %}
 
-{% endblock %}

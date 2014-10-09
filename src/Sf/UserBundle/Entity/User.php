@@ -118,9 +118,7 @@ class User extends BaseUser {
             $label =  $this->firstname == null && $this->lastname == null ? $this->email : $this->firstname . ' ' . $this->lastname;
         }
         
-        if(strlen($label) > 17 ){
-            $label = substr($label,0, 17).'..';
-        }
+      
         return $label;
     }
 

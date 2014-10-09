@@ -83,6 +83,13 @@
     color: #cd0a0a !important;
 }
 
+.home-nav{
+    position: absolute;
+}
+.home-nav .sidebar-nav{
+    right: 0px;
+}
+
 @media (min-width: 768px) {
 	.navbar-default, .navbar-collapse{
 		border: none;

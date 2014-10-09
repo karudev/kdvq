@@ -1,5 +1,10 @@
-{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
 
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/login.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block title %}Qwinsport - Mot de passe oublié{% endblock %}
+ {% block bandeau %}{% endblock%}
 {% block body %}
     <div id="main-content" class="container">
         {% include "SfUserBundle:Resetting:request_content.html.twig" %}

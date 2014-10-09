@@ -10,6 +10,9 @@ class InvoiceController extends Controller {
 
   
     public function dowloadAction(Invoice $invoice) {
+        if($this->getUser()->hasRole('ROLE_ADMIN') == false && $this->getUser() != $invoice->getAccount()){
+           return $this->redirect($this->generateUrl('fos_user_security_logout'));
+        }
        
         require(__DIR__ . '/../Service/html2pdf/html2pdf.class.php');
 
@@ -29,7 +32,7 @@ class InvoiceController extends Controller {
         try {
             $html2pdf = new \HTML2PDF('P', 'A4', 'fr');
             $html2pdf->writeHTML($html);
-            $html2pdf->Output($invoice->getNumber() . '.pdf');
+            $html2pdf->Output('Facture_'.$invoice->getNumber() . '.pdf');
         } catch (HTML2PDF_exception $e) {
             echo $e;
             exit;

@@ -1,28 +1,58 @@
 {% extends 'SfFrontBundle::frontTemplate.html.twig' %}
-{% trans_default_domain 'SfFrontBundle' %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}  
 {% block ariane %}
-    <div class="container">
-        <div class="col-md-12 ariane">{{'Configuration du site'|trans|upper}}</div>
-    </div>
+   Configuration du site
+{% endblock %}
+{% block bandeauClass %}
+account
 {% endblock %}
 {% block body %}
     <div id="main-content" class="container">
         <form action="{{path('admin_config')}}" method="post">
+           
+             <div class="form-group col-md-8 col-md-offset-2">
+                  <h4>Générale</h4>
+             </div>
             <div class="form-group col-md-8 col-md-offset-2">
-                <div class="col-md-3"><label for="btoc">{{'Activer le mode BtoC'|trans}}</label></div>
-                <div class="col-md-3"><input {{btoc is not null and btoc.value == 1 ? 'checked' }} name="btoc" id="btoc" type="checkbox" value="1" /></div>
+                <div class="col-md-3"><label for="factory_email">Email de l'usine</label></div>
+                <div class="col-md-3"><input value="{{factory_email.value}}" name="factory_email" id="factory_email" type="email" required /></div>
             </div>
             <div class="form-group col-md-8 col-md-offset-2">
-                <div class="col-md-3"><label for="facebook">{{'Lien Facebook'|trans}}</label></div>
+                <div class="col-md-3"><label for="facebook">Lien Facebook</label></div>
                 <div class="col-md-3"><input value="{{facebook.value}}" name="facebook" id="facebook" type="url" required /></div>
             </div>
             <div class="form-group col-md-8 col-md-offset-2">
-                <div class="col-md-3"><label for="twitter">{{'Lien Twitter'|trans}}</label></div>
+                <div class="col-md-3"><label for="twitter">Lien Twitter</label></div>
                 <div class="col-md-3"><input value="{{twitter.value}}" name="twitter" id="twitter" type="url" required /></div>
             </div>
+             <div class="form-group col-md-8 col-md-offset-2">
+                <div class="col-md-3"><label for="google">Lien google plus</label></div>
+                <div class="col-md-3"><input value="{{google.value}}" name="google" id="google" type="url" required /></div>
+            </div>
+             <div class="form-group col-md-8 col-md-offset-2">
+                <h4>Page d'accueil</h4>
+                <div class="form-group col-md-12">
+                    <div class="col-md-3"><label for="home_title">Titre du texte</label></div>
+                    <div class="col-md-8"><input value="{{home_title.value}}" name="home_title" id="home_title" type="text" required /></div>
+                </div>
+                <div class="form-group col-md-12">
+                <div class="col-md-3"><label for="home_text">Texte</label></div>
+                <div class="col-md-8"><textarea name="home_text" rows="6" id="home_text">{{home_text.value}}</textarea></div>
+                 </div>
+            </div>
+            <div class="form-group col-md-8 col-md-offset-2">
+                <h4>Page produits</h4>
+                <div class="form-group col-md-12">
+                <div class="col-md-3"><label for="products_intro">Introduction</label></div>
+                <div class="col-md-8"><input value="{{products_intro.value}}" name="products_intro" id="products_intro" type="text" /></div>
+                 </div>
+            </div>
+                 
             <div class="clearfix"></div>
             <div style="margin-top: 20px" class="form-group col-md-8 col-md-offset-2 text-center">
-                <button class="btn-fridging-blue">{{'Enregistrer'|trans}}</button>
+                <button class="submit">Enregistrer</button>
             </div>
         </form>
     </div>

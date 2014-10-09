@@ -1,136 +1,65 @@
 {% extends "SfFrontBundle::frontTemplate.html.twig" %}
 {% block ariane %}
-   Actualités
+    Actualités
 {% endblock %}
 {% block bandeauClass %}
-   actus
+    actus
 {% endblock %}
 {% block css %}
-     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
 {% block title %}Qwinsport - Actus{% endblock %}
 {% block body %}
 
     <div id="main-content" class="container">
-       <div class="col-sm-9 col-md-10">
-					
-					<div class="product actualite col-sm-12">
-						<a href="">
-							<div class="tri-month active">Sept</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Aout</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Juil</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Juin</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Mai</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Avr</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Mars</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Fev</div>
-						</a>
-						<a href="">
-							<div class="tri-month">Janv</div>
-						</a>
-						<select>
-							<option>2014</option>
-							<option>2013</option>
-							<option>2012</option>
-						</select>
-						
-						<div class="article">
-							<div class="col-md-6">
-								<img class="full" src="{{asset('bundles/sffront/images/actus/actu_cover.png')}}" alt="">
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-								<img class="full" src="{{asset('bundles/sffront/images/actus/actu_cover.png')}}" alt="">
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-								<img class="full" src="{{asset('bundles/sffront/images/actus/actu_cover.png')}}" alt="">
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-							</div>
-							<div class="col-md-6">
-								<img class="full" src="{{asset('bundles/sffront/images/actus/actu_cover.png')}}" alt="">
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-								<img class="full" src="{{asset('bundles/sffront/images/actus/actu_cover.png')}}" alt="">
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-								<img class="full" src="{{asset('bundles/sffront/images/actus/actu_cover.png')}}" alt="">
-								<h2>Le foot à l'honneur</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ante erat.
-								Phasellus facilisis aliquam convallis. Ut euismod, ante sed egestas efficitur,
-								massa lorem condimentum lorem, dignissim consequat eros dolor eget turpis. Sed
-								vel faucibus tortor. Nulla malesuada et odio vitae egestas. Maecenas augue augue
-								porta sed magna eu, commodo tincidunt dui. Donec non mattis neque.</p>
-								<p class="date">22.09.2014</p>
-								<p class="lire-plus"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></p><hr/>
-							</div>
-						</div>
-					</div>
-				</div>
-</div>
+        <div class="col-sm-9 col-md-10">
+
+            <div class="product actualite col-sm-12 text-right">
+               {# <a href="">
+                    <div class="tri-month active">Sept</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Aout</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Juil</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Juin</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Mai</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Avr</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Mars</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Fev</div>
+                </a>
+                <a href="">
+                    <div class="tri-month">Janv</div>
+                </a>#}
+                <select  id="date"  class="date" style="width:70px;padding:2px">
+                    {% for d in dates %}
+                <option>{{d['year']}}</option>
+                {% endfor %}
+                </select>
+              
+
+               
+            </div>
+             <div id="grid" class="product actualite article-actus text-left">
+                    {{render(controller('SfFrontBundle:Actuality:show'))}} 
+                </div>
+        </div>
+    </div>
 
 {% endblock %}
 {% block js %}
-    {#<script src="{{asset('bundles/sffront/js/mansory/jquery.masonry.min.js')}}"></script>
-    <script src="{{asset('bundles/sffront/js/actuality.js')}}?v={{version}}"></script>#}
+    <script src="{{asset('bundles/sffront/js/mansory/jquery.masonry.min.js')}}"></script>
+    <script src="{{asset('bundles/sffront/js/actuality.js')}}?v={{version}}"></script>
 {% endblock %}
 

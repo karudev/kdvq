@@ -11,7 +11,7 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
     mailer_admin: ~
-    mailer_name: 'Fridging'
+    mailer_name: 'La Société'
     paypal_email: drenault971@gmail.com
     colisposte_url: https://www.coliposte.net/pro/services/main.jsp?m=12003010&colispro=@
 

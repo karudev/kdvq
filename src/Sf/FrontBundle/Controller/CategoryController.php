@@ -15,8 +15,9 @@ class CategoryController extends Controller
      * @Template()
      */
     public function indexAction($slug) {
-        
-        return array('categorie' => $slug);
+        $em = $this->getDoctrine()->getManager();
+        $catalog = $em->getRepository("SfAdminBundle:LastCatalog")->findOneBy(array('type' => 'club'),array('id'=>'desc'));
+        return array('categorie' => $slug,'catalog'=>$catalog);
     }
 
 }

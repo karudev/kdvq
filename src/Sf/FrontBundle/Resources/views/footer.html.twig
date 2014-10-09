@@ -1,44 +1,50 @@
 <div class="clearfix"></div>
 <footer>
-            <div class="row">
-                <div class="hidden-xs col-sm-1"></div>
-                <div class="col-xs-6 col-sm-2 cat_">
-                    <h4>Produits</h4>
-                    <a href="" title="">Femme</a>
-                    <a href="" title="">Arbitre</a>
-                    <a href="" title="">Fille</a>
-                    <a href="" title="">Personnaliser</a>
-                </div>
-                <div class="col-xs-6 col-sm-2 cat_">
-                    <h4>Communications</h4>
-                    <a href="{{path('front_actus')}}" title="">Actus</a>
-                    <a href="{{path('front_partners')}}" title="">Clubs</a>
-                    <a href="{{path('front_press')}}" title="">Presse</a>
-                    <a href="{{path('front_partners')}}" title="">Partenaires</a>
-                </div>
-                <div class="hidden-xs col-sm-2 cat-logo">
-                    <a href="{{path('front_home')}}"><img src="{{asset('bundles/sffront/images/logo_footer.png')}}" alt=""></a>
-                    <a href="{{path('front_brand')}}" title="">A propos de la marque</a>
-                </div>
-                <div class="col-xs-6 col-sm-2 cat_">
-                    <h4>Informations</h4>
-                    <a href="" title="">Mon compte</a>
-                    <a href="" title="{{path('front_contact')}}">Contact</a>
-                    <a href="" title="">Mentions légales</a>
-                    <a href="" title="">Plan du site</a>
-                </div>
-                <div class="col-xs-6 col-sm-2">
-                    <h4>Suivez-nous</h4><br/>
-                    <a href="" title="">
-                        <div class="ico_social_f"></div>
-                    </a>
-                    <a href="" title="">
-                        <div class="ico_social_t"></div>
-                    </a>
-                    <a href="" title="">
-                        <div class="ico_social_g"></div>
-                    </a>
-                </div>
-                <div class="hidden-xs col-sm-1"></div>
-            </div>
-        </footer>
+    <div class="row">
+        <div class="hidden-xs col-sm-1"></div>
+        <div class="col-xs-6 col-sm-2 cat_">
+            <h4>Produits</h4>
+            {% for c in categories %}
+            <a href="{{path('front_category',{slug:c.slug})}}" title="">{{c.name}}</a>
+            {% endfor %}
+            <a href="" title="">Personnaliser</a>
+        </div>
+        <div class="col-xs-6 col-sm-2 cat_">
+            <h4>Communications</h4>
+            <a href="{{path('front_actus')}}" title="">Actus</a>
+            <a href="{{path('front_partners')}}" title="">Clubs</a>
+            <a href="{{path('front_press')}}" title="">Presse</a>
+            <a href="{{path('front_partners')}}" title="">Partenaires</a>
+        </div>
+        <div class="hidden-xs col-sm-2 cat-logo">
+            <a href="{{path('front_home')}}"><img src="{{asset('bundles/sffront/images/logo_footer.png')}}" alt=""></a>
+            <a href="{{path('front_brand')}}" title="">A propos de la marque</a>
+        </div>
+        <div class="col-xs-6 col-sm-2 cat_">
+            <h4>Informations</h4>
+            <a href="{{path('account')}}" title="">Mon compte</a>
+            <a href="{{path('front_contact')}}" title="">Contact</a>
+            <a href="{{path('front_legals')}}" title="">Mentions légales</a>
+            <a href="" title="">Plan du site</a>
+        </div>
+        <div class="col-xs-6 col-sm-2">
+            <h4>Suivez-nous</h4><br/>
+            {% if facebook.value is defined %}
+                <a target="_blank" href="{{facebook.value}}" title="">
+                    <div class="ico_social_f"></div>
+                </a>
+            {% endif %}
+            {% if twitter.value is defined %}
+                <a target="_blank" href="{{twitter.value}}" title="">
+                    <div class="ico_social_t"></div>
+                </a>
+            {% endif %}
+            {% if google.value is defined %}
+                <a target="_blank" href="{{google.value}}" title="">
+                    <div class="ico_social_g"></div>
+                </a>
+            {% endif %}
+        </div>
+        <div class="hidden-xs col-sm-1"></div>
+    </div>
+</footer>

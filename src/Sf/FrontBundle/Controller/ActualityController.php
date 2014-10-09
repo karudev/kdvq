@@ -15,16 +15,16 @@ class ActualityController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        /* $em = $this->get('doctrine')->getManager();
+         $em = $this->get('doctrine')->getManager();
          $dates = $em->getRepository('SfAdminBundle:Actuality')->getDates();
     
-        return array('dates' => $dates);*/
-        return array();
+        return array('dates' => $dates);
+      
     }
     
      /**
      *
-     * 
+     *  @Route("/actus/show/{year}",name="front_actus_show", options = {"expose" = true})
      * @Template()
      */
     public function showAction(Request $request, $year = null) {

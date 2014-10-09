@@ -88,21 +88,24 @@ class OrderController extends Controller {
 
                     $order->addOrderStatus($os);
 
+                    if ($s == "envoyee") {
+                        # Send mail after have to change ther order informations
+                        $this->get('sf_user.mail_helper')->changeOrder($order);
+                        $order->setStatus('Completed');
+                        $em->persist($order);
+                        $em->flush();
+
+                        # generate the invoice
+                        $this->get('invoice')->create($order);
+                    }
+
                     $em->persist($order);
                 }
 
                 $em->flush();
 
-                if ($key == 3) {
-                    $order->setStatus('Completed');
-                    $em->persist($order);
-                    $em->flush();
-                    # Send mail after have to change ther order informations
-                    $this->get('sf_user.mail_helper')->changeOrder($order);
 
-                    # generate the invoice
-                    $this->get('invoice')->create($order);
-                }
+
 
 
                 return new JsonResponse(array(
@@ -156,40 +159,40 @@ class OrderController extends Controller {
     public function loadShoppingCartAction(Request $request, Order $order) {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('SfAdminBundle:ShoppingCart')->findBy(array('order' => $order->getId()));
-        
+
         // $data = $request->getSession()->get('products');
         // \Doctrine\Common\Util\Debug::dump($entity); die();
-        
-          
-       
-            
-            
-         
+
+
+
+
+
+
         if ($entity) {
-            
+
             $this->get('shoppingcart')->reset();
             $products = array();
-            
-            foreach ($entity as $key =>  $value) {
-                if($value->getProduct()->getSlug()!=null){
-                
-                   
-                    
-                $params = array(
-                    'quantity' => $value->getQuantity(),
-                    'color' => $value->getColor(),
-                    'material' => $value->getMaterial(),
-                    'size' => $value->getSize()
-                    ) ;
-                
-                $stock = $em->getRepository('SfAdminBundle:ProductModel')->getStockByCriterion($value->getProduct(), $params);
-                
-                if($stock < $value->getQuantity() ){
-                     $products[$key]['quantity'] = $stock;
-                }else{
-                     $products[$key]['quantity'] = $value->getQuantity();
-                }
-                   
+
+            foreach ($entity as $key => $value) {
+                if ($value->getProduct()->getSlug() != null) {
+
+
+
+                    $params = array(
+                        'quantity' => $value->getQuantity(),
+                        'color' => $value->getColor(),
+                        'material' => $value->getMaterial(),
+                        'size' => $value->getSize()
+                            );
+
+                    $stock = $em->getRepository('SfAdminBundle:ProductModel')->getStockByCriterion($value->getProduct(), $params);
+
+                    if ($stock < $value->getQuantity()) {
+                        $products[$key]['quantity'] = $stock;
+                    } else {
+                        $products[$key]['quantity'] = $value->getQuantity();
+                    }
+
                     $products[$key]['color'] = $value->getColor();
                     $products[$key]['material'] = $value->getMaterial();
                     $products[$key]['size'] = $value->getSize();
@@ -199,9 +202,9 @@ class OrderController extends Controller {
 
             $request->getSession()->set('products', $products);
         }
-        $message =  $this->get('translator')->trans('Votre panier a été mise à jour',array(),'SfFrontBundle');
-        
-        return new JsonResponse(array('success' => true,'message' => $message));
+        $message = $this->get('translator')->trans('Votre panier a été mise à jour', array(), 'SfFrontBundle');
+
+        return new JsonResponse(array('success' => true, 'message' => $message));
     }
 
 }

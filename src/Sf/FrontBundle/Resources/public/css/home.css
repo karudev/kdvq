@@ -1,0 +1,15 @@
+
+.bg1{
+	background-image: url('../images/bg/big_fond1.jpg');
+        background-size: 100%;
+	background-repeat: no-repeat;
+	height: 681px;
+	
+}
+.bg2{
+	background-image: url('../images/bg/big_fond2.jpg');
+        background-size: 100%;
+	background-repeat: no-repeat;
+	height: 681px;
+	
+}

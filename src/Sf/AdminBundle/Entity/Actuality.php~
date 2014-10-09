@@ -34,20 +34,16 @@ class Actuality implements Translatable
      * @ORM\Column(name="title", type="string", length=128)
      */
     private $title;
-
+    
     /**
      * @var string
      * @Gedmo\Translatable
-     * @ORM\Column(name="subtitle", type="string", length=128, nullable=true)
-     */
-    private $subTitle;
-
-    /**
-     * @var string
-     * @Gedmo\Translatable
-     * @ORM\Column(name="link", type="string", length=128, nullable=true)
+     * @ORM\Column(name="link", type="string", length=128)
      */
     private $link;
+
+   
+   
     
      /**
      * @var string
@@ -68,6 +64,19 @@ class Actuality implements Translatable
      * @ORM\Column(name="picture_url", type="string", length=128, nullable=true)
      */
     private $pictureUrl;
+    
+     /**
+     *
+     * @Assert\Image(maxSize="6000000")
+     */
+    private $pictureHome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture_home_url", type="string", length=128, nullable=true)
+     */
+    private $pictureHomeUrl;
 
     
      /**
@@ -76,26 +85,16 @@ class Actuality implements Translatable
      */
     private $active = true;
     
-     /**
-     * @var string
-     * @ORM\Column(name="text_color", type="string")
-     */
-    private $textColor = 'normal';
-    
-    
-    
-     /**
+    /**
      * @var boolean
-     * @ORM\Column(name="is_background", type="boolean", nullable = true)
+     * @ORM\Column(name="in_home", type="boolean")
      */
-    private $isBackground = false;
+    private $inHome = false;
     
-     /**
-     * @var boolean
-     * @ORM\Column(name="show_date", type="boolean", nullable = true)
-     */
-    private $showDate = true;
     
+   
+    
+  
     
     
      /**
@@ -147,8 +146,14 @@ class Actuality implements Translatable
   
     public function preUpload()
     {
+        if($this->id == null){
+            $this->removeUpload();
+        }
         if (null !== $this->picture) {
             $this->pictureUrl = uniqid() . '.' . $this->picture->guessExtension();
+        }
+         if (null !== $this->pictureHome) {
+            $this->pictureHomeUrl = uniqid() . '.' . $this->pictureHome->guessExtension();
         }
     }
     
@@ -162,6 +167,13 @@ class Actuality implements Translatable
             FileManager::resize($this->getUploadRootDir().'/'.$this->pictureUrl,$ext, null,330);
             unset($this->picture);
         }
+        
+         if ($this->pictureHome != null) {
+            $ext = $this->pictureHome->guessExtension();
+            $this->pictureHome->move($this->getUploadRootDir(), $this->pictureHomeUrl);
+            
+            unset($this->pictureHome);
+        }
     }
     
     /**
@@ -172,7 +184,10 @@ class Actuality implements Translatable
 
         $fs = new Filesystem();
         if ($fs->exists($this->getAbsolutePath($this->pictureUrl))) {
-            unlink($this->picture);
+            unlink($this->getAbsolutePath($this->pictureUrl));
+        }
+        if ($fs->exists($this->getAbsolutePath($this->pictureHomeUrl))) {
+            unlink($this->getAbsolutePath($this->pictureHomeUrl));
         }
        
     }
@@ -217,6 +232,25 @@ class Actuality implements Translatable
         return $this->picture;
     }
 
+      /**
+     * Set pictureHome
+     *
+     * @param object $pictureHome
+     */
+    public function setPictureHome($pictureHome)
+    {
+        $this->pictureHome = $pictureHome;
+    }
+
+    /**
+     * Get pictureHome
+     *
+     * @return object
+     */
+    public function getPictureHome()
+    {
+        return $this->pictureHome;
+    }
 
 
     /**
@@ -252,52 +286,9 @@ class Actuality implements Translatable
         return $this->title;
     }
 
-    /**
-     * Set subTitle
-     *
-     * @param string $subTitle
-     * @return Actuality
-     */
-    public function setSubTitle($subTitle)
-    {
-        $this->subTitle = $subTitle;
+   
 
-        return $this;
-    }
-
-    /**
-     * Get subTitle
-     *
-     * @return string 
-     */
-    public function getSubTitle()
-    {
-        return $this->subTitle;
-    }
-
-    /**
-     * Set link
-     *
-     * @param string $link
-     * @return Actuality
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-
-        return $this;
-    }
-
-    /**
-     * Get link
-     *
-     * @return string 
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
+   
     /**
      * Set text
      *
@@ -367,51 +358,9 @@ class Actuality implements Translatable
         return $this->active;
     }
 
-    /**
-     * Set textColor
-     *
-     * @param string $textColor
-     * @return Actuality
-     */
-    public function setTextColor($textColor)
-    {
-        $this->textColor = $textColor;
+  
 
-        return $this;
-    }
-
-    /**
-     * Get textColor
-     *
-     * @return string 
-     */
-    public function getTextColor()
-    {
-        return $this->textColor;
-    }
-
-    /**
-     * Set isBackground
-     *
-     * @param boolean $isBackground
-     * @return Actuality
-     */
-    public function setIsBackground($isBackground)
-    {
-        $this->isBackground = $isBackground;
-
-        return $this;
-    }
-
-    /**
-     * Get isBackground
-     *
-     * @return boolean 
-     */
-    public function getIsBackground()
-    {
-        return $this->isBackground;
-    }
+    
 
     /**
      * Set createdAt
@@ -482,29 +431,7 @@ class Actuality implements Translatable
         return $this->date;
     }
 
-    /**
-     * Set showDate
-     *
-     * @param boolean $showDate
-     * @return Actuality
-     */
-    public function setShowDate($showDate)
-    {
-        $this->showDate = $showDate;
-
-        return $this;
-    }
-
-    /**
-     * Get showDate
-     *
-     * @return boolean 
-     */
-    public function getShowDate()
-    {
-        return $this->showDate;
-    }
-
+   
     /**
      * Set year
      *
@@ -526,5 +453,74 @@ class Actuality implements Translatable
     public function getYear()
     {
         return $this->year;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return Actuality
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string 
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set pictureHomeUrl
+     *
+     * @param string $pictureHomeUrl
+     * @return Actuality
+     */
+    public function setPictureHomeUrl($pictureHomeUrl)
+    {
+        $this->pictureHomeUrl = $pictureHomeUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureHomeUrl
+     *
+     * @return string 
+     */
+    public function getPictureHomeUrl()
+    {
+        return $this->pictureHomeUrl;
+    }
+
+    /**
+     * Set inHome
+     *
+     * @param boolean $inHome
+     * @return Actuality
+     */
+    public function setInHome($inHome)
+    {
+        $this->inHome = $inHome;
+
+        return $this;
+    }
+
+    /**
+     * Get inHome
+     *
+     * @return boolean 
+     */
+    public function getInHome()
+    {
+        return $this->inHome;
     }
 }

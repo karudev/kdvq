@@ -7,7 +7,9 @@
 body{
 	background-color: #F7F9F8;
 }
-
+a:focus,a:hover,a:active{
+    outline: none;
+}
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
 .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
 .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
@@ -140,12 +142,6 @@ a:hover, a:focus{
 
 /**** Main bloc ****/
 
-.main{
-	background-image: url('../images/bg/big_fond2.jpg');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	height: 681px;
-}
 
 .content{margin-top: 36px;}
 
@@ -366,12 +362,13 @@ p.actu-content{
 	margin-bottom: 20px;
 }
 
-.actu-info{
+.actu-info,.actu-bloc-news h3{
 	margin-bottom: 15px;
+        padding: 20px;
 }
 
 .actu-bloc-news{
-	padding: 20px;
+	//padding: 20px;
 }
 
 .bg_footer{
@@ -381,6 +378,7 @@ p.actu-content{
 	background-repeat: no-repeat;
 	bottom: -80px;
 	position: absolute;
+        background-size: cover;
 	z-index: -1;
 }
 
@@ -431,11 +429,12 @@ p.actu-content{
 .actualite p.date{
 	font-weight: bold;
 	font-family: 'DINProBlack', sans-serif;
+        margin-top: 10px;
 }
 
 .press{
 	text-align: left;
-	margin-top: -30px !important;
+	//margin-top: -30px !important;
 }
 
 .press h5{
@@ -505,9 +504,9 @@ button.submit:hover{
 }
 
 #main-content{
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
-    min-height: 300px;
+    min-height: 400px;
 }
 .label-success{
     background-color: #5cb85c !important;
@@ -522,6 +521,9 @@ button.submit:hover{
     color :#5cb85c;
 }
 
+.shop-bloc .bord{
+    border: 1px solid #666;
+}
 
 
 @media (min-width: 768px) {
@@ -557,6 +559,7 @@ button.submit:hover{
 	}
 	.header-account{
 		float: right;
+                margin-right: 15px;
 	}
 }
 
@@ -568,7 +571,7 @@ button.submit:hover{
 
 @media (max-width: 768px){
 	.main{
-		height: 400px;
+		height: 450px;
 	}
 	.sidebar-nav{
 		padding-left: 15px;
@@ -577,15 +580,19 @@ button.submit:hover{
 	.brand-details {
 	padding: 20px 0px !important;
 	}
+        .actu-info, .actu-bloc-news h3{
+            margin-top: 0px;
+        }
 }
 
 @media (min-width: 768px) and (max-width: 992px){
 	.main-logo{
 		margin-left: 20px;
+                margin-top: 5px;
 	}
-	.main{
+	/*.main{
 		height: 450px;
-	}
+	}*/
 	.inline-block{
 		display: inline-block;
 	}
@@ -602,10 +609,19 @@ button.submit:hover{
 		z-index: -1;
 	}
 }
-
-@media (min-width: 992px) and (max-width: 1200px){
+@media (min-width: 1188px) and (max-width: 1290px){
 	.main{
-		height: 600px;
+		height:800px;
+	}
+}
+@media (min-width: 1291px) and (max-width: 1684px){
+	.main{
+		height:1000px;
+	}
+}
+@media (min-width: 1685px){
+	.main{
+		height:1200px;
 	}
 }
 

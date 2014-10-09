@@ -4,7 +4,7 @@ namespace Sf\AdminBundle\Service;
 
 class FileManager {
 
-    public static function resize($filename, $extension, $newHeight = null, $newWidth = null) {
+    public static function resize($filename, $extension, $newHeight = null, $newWidth = null,$newFilename = null) {
 
 // Calcul des nouvelles dimensions
         list($width, $height) = getimagesize($filename);
@@ -41,6 +41,10 @@ class FileManager {
 
 // Affichage
 
+        if($newFilename != null)
+           $filename =  $newFilename;
+        
+        
         if ($extension == 'png') {
             return imagepng($thumb, $filename, 9);
         } elseif ($extension == 'jpeg' || $extension == 'jpg') {

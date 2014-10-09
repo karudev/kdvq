@@ -27,33 +27,7 @@ class LastCatalog implements Translatable
      */
     private $id;
 
-    /**
-     * @var string
-     * @Gedmo\Translatable
-     * @ORM\Column(name="title", type="string", length=128)
-     */
-    private $title;
-
     
-     /**
-     * @var string
-     * @Gedmo\Translatable
-     * @ORM\Column(name="text", type="string")
-     */
-    private $text;
-    
-     /**
-     *
-     * @Assert\Image(maxSize="6000000")
-     */
-    private $picture;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="picture_url", type="string", length=128, nullable=true)
-     */
-    private $pictureUrl;
     
      /**
      *
@@ -70,87 +44,15 @@ class LastCatalog implements Translatable
 
     
     
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=64)
+     */
+    private $type;
+  
     
-    
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return LastCatalog
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set text
-     *
-     * @param string $text
-     * @return LastCatalog
-     */
-    public function setText($text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * Get text
-     *
-     * @return string 
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * Set pictureUrl
-     *
-     * @param string $pictureUrl
-     * @return LastCatalog
-     */
-    public function setPictureUrl($pictureUrl)
-    {
-        $this->pictureUrl = $pictureUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get pictureUrl
-     *
-     * @return string 
-     */
-    public function getPictureUrl()
-    {
-        return $this->pictureUrl;
-    }
 
     /**
      * Set fileUrl
@@ -175,31 +77,20 @@ class LastCatalog implements Translatable
         return $this->fileUrl;
     }
     
-     /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
+   
     public function preUpload()
     {
-        if (null !== $this->picture) {
-            $this->pictureUrl = uniqid() . '.' . $this->picture->guessExtension();
-        }
+        
         if (null !== $this->file) {
             $this->fileUrl = uniqid() . '.' . $this->file->guessExtension();
         }
     }
     
-    /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
-     */
+  
     public function upload()
     {   
       
-        if ($this->picture != null) {
-            $this->picture->move($this->getUploadRootDir(), $this->pictureUrl);
-            unset($this->picture);
-        }
+  
         if ($this->file != null) {
             $this->file->move($this->getUploadRootDir(), $this->fileUrl);
             unset($this->file);
@@ -213,9 +104,7 @@ class LastCatalog implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($fs->exists($this->getAbsolutePath($this->pictureUrl))) {
-            unlink($this->picture);
-        }
+       
         if ($fs->exists($this->getAbsolutePath($this->fileUrl))) {
             unlink($this->file);
         }
@@ -240,25 +129,7 @@ class LastCatalog implements Translatable
     {
         return 'uploads/catalogs';
     }
-     /**
-     * Set picture
-     *
-     * @param object $picture
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-    }
-
-    /**
-     * Get picture
-     *
-     * @return object
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
+     
     
       /**
      * Set file
@@ -278,5 +149,38 @@ class LastCatalog implements Translatable
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return LastCatalog
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

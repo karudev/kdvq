@@ -19,10 +19,11 @@ class ProductController extends Controller {
     public function indexAction($categorySlug) {
 
         $em = $this->getDoctrine()->getManager();
+        $products_intro = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'products_intro'));
         $category = $em->getRepository('SfAdminBundle:Category')->findOneBySlug($categorySlug);
         $products = $em->getRepository('SfAdminBundle:Product')->findBy(
                 array('category' => $category->getId()), array('updatedAt' => 'desc'));
-        return array('products' => $products, 'category' => $category
+        return array('products' => $products, 'category' => $category,'intro' =>  $products_intro
         );
     }
 

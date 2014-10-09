@@ -6,6 +6,9 @@
 {% block ariane %}
 {{title}}
 {% endblock %}
+{% block bandeauClass %}
+account
+{% endblock %}
 {% block body %}
     <div id="main-content" class="container" >
 
@@ -15,15 +18,16 @@
 
     <div class="row">
         <div class="col-md-6">
-        
+            <div class="col-md-6">  {{ form_row(form.active) }}</div>
+            <div class="col-md-6">  {{ form_row(form.inHome) }}</div>
            
-             {{ form_label(form.mainPicture) }}
+             {{ form_label(form.hdPicture) }}
             <br/>
-            {% if entity.mainPictureUrl is not null %}
-                <img height="250px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" />
+            {% if entity.hdPictureUrl is not null %}
+                <img height="250px" src="{{ asset(['/uploads/products/', entity.hdPictureUrl]|join) }}" />
             {% endif %}
-            {{ form_widget(form.mainPicture) }}
-            {{ form_errors(form.mainPicture) }}
+            {{ form_widget(form.hdPicture) }}
+            {{ form_errors(form.hdPicture) }}
             <br/>
            
 
@@ -31,7 +35,7 @@
             
             {{ form_row(form.category) }}
             {{ form_row(form.name) }}
-            {{ form_row(form.active) }}
+          
             {{ form_row(form.subTitle) }}
             {{ form_row(form.description) }}
             {{ form_row(form.details) }}

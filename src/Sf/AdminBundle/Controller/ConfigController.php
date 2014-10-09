@@ -22,14 +22,18 @@ class ConfigController extends Controller {
     public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
 
-        $btoc = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'btoc'));
+        $google = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'google'));
         $facebook = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'facebook'));
         $twitter = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'twitter'));
-        if (!$btoc) {
-            $btoc = new Config();
-            $btoc->setName('btoc');
-            $btoc->setValue(0);
-            $em->persist($btoc);
+        $factory_email = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'factory_email'));
+        $home_title = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_title'));
+        $home_text = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_text'));
+        $products_intro = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'products_intro'));
+        if (!$google) {
+            $google = new Config();
+            $google->setName('google');
+            $google->setValue('http://google.com');
+            $em->persist($google);
             $em->flush();
         }
         if (!$facebook) {
@@ -47,10 +51,41 @@ class ConfigController extends Controller {
             
         }
         
+        if (!$factory_email) {
+            $factory_email = new Config();
+            $factory_email->setName('factory_email');
+            $factory_email->setValue('renault@karudev.fr');
+            $em->persist($factory_email);
+            
+        }
+        if (!$home_title) {
+            $home_title = new Config();
+            $home_title->setName('home_title');
+            $home_title->setValue('Le Lorem Ipsum est simplement du faux texte employé');
+            $em->persist($home_title);
+            
+        }
+        
+        if (!$home_text) {
+            $home_text = new Config();
+            $home_text->setName('home_text');
+            $home_text->setValue('Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.');
+            $em->persist($home_text);
+            
+        }
+        
+        if (!$products_intro) {
+            $products_intro = new Config();
+            $products_intro->setName('products_intro');
+            $products_intro->setValue('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed Ut anim ad minim veniam, quis nostrud exercitation simpson');
+            $em->persist($products_intro);
+            
+        }
+        
         if ($request->getMethod() == 'POST') {
-            $btocValue = $request->get('btoc', 0);
-            $btoc->setValue($btocValue);
-            $em->persist($btoc);
+            $googleValue = $request->get('google', 0);
+            $google->setValue($googleValue);
+            $em->persist($google);
             
             $twitterValue = $request->get('twitter');
             $twitter->setValue($twitterValue);
@@ -59,15 +94,37 @@ class ConfigController extends Controller {
             $facebookValue = $request->get('facebook');
             $facebook->setValue($facebookValue);
             $em->persist($facebook);
+            
+            $factory_email_value = $request->get('factory_email');
+            $factory_email->setValue($factory_email_value);
+            $em->persist($factory_email);
+            
+            $home_title_value = $request->get('home_title');
+            $home_title->setValue($home_title_value);
+            $em->persist($home_title);
+            
+               
+            $home_text_value = $request->get('home_text');
+            $home_text->setValue($home_text_value);
+            $em->persist($home_text);
+            
+            $products_intro_value = $request->get('products_intro');
+            $products_intro->setValue($products_intro_value);
+            $em->persist($products_intro);
            
         }
         
         $em->flush();
-
+        
         return array(
-            'btoc' => $btoc,
+            'google' => $google,
             'facebook' => $facebook,
-            'twitter' => $twitter);
+            'twitter' => $twitter,
+            'factory_email' => $factory_email,
+            'home_title' => $home_title,
+            'home_text' => $home_text,
+            'products_intro' => $products_intro);
+
     }
 
 }

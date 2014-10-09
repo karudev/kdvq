@@ -1,8 +1,12 @@
 {% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}  
 {% block ariane %}
-    <div class="container">
-        <div class="col-md-12 ariane">{{'Mentions légales'|trans|upper}}</div>
-    </div>
+    MENTIONS LEGALES
+{% endblock %}
+{% block bandeauClass %}
+account
 {% endblock %}
 {% block body %}
     <div id="main-content" class="container">
@@ -11,7 +15,7 @@
         {{ form_start(form)}}
 
 
-        <div class="row">
+        <div class="row col-md-10">
             
             <div class="col-md-12">
                 {{ form_row(form.text) }}
@@ -21,7 +25,7 @@
         </div>
 
         <div class="row col-md-12">
-            <button class='btn-fridging-blue'>{{'Enregistrer'|trans}}</button>
+            <button class='submit'>Enregistrer</button>
 
 
         </div>

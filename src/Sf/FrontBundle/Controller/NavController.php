@@ -15,7 +15,10 @@ class NavController extends Controller {
 
         $em = $this->get('doctrine')->getManager();
         $categories = $em->getRepository('SfAdminBundle:Category')->findBy(array('active' => true, 'category' => null));
-        return array('categories' => $categories);
+        return array('categories' => $categories, 
+            '_route' => $request->attributes->get('_route')
+           
+        );
     }
 
 }

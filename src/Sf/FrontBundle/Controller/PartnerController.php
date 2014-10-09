@@ -14,15 +14,15 @@ class PartnerController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        /*$em = $this->get('doctrine')->getManager();
-        $entities = $em->getRepository('SfAdminBundle:AboutUs')->findBy(array('active' => true));
+        $em = $this->get('doctrine')->getManager();
+        
 
-        $aboutUs = null;
-        if (count($entities) > 0) {
-            $aboutUs = $entities[0];
-        }
-        return array('aboutUs' => $aboutUs);*/
-        return array();
+        $clubs = $em->getRepository("SfAdminBundle:Partner")->findBy(array('active' => true,'type'=>'club'),array('id'=>'desc'));
+        $partners = $em->getRepository("SfAdminBundle:Partner")->findBy(array('active' => true,'type'=>'partner'),array('id'=>'desc'));
+        $catalog = $em->getRepository("SfAdminBundle:LastCatalog")->findOneBy(array('type' => 'club'),array('id'=>'desc'));
+        
+        
+        return array('catalog' => $catalog,'clubs' => $clubs, 'partners' => $partners);
     }
 
 }

@@ -1,85 +1,113 @@
 {% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}  
 {% block ariane %}
-    <div class="container">
-        <div class="col-md-12 ariane">{{'LES MARQUES'|trans|upper}}</div>
-    </div>
+    LA MARQUE
+{% endblock %}
+{% block bandeauClass %}
+account
 {% endblock %}
 {% block body %}
-    <div id="main-content" class="container">
-        <div class="table-responsive">
-            <table class="table table-condensed table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th></th>
-                        
-                        <th>{{'Ref'|trans}}</th>
-                        <th>{{'Nom'|trans}}</th>
-                        <th>{{'Tva'|trans}}</th>
-                        <th>{{'Minimum de commande'|trans}}</th>
-                        <th>{{'Frais de port'|trans}}</th>
-                        <th>{{'Franco de port'|trans}}</th>
-                        <th>{{'Email'|trans}}</th>
-                        <th>{{'Langue'|trans}}</th>
-                        <th>{{'Actif ?'|trans}}</th>
-                        <th>{{'Actions'|trans}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for entity in entities %}
-                        <tr>
-                            <td>
-                                {% if entity.logoUrl is not null %}
-                                    <img style="max-width:70px"  src="{{ asset(['/uploads/brands/', entity.logoUrl]|join) }}" />
-                                {% endif %}
-                            </td>
-                            
-                            <td>{{ entity.reference }}</td>
-                            <td>{{ entity.name }}<br/>{{ entity.subTitle }}</td>
-                            <td class="text-right">
-                                {% if entity.tvaPercent is not null %}
-                                    {{ entity.tvaPercent }} %
-                                {% else %}
-                                    {{'Tva non applicable'|trans}}
-                                {% endif %}
-                            </td>
-                            <td class="text-right"><span class="btob">{{ entity.minOrderBtoB }} €</span> | <span class="btoc">{{ entity.minOrderBtoC }} €</span></td>
-                            <td class="text-right"><span class="btob">{{ entity.shippingBtoB }} {{ entity.shippingUnitBtoB }}</span> | <span class="btoc">{{ entity.shippingBtoC }} {{ entity.shippingUnitBtoC }}</span></td>
-                            <td class="text-right"><span class="btob">{{ entity.carriageBtoB }} €</span> | <span class="btoc">{{ entity.carriageBtoC }} €</span></td>
+    <div id="main-content"  class="container">
 
-                            <td>{{ entity.email }}</td>
-                            <td>{{ entity.lang }}</td>
-                            <td>
-                                <span class="glyphicon glyphicon-{% if  entity.active %}ok{% else %}ban{%endif%}-circle"></span>
-                            </td>
-                            <td>
-                                <a title="Ajouter les groupes de produits" href="{{ path('admin_group', { 'brand': entity.id }) }}"><span class="glyphicon glyphicon-folder-open"></span> </a>
-                                <a title="Modifier cette marque" href="{{ path('admin_brand_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-pencil"></span> </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+
+
+
+
+        <div class="row col-md-10">
+            {{ form_start(form)}}
+            <div class="product">
+               
+                <div class="article press">
+                     <div class="col-md-12">{{ form_row(form.active)}}</div>
+                    <div class="col-xs-12 col-md-3">
+                        {{ form_label(form.picture) }}
+                        <br/>
+                        {% if form.vars.data.pictureUrl is not null %}
+                            <img src="{{ asset(['/uploads/brand/', form.vars.data.pictureUrl]|join) }}" />
+                        {% endif %}
+                        {{ form_widget(form.picture) }}
+                        {{ form_errors(form.picture) }}
+                    </div>
+                    <div class="col-xs-12 col-md-9 brand-details">
+                     
+                        {{ form_label(form.textPicture) }}
+                        <br/>
+                        {% if form.vars.data.textPictureUrl is not null %}
+                            <img src="{{ asset(['/uploads/brand/', form.vars.data.textPictureUrl]|join) }}" />
+                        {% endif %}
+                        {{ form_widget(form.textPicture) }}
+                        {{ form_errors(form.textPicture) }}
+                        {{ form_row(form.title)}}
+                        {{ form_row(form.subtitle)}}
+                        {{ form_row(form.text)}}
+                    </div>
+                    <h3 class="big-title">
+                        Une production<br><span class="din-bold">made in france</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                    </h3><br/>
+                    <div class="col-md-12 text-center">
+                        {{ form_label(form.centerPicture) }}
+                        <br/>
+                        {% if form.vars.data.centerPictureUrl is not null %}
+                            <img src="{{ asset(['/uploads/brand/', form.vars.data.centerPictureUrl]|join) }}" />
+                        {% endif %}
+                        {{ form_widget(form.centerPicture) }}
+                        {{ form_errors(form.centerPicture) }}
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-2">
+                        <h3 class="big-title">
+                            Pour la petite<br><span class="din-bold">histoire...</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                        </h3>
+                        <div class="col-xs-12 col-md-4">
+                          {{ form_label(form.picture2) }}
+                        <br/>
+                        {% if form.vars.data.picture2Url is not null %}
+                            <img src="{{ asset(['/uploads/brand/', form.vars.data.picture2Url]|join) }}" />
+                        {% endif %}
+                        {{ form_widget(form.picture2) }}
+                        {{ form_errors(form.picture2) }}
+                        </div>
+                        <div class="col-xs-12 col-md-8 brand-details">
+                           {{ form_label(form.textPicture2) }}
+                        <br/>
+                        {% if form.vars.data.textPicture2Url is not null %}
+                            <img src="{{ asset(['/uploads/brand/', form.vars.data.textPicture2Url]|join) }}" />
+                        {% endif %}
+                        {{ form_widget(form.textPicture2) }}
+                        {{ form_errors(form.textPicture2) }}
+                            {{ form_row(form.title2)}}
+                            {{ form_row(form.subtitle2)}}
+                            {{ form_row(form.text2)}}
+                        </div>
+                    </div>
+                </div>
+                        <div class="clearfix"></div>
+                {{ form_rest(form) }}
+                <button type="submit" class="submit" style="margin-right:10px">
+                    Enregistrer
+                </button>
+                {{ form_end(form)}}
+            </div>
+
         </div>
-
-        <a href="{{ path('admin_brand_new') }}">
-            <button type="button" class="btn-fridging-blue">
-                Créer une nouvelle marque
-            </button>
-        </a>
     </div>
 {% endblock %}
 {% block js %}
-    <script>
+        <script>
 
-        $(document).ready(function() {
-            tinymce.init({
-                plugins: "link",
-                forced_root_block: false,
-                force_br_newlines: true,
-                force_p_newlines: false,
-                selector: "textarea",
-                height: 100
+            $(document).ready(function() {
+                tinymce.init({
+                    plugins: "link",
+                    forced_root_block: false,
+                    force_br_newlines: true,
+                    force_p_newlines: false,
+                    selector: "textarea",
+                    height: 100
+                });
+
+               
             });
-        });
-    </script>
-{% endblock %}
+        </script>
+    {% endblock %}

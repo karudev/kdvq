@@ -72,7 +72,7 @@ class ContactController extends Controller {
                 $html .= $message . '<br/>';
 
                 $msg = \Swift_Message::newInstance()
-                        ->setSubject('Fridging - Contact | '.$objet)
+                        ->setSubject('Qwinsport - Contact | '.$objet)
                         ->setFrom($email, $firstname . ' ' . $lastname)
                         ->setTo($this->container->getParameter('mailer_admin'))
                         ->setBody(nl2br($html), 'text/html');

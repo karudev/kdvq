@@ -1,6 +1,14 @@
-<p>{{ 'Commande '|trans({},'SfFrontBundle')}}<b>{{order.number}}</b></p>
-<p>{{ 'Les informations relatives à votre commande ont été mise à jours'|trans({},'SfFrontBundle') }}.</p>
-<p>{{ 'Status '|trans({},'SfFrontBundle') }} : {{ order.status |trans({},'SfFrontBundle') }} </p>
-<p>{{ 'N° de suivi colisposte'|trans({},'SfFrontBundle')}} :  <a target="_blank" href="{{coliposteUrl|replace({'@':order.colisposteNumber})}}">{{order.colisposteNumber}}</a> </p>
+<p>Commande <b>{{order.number}}</b></p>
+<p>Votre commande est en cours d'expédition à destination de cette adresse :</p>
+<p>
+    {% if order.titleAddress is not null %}
+        {{order.titleAddress}}    <br/>
+    {% endif %}
+        {{order.address}}
+        {{order.additionalAddress}}<br/>
+        {{order.zipCode}} {{order.city}}, {{order.country}} 
+</p>
+<p>N° de suivi colisposte : <a target="_blank" href="{{coliposteUrl|replace({'@':order.colisposteNumber})}}">{{order.colisposteNumber}}</a> </p>
+<p>Vous pouvez retrouver la facture de cette commande depuis votre compte.<p>
 <p>{{mailer_name}}.</p>
 

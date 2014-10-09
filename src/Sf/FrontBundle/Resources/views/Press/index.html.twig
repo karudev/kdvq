@@ -25,22 +25,23 @@
                         <img style=""  src="{{ asset(['/uploads/press/', entity.secondPictureUrl]|join) }}" />        
                     </div>
                     <div class="col-md-9">
-                        <img style=""  src="{{ asset(['/uploads/press/', entity.mainPictureUrl]|join) }}" />        
+                        <a target="_blank" href="{{ asset(['/uploads/press/', entity.hdPictureUrl]|join) }}"><img style=""  src="{{ asset(['/uploads/press/', entity.mainPictureUrl]|join) }}" /> </a>       
           
                         <h5 class="red">{{entity.parutionTitle}}</h5>
                         <p class="date">{{entity.parutionSubTitle}}</p>
                     </div><div class="clearfix"></div><hr/><br/>
                     {% endfor %}
                   
-                  
+                  {% if catalog.fileUrl is defined %}
                     <div class="bloc-separation">
                         <div class="separation"></div>
                         <h2>Consulter le dossier de presse</h2>
-                        <a href="">
+                        <a target="_blank" href="{{asset('/uploads/catalogs/'~catalog.fileUrl)}}">
                             <div class="dl">En téléchargement</div>
                         </a>
                         <div class="separation"></div>
                     </div>
+                  {% endif %}
                 </div>
             </div>
         </div>

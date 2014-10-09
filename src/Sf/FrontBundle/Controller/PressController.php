@@ -18,8 +18,10 @@ class PressController extends Controller {
         
         $entities = $em->getRepository('SfAdminBundle:Press')->findBy(array('active' => true),array('updatedAt' => 'desc'));
 
+        $catalog = $em->getRepository("SfAdminBundle:LastCatalog")->findOneBy(array('type' => 'press'),array('id'=>'desc'));
         
-        return array( 'entities' => $entities);
+        
+        return array( 'entities' => $entities,'catalog' => $catalog);
         
     }
 

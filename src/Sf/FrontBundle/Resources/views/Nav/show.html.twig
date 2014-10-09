@@ -1,4 +1,4 @@
-<!-- -->
+
 <nav class="container hidden-md hidden-sm hidden-lg">
     <div class="row navbar">
         <div class="col-md-12 content">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="{{path('front_home')}}">Accueil</a></li>
+                            <li class="{{_route == 'front_home' ? 'active'}}"><a href="{{path('front_home')}}">Accueil</a></li>
                                 {% for c in categories %}
 
                                 {% if c.categories|length > 0 %}
@@ -36,10 +36,9 @@
 
 
                             <li><a href="#">Personnaliser</a></li>
-                            <li><a href="{{path('front_actus')}}">Actus</a></li>
-                            <li><a href="{{path('front_partners')}}">Clubs</a></li>
-                            <li><a href="{{path('front_press')}}">Presse</a></li>
-                            <li><a href="{{path('front_partners')}}">Partenaires</a></li>
+                            <li class="{{_route == 'front_actus' ? 'active'}}"><a href="{{path('front_actus')}}">Actus</a></li>
+                            <li class="{{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs et Partenaires</a></li>
+                            <li class="{{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
                                 {% if is_granted('ROLE_ADMIN') %}
                                 <li class="dropdown">
                                     <a href="#" class="admin dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
@@ -48,7 +47,12 @@
                                         <li><a href="{{path('orders')}}">Les commandes</a></li>
                                         <li><a href="{{path('admin_product')}}">Les Produits</a></li>
                                         <li><a href="{{path('admin_press')}}">La Presse</a></li>
-                                        <li><a href="#">Configuration</a></li>
+                                        <li><a href="{{path('admin_actuality')}}">Les Actus</a></li>
+                                        <li><a href="{{path('admin_catalog')}}">Les Catalogues</a></li>
+                                        <li><a href="{{path('admin_partner')}}">Les Clubs et Partenaires</a></li>
+                                        <li><a href="{{path('admin_brand')}}">La Marque</a></li>
+                                        <li><a href="{{path('admin_legals')}}">Mentions légales</a></li>
+                                        <li><a href="{{path('admin_config')}}">Configuration</a></li>
                                     </ul>
                                 </li>
                             {% endif %}
@@ -60,7 +64,7 @@
     </div>
 </nav>
 
-<div class="col-md-2 col-sm-3">
+<div class="{{_route == 'front_home' ? 'col-md-12 col-sm-12 home-nav' : 'col-md-2 col-sm-3' }} ">
     <div class="sidebar-nav hidden-xs pc">
         <div class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
@@ -74,7 +78,8 @@
             </div>
             <div class="navbar-collapse collapse sidebar-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{path('front_home')}}">Accueil</a></li>
+                     <li class="{{_route == 'front_home' ? 'active'}}"><a href="{{path('front_home')}}">Accueil</a></li>
+                           
                         {% for c in categories %}
                             {% if c.categories|length > 0 %}
                             <li class="dropdown">
@@ -92,19 +97,24 @@
                             {% endif %}
                         {% endfor %}
                     <li><a href="#">Personnaliser</a></li>
-                    <li><a href="{{path('front_actus')}}">Actus</a></li>
-                    <li><a href="{{path('front_partners')}}">Clubs</a></li>
-                    <li><a href="{{path('front_press')}}">Presse</a></li>
-                    <li><a href="{{path('front_partners')}}">Partenaires</a></li>
-                        {% if is_granted('ROLE_ADMIN') %}
+                    <li class="{{_route == 'front_actus' ? 'active'}}"><a href="{{path('front_actus')}}">Actus</a></li>
+                    <li class="{{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs et Partenaires</a></li>
+                    <li class="{{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
+
+                    {% if is_granted('ROLE_ADMIN') %}
                         <li class="dropdown">
                             <a href="#" class="admin dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{path('admin_accounts')}}">Les comptes</a></li>
                                 <li><a href="{{path('orders')}}">Les commandes</a></li>
                                 <li><a href="{{path('admin_product')}}">Les Produits</a></li>
-                                 <li><a href="{{path('admin_press')}}">La Presse</a></li>
-                                <li><a href="#">Configuration</a></li>
+                                <li><a href="{{path('admin_press')}}">La Presse</a></li>
+                                <li><a href="{{path('admin_actuality')}}">Les Actus</a></li>
+                                <li><a href="{{path('admin_catalog')}}">Les Catalogues</a></li>
+                                <li><a href="{{path('admin_partner')}}">Les Clubs et Partenaires</a></li>
+                                <li><a href="{{path('admin_brand')}}">La Marque</a></li>
+                                <li><a href="{{path('admin_legals')}}">Mentions légales</a></li>
+                                <li><a href="{{path('admin_config')}}">Configuration</a></li>
                             </ul>
                         </li>
                     {% endif %}

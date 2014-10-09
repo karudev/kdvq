@@ -121,7 +121,7 @@
     }
 </style><page>
     <page_header>
-        <img src="{{ app.request.schemeAndHttpHost }}{{ asset('bundles/sffront/images/image_interface/elements_recurrents/home.png') }}" />
+        <img src="{{ app.request.schemeAndHttpHost }}{{ asset('bundles/sffront/images/logo_footer.png') }}" />
         <p>
             <b>{{addressAdmin.title}}</b><br/>
             {{addressAdmin.address}} {{addressAdmin.additionalAddress}}<br/>
@@ -155,7 +155,7 @@
             <td><h2>{{'Facture'|trans}} {{invoice.number}}</h2></td>
         </tr>
         <tr>
-            <td><br/><br/><b>{{'Date'|trans}} : {{invoice.createdAt|date('Y/m/d')}}</b></td>
+            <td><br/><br/><b>{{'Date'|trans}} : {{invoice.createdAt|date('d/m/Y')}}</b></td>
            {# <td style="width:195px">
                 <table class="bulle">
                     <tr><th>MODE DE REGLEMENT</th></tr>
@@ -202,8 +202,8 @@
                   
                     
                 {% else %}
-                    {% set amountHt = d['recommendedRetailPrice']  %}
-                    {% set tva = d['tvaBtoC']  %}
+                    {% set amountHt = d['priceHt']  %}
+                    {% set tva = d['tva']  %}
                     {% set amounTtc = amountHt + tva%}
                     
                 {% endif %}

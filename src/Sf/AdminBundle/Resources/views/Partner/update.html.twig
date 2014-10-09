@@ -1,0 +1,55 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %} 
+{% block ariane %}
+    CLUBS ET PARTENAIRES
+{% endblock %}
+{% block bandeauClass %}
+account
+{% endblock %}
+{% block body %}
+    <div id="main-content"  class="container">
+
+
+        {{ form_start(form)}}
+
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.active) }}
+
+                {{ form_label(form.picture) }}
+                <br/>
+                {% if form.vars.data.pictureUrl is not null %}
+                    <img src="{{ asset(['/uploads/partners/', form.vars.data.pictureUrl]|join) }}" />
+                {% endif %}
+                {{ form_widget(form.picture) }}
+                {{ form_errors(form.picture) }}
+                {{ form_row(form.title) }}
+                {{ form_row(form.type) }}
+
+            </div>
+            <div class="col-md-6">
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <a href="{{ path('admin_partner') }}" style="color:black">
+                <button type="button" class="submit" style="margin-right:10px">
+                    Retour
+                </button>
+            </a>
+            <button type="submit" class="submit" style="margin-right:10px">
+                    Enregistrer
+                </button>
+                {{ form_rest(form) }}
+           
+            {{ form_end(form)}}
+
+        </div>
+    </div>
+{% endblock %}

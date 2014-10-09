@@ -48,6 +48,19 @@ class Press implements Translatable
      *
      * @Assert\Image(maxSize="6000000")
      */
+    private $hdPicture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hd_picture_url", type="string", length=128, nullable=true)
+     */
+    private $hdPictureUrl;
+    
+     /**
+     *
+     * @Assert\Image(maxSize="6000000")
+     */
     private $mainPicture;
 
     /**
@@ -136,8 +149,12 @@ class Press implements Translatable
     
     public function preUpload()
     {
+        if($this->id != null)
+            $this->removeUpload();
+        
         if (null !== $this->mainPicture) {
             $this->mainPictureUrl = uniqid() . '.' . $this->mainPicture->guessExtension();
+            $this->hdPictureUrl  = 'hd_'.$this->mainPictureUrl;
         }
         if (null !== $this->secondPicture) {
             $this->secondPictureUrl = uniqid() . '.' . $this->secondPicture->guessExtension();
@@ -150,8 +167,8 @@ class Press implements Translatable
       
         if ($this->mainPicture != null) {
             $ext = $this->mainPicture->guessExtension(); 
-            $this->mainPicture->move($this->getUploadRootDir(), $this->mainPictureUrl);
-             FileManager::resize($this->getUploadRootDir().'/'.$this->mainPictureUrl,$ext, null,517);
+            $this->mainPicture->move($this->getUploadRootDir(), $this->hdPictureUrl);
+             FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, null,517,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
             unset($this->mainPicture);
         }
         if ($this->secondPicture != null) {
@@ -169,11 +186,15 @@ class Press implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
-            unlink($this->mainPicture);
+        if ($this->mainPictureUrl != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
+            unlink($this->getAbsolutePath($this->mainPictureUrl));
         }
-        if ($fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
-            unlink($this->secondPicture);
+         if ($this->hdPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
+            unlink($this->getAbsolutePath($this->hdPictureUrl));
+        }
+        
+        if ($this->secondPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
+            unlink($this->getAbsolutePath($this->secondPictureUrl));
         }
        
     }
@@ -196,6 +217,26 @@ class Press implements Translatable
     protected function getUploadDir()
     {
         return 'uploads/press';
+    }
+    
+       /**
+     * Set hdPicture
+     *
+     * @param object $hdPicture
+     */
+    public function setHdPicture($hdPicture)
+    {
+        $this->hdPicture = $hdPicture;
+    }
+
+    /**
+     * Get hdPicture
+     *
+     * @return object
+     */
+    public function getHdPicture()
+    {
+        return $this->hdPicture;
     }
     
      /**
@@ -391,4 +432,27 @@ class Press implements Translatable
     }
 
     
+
+    /**
+     * Set hdPictureUrl
+     *
+     * @param string $hdPictureUrl
+     * @return Press
+     */
+    public function setHdPictureUrl($hdPictureUrl)
+    {
+        $this->hdPictureUrl = $hdPictureUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get hdPictureUrl
+     *
+     * @return string 
+     */
+    public function getHdPictureUrl()
+    {
+        return $this->hdPictureUrl;
+    }
 }

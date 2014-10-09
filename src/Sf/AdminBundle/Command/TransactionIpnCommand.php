@@ -38,7 +38,7 @@ class TransactionIpnCommand extends ContainerAwareCommand {
             'shipping' => $input->getArgument('shipping'),
             'receiver_email' => $input->getArgument('receiver_email'),
             'custom' => $input->getArgument('token'),
-            'fridging_command' => true
+            'command' => true
         );
         
      

@@ -1,61 +1,62 @@
 {% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}  
 {% block ariane %}
-    <div class="container">
-        <div class="col-md-12 ariane">{{'Catalogue principal'|upper|trans}}</div>
-    </div>
+    CATALOGUE
+{% endblock %}
+{% block bandeauClass %}
+account
 {% endblock %}
 {% block body %}
     <div id="main-content"  class="container">
 
 
-        {{ form_start(form)}}
+        
 
 
-        <div class="row">
+        <div class="row col-md-10">
+
             <div class="col-md-6">
-                {{ form_row(form.title) }}
-                {{ form_row(form.text) }}
-
-
-
-
-            </div>
-            <div class="col-md-6">
-                {{ form_label(form.picture) }}
+                {{ form_start(formClub)}}
+                <h2>Catalogue Club</h2> 
+                {{ form_label(formClub.file) }}
                 <br/>
-                {% if form.vars.data.pictureUrl is not null %}
-                    <img style="max-width:365px;width: 100%" src="{{ asset(['/uploads/catalogs/', form.vars.data.pictureUrl]|join) }}" />
+                {% if formClub.vars.data.fileUrl is not null %}
+                    <a target="_blank" href="{{asset('/uploads/catalogs/'~formClub.vars.data.fileUrl)}}">{{'Catalogue club'|trans}}</a>
                 {% endif %}
-                {{ form_widget(form.picture) }}
-                {{ form_errors(form.picture) }}
-
-                {{ form_label(form.file) }}
+                {{ form_widget(formClub.file) }}
+                {{ form_errors(formClub.file) }}
+                
+                <br/><br/>
+                    {{ form_rest(formClub) }}
+                     <button type="submit" class="submit" style="margin-right:10px">
+                        {{'Enregistrer'|trans}}
+                    </button>
+                {{ form_end(formClub)}}
+            </div>
+                
+                 <div class="col-md-6">
+                      {{ form_start(formPress)}}
+                     <h2>Catalogue Presse</h2>     
+                {{ form_label(formPress.file) }}
                 <br/>
-                {% if form.vars.data.fileUrl is not null %}
-                    <a target="_blank" href="{{asset('/uploads/catalogs/'~form.vars.data.fileUrl)}}">{{'Catalogue'|trans}}</a>
+                {% if formPress.vars.data.fileUrl is not null %}
+                    <a target="_blank" href="{{asset('/uploads/catalogs/'~formPress.vars.data.fileUrl)}}">{{'Catalogue presse'|trans}}</a>
                 {% endif %}
-                {{ form_widget(form.file) }}
-                {{ form_errors(form.file) }}
+                {{ form_widget(formPress.file) }}
+                {{ form_errors(formPress.file) }}
 
-
+                <br/><br/>
+                  {{ form_rest(formPress) }}
+                     <button type="submit" class="submit" style="margin-right:10px">
+                        {{'Enregistrer'|trans}}
+                    </button>
+                {{ form_end(formPress)}}
             </div>
 
-        </div>
 
-        <div class="row">
-            <a href="{{ path('admin_catalog') }}" style="color:black">
-                <button type="button" class="btn-fridging" style="margin-right:10px">
-                    {{'Retour'|trans}}
-                </button>
-            </a>
-            <div class="pull-right">
-                <button type="submit" class="btn-fridging-blue" style="margin-right:10px">
-                    {{'Enregistrer'|trans}}
-                </button>
-                {{ form_rest(form) }}
-            </div>
-            {{ form_end(form)}}
-
+          
         </div>
     </div>
 {% endblock %}

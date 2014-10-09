@@ -12,7 +12,7 @@ use Symfony\Component\Filesystem\Filesystem;
  * Category
  *
  * @ORM\Table(name="category")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Sf\AdminBundle\Entity\CategoryRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Category implements Translatable
@@ -74,6 +74,9 @@ class Category implements Translatable
     
 
 
+    public function getLabel(){
+        return ($this->category!=null ? $this->getCategory()->getName() .', ' : ''). $this->name;
+    }
     /**
      * Get id
      *

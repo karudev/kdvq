@@ -9,8 +9,8 @@
     {{form_row(form.colisposteNumber)}}
 
     <div class="form-group ">
-        <div class="col-xs-3">
-        <label for="validee" class="control-label">{{'Validée'|trans()}}</label>
+       {#  <div class="col-xs-3">
+       <label for="validee" class="control-label">{{'Validée'|trans()}}</label>
         <div class="clearfix"></div>
         <input {{statusForm['validee'] is defined ? 'checked'}} type="checkbox" name="status[]" value="validee" id="validee">
         <div class="clearfix"></div> 
@@ -21,24 +21,25 @@
         <input {{statusForm['payee'] is defined ? 'checked'}} type="checkbox" name="status[]" value="payee" value="1" id="payee">
         <div class="clearfix"></div> 
          </div>
+        #}
         <div class="col-xs-3">
           <label for="envoyee" class="control-label">{{'Envoyée'|trans()}}</label>
         <div class="clearfix"></div>
         <input {{statusForm['envoyee'] is defined ? 'checked'}} type="checkbox" name="status[]" value="envoyee" value="envoyee" id="validee">
         <div class="clearfix"></div> 
          </div>
-        <div class="col-xs-3">
+       {#   <div class="col-xs-3">
          <label for="recue" class="control-label">{{'Recue'|trans()}}</label>
         <div class="clearfix"></div>
         <input {{statusForm['recue'] is defined ? 'checked'}} type="checkbox" name="status[]" value="recue" value="recue" id="validee">
         <div class="clearfix"></div> 
-         </div>
+         </div>#}
         
         <div class="clearfix"></div> 
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">{{'Fermer'|trans()}}</button>
-    <button type="submit" class="btn btn-primary">{{'Enregistrer'|trans()}}</button>
+    <button type="button" class=" submit" data-dismiss="modal">{{'Fermer'|trans()}}</button>
+    <button type="submit" class=" submit">{{'Enregistrer'|trans()}}</button>
 </div>
 {{form_end(form)}}

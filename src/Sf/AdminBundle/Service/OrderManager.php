@@ -93,7 +93,7 @@ class OrderManager {
         }
         $success = true;
         $errors = array();
-        $brands = array();
+     //   $brands = array();
         foreach ($products as $key => $value) {
             $params = array('deleted' => false, 'product' => $value->getProduct()->getId(), 'order' => null);
             if ($value->getSize() != null && $value->getSize() != 0) {
@@ -112,15 +112,15 @@ class OrderManager {
                     $em->persist($productModel);
                     $em->flush();
 
-                    $brand = $productModel->getProduct()->getGroup()->getBrand();
-                    $brands[$brand->getId()] = $brand;
+                  //  $brand = $productModel->getProduct()->getGroup()->getBrand();
+                    //$brands[$brand->getId()] = $brand;
                 } else {
                     $success = false;
                     $errors = array_merge($errors, array($params));
                 }
             }
         }
-        $this->linkOrderBrand($order, $brands);
+       // $this->linkOrderBrand($order, $brands);
 
         return array('success' => $success, 'errors' => $errors);
     }

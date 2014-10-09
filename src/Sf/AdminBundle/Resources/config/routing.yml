@@ -71,58 +71,17 @@ invoice_download:
     path:  invoice/download/{invoice}
     defaults: { _controller: "SfAdminBundle:Invoice:dowload" }
 
-admin_brand:
-    path:  /brands
-    defaults: { _controller: "SfAdminBundle:Brand:index" }
-    options: { i18n_prefix: admin }
+admin_partner:
+    path:  /admin/clubs-et-partenaires
+    defaults: { _controller: "SfAdminBundle:Partner:index" }
         
-admin_brand_up:
-    path:  /brand/{id}/up
-    defaults: { _controller: "SfAdminBundle:Brand:up" }
-    options: { i18n_prefix: admin }
-
-admin_brand_down:
-    path:  /brand/{id}/down
-    defaults: { _controller: "SfAdminBundle:Brand:down" }
-    options: { i18n_prefix: admin }
-
-admin_brand_new:
-    path:  /brand/new
-    defaults: { _controller: "SfAdminBundle:Brand:new" }
-    options: { i18n_prefix: admin }
-
-admin_brand_create:
-    path:  /brand/create
-    defaults: { _controller: "SfAdminBundle:Brand:create" }
-    requirements: { _method: post }
-    options: { i18n_prefix: admin }
-
-admin_brand_edit:
-    path:  /brand/{id}/edit
-    defaults: { _controller: "SfAdminBundle:Brand:edit" }
-    options: { i18n_prefix: admin }
-
-admin_brand_update:
-    path:  /brand/{id}/update
-    defaults: { _controller: "SfAdminBundle:Brand:update" }
-    requirements: { _method: post|put }
-    options: { i18n_prefix: admin }
-
-admin_brand_delete:
-    path:  /brand/{id}/delete
-    defaults: { _controller: "SfAdminBundle:Brand:delete" }
-    requirements: { _method: post|delete }
-    options: { i18n_prefix: admin }
-
-admin_brand_show:
-    path:  /brand/{slug}
-    defaults: { _controller: "SfAdminBundle:Brand:show" }
-    options: { i18n_prefix: admin }
+admin_partner_update:
+    path:  /admin/clubs-et-partenaires/mise-a-jour/{partner}
+    defaults: { _controller: "SfAdminBundle:Partner:update",partner: null }
 
 admin_config:
-    path:  /configuration
+    path:  /admin/configuration
     defaults: { _controller: "SfAdminBundle:Config:index" }
-    options: { i18n_prefix: admin }
 
 admin_group:
     path:  /group/{brand}
@@ -166,18 +125,16 @@ admin_product_model_stock:
         { _method: get|post, product:  \d+ }
         
 admin_product_model_update:
-    path:  /product-model/update/{number}
+    path:  /admin/product-model/update/{number}
     defaults: { _controller: "SfAdminBundle:ProductModel:update"}
     requirements:
         productModel:  \d+
-    options: { i18n_prefix: admin }
            
 admin_product_model_delete:
     path:  /admin/en/product-model/delete
     defaults: { _controller: "SfAdminBundle:ProductModel:delete", _locale: fr}
     options:
         expose: true
-        i18n: false
         
 
     
@@ -196,14 +153,12 @@ admin_account_update:
     options: { expose : true, i18n: false}
     
 admin_about_us:
-    path:     /about-us
+    path:     /admin/about-us
     defaults: { _controller: "SfAdminBundle:AboutUs:index"}
-    options: { i18n_prefix: admin }
 
 admin_legals:
-    path:     /legals
+    path:     /admin/mentions-légales
     defaults: { _controller: "SfAdminBundle:Legal:index"}
-    options: { i18n_prefix: admin }
     
 admin_press:
     path:     /admin/presse
@@ -213,28 +168,31 @@ admin_press_update:
     path:     /admin/press/update/{press}
     defaults: { _controller: "SfAdminBundle:Press:update",press:null}
     
-admin_catalog:
-    path:     /catalog
-    defaults: { _controller: "SfAdminBundle:Catalog:index"}
-    options: { i18n_prefix: admin }
 
-admin_catalog_last:
-    path:     /catalog/last/{lastCatalog}
-    defaults: { _controller: "SfAdminBundle:Catalog:last",lastCatalog:null}
-    options: { i18n_prefix: admin }
-    
-admin_catalog_update:
-    path:     /catalog/update/{catalog}
-    defaults: { _controller: "SfAdminBundle:Catalog:update",catalog:null}
-    options: { i18n_prefix: admin }
-    
+
+admin_catalog:
+    path:     /admin/catalogue
+    defaults: { _controller: "SfAdminBundle:Catalog:index"}
+
+admin_catalog_club:
+    path:     /admin/catalogue/club
+    defaults: { _controller: "SfAdminBundle:Catalog:club"}
+
+admin_catalog_press:
+    path:     /admin/catalogue/press
+    defaults: { _controller: "SfAdminBundle:Catalog:press"}
+
 admin_actuality:
-    path:     /admin/actuality
+    path:     /admin/actus
     defaults: { _controller: "SfAdminBundle:Actuality:index"}
 
 admin_actuality_update:
-    path:     /admin/actuality/update/{actuality}
+    path:     /admin/actus/update/{actuality}
     defaults: { _controller: "SfAdminBundle:Actuality:update",actuality:null}
+    
+admin_brand:
+    path:     /admin/brand
+    defaults: { _controller: "SfAdminBundle:Brand:index"}
     
 
  

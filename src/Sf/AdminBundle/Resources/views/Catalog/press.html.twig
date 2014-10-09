@@ -1,0 +1,16 @@
+{{ form_start(form)}}
+<h2>Catalogue Presse</h2> 
+{{ form_label(form.file) }}
+<br/>
+{% if form.vars.data.fileUrl is not null %}
+    <a target="_blank" href="{{asset('/uploads/catalogs/'~form.vars.data.fileUrl)}}">Catalogue presse</a>
+{% endif %}
+{{ form_widget(form.file) }}
+{{ form_errors(form.file) }}
+
+<br/><br/>
+{{ form_rest(form) }}
+<button type="submit" class="submit" style="margin-right:10px">
+    Enregistrer
+</button>
+{{ form_end(form)}}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2014-09-30T18:08:03Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2014-10-08T17:12:45Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -14,17 +14,9 @@
         <source>Entrer un mot de passe avec 2 caratères minimum</source>
         <target state="new">Entrer un mot de passe avec 2 caratères minimum</target>
       </trans-unit>
-      <trans-unit id="30a0a72dfdcfa44ce30e62f67d8526931c99adcc" resname="Entrer un nom">
-        <source>Entrer un nom</source>
-        <target state="new">Entrer un nom</target>
-      </trans-unit>
       <trans-unit id="38b6e09a04f6f0d953e2950355c25317b342dbf0" resname="Entrer un nom avec 2 caratères minimum">
         <source>Entrer un nom avec 2 caratères minimum</source>
         <target state="new">Entrer un nom avec 2 caratères minimum</target>
-      </trans-unit>
-      <trans-unit id="b2e350dde770c9ac516ee92a2d49b3609aa7853e" resname="Entrer un prénom">
-        <source>Entrer un prénom</source>
-        <target state="new">Entrer un prénom</target>
       </trans-unit>
       <trans-unit id="6136d2962632388f53bfb22dd4951d51830dad34" resname="Entrer un prénom avec 2 caratères minimum">
         <source>Entrer un prénom avec 2 caratères minimum</source>

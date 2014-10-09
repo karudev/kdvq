@@ -1,5 +1,8 @@
 <div class="col-sm-9 col-md-10">
-    <div class="product panier col-sm-12">		
+    <div class="product panier col-sm-12">
+        {% if products|length == 0%}
+            <div class="alert alert-info">Votre panier est vide.</div>
+        {% else %}
         <h2>Votre panier</h2>
         <div class="col-sm-6 col-md-8">
             {% for p in products %}
@@ -62,7 +65,7 @@
                     </tbody>
                 </table>
                 <img class="full" src="{{asset('bundles/sffront/images/shop/paypal.png')}}" alt="Paiement via Paypal">
-                {% if token is not null and (hasRole(user,'ROLE_CUSTOMER') or hasRole(user,'ROLE_ADMIN'))  %}
+                {% if token is not null  %}
 
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="cmd" value="_xclick">
@@ -105,5 +108,7 @@
 
             </div>
         </div>
+                    
+                    {% endif %}
     </div>
 </div>

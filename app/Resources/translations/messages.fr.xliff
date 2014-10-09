@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2014-09-30T18:08:03Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2014-10-08T17:12:45Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="4345cb1fa27885a8fbfe7c0c830a592cc76a552b" resname="%">
-        <source>%</source>
-        <target state="new">%</target>
-        <jms:reference-file line="29">AdminBundle/Form/BrandType.php</jms:reference-file>
-        <jms:reference-file line="38">AdminBundle/Form/BrandType.php</jms:reference-file>
-      </trans-unit>
       <trans-unit id="c538dfe63dd3e6a3b1b68690681a2364f45ec2fb" resname="%brand% : Création d'un groupe">
         <source>%brand% : Création d'un groupe</source>
         <target state="new">%brand% : Création d'un groupe</target>
@@ -22,71 +16,32 @@
         <target state="new">%brand% : Modification du groupe</target>
         <jms:reference-file line="50">AdminBundle/Controller/GroupController.php</jms:reference-file>
       </trans-unit>
-      <trans-unit id="acc70166677476dd88f86b45d9c2f5a295839fbe" resname="%nb% mail">
-        <source>%nb% mail</source>
-        <target state="new">%nb% mail</target>
-        <jms:reference-file line="2">views/Order/order.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="266633f3ff0f816fa12296c484dda19540becc37" resname="A propos">
         <source>A propos</source>
         <target state="new">A propos</target>
         <jms:reference-file line="4">views/AboutUs/index.html.twig</jms:reference-file>
-        <jms:reference-file line="16">Resources/views/header.html.twig</jms:reference-file>
-        <jms:reference-file line="26">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="a17e40b4810a9ea4a4ed64e70acd875fdd130585" resname="A propos de nous">
-        <source>A propos de nous</source>
-        <target state="new">A propos de nous</target>
-        <jms:reference-file line="10">views/AboutUs/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="d0f5fd248c2f5d927393024250112b8f04538d49" resname="ACTUS">
-        <source>ACTUS</source>
-        <target state="new">ACTUS</target>
-        <jms:reference-file line="32">views/Home/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="22aa11cdd2d2d568591500043d00ebb11f69382a" resname="Achat minimum">
-        <source>Achat minimum</source>
-        <target state="new">Achat minimum</target>
-        <jms:reference-file line="105">views/Product/product.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="53fdf200df83d33004af5043611a1051e738843a" resname="Acheter">
         <source>Acheter</source>
         <target state="new">Acheter</target>
-        <jms:reference-file line="147">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-        <jms:reference-file line="152">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
+        <jms:reference-file line="98">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
+        <jms:reference-file line="103">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="890c940d2bf8b9db1c2fe86aa43e11f6260f43ad" resname="Actif ?">
         <source>Actif ?</source>
         <target state="new">Actif ?</target>
         <jms:reference-file line="18">views/Actuality/index.html.twig</jms:reference-file>
-        <jms:reference-file line="23">views/Brand/index.html.twig</jms:reference-file>
-        <jms:reference-file line="19">views/Press/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c3cd636a585b20c40ac2df5ffb403e83cb2eef51" resname="Actions">
         <source>Actions</source>
         <target state="new">Actions</target>
         <jms:reference-file line="19">views/Actuality/index.html.twig</jms:reference-file>
-        <jms:reference-file line="24">views/Brand/index.html.twig</jms:reference-file>
-        <jms:reference-file line="51">views/Catalog/index.html.twig</jms:reference-file>
         <jms:reference-file line="18">views/Group/index.html.twig</jms:reference-file>
-        <jms:reference-file line="20">views/Press/index.html.twig</jms:reference-file>
-        <jms:reference-file line="21">views/Product/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ba174f942b8b220e0b6a535484cc3135fd0383c7" resname="Activé ?">
         <source>Activé ?</source>
         <target state="new">Activé ?</target>
         <jms:reference-file line="11">views/Account/accountsList.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="a3baa78ec50b5f82271fb8262b467197890ce0ab" resname="Actualités">
-        <source>Actualités</source>
-        <target state="new">Actualités</target>
-        <jms:reference-file line="4">views/Actuality/index.html.twig</jms:reference-file>
-        <jms:reference-file line="12">views/Actuality/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="c5f0b7e94fd48fda92b667235092dcef3a7b43fa" resname="Actus">
-        <source>Actus</source>
-        <target state="new">Actus</target>
-        <jms:reference-file line="29">Resources/views/header.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="4e7afebcfbae000b22c7c85e5560f89a2a0280b4" resname="Admin">
         <source>Admin</source>
@@ -114,26 +69,6 @@
         <target state="new">Ajouter une adresse de facturation si elle diffère de l'adresse de livraison</target>
         <jms:reference-file line="24">views/Account/address.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="1f910d98d7d2712ea2aac95d06a509c8edaa2ebd" resname="Année">
-        <source>Année</source>
-        <target state="new">Année</target>
-        <jms:reference-file line="49">views/Catalog/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="4df8d977de6a707630ce02bae8dff46278a131ce" resname="Articles de presse">
-        <source>Articles de presse</source>
-        <target state="new">Articles de presse</target>
-        <jms:reference-file line="19">views/Press/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="49d21e27e3f4004b55fcb58f20167fe194eb9267" resname="Aucun produit disponible pour cette collection">
-        <source>Aucun produit disponible pour cette collection</source>
-        <target state="new">Aucun produit disponible pour cette collection</target>
-        <jms:reference-file line="30">views/Brand/brand.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="346683f75dd64614512e38589b549ff4fe2c7e79" resname="Aucune collection disponible pour cette marque">
-        <source>Aucune collection disponible pour cette marque</source>
-        <target state="new">Aucune collection disponible pour cette marque</target>
-        <jms:reference-file line="39">views/Brand/brand.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="4bfff409fa862140d38da8b57e1adaf4b36fd9bf" resname="Aucune commande en cours">
         <source>Aucune commande en cours</source>
         <target state="new">Aucune commande en cours</target>
@@ -149,45 +84,27 @@
         <target state="new">Bannis ?</target>
         <jms:reference-file line="12">views/Account/accountsList.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="f03e5122d4f511b53bd07d90daf55514e8f71a56" resname="Blanc">
-        <source>Blanc</source>
-        <target state="new">Blanc</target>
-        <jms:reference-file line="23">AdminBundle/Form/ActualityType.php</jms:reference-file>
-      </trans-unit>
       <trans-unit id="05236d3a83691d5a61ea4135a86b579ad25afab1" resname="Boutique">
         <source>Boutique</source>
         <target state="new">Boutique</target>
         <jms:reference-file line="21">views/Mail/update.html.twig</jms:reference-file>
         <jms:reference-file line="44">views/Mail/update.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="f427cf85176f84db9e01cbe1c03699e6dad54047" resname="CATALOGUES">
-        <source>CATALOGUES</source>
-        <target state="new">CATALOGUES</target>
-        <jms:reference-file line="30">views/Home/index.html.twig</jms:reference-file>
+      <trans-unit id="c84fa9d4ee622c4ad56c4d47fa9a0e673ed01f72" resname="Catalogue club">
+        <source>Catalogue club</source>
+        <target state="new">Catalogue club</target>
+        <jms:reference-file line="6">views/Catalog/club.html.twig</jms:reference-file>
+        <jms:reference-file line="23">views/Catalog/last.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="740fabb870d6ed652cd56a6f6b4cabc2048431f9" resname="CONTACT">
-        <source>CONTACT</source>
-        <target state="new">CONTACT</target>
-        <jms:reference-file line="8">views/Contact/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="5a24102340b692c8b5e3c153fc978f48924f5458" resname="Catalogue">
-        <source>Catalogue</source>
-        <target state="new">Catalogue</target>
-        <jms:reference-file line="35">views/Catalog/last.html.twig</jms:reference-file>
-        <jms:reference-file line="21">views/Catalog/update.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="3fb594239a2011a9906c1780dc7f6dc52bb7b1f5" resname="Catalogues">
-        <source>Catalogues</source>
-        <target state="new">Catalogues</target>
-        <jms:reference-file line="4">views/Catalog/index.html.twig</jms:reference-file>
-        <jms:reference-file line="4">views/Catalog/update.html.twig</jms:reference-file>
-        <jms:reference-file line="12">views/Catalog/index.html.twig</jms:reference-file>
-        <jms:reference-file line="28">Resources/views/header.html.twig</jms:reference-file>
+      <trans-unit id="0cb64b7d906593353578e66796ce5475388eee21" resname="Catalogue presse">
+        <source>Catalogue presse</source>
+        <target state="new">Catalogue presse</target>
+        <jms:reference-file line="42">views/Catalog/last.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2e8605e7a7b5d22678ad444d9be579a5d8b9ba44" resname="Ce produit a été ajouté au panier">
         <source>Ce produit a été ajouté au panier</source>
         <target state="new">Ce produit a été ajouté au panier</target>
-        <jms:reference-file line="131">FrontBundle/Controller/ShoppingCartController.php</jms:reference-file>
+        <jms:reference-file line="124">FrontBundle/Controller/ShoppingCartController.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="1bdd79b12628d8c4ec4226ff4207341dcb869ab8" resname="Client">
         <source>Client</source>
@@ -195,18 +112,23 @@
         <jms:reference-file line="24">views/Mail/update.html.twig</jms:reference-file>
         <jms:reference-file line="47">views/Mail/update.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="4014019824fdf070c6a39bf014c44be092f8f162" resname="Club">
+        <source>Club</source>
+        <target state="new">Club</target>
+        <jms:reference-file line="26">AdminBundle/Form/PartnerType.php</jms:reference-file>
+      </trans-unit>
       <trans-unit id="ef3ea8bf13eb0242adf95f393e173ab331d2e955" resname="Combien voulez vous supprimer ?">
         <source>Combien voulez vous supprimer ?</source>
         <target state="new">Combien voulez vous supprimer ?</target>
-        <jms:reference-file line="75">views/ProductModel/index.html.twig</jms:reference-file>
+        <jms:reference-file line="69">views/ProductModel/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="478443411674f0df06db3b28230d37625383f8c2" resname="Commande">
         <source>Commande</source>
         <target state="new">Commande</target>
         <jms:reference-file line="2">views/Order/order.html.twig</jms:reference-file>
         <jms:reference-file line="5">views/Order/update.html.twig</jms:reference-file>
-        <jms:reference-file line="123">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-        <jms:reference-file line="128">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
+        <jms:reference-file line="74">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
+        <jms:reference-file line="79">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ff1fd4569d65f0ddde048ea13c183446a210ccf4" resname="Commande(s) en cours">
         <source>Commande(s) en cours</source>
@@ -218,76 +140,25 @@
         <target state="new">Commande(s) terminée(s)</target>
         <jms:reference-file line="9">views/Order/orders.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="a531f52442181d035497ede0f94a4f9e5fd530cc" resname="Commander en tant que : ">
-        <source>Commander en tant que : </source>
-        <target state="new">Commander en tant que : </target>
-        <jms:reference-file line="27">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="17275970238d7ec2311e2097df8868fb3d338585" resname="Commandes">
-        <source>Commandes</source>
-        <target state="new">Commandes</target>
-        <jms:reference-file line="24">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="c45740bbe9eade3644b28182711cfa7ab146072e" resname="Compte">
         <source>Compte</source>
         <target state="new">Compte</target>
         <jms:reference-file line="10">views/Order/order.html.twig</jms:reference-file>
-        <jms:reference-file line="42">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="f778ac95e17e3902aa08594077fae21b5f1a35ae" resname="Comptes">
-        <source>Comptes</source>
-        <target state="new">Comptes</target>
-        <jms:reference-file line="25">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="754164850f38c1ecdaf6b8ed894cb192bc36c5f4" resname="Configuration">
-        <source>Configuration</source>
-        <target state="new">Configuration</target>
-        <jms:reference-file line="31">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="b37456c4530be810dc040f50da72eda09addfb0a" resname="Contact">
-        <source>Contact</source>
-        <target state="new">Contact</target>
-        <jms:reference-file line="17">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="a420abf6e89816696d0724f377c00c6447c28f0a" resname="Copyright">
-        <source>Copyright</source>
-        <target state="new">Copyright</target>
-        <jms:reference-file line="19">Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="145c4326e92bd951de43c1c9af9158c7b49a0d76" resname="Couleur">
         <source>Couleur</source>
         <target state="new">Couleur</target>
-        <jms:reference-file line="44">views/Product/product.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="75a554940693ddb0f9081652bb540fc971d6edeb" resname="Création d'une nouvelle marque">
-        <source>Création d'une nouvelle marque</source>
-        <target state="new">Création d'une nouvelle marque</target>
-        <jms:reference-file line="4">views/Brand/new.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="387ac95b9da5ce046dc342a72c9d437a6fe8b8fc" resname="Création du produit">
-        <source>Création du produit</source>
-        <target state="new">Création du produit</target>
-        <jms:reference-file line="53">AdminBundle/Controller/ProductController.php</jms:reference-file>
+        <jms:reference-file line="71">views/Product/product.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c614c0d4b078d40ab6c904221150978e93a5f553" resname="Crée le">
         <source>Crée le</source>
         <target state="new">Crée le</target>
         <jms:reference-file line="16">views/Group/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="1a6861723c6988e95ccc2010a3eca9a44fae0458" resname="Créer">
-        <source>Créer</source>
-        <target state="new">Créer</target>
-        <jms:reference-file line="77">AdminBundle/Controller/BrandController.php</jms:reference-file>
-      </trans-unit>
       <trans-unit id="33d0a014780d8adb4f42190cd92a10d1bba8c1ae" resname="Créer un nouveau groupe">
         <source>Créer un nouveau groupe</source>
         <target state="new">Créer un nouveau groupe</target>
         <jms:reference-file line="45">views/Group/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="9be91927f8bffbb60d7cb9e01a65ec2e81515dd9" resname="Créer un nouvel article de presse">
-        <source>Créer un nouvel article de presse</source>
-        <target state="new">Créer un nouvel article de presse</target>
-        <jms:reference-file line="49">views/Press/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="eb9a4bc1c0c153e4e4b042a79113b815b7e3021d" resname="Date">
         <source>Date</source>
@@ -310,21 +181,6 @@
         <target state="new">Description</target>
         <jms:reference-file line="5">views/Mailing/resumeOrder.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="d91160a432f184ecafcd1bf35eb044c218637981" resname="Designed and powered by Hundred Robots">
-        <source>Designed and powered by Hundred Robots</source>
-        <target state="new">Designed and powered by Hundred Robots</target>
-        <jms:reference-file line="19">Resources/views/footer.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="088fe5d5fb7373cb6d8e45d541f31632ca1d5c2a" resname="Dont %tva% € de TVA">
-        <source>Dont %tva% € de TVA</source>
-        <target state="new">Dont %tva% € de TVA</target>
-        <jms:reference-file line="67">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="f3e905100613a949a0372f07e7e9ab638972dc75" resname="Dont Tva">
-        <source>Dont Tva</source>
-        <target state="new">Dont Tva</target>
-        <jms:reference-file line="99">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="63a9062c64eef0d1ba8b04b6d50c85ffdf397393" resname="Désignation">
         <source>Désignation</source>
         <target state="new">Désignation</target>
@@ -333,27 +189,12 @@
       <trans-unit id="34384396cee4a0cd51d5942b3081d6cb2f6828f5" resname="Désolé, mais nous ne possédons que %nbStock% modèle(s) en stock pour ces critères">
         <source>Désolé, mais nous ne possédons que %nbStock% modèle(s) en stock pour ces critères</source>
         <target state="new">Désolé, mais nous ne possédons que %nbStock% modèle(s) en stock pour ces critères</target>
-        <jms:reference-file line="135">FrontBundle/Controller/ShoppingCartController.php</jms:reference-file>
+        <jms:reference-file line="128">FrontBundle/Controller/ShoppingCartController.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="0d01e2e86669e98441ab4dce5520696c318b7098" resname="E-mail">
         <source>E-mail</source>
         <target state="new">E-mail</target>
-        <jms:reference-file line="36">views/Contact/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="734a78cd06d0929c433f487754d18bf073e43bf6" resname="EN">
-        <source>EN</source>
-        <target state="new">EN</target>
-        <jms:reference-file line="53">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="9debabbaa01a190fabe8324c5e6e2f2808052099" resname="ES">
-        <source>ES</source>
-        <target state="new">ES</target>
-        <jms:reference-file line="54">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="5840747833b0b4fac7fda2080d898a44d48fa540" resname="Eco tax">
-        <source>Eco tax</source>
-        <target state="new">Eco tax</target>
-        <jms:reference-file line="20">views/Product/index.html.twig</jms:reference-file>
+        <jms:reference-file line="37">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2c1386f1fcb74acf1551a964a990c01c02492e0c" resname="Editer la facture">
         <source>Editer la facture</source>
@@ -365,63 +206,39 @@
         <target state="new">Email</target>
         <jms:reference-file line="6">views/Account/accountsList.html.twig</jms:reference-file>
         <jms:reference-file line="27">views/Account/shopProfil.html.twig</jms:reference-file>
-        <jms:reference-file line="21">views/Brand/index.html.twig</jms:reference-file>
-        <jms:reference-file line="84">views/Catalog/index.html.twig</jms:reference-file>
-        <jms:reference-file line="19">views/Security/login.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="d4d3dde2f4e39918c31d3a713d9f048a24194da5" resname="En cochant cette case, j'accepte et je reconnais avoir pris connaissance des conditions générales de vente en vigueur.">
-        <source>En cochant cette case, j'accepte et je reconnais avoir pris connaissance des conditions générales de vente en vigueur.</source>
-        <target state="new">En cochant cette case, j'accepte et je reconnais avoir pris connaissance des conditions générales de vente en vigueur.</target>
-        <jms:reference-file line="81">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="8d3f298e8e8f63e2b5e5628d68e68d98f5972d5d" resname="En stock">
-        <source>En stock</source>
-        <target state="new">En stock</target>
-        <jms:reference-file line="84">views/Product/product.html.twig</jms:reference-file>
+        <jms:reference-file line="6">views/Security/form.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f7c8bcd8b213a6cc4a0cfd3462bd1379e4ef9689" resname="Enregistrer">
         <source>Enregistrer</source>
         <target state="new">Enregistrer</target>
         <jms:reference-file line="38">views/AboutUs/index.html.twig</jms:reference-file>
-        <jms:reference-file line="59">views/Actuality/update.html.twig</jms:reference-file>
-        <jms:reference-file line="53">views/Catalog/last.html.twig</jms:reference-file>
-        <jms:reference-file line="40">views/Catalog/update.html.twig</jms:reference-file>
-        <jms:reference-file line="24">views/Legal/index.html.twig</jms:reference-file>
-        <jms:reference-file line="42">views/Order/update.html.twig</jms:reference-file>
-        <jms:reference-file line="58">views/Press/update.html.twig</jms:reference-file>
+        <jms:reference-file line="45">views/Actuality/update.html.twig</jms:reference-file>
+        <jms:reference-file line="14">views/Catalog/club.html.twig</jms:reference-file>
+        <jms:reference-file line="31">views/Catalog/last.html.twig</jms:reference-file>
+        <jms:reference-file line="50">views/Catalog/last.html.twig</jms:reference-file>
+        <jms:reference-file line="43">views/Order/update.html.twig</jms:reference-file>
+        <jms:reference-file line="53">views/Press/update.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e9ce243b4a8ae133ab763a52b2f91b363b67e976" resname="Envoyer">
         <source>Envoyer</source>
         <target state="new">Envoyer</target>
         <jms:reference-file line="70">views/Mail/update.html.twig</jms:reference-file>
-        <jms:reference-file line="87">views/Catalog/index.html.twig</jms:reference-file>
-        <jms:reference-file line="53">views/Contact/index.html.twig</jms:reference-file>
+        <jms:reference-file line="54">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e62a46ad77bf7ff105a581fb8638fb47401ce00a" resname="Envoyer l'email">
         <source>Envoyer l'email</source>
         <target state="new">Envoyer l'email</target>
         <jms:reference-file line="60">views/Mail/update.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="63768614a73757253d39a56e5aee471413363e91" resname="Envoyer un mail">
-        <source>Envoyer un mail</source>
-        <target state="new">Envoyer un mail</target>
-        <jms:reference-file line="84">views/Order/order.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="a1eb63422f1ac7b9a73f612f4a3f65f707c92d77" resname="Envoyée">
         <source>Envoyée</source>
         <target state="new">Envoyée</target>
-        <jms:reference-file line="25">views/Order/update.html.twig</jms:reference-file>
+        <jms:reference-file line="26">views/Order/update.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="81d296db895da9182212870485f80a06e92152bf" resname="Extrait">
         <source>Extrait</source>
         <target state="new">Extrait</target>
-        <jms:reference-file line="15">views/Actuality/index.html.twig</jms:reference-file>
-        <jms:reference-file line="16">views/Press/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="6d2830b1e76dc7300fce6745176601827d233de8" resname="FR">
-        <source>FR</source>
-        <target state="new">FR</target>
-        <jms:reference-file line="52">Resources/views/header.html.twig</jms:reference-file>
+        <jms:reference-file line="16">views/Actuality/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3953b9f5465d4e56eab0e436c16b831ab9d7fc33" resname="Facture">
         <source>Facture</source>
@@ -432,144 +249,59 @@
         <source>Fermer</source>
         <target state="new">Fermer</target>
         <jms:reference-file line="69">views/Mail/update.html.twig</jms:reference-file>
-        <jms:reference-file line="41">views/Order/update.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="f0fa5745ccc9747726e44eebd65505a251174fb3" resname="Fichier">
-        <source>Fichier</source>
-        <target state="new">Fichier</target>
-        <jms:reference-file line="50">views/Catalog/index.html.twig</jms:reference-file>
+        <jms:reference-file line="42">views/Order/update.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3b49a7f9d56313043fd06397f1f9bb2d9baa9b1f" resname="Frais de livraison">
         <source>Frais de livraison</source>
         <target state="new">Frais de livraison</target>
         <jms:reference-file line="269">views/Invoice/download.html.twig</jms:reference-file>
-        <jms:reference-file line="87">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="0fc79ce3998baa58fb5198e700ad256944c6bfdc" resname="Frais de port">
-        <source>Frais de port</source>
-        <target state="new">Frais de port</target>
-        <jms:reference-file line="19">views/Brand/index.html.twig</jms:reference-file>
-        <jms:reference-file line="99">views/Product/product.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="a4e4d10df5375e3597f930dc12e3d802525ea617" resname="Franco de port">
-        <source>Franco de port</source>
-        <target state="new">Franco de port</target>
-        <jms:reference-file line="20">views/Brand/index.html.twig</jms:reference-file>
-        <jms:reference-file line="102">views/Product/product.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3f66052a107eaf9bae7cad0f61fb462f47ec2c47" resname="From">
         <source>From</source>
         <target state="new">From</target>
         <jms:reference-file line="10">views/Mail/update.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="bf91abcfd7b329ccd94d5ba137f60cc4acef313d" resname="Gestion du stock">
-        <source>Gestion du stock</source>
-        <target state="new">Gestion du stock</target>
-        <jms:reference-file line="4">views/ProductModel/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="438fafaa10e574d4fc16478d812d8bae2da070ee" resname="Image ( &lt; 6 Mo - .jpg, .gif, .png )">
         <source><![CDATA[Image ( < 6 Mo - .jpg, .gif, .png )]]></source>
         <target state="new"><![CDATA[Image ( < 6 Mo - .jpg, .gif, .png )]]></target>
         <jms:reference-file line="18">AdminBundle/Form/ProductPictureType.php</jms:reference-file>
       </trans-unit>
-      <trans-unit id="29c3e1fb57a364545b4f5e02caf5936024bc54b9" resname="Incrémentation du stock">
-        <source>Incrémentation du stock</source>
-        <target state="new">Incrémentation du stock</target>
-        <jms:reference-file line="4">views/ProductModel/stock.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="c0498030b601c580a3b1f04d4afb2620ad2a7352" resname="Indisponible">
         <source>Indisponible</source>
         <target state="new">Indisponible</target>
-        <jms:reference-file line="80">views/Product/product.html.twig</jms:reference-file>
-        <jms:reference-file line="89">views/Product/product.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="cc52c9e0f538b498fa4de413e1bd559e7eb3ac68" resname="LES MARQUES">
-        <source>LES MARQUES</source>
-        <target state="new">LES MARQUES</target>
-        <jms:reference-file line="4">views/Brand/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="6619264a4b579c12049b2a04101f788d4e5ddc9a" resname="Langue">
-        <source>Langue</source>
-        <target state="new">Langue</target>
-        <jms:reference-file line="22">views/Brand/index.html.twig</jms:reference-file>
+        <jms:reference-file line="107">views/Product/product.html.twig</jms:reference-file>
+        <jms:reference-file line="114">views/Product/product.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1c4d925492bb708a1bfba2f024f31fa5308acedf" resname="Les groupes de %g%">
         <source>Les groupes de %g%</source>
         <target state="new">Les groupes de %g%</target>
         <jms:reference-file line="4">views/Group/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="12d1f59f7b64561f8ed0df85f0f6395891e87516" resname="Les marques">
-        <source>Les marques</source>
-        <target state="new">Les marques</target>
-        <jms:reference-file line="5">views/Brand/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="4ec22d80a7ae88ced58941d36a3688852c14a62e" resname="Les produits">
-        <source>Les produits</source>
-        <target state="new">Les produits</target>
-        <jms:reference-file line="4">views/Product/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="e2639e1dc1de8093d3a42fd4d81f3c2fbef54870" resname="Lien">
-        <source>Lien</source>
-        <target state="new">Lien</target>
-        <jms:reference-file line="16">views/Actuality/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="b539addf71ad01fa858aa8eb3cf46985a6cfe87d" resname="Marque">
         <source>Marque</source>
         <target state="new">Marque</target>
-        <jms:reference-file line="48">views/Catalog/index.html.twig</jms:reference-file>
         <jms:reference-file line="16">views/Mail/update.html.twig</jms:reference-file>
         <jms:reference-file line="39">views/Mail/update.html.twig</jms:reference-file>
-        <jms:reference-file line="17">views/Press/index.html.twig</jms:reference-file>
-        <jms:reference-file line="7">views/Mailing/resumeOrder.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="e1a2ae3ea5530d24b05147e0c616ff93534189b8" resname="Marques">
-        <source>Marques</source>
-        <target state="new">Marques</target>
-        <jms:reference-file line="14">Resources/views/header.html.twig</jms:reference-file>
-        <jms:reference-file line="22">Resources/views/header.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f6c22dbac746fd96d40ee442a837fe9e7604aa0e" resname="Matière">
         <source>Matière</source>
         <target state="new">Matière</target>
-        <jms:reference-file line="59">views/Product/product.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="cbc7c7de0c2b17c1a6ec7116977d3ef6943c52bd" resname="Mentions Légales">
-        <source>Mentions Légales</source>
-        <target state="new">Mentions Légales</target>
-        <jms:reference-file line="20">Resources/views/footer.html.twig</jms:reference-file>
-        <jms:reference-file line="10">views/Legal/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="414291e05e85537f2cf315589bea0b768e9e2b95" resname="Mentions légales">
-        <source>Mentions légales</source>
-        <target state="new">Mentions légales</target>
-        <jms:reference-file line="4">views/Legal/index.html.twig</jms:reference-file>
-        <jms:reference-file line="30">Resources/views/header.html.twig</jms:reference-file>
+        <jms:reference-file line="86">views/Product/product.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="68f4145fee7dde76afceb910165924ad14cf0d00" resname="Message">
         <source>Message</source>
         <target state="new">Message</target>
-        <jms:reference-file line="45">views/Contact/index.html.twig</jms:reference-file>
+        <jms:reference-file line="46">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1505304f63581d192e33e0fe761f7ff4cbe9e982" resname="Mettre à jours">
         <source>Mettre à jours</source>
         <target state="new">Mettre à jours</target>
         <jms:reference-file line="70">views/Order/order.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="682282b8958396a4b789b999f2249a369bf63617" resname="Minimum de commande">
-        <source>Minimum de commande</source>
-        <target state="new">Minimum de commande</target>
-        <jms:reference-file line="18">views/Brand/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="d1c7576875cd9685407d9fcb1cfa5a1a8fea8f60" resname="Mise à jour du catalogue principal">
-        <source>Mise à jour du catalogue principal</source>
-        <target state="new">Mise à jour du catalogue principal</target>
-        <jms:reference-file line="25">views/Catalog/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="29bcc38ca051b43977a0e5c4462a6ad4b0311d1a" resname="Mise à jour le">
         <source>Mise à jour le</source>
         <target state="new">Mise à jour le</target>
         <jms:reference-file line="17">views/Group/index.html.twig</jms:reference-file>
-        <jms:reference-file line="18">views/Press/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8a22670177470e889d6dab660cc7cd6f6743ab36" resname="Mlle">
         <source>Mlle</source>
@@ -581,20 +313,10 @@
         <target state="new">Mme</target>
         <jms:reference-file line="20">AdminBundle/Form/AccountType.php</jms:reference-file>
       </trans-unit>
-      <trans-unit id="6b9ed88a70d2d729ab2d886393dc498dc6794401" resname="Modification de la marque">
-        <source>Modification de la marque</source>
-        <target state="new">Modification de la marque</target>
-        <jms:reference-file line="4">views/Brand/edit.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="e61fddc8288ed838525d288fd484c217934d0e9d" resname="Modification du produit">
-        <source>Modification du produit</source>
-        <target state="new">Modification du produit</target>
-        <jms:reference-file line="49">AdminBundle/Controller/ProductController.php</jms:reference-file>
-      </trans-unit>
       <trans-unit id="f260e757cec75096bc3eefbfb1c4a14720832017" resname="Modifier">
         <source>Modifier</source>
         <target state="new">Modifier</target>
-        <jms:reference-file line="30">views/ProductModel/update.html.twig</jms:reference-file>
+        <jms:reference-file line="32">views/ProductModel/update.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b12c55699da5fcf2d4812aabe2ba770f5e5a1190" resname="Mon compte">
         <source>Mon compte</source>
@@ -624,12 +346,13 @@
       <trans-unit id="94e2f3ee14b92e2e675a8f6118d28738dbf5c6ba" resname="Mot de passe">
         <source>Mot de passe</source>
         <target state="new">Mot de passe</target>
-        <jms:reference-file line="23">views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="36">views/Account/index.html.twig</jms:reference-file>
+        <jms:reference-file line="10">views/Security/form.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="806ef9d44ae7239954b63f80869a36ed021ad9bb" resname="Mot de passe oublié">
         <source>Mot de passe oublié</source>
         <target state="new">Mot de passe oublié</target>
-        <jms:reference-file line="27">views/Security/login.html.twig</jms:reference-file>
+        <jms:reference-file line="14">views/Security/form.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a5063aea71291724bb9d7d64345803a3c6e08e9b" resname="Mr">
         <source>Mr</source>
@@ -645,11 +368,8 @@
         <source>Nom</source>
         <target state="new">Nom</target>
         <jms:reference-file line="5">views/Account/accountsList.html.twig</jms:reference-file>
-        <jms:reference-file line="16">views/Brand/index.html.twig</jms:reference-file>
         <jms:reference-file line="14">views/Group/index.html.twig</jms:reference-file>
-        <jms:reference-file line="14">views/Product/index.html.twig</jms:reference-file>
-        <jms:reference-file line="78">views/Catalog/index.html.twig</jms:reference-file>
-        <jms:reference-file line="20">views/Contact/index.html.twig</jms:reference-file>
+        <jms:reference-file line="21">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="388b2daa23720556dd0ede35f162fe8ff3451406" resname="Nom commerciale">
         <source>Nom commerciale</source>
@@ -661,26 +381,6 @@
         <target state="new">Nom social</target>
         <jms:reference-file line="15">views/Account/shopProfil.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="45e118d0563ea8581f830f46e85b60ae714faae4" resname="Normal">
-        <source>Normal</source>
-        <target state="new">Normal</target>
-        <jms:reference-file line="23">AdminBundle/Form/ActualityType.php</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="3b13c3c345fa9df70041f47ffb46c8086d125c90" resname="Nos derniers produits">
-        <source>Nos derniers produits</source>
-        <target state="new">Nos derniers produits</target>
-        <jms:reference-file line="5">views/Home/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="79c56fb62d02d5c6456d4a71039ad64df44cad66" resname="Nouveau catalogue">
-        <source>Nouveau catalogue</source>
-        <target state="new">Nouveau catalogue</target>
-        <jms:reference-file line="73">views/Catalog/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="984fd28d95f874c75aee0c03f9c0266470d379ab" resname="Nouveau catalogue principal">
-        <source>Nouveau catalogue principal</source>
-        <target state="new">Nouveau catalogue principal</target>
-        <jms:reference-file line="14">views/Catalog/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="d95f04353e1a540f91c10145053a169154b97ee9" resname="Nouveau mail pour la commande #%order%">
         <source>Nouveau mail pour la commande #%order%</source>
         <target state="new">Nouveau mail pour la commande #%order%</target>
@@ -689,136 +389,68 @@
       <trans-unit id="6027dd30d71803d52880691c8bf4a41f9bcc8c0c" resname="Nouvel actualité">
         <source>Nouvel actualité</source>
         <target state="new">Nouvel actualité</target>
-        <jms:reference-file line="49">views/Actuality/index.html.twig</jms:reference-file>
-        <jms:reference-file line="4">views/Actuality/update.html.twig</jms:reference-file>
+        <jms:reference-file line="44">views/Actuality/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="7a73bd61cb3197c19d156cdc6e1fc997f91f1ec4" resname="N° de suivi colisposte">
         <source>N° de suivi colisposte</source>
         <target state="new">N° de suivi colisposte</target>
         <jms:reference-file line="58">views/Order/order.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="fcc710bba11a2cda000d0f3f102b26f575ae748a" resname="PRESS">
-        <source>PRESS</source>
-        <target state="new">PRESS</target>
-        <jms:reference-file line="4">views/Press/update.html.twig</jms:reference-file>
-        <jms:reference-file line="8">views/Press/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="c1da2540736eb9049770548c90b8e4f984f5ef39" resname="PRESSE">
-        <source>PRESSE</source>
-        <target state="new">PRESSE</target>
-        <jms:reference-file line="31">views/Home/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="cb4680463755de9a992efeb14c5e0ee77f9a9e04" resname="Panier">
-        <source>Panier</source>
-        <target state="new">Panier</target>
-        <jms:reference-file line="51">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="ddd038a577e57be48c0e56502f5e32c321d1cf68" resname="Parution">
-        <source>Parution</source>
-        <target state="new">Parution</target>
-        <jms:reference-file line="14">views/Press/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="65b240e85348684b22616d0d8e0aec993ad65c8e" resname="Payée">
-        <source>Payée</source>
-        <target state="new">Payée</target>
-        <jms:reference-file line="19">views/Order/update.html.twig</jms:reference-file>
+      <trans-unit id="d727d03bda0234f57d97da4ab5096a4ea4ce25df" resname="Partenaire">
+        <source>Partenaire</source>
+        <target state="new">Partenaire</target>
+        <jms:reference-file line="26">AdminBundle/Form/PartnerType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="215299ce3fe91b1d9dc4805aa769f7fc82574a14" resname="Photos supplémentaires du produit">
         <source>Photos supplémentaires du produit</source>
         <target state="new">Photos supplémentaires du produit</target>
-        <jms:reference-file line="37">AdminBundle/Form/ProductType.php</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="e07a6298235ae365d71bd574c23897585f8d184e" resname="Plus d'infos">
-        <source>Plus d'infos</source>
-        <target state="new">Plus d'infos</target>
-        <jms:reference-file line="34">views/Actuality/index.html.twig</jms:reference-file>
-        <jms:reference-file line="27">views/Actuality/show.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="70bee0eeaf7016374625e3c77e5f27de28959795" resname="Poduits">
-        <source>Poduits</source>
-        <target state="new">Poduits</target>
-        <jms:reference-file line="23">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="658921fd6963bb8dd2ab9d9e74322afeaaf5f322" resname="Presse">
-        <source>Presse</source>
-        <target state="new">Presse</target>
-        <jms:reference-file line="4">views/Press/index.html.twig</jms:reference-file>
-        <jms:reference-file line="27">Resources/views/header.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="a770de0d9bba47459db059c2539e98b58577d93f" resname="Prix BtoB">
-        <source>Prix BtoB</source>
-        <target state="new">Prix BtoB</target>
-        <jms:reference-file line="16">views/Product/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="86b4e0f96e5f1072043c40800db2f8617de39e24" resname="Prix BtoC">
-        <source>Prix BtoC</source>
-        <target state="new">Prix BtoC</target>
-        <jms:reference-file line="18">views/Product/index.html.twig</jms:reference-file>
+        <jms:reference-file line="39">AdminBundle/Form/ProductType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="e4387ade0f0eb6dd33cbfd0cd6a5e1944cca7748" resname="Prénom">
         <source>Prénom</source>
         <target state="new">Prénom</target>
-        <jms:reference-file line="81">views/Catalog/index.html.twig</jms:reference-file>
-        <jms:reference-file line="24">views/Contact/index.html.twig</jms:reference-file>
+        <jms:reference-file line="25">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="09a38fda7876065eea2d72d936a0c48eeacf42ce" resname="Quantité">
         <source>Quantité</source>
         <target state="new">Quantité</target>
         <jms:reference-file line="191">views/Invoice/download.html.twig</jms:reference-file>
-        <jms:reference-file line="73">views/Product/product.html.twig</jms:reference-file>
+        <jms:reference-file line="100">views/Product/product.html.twig</jms:reference-file>
         <jms:reference-file line="6">views/Mailing/resumeOrder.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="d5500795b4905bf28b790aecd98247e0e5fa9810" resname="REVENIR AUX MARQUES">
-        <source>REVENIR AUX MARQUES</source>
-        <target state="new">REVENIR AUX MARQUES</target>
-        <jms:reference-file line="10">views/Brand/brand.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="811db3c2431c2c5d4c28dced7a18d3dd262bb661" resname="REVENIR AUX PRODUITS">
-        <source>REVENIR AUX PRODUITS</source>
-        <target state="new">REVENIR AUX PRODUITS</target>
-        <jms:reference-file line="14">views/Product/product.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="b435e0f1a6835e86ec9674710664830136474c56" resname="Recue">
-        <source>Recue</source>
-        <target state="new">Recue</target>
-        <jms:reference-file line="31">views/Order/update.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c89dd33c646c40bdf00223afeac7bcdb65160463" resname="Ref">
         <source>Ref</source>
         <target state="new">Ref</target>
-        <jms:reference-file line="15">views/Brand/index.html.twig</jms:reference-file>
         <jms:reference-file line="189">views/Invoice/download.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e5befb1f9671ba7f46a3b9b1f13d7833ff0dce91" resname="Retour">
         <source>Retour</source>
         <target state="new">Retour</target>
-        <jms:reference-file line="54">views/Actuality/update.html.twig</jms:reference-file>
-        <jms:reference-file line="48">views/Catalog/last.html.twig</jms:reference-file>
-        <jms:reference-file line="35">views/Catalog/update.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/Actuality/update.html.twig</jms:reference-file>
         <jms:reference-file line="28">views/Group/update.html.twig</jms:reference-file>
-        <jms:reference-file line="53">views/Press/update.html.twig</jms:reference-file>
-        <jms:reference-file line="38">views/ProductModel/update.html.twig</jms:reference-file>
+        <jms:reference-file line="48">views/Press/update.html.twig</jms:reference-file>
+        <jms:reference-file line="40">views/ProductModel/update.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="786099d2b793b29caece58c5b381c549960e6961" resname="Retour aux marques">
         <source>Retour aux marques</source>
         <target state="new">Retour aux marques</target>
         <jms:reference-file line="42">views/Group/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="b9cd02cf482ce09986164557aa5730467a2e29ff" resname="Récupérer ce panier">
-        <source>Récupérer ce panier</source>
-        <target state="new">Récupérer ce panier</target>
-        <jms:reference-file line="76">views/Order/order.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="28baf554daa7fb0fd49ed083b7d8c22de07bd0fd" resname="Réf">
         <source>Réf</source>
         <target state="new">Réf</target>
         <jms:reference-file line="4">views/Mailing/resumeOrder.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="390067d7d58df78677adb6f8db242c9fd29158fd" resname="Réinnitialiser votre mot de passe">
+        <source>Réinnitialiser votre mot de passe</source>
+        <target state="new">Réinnitialiser votre mot de passe</target>
+        <jms:reference-file line="37">views/Account/index.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="9ada14395d664faab635cf0dd980e5d81ec30e2c" resname="Sauvegarder">
         <source>Sauvegarder</source>
         <target state="new">Sauvegarder</target>
         <jms:reference-file line="60">AdminBundle/Controller/GroupController.php</jms:reference-file>
-        <jms:reference-file line="65">AdminBundle/Controller/ProductController.php</jms:reference-file>
+        <jms:reference-file line="59">AdminBundle/Controller/ProductController.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="e7e8eb444049a5d407ccf51840f29dd4e918c368" resname="Se connecter ou s'inscrire">
         <source>Se connecter ou s'inscrire</source>
@@ -828,7 +460,7 @@
       <trans-unit id="be2b21eadf49aec46910f3ed8ba7c299e3951fdb" resname="Se connecter puis acheter">
         <source>Se connecter puis acheter</source>
         <target state="new">Se connecter puis acheter</target>
-        <jms:reference-file line="154">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
+        <jms:reference-file line="105">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ff51cfb797ca28638cda2b88ded69199e8503246" resname="Siret">
         <source>Siret</source>
@@ -838,64 +470,43 @@
       <trans-unit id="2c3fdad89ce4b973933e9897f4d101f91ca2d99d" resname="Société">
         <source>Société</source>
         <target state="new">Société</target>
-        <jms:reference-file line="28">views/Contact/index.html.twig</jms:reference-file>
+        <jms:reference-file line="29">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="839d20cedbd884a45aca26994a4342a89e818dba" resname="Sous titre">
         <source>Sous titre</source>
         <target state="new">Sous titre</target>
         <jms:reference-file line="15">views/Group/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="0d8adac366c0c307e3a9e612df52cea0afdb711c" resname="Statut de la transaction">
-        <source>Statut de la transaction</source>
-        <target state="new">Statut de la transaction</target>
-        <jms:reference-file line="49">views/Order/order.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="f69bf359604e034722f532b205f16089144b8a36" resname="Statuts de la commande">
-        <source>Statuts de la commande</source>
-        <target state="new">Statuts de la commande</target>
-        <jms:reference-file line="34">views/Order/order.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="bcecf4562f1709b1448aff7c6b49edb6acecdb12" resname="Stock">
-        <source>Stock</source>
-        <target state="new">Stock</target>
-        <jms:reference-file line="15">views/Product/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="d7742281333f757fe1bd09f8584773fe22b56cbd" resname="Sujet">
         <source>Sujet</source>
         <target state="new">Sujet</target>
-        <jms:reference-file line="40">views/Contact/index.html.twig</jms:reference-file>
+        <jms:reference-file line="41">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="f8aea659b187173dc18a31281930eec1cc8b2da3" resname="Suppressions du modèle">
-        <source>Suppressions du modèle</source>
-        <target state="new">Suppressions du modèle</target>
-        <jms:reference-file line="71">views/ProductModel/index.html.twig</jms:reference-file>
+      <trans-unit id="3cabc93216afc9407091bb0c55c00940011dcfea" resname="Suppressions des modèles">
+        <source>Suppressions des modèles</source>
+        <target state="new">Suppressions des modèles</target>
+        <jms:reference-file line="65">views/ProductModel/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1acfc1c7d761310db2e5e876c0cade4d522cfed2" resname="Supprimer">
         <source>Supprimer</source>
         <target state="new">Supprimer</target>
-        <jms:reference-file line="279">AdminBundle/Controller/BrandController.php</jms:reference-file>
-        <jms:reference-file line="58">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
+        <jms:reference-file line="25">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9f7082c9e014f95bb92854c76a8172bcbe2070d5" resname="Suprimer">
         <source>Suprimer</source>
         <target state="new">Suprimer</target>
         <jms:reference-file line="200">AdminBundle/Controller/GroupController.php</jms:reference-file>
-        <jms:reference-file line="131">AdminBundle/Controller/ProductController.php</jms:reference-file>
+        <jms:reference-file line="133">AdminBundle/Controller/ProductController.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="2b90839d6bba3b9e9a2a01dd381b5cdae25da631" resname="Taille">
         <source>Taille</source>
         <target state="new">Taille</target>
-        <jms:reference-file line="29">views/Product/product.html.twig</jms:reference-file>
+        <jms:reference-file line="56">views/Product/product.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="768e0c1c69573fb588f61f1308a015c11468e05f" resname="Title">
         <source>Title</source>
         <target state="new">Title</target>
-        <jms:reference-file line="14">views/Actuality/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="eb97899aedcd5609782b5ccb4ffa390e0e66a3eb" resname="Titre">
-        <source>Titre</source>
-        <target state="new">Titre</target>
-        <jms:reference-file line="15">views/Press/index.html.twig</jms:reference-file>
+        <jms:reference-file line="15">views/Actuality/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ae79ea1e9c6391a9ed83a2e18a031b835feec0c9" resname="To">
         <source>To</source>
@@ -906,28 +517,16 @@
         <source>Total HT</source>
         <target state="new">Total HT</target>
         <jms:reference-file line="263">views/Invoice/download.html.twig</jms:reference-file>
-        <jms:reference-file line="91">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9e80ff7ca9e0859931850288715db050e3c10e68" resname="Total TTC">
         <source>Total TTC</source>
         <target state="new">Total TTC</target>
         <jms:reference-file line="272">views/Invoice/download.html.twig</jms:reference-file>
-        <jms:reference-file line="95">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="605c4b2efd45ed91544165ca4f5e40ef6ab4c094" resname="Total TVA">
         <source>Total TVA</source>
         <target state="new">Total TVA</target>
         <jms:reference-file line="266">views/Invoice/download.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="fabf4903d941492054ba804e38363e74c6fc024d" resname="Total des achats">
-        <source>Total des achats</source>
-        <target state="new">Total des achats</target>
-        <jms:reference-file line="79">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="dcd6bbfc45339439de9435f8b12b7e6c8517816b" resname="Traduction">
-        <source>Traduction</source>
-        <target state="new">Traduction</target>
-        <jms:reference-file line="32">Resources/views/header.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="1a7b7c1b33d161f45804730c70b75175dccd9883" resname="Transaction">
         <source>Transaction</source>
@@ -938,64 +537,25 @@
         <source>Tva</source>
         <target state="new">Tva</target>
         <jms:reference-file line="34">views/Account/shopProfil.html.twig</jms:reference-file>
-        <jms:reference-file line="17">views/Brand/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="01eaf15231adb869407c2c72568e998046ca090c" resname="Tva BtoB">
-        <source>Tva BtoB</source>
-        <target state="new">Tva BtoB</target>
-        <jms:reference-file line="17">views/Product/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="36495ddafa1ff4cac0eb50d7205583bd3e3eefda" resname="Tva BtoC">
-        <source>Tva BtoC</source>
-        <target state="new">Tva BtoC</target>
-        <jms:reference-file line="19">views/Product/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="de13a1c6183b817c5959f8894a9f3bb56cfdfe7c" resname="Tva non applicable">
-        <source>Tva non applicable</source>
-        <target state="new">Tva non applicable</target>
-        <jms:reference-file line="45">views/Brand/edit.html.twig</jms:reference-file>
-        <jms:reference-file line="42">views/Brand/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="3deb7456519697ecf4eefc455516c969a3681bae" resname="Type">
         <source>Type</source>
         <target state="new">Type</target>
         <jms:reference-file line="4">views/Account/accountsList.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="b332d06dcdd0b2884263ca3e3d3b8c2224c7cef2" resname="Télécharger">
-        <source>Télécharger</source>
-        <target state="new">Télécharger</target>
-        <jms:reference-file line="62">views/Catalog/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="d3b023eabc9c88f080cd07690201139b7ecfecfb" resname="Téléphone">
         <source>Téléphone</source>
         <target state="new">Téléphone</target>
         <jms:reference-file line="7">views/Account/accountsList.html.twig</jms:reference-file>
         <jms:reference-file line="29">views/Account/shopProfil.html.twig</jms:reference-file>
-        <jms:reference-file line="32">views/Contact/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="fb91e24fa52d8d2b32937bf04d843f730319a902" resname="Update">
-        <source>Update</source>
-        <target state="new">Update</target>
-        <jms:reference-file line="158">AdminBundle/Controller/BrandController.php</jms:reference-file>
+        <jms:reference-file line="33">views/Contact/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="be4220f72059bf85bcfc9e3a0ecc3aa6d45776b4" resname="Valider">
         <source>Valider</source>
         <target state="new">Valider</target>
         <jms:reference-file line="12">views/Account/address.html.twig</jms:reference-file>
         <jms:reference-file line="34">views/Account/address.html.twig</jms:reference-file>
-        <jms:reference-file line="33">views/Account/index.html.twig</jms:reference-file>
-        <jms:reference-file line="29">views/Security/login.html.twig</jms:reference-file>
-        <jms:reference-file line="9">views/User/registration.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="baf00e6c655c29a2f483a330dbf63e7114458c5f" resname="Valider la commande">
-        <source>Valider la commande</source>
-        <target state="new">Valider la commande</target>
-        <jms:reference-file line="112">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="2cc6c327a545b6256e1abe168fb739f6e7b2eb95" resname="Validée">
-        <source>Validée</source>
-        <target state="new">Validée</target>
-        <jms:reference-file line="13">views/Order/update.html.twig</jms:reference-file>
+        <jms:reference-file line="32">views/Account/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="972176113f903c45d3c3ae7331b3178a1f322bf8" resname="Ville">
         <source>Ville</source>
@@ -1010,7 +570,7 @@
       <trans-unit id="46e7c3f0fb32a914ef487c65a8885f5f77714eb4" resname="Vos informations personnelles">
         <source>Vos informations personnelles</source>
         <target state="new">Vos informations personnelles</target>
-        <jms:reference-file line="14">views/Account/index.html.twig</jms:reference-file>
+        <jms:reference-file line="13">views/Account/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="db7f128ea227597dcc65507585b8ca4526e8d96f" resname="Votre adresse de facturation">
         <source>Votre adresse de facturation</source>
@@ -1022,31 +582,10 @@
         <target state="new">Votre adresse de livraison</target>
         <jms:reference-file line="3">views/Account/address.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="0a9a754ca1bb195085e2b68d8fe80a9594457266" resname="Votre panier">
-        <source>Votre panier</source>
-        <target state="new">Votre panier</target>
-        <jms:reference-file line="5">views/ShoppingCart/index.html.twig</jms:reference-file>
-        <jms:reference-file line="22">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="cfe3419d35bbe9f41b7bda5fd0bd65c6aec2b2e5" resname="Votre panier est vide">
-        <source>Votre panier est vide</source>
-        <target state="new">Votre panier est vide</target>
-        <jms:reference-file line="163">views/ShoppingCart/shoppingCart.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="f73bfe154aa212b690ef88d3a21c66112b827bb5" resname="Votre profil">
         <source>Votre profil</source>
         <target state="new">Votre profil</target>
         <jms:reference-file line="4">views/Account/submenu.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="094b0fe0e302854af1311afab85b5203ba457a3b" resname="en">
-        <source>en</source>
-        <target state="new">en</target>
-        <jms:reference-file line="24">AdminBundle/Form/BrandType.php</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="09cd68a2a77b22a312dded612dd0d9988685189f" resname="es">
-        <source>es</source>
-        <target state="new">es</target>
-        <jms:reference-file line="24">AdminBundle/Form/BrandType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="6d384fb8ef3ca9318f0f9d983868842a211770f8" resname="form.password">
         <source>form.password</source>
@@ -1058,21 +597,10 @@
         <target state="new">form.password_confirmation</target>
         <jms:reference-file line="31">Form/Type/ProfileFormType.php</jms:reference-file>
       </trans-unit>
-      <trans-unit id="b858a87c07b04c4568f51b0dce655f78d73c02b3" resname="fr">
-        <source>fr</source>
-        <target state="new">fr</target>
-        <jms:reference-file line="24">AdminBundle/Form/BrandType.php</jms:reference-file>
-      </trans-unit>
       <trans-unit id="8c0d1c7dec834a2f11c20cb1229eb18ab3ddca64" resname="jj/mm/aaaa">
         <source>jj/mm/aaaa</source>
         <target state="new">jj/mm/aaaa</target>
-        <jms:reference-file line="30">AdminBundle/Form/ActualityType.php</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="83fc867a6ea7bf1ca105aec9a1b81234e0aec40e" resname="€">
-        <source>€</source>
-        <target state="new">€</target>
-        <jms:reference-file line="29">AdminBundle/Form/BrandType.php</jms:reference-file>
-        <jms:reference-file line="38">AdminBundle/Form/BrandType.php</jms:reference-file>
+        <jms:reference-file line="28">AdminBundle/Form/ActualityType.php</jms:reference-file>
       </trans-unit>
     </body>
   </file>

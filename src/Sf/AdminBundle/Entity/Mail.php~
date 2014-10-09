@@ -48,12 +48,7 @@ class Mail {
      */
     private $senderUser;
 
-    /**
-     *
-     *  @ORM\ManyToOne(targetEntity="Brand")
-     * @ORM\JoinColumn(name="sender_brand_id", referencedColumnName="id", nullable = true)
-     */
-    private $senderBrand;
+  
 
     /**
      *
@@ -62,12 +57,7 @@ class Mail {
      */
     private $receiverUser;
 
-    /**
-     *
-     *  @ORM\ManyToOne(targetEntity="Brand")
-     *  @ORM\JoinColumn(name="receiver_brand_id", referencedColumnName="id", nullable = true)
-     */
-    private $receiverBrand;
+   
 
     /**
      *
@@ -231,26 +221,7 @@ class Mail {
         return $this->senderUser;
     }
 
-    /**
-     * Set senderBrand
-     *
-     * @param \Sf\AdminBundle\Entity\Brand $senderBrand
-     * @return Mail
-     */
-    public function setSenderBrand(\Sf\AdminBundle\Entity\Brand $senderBrand = null) {
-        $this->senderBrand = $senderBrand;
-
-        return $this;
-    }
-
-    /**
-     * Get senderBrand
-     *
-     * @return \Sf\AdminBundle\Entity\Brand 
-     */
-    public function getSenderBrand() {
-        return $this->senderBrand;
-    }
+   
 
     /**
      * Set receiverUser
@@ -273,26 +244,7 @@ class Mail {
         return $this->receiverUser;
     }
 
-    /**
-     * Set receiverBrand
-     *
-     * @param \Sf\AdminBundle\Entity\Brand $receiverBrand
-     * @return Mail
-     */
-    public function setReceiverBrand(\Sf\AdminBundle\Entity\Brand $receiverBrand = null) {
-        $this->receiverBrand = $receiverBrand;
-
-        return $this;
-    }
-
-    /**
-     * Get receiverBrand
-     *
-     * @return \Sf\AdminBundle\Entity\Brand 
-     */
-    public function getReceiverBrand() {
-        return $this->receiverBrand;
-    }
+    
 
     /**
      * Set order

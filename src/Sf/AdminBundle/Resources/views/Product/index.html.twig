@@ -5,6 +5,9 @@
 {% block ariane %}
     LES PRODUITS
 {% endblock %}
+{% block bandeauClass %}
+account
+{% endblock %}
 {% block body %}
     <div id="main-content" class="container" >
         
@@ -24,7 +27,8 @@
                         <th>Tva</th>
                         <th>Prix TTC</th>
                         <th>Stock</th>
-                        <th>Actif ?</th>
+                        <th>Actif</th>
+                        <th>Home</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -49,6 +53,9 @@
                             <td class="text-right"> <a title="Gestion du stock" href="{{ path('admin_product_model', {'product': entity.id }) }}">{{getStock(entity,true)|raw}}</a></td>
                             <td>
                                 <span class="glyphicon glyphicon-{% if  entity.active %}ok{% else %}ban{%endif%}-circle"></span>
+                            </td>
+                             <td>
+                                <span class="glyphicon glyphicon-{% if  entity.inHome %}ok{% else %}ban{%endif%}-circle"></span>
                             </td>
                             <td>
 

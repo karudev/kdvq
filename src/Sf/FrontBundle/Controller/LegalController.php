@@ -11,17 +11,13 @@ class LegalController extends Controller
 
      /**
      *
-     * @Route("/legals",name="front_legals")
+     * @Route("/mentions-légales",name="front_legals")
      * @Template()
      */
     public function indexAction() {
         $em = $this->get('doctrine')->getManager();
-        $entities = $em->getRepository('SfAdminBundle:Legal')->findBy(array('active' => true));
+        $entity = $em->getRepository('SfAdminBundle:Legal')->findOneBy(array('active' => true),array('id' => 'desc'));
 
-        $entity = null;
-        if (count($entities) > 0) {
-            $entity = $entities[0];
-        }
         return array('entity' => $entity);
     }
 

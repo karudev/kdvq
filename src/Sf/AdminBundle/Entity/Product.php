@@ -7,6 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Translatable\Translatable;
 use Symfony\Component\Filesystem\Filesystem;
+use Sf\AdminBundle\Service\FileManager;
 
 /**
  * Product
@@ -97,6 +98,13 @@ class Product implements Translatable
      * @ORM\Column(name="priceTtc", type="float")
      */
     private $priceTtc;
+    
+     /**
+     * @var boolean
+     * @ORM\Column(name="in_home", type="boolean")
+     */
+    private $inHome = false;
+    
 
     
   
@@ -197,12 +205,14 @@ class Product implements Translatable
  
     public function preUpload()
     {
-       
-        if (null !== $this->mainPicture) {
-            $this->mainPictureUrl = uniqid() . '.' . $this->mainPicture->guessExtension();
+        if($this->id !=null){
+            $this->removeUpload();
         }
+       
+        
         if (null !== $this->hdPicture) {
             $this->hdPictureUrl = uniqid() . '.' . $this->hdPicture->guessExtension();
+            $this->mainPictureUrl = 'sm_'.$this->hdPictureUrl;
         }
     }
 
@@ -210,12 +220,13 @@ class Product implements Translatable
     public function upload()
     {
        
-        if ($this->mainPicture != null) {
-            $this->mainPicture->move($this->getUploadRootDir(), $this->mainPictureUrl);
-            unset($this->mainPicture);
-        }
+           
+      
         if ($this->hdPicture != null) {
+             $ext = $this->hdPicture->guessExtension(); 
             $this->hdPicture->move($this->getUploadRootDir(), $this->hdPictureUrl);
+           
+            FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, 314,null,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
             unset($this->hdPicture);
         }
     }
@@ -228,11 +239,11 @@ class Product implements Translatable
 
         $fs = new Filesystem();
        
-        if ($fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
-            unlink($this->hdPicture);
+        if ($this->hdPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
+            unlink($this->getAbsolutePath($this->hdPictureUrl));
         }
-        if ($fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
-            unlink($this->mainPicture);
+        if ($this->mainPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
+            unlink($this->getAbsolutePath($this->mainPictureUrl));
         }
     }
 
@@ -390,6 +401,25 @@ class Product implements Translatable
     public function setMainPicture($mainPicture)
     {
         $this->mainPicture = $mainPicture;
+    }
+    
+       /**
+     * Get hdPicture
+     *
+     * @return object
+     */
+    public function getHdPicture()
+    {
+        return $this->hdPicture;
+    }
+     /**
+     * Set hdPicture
+     *
+     * @param object $hdPicture
+     */
+    public function setHdPicture($hdPicture)
+    {
+        $this->hdPicture = $hdPicture;
     }
     
     /**
@@ -801,5 +831,28 @@ class Product implements Translatable
     public function getPriceTtc()
     {
         return $this->priceTtc;
+    }
+
+    /**
+     * Set inHome
+     *
+     * @param boolean $inHome
+     * @return Product
+     */
+    public function setInHome($inHome)
+    {
+        $this->inHome = $inHome;
+
+        return $this;
+    }
+
+    /**
+     * Get inHome
+     *
+     * @return boolean 
+     */
+    public function getInHome()
+    {
+        return $this->inHome;
     }
 }

@@ -17,15 +17,15 @@ class ActualityType extends AbstractType {
 
         $builder
                 ->add('title')
-                ->add('subTitle','text', array('required' => false))
-                ->add('text', 'textarea', array('required' => false))
+            
                 ->add('picture', 'file', array('required' => false))
-                ->add('textColor', 'choice', array('choices' => array('normal' => 'Normal','white' => 'Blanc')))
+                 ->add('pictureHome', 'file', array('required' => false))
+               ->add('link', 'text', array('required' => false))
                 ->add('text', 'textarea', array('required' => false))
-                ->add('link', 'url', array('required' => false))
+              
                 ->add('active', 'checkbox', array('required' => false))
-                ->add('isBackground', 'checkbox', array('required' => false))
-                ->add('showDate', 'checkbox', array('required' => false))
+                  ->add('inHome', 'checkbox', array('required' => false))
+              
                 ->add('date', 'date', array(
                     'attr' => array('placeholder' => 'jj/mm/aaaa'),
                     'widget' => 'single_text',

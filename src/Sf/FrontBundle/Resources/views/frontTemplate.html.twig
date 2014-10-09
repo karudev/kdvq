@@ -23,12 +23,12 @@
         {% block css %}
         {% endblock %}
     </head>
-    <body>
+    <body class="bg{{random([1,2])}}">
 
 
         <header class="header">
-            <div class="container">
-                <div class="row">
+           
+                <div class="">
                     <div class="header-all col-md-12">
                         <div class="header-account">
                             <div class="account-bloc">
@@ -56,24 +56,24 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="header-search hidden-xs">
+                        {#<div class="header-search hidden-xs">
                             <form action="index.html" method="post">
                                 <div class="inner-addon right-addon">
                                     <i class="glyphicon search-icon"></i>
                                     <input type="text" class="form-control" />
                                 </div>
                             </form>
-                        </div>
+                        </div>#}
                     </div>
                 </div>
-            </div>
+            
         </header>
-        <div class="col-md-10 col-sm-9">
+        <div class="{{app.request.attributes.get('_route') == 'front_home' ? 'col-md-12 col-sm-12' : 'col-md-10 col-sm-9' }}" >
             {% block bandeau %}
                 <div class="categories {% block bandeauClass %}{% endblock%}">
                     <div class="col-md-2">
                         <a href="{{path('front_home')}}" title="">
-                            <div class="main-logo"></div>
+                            <div class="hidden-xs main-logo"></div>
                         </a>
                     </div>
                     <div class="subcat">{% block ariane %}{% endblock%}</div>
@@ -81,7 +81,7 @@
             {% endblock%}
         </div>
 
-        {{render(controller('SfFrontBundle:Nav:show'))}}
+        {{render(controller('SfFrontBundle:Nav:show',{'_route' :  app.request.attributes.get('_route')} ))}}
 
 
         <div class="container">
@@ -111,34 +111,16 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <a href=""><div class="ico_fleche_ferme"></div>Deja inscrit - se connecter</a>
+                        <div class="ico_fleche_ferme"></div><b>DEJA INSCRIT - SE CONNECTER</b>
                     </div>
                     <div class="modal-body">
-                        <form action="index.html" method="post">
-                            <div class="col-xs-6"><label>Mail</label></div>
-                            <div class="col-xs-4"><label><input type="text" name="mail"></label></div>
-                            <div class="col-xs-6"><label>Login</label></div>
-                            <div class="col-xs-4"><label>
-                                    <input type="text" name="mail"><br/><br/>
-                                    <a href="" title=""><span class="forgot-password">Mot de passe oublié</span></a>
-                                </label></div>
-                            <button type="submit" class="submit">Valider</button>
-                        </form>
+                       {{render(controller('SfUserBundle:User:formLogin')) }}
                     </div>
                     <div class="modal-header footer">
-                        <a href=""><div class="ico_fleche_ferme"></div>Deja inscrit - se connecter</a>
+                        <div class="ico_fleche_ferme"></div><b>NOUVELLE INSCRIPTION</b>
                     </div>
-                    <div class="modal-footer">
-                        <form action="index.html" method="post">
-                            <div class="col-xs-6"><label>Mail</label></div>
-                            <div class="col-xs-4"><label><input type="text" name="mail"></label></div>
-                            <div class="col-xs-6"><label>Login</label></div>
-                            <div class="col-xs-4"><label>
-                                    <input type="text" name="mail"><br/><br/>
-                                    <a href="" title=""><span class="forgot-password">Mot de passe oublié</span></a>
-                                </label></div>
-                            <button type="submit" class="submit">Valider</button>
-                        </form>
+                    <div id="registration" class="modal-footer">
+                       {{render(controller('SfUserBundle:User:registration'))}}
                     </div>
                 </div>
             </div>
@@ -146,7 +128,8 @@
 
 
 
-        {% include 'SfFrontBundle::footer.html.twig' %}
+         {{render(controller('SfFrontBundle:Footer:show'))}}
+
         <script src="{{asset('assets/jquery-ui/js/jquery-1.10.2.js')}}"></script>
         <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/jquery-ui-1.11.0/jquery-ui.js')}}"></script>
@@ -157,7 +140,7 @@
     {% endif %}
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-
+        <script src="{{asset('bundles/sfuser/js/login.js')}}?v={{version}}"></script>
         {% block js %}
         {% endblock%}
 

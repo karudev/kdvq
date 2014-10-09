@@ -6,84 +6,100 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sf\AdminBundle\Entity\LastCatalog;
 use Sf\AdminBundle\Form\LastCatalogType;
-use Sf\AdminBundle\Entity\Catalog;
-use Sf\AdminBundle\Form\CatalogType;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class CatalogController extends Controller {
 
-    /**
+    
+      /**
      * @Template()
      *
      *
      */
     public function indexAction(Request $request) {
-
-        $em = $this->get('doctrine')->getManager();
-        $lastCatalog = $em->getRepository('SfAdminBundle:LastCatalog')->findOneBy(array());
-        $catalogs = $em->getRepository('SfAdminBundle:Catalog')->findBy(array(),array('id' => 'desc'));
-
-
-        return array('lastCatalog' => $lastCatalog,'catalogs' => $catalogs);
+        return array();
     }
-
+   
     /**
      * @Template()
      *
      *
      */
-    public function lastAction(Request $request, LastCatalog $lastCatalog = null) {
+    public function clubAction(Request $request) {
 
         $em = $this->get('doctrine')->getManager();
 
-        if ($lastCatalog == null){
-            $lastCatalog = new LastCatalog();
+        $lastCatalogClub = $em->getRepository('SfAdminBundle:LastCatalog')->findOneBy(array('type' => 'club'),array('id' =>'desc'));
+        if (!$lastCatalogClub ){
+            $lastCatalogClub = new LastCatalog();
         }
-
-        $form = $this->createForm(new LastCatalogType, $lastCatalog);
+        
+        $lastCatalogClub->setType('club');
+        $form = $this->createForm(new LastCatalogType, $lastCatalogClub,array('action' => $this->generateUrl('admin_catalog_club')));
+        
+       
+       
 
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);
+           
             if ($form->isValid()) {
-
+                
                
-                $em->persist($lastCatalog);
-                $em->flush();
-               return $this->redirect($this->generateUrl('admin_catalog'));
+                $lastCatalogClub->preUpload();
+                $em->persist($lastCatalogClub);
+              
+                $lastCatalogClub->upload();
+                  $em->flush();
+                
             }
+            
+          
+             return $this->redirect($this->generateUrl('admin_catalog'));
         }
 
 
         return array('form' => $form->createView());
     }
-
-     /**
+    
+    /**
      * @Template()
      *
      *
      */
-    public function updateAction(Request $request, Catalog $catalog = null) {
+    public function pressAction(Request $request) {
 
         $em = $this->get('doctrine')->getManager();
 
-        if ($catalog == null){
-            $catalog = new Catalog();
+        
+        $lastCatalogPress = $em->getRepository('SfAdminBundle:LastCatalog')->findOneBy(array('type' => 'press'),array('id' =>'desc'));
+        if (!$lastCatalogPress ){
+            $lastCatalogPress = new LastCatalog();
         }
-
-        $form = $this->createForm(new CatalogType, $catalog);
+        
+        $lastCatalogPress->setType('press');
+        $form = $this->createForm(new LastCatalogType, $lastCatalogPress,array('action' => $this->generateUrl('admin_catalog_press')));
 
         if ($request->getMethod() == 'POST') {
+        
             $form->handleRequest($request);
+          
             if ($form->isValid()) {
-
-               
-                $em->persist($catalog);
+                $lastCatalogPress->preUpload();
+                $em->persist($lastCatalogPress);
+                
+                $lastCatalogPress->upload();
                 $em->flush();
-               return $this->redirect($this->generateUrl('admin_catalog'));
+              
             }
+            
+             return $this->redirect($this->generateUrl('admin_catalog'));
         }
 
 
         return array('form' => $form->createView());
     }
+
+   
 }

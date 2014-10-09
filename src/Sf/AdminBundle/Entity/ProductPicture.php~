@@ -173,10 +173,7 @@ class ProductPicture
       $this->updatedAt = new \dateTime();
     }
 
-   /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
+  
     public function preUpload()
     {
         if (null !== $this->pictureFile) {
@@ -184,10 +181,7 @@ class ProductPicture
         }
     }
 
-    /**
-     * @ORM\PostPersist()
-     * @ORM\PostUpdate()
-     */
+   
     public function upload()
     {
         if (null === $this->pictureFile) {

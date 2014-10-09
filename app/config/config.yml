@@ -104,7 +104,7 @@ fos_user:
     
     from_email:
         address:        "%mailer_admin%"
-        sender_name:    Fridging
+        sender_name:    Qwinsport
 
 
 stof_doctrine_extensions:
