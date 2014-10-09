@@ -73,7 +73,7 @@
                                 <div class="actu-date">{{a.date|date('d/m/Y')}}</div><hr/>
                                 <div class="actu-title"><h1>{{a.title}}</h1></div>
                                 <div class="actu-content">
-                                    {{a.text|truncate(200)|raw}}..
+                                    {{a.text|truncate(120)|raw}}..
                                 </div>
                             </div>
                             <img class="visuel" src="{{ asset(['/uploads/actualities/', a.pictureHomeUrl]|join) }}" alt="">
