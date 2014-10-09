@@ -156,7 +156,7 @@ class ShoppingCartController extends Controller {
 
         return new JsonResponse(array(
             'success' => $success,
-            'html' => $this->forward('SfFrontBundle:ShoppingCart:shoppingcart')->getContent()));
+            'html' => $this->forward('SfFrontBundle:ShoppingCart:shoppingCart')->getContent()));
     }
 
     /**
