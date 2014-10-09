@@ -194,19 +194,19 @@ class Brand implements Translatable {
     public function removeUpload() {
 
         $fs = new Filesystem();
-        if ($this->pictureUrl != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
+        if ($this->picture != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
             unlink($this->getAbsolutePath($this->pictureUrl));
         }
-        if ($this->picture2Url != null && $fs->exists($this->getAbsolutePath($this->picture2Url))) {
+        if ($this->picture2 != null && $fs->exists($this->getAbsolutePath($this->picture2Url))) {
             unlink($this->getAbsolutePath($this->picture2Url));
         }
-        if ($this->textPictureUrl != null && $fs->exists($this->getAbsolutePath($this->textPictureUrl))) {
+        if ($this->textPicture != null && $fs->exists($this->getAbsolutePath($this->textPictureUrl))) {
             unlink($this->getAbsolutePath($this->textPictureUrl));
         }
-        if ($this->textPicture2Url != null && $fs->exists($this->getAbsolutePath($this->textPicture2Url))) {
+        if ($this->textPicture2 != null && $fs->exists($this->getAbsolutePath($this->textPicture2Url))) {
             unlink($this->getAbsolutePath($this->textPicture2Url));
         }
-        if ($this->centerPictureUrl != null && $fs->exists($this->getAbsolutePath($this->centerPictureUrl))) {
+        if ($this->centerPicture != null && $fs->exists($this->getAbsolutePath($this->centerPictureUrl))) {
             unlink($this->getAbsolutePath($this->centerPictureUrl));
         }
     }

@@ -186,14 +186,14 @@ class Press implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($this->mainPictureUrl != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
+        if ($this->mainPicture != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
             unlink($this->getAbsolutePath($this->mainPictureUrl));
         }
-         if ($this->hdPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
+         if ($this->hdPicture !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
             unlink($this->getAbsolutePath($this->hdPictureUrl));
         }
         
-        if ($this->secondPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
+        if ($this->secondPicture !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
             unlink($this->getAbsolutePath($this->secondPictureUrl));
         }
        
