@@ -5,8 +5,10 @@ h3{
 }
 .log a{
     color :#333;
+    text-decoration: underline;
    
 }
-.log a:hover{
-    text-decoration: underline;
+#main-content{
+    min-height: 650px;
 }
+

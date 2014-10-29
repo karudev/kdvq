@@ -12,9 +12,9 @@
 account
 {% endblock %}
 {% block body %}
-    <div id="main-content" class="container">
+    <div id="main-content" class=" col-md-10">
        
-        <div id="orders" class="row col-md-10">
+        <div id="orders" class="row">
           {{render(controller('SfAdminBundle:Order:orders'))}}
         </div>
         

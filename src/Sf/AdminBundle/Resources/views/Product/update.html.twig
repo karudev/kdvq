@@ -10,18 +10,19 @@
 account
 {% endblock %}
 {% block body %}
-    <div id="main-content" class="container" >
+    <div id="main-content" class=" col-md-10" >
 
 
     {{ form_start(form)}}
 
 
-    <div class="row">
+    <div class="col-md-12">
         <div class="col-md-6">
             <div class="col-md-6">  {{ form_row(form.active) }}</div>
             <div class="col-md-6">  {{ form_row(form.inHome) }}</div>
            
              {{ form_label(form.hdPicture) }}
+             <div class="alert alert-info">Il est conseillé d'uploader une photo d'un ratio de 0.83 (ex: 890px X 1070px)</div>
             <br/>
             {% if entity.hdPictureUrl is not null %}
                 <img height="250px" src="{{ asset(['/uploads/products/', entity.hdPictureUrl]|join) }}" />
@@ -53,7 +54,7 @@ account
            
 
         </div>
-        <div class="col-xs-4">
+        <div class="col-md-6">
             {{ form_row(form.productPictures) }}
 
             <button type="button" class="btn glyphicon glyphicon-plus" id="add_image">

@@ -9,18 +9,20 @@
 account
 {% endblock %}
 {% block body %}
-    <div id="main-content"  class="container">
+    <div id="main-content"  class=" col-md-10">
 
 
         {{ form_start(form)}}
 
 
-        <div class="row">
+        <div class="col-md-12">
             <div class="col-md-6">
                 {{ form_row(form.active) }}
 
                 {{ form_label(form.picture) }}
                 <br/>
+                 <div class="alert alert-info">Il est conseillé d'uploader une photo d'un ratio de 2 pour les clubs (ex: 194px X 93px) et 1.4 pour les partenaires (ex: 129px X 92px )</div>
+           
                 {% if form.vars.data.pictureUrl is not null %}
                     <img src="{{ asset(['/uploads/partners/', form.vars.data.pictureUrl]|join) }}" />
                 {% endif %}
@@ -37,7 +39,7 @@ account
 
         </div>
 
-        <div class="row">
+        <div class="">
             <a href="{{ path('admin_partner') }}" style="color:black">
                 <button type="button" class="submit" style="margin-right:10px">
                     Retour

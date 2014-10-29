@@ -16,20 +16,32 @@ class ProductController extends Controller {
      * @Route("/produits/{categorySlug}",name="front_products")
      * @Template()
      */
-    public function indexAction($categorySlug) {
+    public function indexAction(Request $request, $categorySlug) {
+        
 
         $em = $this->getDoctrine()->getManager();
+       
+        $filterPrice = $request->get('filterPrice',0);
+        $orderPrice = $request->get('orderPrice',0);
+        
+        
+      
         $products_intro = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'products_intro'));
         $category = $em->getRepository('SfAdminBundle:Category')->findOneBySlug($categorySlug);
-        $products = $em->getRepository('SfAdminBundle:Product')->findBy(
-                array('category' => $category->getId()), array('updatedAt' => 'desc'));
-        return array('products' => $products, 'category' => $category,'intro' =>  $products_intro
+        
+        $products = $em->getRepository('SfAdminBundle:Product')->get($category,$filterPrice,$orderPrice);
+        
+         $pubs = $em->getRepository('SfAdminBundle:Pub')->findBy(array('active' => true),array('position' => 'asc'));
+
+         
+        
+        return array('pubs' => $pubs,'orderPrice' => $orderPrice,'filterPrice' => $filterPrice,'products' => $products, 'category' => $category,'intro' =>  $products_intro
         );
     }
 
     /**
      * 
-     *  @Route("/produit/{slug}",name="front_product")
+     * @Route("/produit/{slug}",name="front_product")
      * @Template()
      */
     public function productAction($slug) {

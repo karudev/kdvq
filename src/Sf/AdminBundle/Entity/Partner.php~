@@ -100,7 +100,7 @@ class Partner implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($this->pictureUrl != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
+        if ($this->picture != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
             unlink($this->getAbsolutePath($this->pictureUrl));
         }
        

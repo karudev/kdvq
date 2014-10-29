@@ -168,7 +168,13 @@ admin_press_update:
     path:     /admin/press/update/{press}
     defaults: { _controller: "SfAdminBundle:Press:update",press:null}
     
-
+admin_pub:
+    path:     /admin/pub
+    defaults: { _controller: "SfAdminBundle:Pub:index"}
+    
+admin_pub_update:
+    path:     /admin/pub/update/{pub}
+    defaults: { _controller: "SfAdminBundle:Pub:update",pub:null}
 
 admin_catalog:
     path:     /admin/catalogue

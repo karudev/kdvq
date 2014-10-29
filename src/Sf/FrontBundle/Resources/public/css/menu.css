@@ -4,41 +4,75 @@
 	border: none;
 }
 
-.navbar-default .navbar-nav>.active>a{
-	background-color: #52DDC6;
+.navbar-default .navbar-nav>.active>a,
+.navbar-nav a:hover{
+	background-color: #52DDC6 !important;
 	color:#000100;
+          -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.submenu a:hover{
+	background-color: transparent !important;
+  -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.submenu li:hover{
+	background-color: #52DDC6 !important;
+	color:#000100;
+          -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .sidebar-nav{
 	/*margin-top: 40px;*/
 	font-family: 'DINAlternateBold', sans-serif;
-	text-transform: uppercase;
-	font-size: 12px;
+	
+	font-size: 11px;
 	color:#000100;
         /*margin-left: 20px;
         margin-right: 20px;
         width: 160px;
         position: absolute;*/
+        letter-spacing:1.5px;
+        text-transform: uppercase;
+       
 }
+
 .sidebar-nav.pc{
+    border-left:none;
 	margin-top: 40px;
-	
+	text-transform: uppercase;
         margin-left: 20px;
         margin-right: 20px;
         width: 160px;
         position: absolute;
+        z-index: 2;
+        
 }
 
 
-.navbar-default .navbar-nav>.open>a{
+/*.navbar-default .navbar-nav>.open>a{
 	background-color: transparent !important;
+}*/
+.navbar-default .navbar-nav > li > a {
+    color: black;
 }
-
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus{
 	background-color: #52DDC6;
 	color:#000100;
+          -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .sidebar-nav .navbar li{
@@ -50,7 +84,7 @@
 }
 
 .sidebar-nav .navbar li.dropdown>a{
-	border-bottom: 1px dotted black;
+	border-bottom: 1px dashed black;
 }
 
 .sidebar-nav .navbar li a{
@@ -66,7 +100,7 @@
 }
 
 .dropdown-menu>li{
-	border-bottom: 1px dotted black !important;
+	border-bottom: 1px dashed black !important;
 }
 
 .dropdown-menu>li>a{
@@ -89,7 +123,35 @@
 .home-nav .sidebar-nav{
     right: 0px;
 }
+.submenu a{
+    margin-left: 15px !important;
+}
+.submenu{
+    padding: 0px;
+}
+.ico_fleche_ferme{
+  
+    background: url('../images/ico/ico_fleche_ferme.png') no-repeat right;
+   
+}
+.ico_fleche_ferme.open,.ico_fleche_ouvert.open{
+  
+    background: none;
+   
+}
 
+
+.ico_fleche_ouvert{
+    
+    background: url('../images/ico/ico_fleche_ouvert.png') no-repeat right;
+
+}
+.navbar{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
 @media (min-width: 768px) {
 	.navbar-default, .navbar-collapse{
 		border: none;
@@ -99,8 +161,15 @@
 
 @media (max-width: 768px) {
 	.navbar-default{
-		margin-top: 50px;
+		margin-top: 0px;
+                
 	}
+        .navbar {
+   
+    margin-bottom: 0px !important;
+    min-height: 0px !important; 
+    
+}
 	nav.main{
 		z-index: 999;
 		width: 100%;

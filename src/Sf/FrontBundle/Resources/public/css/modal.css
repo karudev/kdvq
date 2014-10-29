@@ -42,5 +42,6 @@
 }
 
 .modal-header.footer{
-	background-color: #52DDC6;
+	background:url('../images/bg/bg_login.jpg') #52DDC6 center bottom no-repeat;
+        height: 227px;
 }

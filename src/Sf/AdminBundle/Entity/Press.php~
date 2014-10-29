@@ -45,6 +45,13 @@ class Press implements Translatable
    
     
      /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="text", type="string")
+     */
+    private $text;
+    
+     /**
      *
      * @Assert\Image(maxSize="6000000")
      */
@@ -186,14 +193,14 @@ class Press implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($this->mainPictureUrl != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
+        if ($this->mainPicture != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
             unlink($this->getAbsolutePath($this->mainPictureUrl));
         }
-         if ($this->hdPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
+         if ($this->hdPicture !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
             unlink($this->getAbsolutePath($this->hdPictureUrl));
         }
         
-        if ($this->secondPictureUrl !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
+        if ($this->secondPicture !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
             unlink($this->getAbsolutePath($this->secondPictureUrl));
         }
        
@@ -454,5 +461,28 @@ class Press implements Translatable
     public function getHdPictureUrl()
     {
         return $this->hdPictureUrl;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Press
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
     }
 }

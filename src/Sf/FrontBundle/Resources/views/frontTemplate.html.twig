@@ -15,6 +15,8 @@
 
         <link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('assets/jquery-ui-1.11.0/jquery-ui.css')}}" rel="stylesheet">
+        <link href="{{asset('bundles/sffront/css/input.css')}}?v={{version}}" rel="stylesheet">
+        <link href="{{asset('bundles/sffront/css/menu.css')}}?v={{version}}" rel="stylesheet">
         <link href="{{asset('bundles/sffront/css/global.css')}}?v={{version}}" rel="stylesheet">
         <link href="{{asset('bundles/sffront/css/form.css')}}?v={{version}}" rel="stylesheet">
         <link href="{{asset('bundles/sffront/css/modal.css')}}?v={{version}}" rel="stylesheet">
@@ -25,10 +27,11 @@
     </head>
     <body class="bg{{random([1,2])}}">
 
+        {{render(controller('SfFrontBundle:Nav:show',{'mobile' : true,'_route' :  app.request.attributes.get('_route')} ))}}
 
         <header class="header">
            
-                <div class="">
+                <div class="container">
                     <div class="header-all col-md-12">
                         <div class="header-account">
                             <div class="account-bloc">
@@ -68,6 +71,7 @@
                 </div>
             
         </header>
+                    <div class="container">
         <div class="{{app.request.attributes.get('_route') == 'front_home' ? 'col-md-12 col-sm-12' : 'col-md-10 col-sm-9' }}" >
             {% block bandeau %}
                 <div class="categories {% block bandeauClass %}{% endblock%}">
@@ -76,13 +80,20 @@
                             <div class="hidden-xs main-logo"></div>
                         </a>
                     </div>
-                    <div class="subcat">{% block ariane %}{% endblock%}</div>
+                        {% if app.request.attributes.get('_route') == 'front_home' %}
+                             {{render(controller('SfFrontBundle:Nav:show',{'mobile' : false,'_route' :  app.request.attributes.get('_route')} ))}}
+                         
+                        {% endif %} 
+                         <div class="subcat">{% block ariane %}{% endblock%}</div>
+                    <div class="clearfix"></div>
                 </div>
             {% endblock%}
         </div>
-
-        {{render(controller('SfFrontBundle:Nav:show',{'_route' :  app.request.attributes.get('_route')} ))}}
-
+                  
+   {% if app.request.attributes.get('_route') != 'front_home' %}
+        {{render(controller('SfFrontBundle:Nav:show',{'mobile' : false,'_route' :  app.request.attributes.get('_route')} ))}}
+  {% endif %}
+                    </div>
 
         <div class="container">
             {% for type, messages in app.session.flashbag.all() %}
@@ -96,12 +107,14 @@
             {% endfor %}
             <div class="clearfix"></div>
         </div>
+            <div class="container">
         {% block body %}
 
-
+            
 
 
         {% endblock %}
+            </div>
 
 
 
@@ -110,18 +123,22 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <button type="button" class="close" data-dismiss="modal"></button>
                         <div class="ico_fleche_ferme"></div><b>DEJA INSCRIT - SE CONNECTER</b>
                     </div>
                     <div class="modal-body">
                        {{render(controller('SfUserBundle:User:formLogin')) }}
                     </div>
                     <div class="modal-header footer">
+                         <div style="padding-bottom:30px;padding-top: 0px" class="modal-header">
                         <div class="ico_fleche_ferme"></div><b>NOUVELLE INSCRIPTION</b>
-                    </div>
-                    <div id="registration" class="modal-footer">
+                         </div>
+                        <div  id="registration" >
                        {{render(controller('SfUserBundle:User:registration'))}}
+                        </div>
+                    
                     </div>
+                   
                 </div>
             </div>
         </div>
@@ -133,7 +150,7 @@
         <script src="{{asset('assets/jquery-ui/js/jquery-1.10.2.js')}}"></script>
         <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/jquery-ui-1.11.0/jquery-ui.js')}}"></script>
-        <script src="{{asset('bundles/sffront/js/main.js')}}"></script>
+        <script src="{{asset('bundles/sffront/js/main.js')}}?v={{version}}"></script>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
 
         <script src="{{ asset('assets/tinymce/tinymce.js') }}"></script>

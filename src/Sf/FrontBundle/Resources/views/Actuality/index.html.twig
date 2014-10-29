@@ -1,6 +1,6 @@
 {% extends "SfFrontBundle::frontTemplate.html.twig" %}
 {% block ariane %}
-    Actualités
+    <div class="sous-categorie">Actualités</div>
 {% endblock %}
 {% block bandeauClass %}
     actus
@@ -11,8 +11,8 @@
 {% block title %}Qwinsport - Actus{% endblock %}
 {% block body %}
 
-    <div id="main-content" class="container">
-        <div class="col-sm-9 col-md-10">
+   
+        <div id="main-content" class="col-sm-9 col-md-10">
 
             <div class="product actualite col-sm-12 text-right">
                {# <a href="">
@@ -55,7 +55,7 @@
                     {{render(controller('SfFrontBundle:Actuality:show'))}} 
                 </div>
         </div>
-    </div>
+    
 
 {% endblock %}
 {% block js %}

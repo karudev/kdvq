@@ -9,9 +9,9 @@
 account
 {% endblock %}
 {% block body %}
-    <div id="main-content" class="container" >
+    <div id="main-content" class="col-md-10" >
         
-        <div class="table-responsive col-md-10">
+        <div class="table-responsive ">
             <div>
             <a href="{{ path('admin_product_update') }}">
                 <button type="button" class="submit">Nouveau produit</button>
@@ -23,9 +23,9 @@ account
                         <th></th>
                         <th>Catégorie</th>
                         <th>Nom</th>
-                        <th>Prix HT</th>
+                        <th>HT</th>
                         <th>Tva</th>
-                        <th>Prix TTC</th>
+                        <th>TTC</th>
                         <th>Stock</th>
                         <th>Actif</th>
                         <th>Home</th>

@@ -6,19 +6,25 @@
 {% block ariane %}<a href="{{path('front_products',{'categorySlug' : product.category.slug})}}">PRODUITS</a><div class="sous-categorie">{{product.name}}</div>{% endblock %}
 {% block title %}Qwinsport - {{product.name}}{% endblock %}
 {% block body %}
-    <div class="container">
-        <div style="margin-top: 30px;"  class="col-sm-9 col-md-10">
+  
+        <div style="margin-top: 30px;"  class="col-xs-12 col-sm-9 col-md-10">
             <div id="alert" class="col-md-12">
 
             </div>
-            <div class="product col-sm-12">
-                <div class="border_ col-sm-12">
-                    <div class="col-sm-6">
-                        <img id="mainPicture" class="full" src="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" alt="">
+            <div class="product col-md-12">
+                <div class="border_ col-md-12">
+                    <div class="col-sm-6 col-md-6 col-xs-6">
+
+                        <a href="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" class="zoom">
+                            <img style="width: 90%" id="mainPicture" src="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" /> 
+                        </a>
                     </div>
-                    <div class="col-sm-6 details-product">
+                    <div class="col-sm-6 col-md-6 col-xs-6 details-product">
                         <h1>{{product.name}}<br/>{{ product.priceTtc|number_format(2,',',' ') }} €</h1>
-                        <h6><a href="" title="">&raquo; Voir la description</a></h6><hr/>
+                        {% if product.description is not null or product.details is not null or product.composition is not null
+                        or product.boardMaintenance is not null %}
+                        <h6><a href="#desc_produit" href="javascript:void(0)" title="">&raquo; Voir la description</a></h6><hr/>
+                        {% endif %}
                         {#<form action="product.html" method="post">
                             <label><span>Coloris</span>
                                 <img src="{{asset('bundles/sffront/images/products/coloris-1.png')}}" alt="">
@@ -100,8 +106,11 @@
                                         <label>{{'Quantité'|trans}}</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input style="width:40px"  name="params[quantity]" type="text"  value="1" required />
-                                    </div>
+                                        <select id="quantity" style="width:60px" required name="params[quantity]" >
+                                            {% for i in 1..100 %}
+                                                <option>{{i}}</option>
+                                            {% endfor %}
+                                        </select></div>
                                 </div>
                                 <div class=" col-md-12 text-right">
                                     <span id="no-stock" style="display:none" class="label label-danger">{{'Indisponible'|trans}}</span>
@@ -116,17 +125,17 @@
                     </div>
 
                 </div>
-                <div class="cover-top col-md-12">
+                <div style="padding-top: 50px;" class="cover-top col-md-12">
                     {% for pp in product.productPictures %}
-                        <div class="col-md-4"> 
-                            <img class=" " src="{{ asset(['/uploads/product_pictures/', pp.pictureUrl]|join) }}" alt="">
+                        <div style="padding-bottom: 10px;padding-left: 5px;padding-right: 5px" class="col-md-4  col-sm-4 col-xs-6 "> 
+                            <img style="width: 100%" class=" " src="{{ asset(['/uploads/product_pictures/', pp.pictureUrl]|join) }}" alt="">
                         </div>
                     {% endfor %}
                     <div class="clearfix"></div>
                 </div>
 
-                <div class="product-information">
-                    <div class="col-md-7">
+                <div  class="product-information">
+                    <div id="desc_produit" class="col-md-7">
                         {% if product.description is not null %}
                             <h2>Description de l'article</h2>
                             <div>{{product.description|raw}}</div>
@@ -150,40 +159,47 @@
                         {% if product.youtubeId !='' %}
                             <iframe src="http://www.youtube.com/embed/{{product.youtubeId}}?autoplay=1" frameborder="0" scrolling="no" width="260px" height="200px"> </iframe>
                         {% endif %}
-                        </div>
-                        <div class="clearfix"></div>
-                        <hr/>
-                        <h3 class="big-title">
-                            Vous aimerez<br><span class="din-bold">également</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
-                        </h3>
-                        <div class="other-products">
-                            {% for m in moreProducts %}
-                                <div class="col-md-4">
-                                    {% if getStock(m) > 0 %}
-                                        <a href="{{path('front_product',{'slug' : m.slug} )}}" title="">
-                                            <img style="width: 90%;" src="{{ asset(['/uploads/products/', m.mainPictureUrl]|join) }}" alt="">
-                                        </a>
-                                    {% else %}
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr/>
+                    <h3 class="big-title">
+                        Vous aimerez<br><span class="din-bold">également</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                    </h3>
+                    <div  class="other-products">
+                        {% for m in moreProducts %}
+                            <div style="padding-bottom: 10px" class="col-md-4 col-sm-4 col-xs-6">
+                                {% if getStock(m) > 0 %}
+                                    <a href="{{path('front_product',{'slug' : m.slug} )}}" title="">
                                         <img style="width: 90%;" src="{{ asset(['/uploads/products/', m.mainPictureUrl]|join) }}" alt="">
-                                    {% endif %}
-                                    <div class="article-price">
-                                        <div class="border-price">
-                                            <p class="price">{{ m.priceTtc|number_format(2,',',' ') }} €</p>
-                                        </div>
+                                    </a>
+                                {% else %}
+                                    <img style="width: 90%;" src="{{ asset(['/uploads/products/', m.mainPictureUrl]|join) }}" alt="">
+                                {% endif %}
+                                <div class="article-price">
+                                    <div class="border-price">
+                                        <p class="price">{{ m.priceTtc|number_format(2,',',' ') }} €</p>
                                     </div>
-                                    <h2>{{ m.name|truncate(20)}}</h2>
-                                    {% if getStock(m) == 0 %}
-                                        <div><span class="label label-danger">Indisponible</span></div>
-                                    {% endif %}
                                 </div>
-                            {% endfor %}
-                        </div>
+
+                                {% if getStock(m) == 0 %}
+                                        <h2>{{ m.name|truncate(20)}}</h2>
+                                    <div><span class="label label-danger">Indisponible</span></div>
+                                {% else %}
+                                    <a href="{{path('front_product',{'slug' : m.slug} )}}" title="{{m.name}}"> 
+                                        <h2>{{ m.name|truncate(20)}}</h2>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-        {% endblock %}
-            {% block js %}
-                <script src="{{asset('bundles/sffront/js/product.js')}}?v={{version}}"></script>
-                <script src="{{asset('bundles/sffront/js/zoom/jquery.loupe.min.js')}}"></script>
-            {% endblock %}
+
+{% endblock %}
+{% block js %}
+    <script src="{{asset('bundles/sffront/js/easyzoom/easyzoom.min.js')}}"></script>
+    <script src="{{asset('bundles/sffront/js/product.js')}}?v={{version}}"></script>
+
+
+{% endblock %}

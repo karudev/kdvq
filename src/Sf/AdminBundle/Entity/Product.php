@@ -239,10 +239,11 @@ class Product implements Translatable
 
         $fs = new Filesystem();
        
-        if ($this->hdPicture !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
+     
+        if ($this->hdPicture !=null && $this->hdPictureUrl != null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
             unlink($this->getAbsolutePath($this->hdPictureUrl));
         }
-        if ($this->mainPicture !=null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
+        if ($this->mainPicture !=null && $this->mainPictureUrl!=null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
             unlink($this->getAbsolutePath($this->mainPictureUrl));
         }
     }

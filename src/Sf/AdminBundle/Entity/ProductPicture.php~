@@ -176,6 +176,10 @@ class ProductPicture
   
     public function preUpload()
     {
+        if($this->id !=null ){
+            $this->removeUpload();
+        }
+            
         if (null !== $this->pictureFile) {
             $this->pictureUrl = uniqid().'.'.$this->pictureFile->guessExtension();
         }
@@ -197,11 +201,10 @@ class ProductPicture
      */
     public function removeUpload()
     {
-        if ($pictureFile = $this->getAbsolutePath()) {
-          $fs = new Filesystem();
-          if($fs->exists($this->getAbsolutePath())){
-            unlink($pictureFile);
-          }
+       
+        $fs = new Filesystem();
+        if ($this->pictureFile != null && $fs->exists($this->getAbsolutePath($this->pictureFileUrl))) {
+            unlink($this->getAbsolutePath($this->pictureFileUrl));
         }
     }
 

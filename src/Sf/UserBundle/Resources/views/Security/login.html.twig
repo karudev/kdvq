@@ -7,9 +7,9 @@
  {% block bandeau %}{% endblock%}
 {% block body %}
 
-    <div id="main-content" class="container log ">
+    <div id="main-content" class="col-md-10 log ">
         {% if error %}
-            <div class="alert alert-danger">{{ error|trans }}</div>
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }} </div>
         {% endif %}
         <div class="col-md-8 col-md-offset-2">
             <h3>{{ 'Déja inscrit - Se connecter'|upper|trans }}</h3>

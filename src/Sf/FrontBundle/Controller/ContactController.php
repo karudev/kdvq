@@ -28,6 +28,7 @@ class ContactController extends Controller {
             $email = $request->get('email', null);
             $objet = $request->get('subject', null);
             $message = $request->get('message', null);
+            $statut = $request->get('statut', null);
 
 
             if ($lastname == null) {
@@ -68,6 +69,7 @@ class ContactController extends Controller {
                 $html .='Société : ' . $company . '<br/>';
                 $html .='Téléphone : ' . $phone . '<br/>';
                 $html .='Email : ' . $email . '<br/>';
+                $html .='Statut : ' . $statut . '<br/>';
                 $html .='---------------------------------------<br/>';
                 $html .= $message . '<br/>';
 

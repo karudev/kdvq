@@ -9,27 +9,25 @@
 account
 {% endblock %}
 {% block body %}
-    <div id="main-content" class="container">
+    <div id="main-content" class=" col-md-10">
 
 
         {{ form_start(form)}}
 
 
-        <div class="row col-md-10">
+       
             
             <div class="col-md-12">
                 {{ form_row(form.text) }}
                 {{ form_row(form.active) }}
+                 {{ form_rest(form) }}
+                <button class='submit'>Enregistrer</button>
             </div>
 
-        </div>
+        
 
-        <div class="row col-md-12">
-            <button class='submit'>Enregistrer</button>
-
-
-        </div>
-        {{ form_rest(form) }}
+       
+       
         {{ form_end(form)}}
 
     </div>

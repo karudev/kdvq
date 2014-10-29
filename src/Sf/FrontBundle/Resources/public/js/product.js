@@ -1,9 +1,16 @@
 $(function() {
-    $('#mainPicture').loupe({
-        width: 200, // width of magnifier
-        height: 150, // height of magnifier
-        loupe: 'loupe' // css class for magnifier
-    });
+     $('a[href^="#"]').click(function() {
+      
+            var id = $(this).attr("href");
+            if($(id)){
+            var offset = $(id).offset().top;
+           
+            $('html, body').animate({scrollTop: offset}, 'slow');
+        }
+            return false;
+        });
+        
+     $('a.zoom').easyZoom();
 
     $('form').submit(function(e) {
         var form = $(this);
@@ -11,8 +18,9 @@ $(function() {
         $.post($(this).attr('action'), $(this).serializeArray(), function(json) {
             if (json.success) {
                 $('#alert').html('<div class="alert alert-success">' + json.message + '</div>');
-                $('input').val(1);
-                $('select').val('');
+                 $('select').val('');
+                 $('#quantity').val(1);
+             
                 getTotalShoppingCart();
             } else {
                 $('#alert').html('<div class="alert alert-danger">' + json.message + '</div>');

@@ -18,6 +18,7 @@
 
 @font-face {
     font-family: 'DINProBlack';
+    letter-spacing: 1px;
     src: url('../fonts/dinpro-black/dinpro-black.eot');
     src: url('../fonts/dinpro-black/dinpro-black.eot') format('embedded-opentype'),
          url('../fonts/dinpro-black/dinpro-black.woff') format('woff'),

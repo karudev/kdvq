@@ -1,15 +1,51 @@
 
-.bg1{
-	background-image: url('../images/bg/big_fond1.jpg');
-        background-size: 100%;
-	background-repeat: no-repeat;
-	height: 681px;
+body {
+	background-color:  #E6E8E7;
+        
 	
 }
-.bg2{
-	background-image: url('../images/bg/big_fond2.jpg');
+
+.bg1 .main{
+	background: url('../images/bg/big_fond1.jpg') #E6E8E7 no-repeat;
         background-size: 100%;
-	background-repeat: no-repeat;
-	height: 681px;
 	
+	height: 663px;
+	
+}
+.bg2 .main{
+	background: url('../images/bg/big_fond2.jpg') #F7F9F8 no-repeat;
+        background-size: 100%;
+	
+	height: 663px;
+	
+}
+.bg2 .last{
+	background-color: #F7F9F8;
+        
+	
+}
+.last h3{
+	margin-top: 0px;
+        padding: 20px;
+         font-family: 'DINProLight', sans-serif;
+        text-transform: uppercase;
+      letter-spacing: 5px;
+	
+}
+
+.bg2 .actu-bloc .before{
+  
+	background-color: #F7F9F8;
+        
+	
+
+}
+
+@media (max-width: 768px) {
+    .bg2 .main,.bg1 .main{
+        height: 300px;
+    }
+    .container{
+        padding: 0px;
+    }
 }

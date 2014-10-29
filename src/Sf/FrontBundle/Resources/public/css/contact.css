@@ -1,0 +1,11 @@
+.form{
+    background-color: #EDEDED;
+    padding: 20px;
+    margin-top: 50px;
+}
+.form input,.form textarea,.form select{
+    border-color: #BFBFBF;
+    -webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+}

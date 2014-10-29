@@ -1,4 +1,36 @@
 .club{
+   // background: url(../images/bg/grid.jpg) no-repeat;
     padding: 5px;
-  //  border: 1px dashed #CCC;
+    border-left: 1px dashed #000;
+    border-bottom: 1px dashed #000;
+     
+}
+.partenaire .club:nth-child(1), .partenaire .club:nth-child(2), .partenaire .club:nth-child(3),
+.cl .club:nth-child(1), .cl .club:nth-child(2), .cl .club:nth-child(3){
+    border-top: 1px dashed #000;
+}
+.partenaire .club:nth-child(3),
+.cl .club:nth-child(3),
+.partenaire .club:last-child,
+.cl .club:last-child{
+    border-right: 1px dashed #000;
+}
+.come-partner{
+    height: 125px;
+    background-color: #5BDDC5;
+    color: #000D0C;
+    text-transform: uppercase;
+    padding-top: 45px;
+    font-weight: bold;
+    
+}
+.come-partner:hover{
+    
+    background-color: #F7F9F8;
+      -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+   
+    
 }

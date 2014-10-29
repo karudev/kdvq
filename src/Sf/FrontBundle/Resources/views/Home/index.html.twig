@@ -12,18 +12,20 @@
         <div>
             <div class="col-md-12 inline-block">
                 <div class="col-sm-4 col-md-4 news-bloc">
+                    <div class="last">
                     <h3>
-                        Dernière<br/><span class="din-bold">nouveautés</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+                        Dernières<br/><span class="din-bold">Nouveautés</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
                     </h3>
+                    </div>
                     <div class="home shop-bloc">
                         {% for p in products %}
                             <div class="article">
                                 {% if getStock(p) > 0 %}
                                     <a href="{{path('front_product',{'slug' : p.slug})}}" title="">
-                                        <img class="bord" style="width:50%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
+                                        <img class="bord" style="width:40%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
                                     </a>
                                 {% else %}
-                                    <img class="bord" style="width:50%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
+                                    <img class="bord" style="width:40%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
                                 {% endif %}
 
                                 <div class="article-price">
@@ -66,6 +68,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4 actu-bloc">
+                    <div class="before hidden-xs"></div>
                     <div class="actu-bloc-news">
                         <h3>Les<br/><span class="din-bold">Actus</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt=""></h3>
                             {% for a in actualities %}
@@ -73,7 +76,7 @@
                                 <div class="actu-date">{{a.date|date('d/m/Y')}}</div><hr/>
                                 <div class="actu-title"><h1>{{a.title}}</h1></div>
                                 <div class="actu-content">
-                                    {{a.text|truncate(120)|raw}}..
+                                    {{a.text|truncate(150)|raw}}..
                                 </div>
                             </div>
                             <img class="visuel" src="{{ asset(['/uploads/actualities/', a.pictureHomeUrl]|join) }}" alt="">

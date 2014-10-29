@@ -1,60 +1,71 @@
 {% extends "SfFrontBundle::frontTemplate.html.twig" %}
 {% block css %}
-     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sffront/css/contact.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
 {% block ariane %}
-  Contact
+    <div class="sous-categorie">Contact</div>
 {% endblock %}
 {% block bandeauClass %}
-  contact
+    contact
 {% endblock %}
 {% block body %}
 
     <div id="main-content" class="container">
         <div class="col-md-8 col-md-offset-2 contact-info">
-            <h2>Nous contacter</h2>
-            <div class="col-md-12 contact-info">
-                {{'Pour toute information sur nos produits, utilisez le formulaire de contact ou contactez nous au : <br/><strong>+33 6 31 55 07 31</strong>'|raw}}
+            <h3 class="big-title">
+                NOUS<br><span class="din-bold">CONTACTER</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+            </h3>
+            <div class="col-md-6 contact-info">
+                {{'Pour toute information sur nos produits, utilisez le formulaire de contact ou contactez nous au : <strong>+33 6 31 55 07 31</strong>'|raw}}
             </div>
-            <form action="{{path('front_contact')}}" method="post">
-                <div class="form-group col-lg-12">
-                    <div class="col-lg-2"><label>{{ 'Nom'|trans}}* :</label></div>
-                    <div class="col-lg-4"><input class="required" name="lastname" type="text"/></div>
+            <div class="clearfix"></div>
+            <div class="form col-md-10">
+            <form  action="{{path('front_contact')}}" method="post">
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"><label>{{ 'Nom'|trans}}*</label></div>
+                    <div class="col-md-4"><input required  name="lastname" type="text"/></div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"><label>{{ 'Prénom'|trans}}</label></div>
+                    <div class="col-md-4"><input class="" name="firstname" type="text"/></div>
+                </div>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"><label>{{ 'Société'|trans}}</label></div>
+                    <div class="col-md-4"><input class="" name="company" type="text"/></div>
                 </div>
                 <div class="form-group col-lg-12">
-                    <div class="col-lg-2"><label>{{ 'Prénom'|trans}} :</label></div>
-                    <div class="col-lg-4"><input class="" name="firstname" type="text"/></div>
+                    <div class="col-lg-2"><label>{{ 'Téléphone'|trans}}*</label></div>
+                    <div class="col-lg-4"><input required name="phone" type="text"/></div>
                 </div>
-                <div class="form-group col-lg-12">
-                    <div class="col-lg-2"><label>{{ 'Société'|trans}} :</label></div>
-                    <div class="col-lg-4"><input class="" name="company" type="text"/></div>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"><label>{{ 'E-mail'|trans}}*</label></div>
+                    <div class="col-md-4"><input required name="email" type="email"/></div>
                 </div>
-                <div class="form-group col-lg-12">
-                    <div class="col-lg-2"><label>{{ 'Téléphone'|trans}}* :</label></div>
-                    <div class="col-lg-4"><input class="required" name="phone" type="text"/></div>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"><label>{{ 'Statut'|trans}}*</label></div>
+                    <div class="col-md-4"><select required name="statut"><option>Particulier</option><option>Club</option></select></div>
                 </div>
-                <div class="form-group col-lg-12">
-                    <div class="col-lg-2"><label>{{ 'E-mail'|trans}}* :</label></div>
-                    <div class="col-lg-4"><input class="required" name="email" type="email"/></div>
-                </div>
-                <div class="form-group col-lg-12">
-                    <div class="col-lg-2"><label>{{ 'Sujet'|trans}}* :</label></div>
-                    <div class="col-lg-4"><input class="required" name="subject" type="text"/></div>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"><label>{{ 'Sujet'|trans}}*</label></div>
+                    <div class="col-md-4"><input required  name="subject" type="text"/></div>
                 </div>
 
-                <div class="form-group col-lg-12">
-                    <div class="col-lg-2"><label>{{ 'Message'|trans}}* :</label></div>
-                    <div class="col-lg-9">
-                        <textarea rows="10" name="message" class="required"></textarea>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"><label>{{ 'Message'|trans}}* :</label></div>
+                    <div class="col-md-6">
+                        <textarea rows="10" name="message" required></textarea>
                     </div>
                 </div>
-                <div class="form-group col-lg-12">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-9 text-center">
-                        <button type="submit" class="submit">{{ 'Envoyer'|trans}}</button>
+                <div class="form-group col-md-12">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-9">
+                        <button style="padding:5px 60px" type="submit" class="submit">{{ 'Envoyer'|trans}}</button>
                     </div>
                 </div>
             </form>
+                    <div class="clearfix"></div>
+            </div>
         </div>
     </div>
 

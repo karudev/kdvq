@@ -1,47 +1,50 @@
 {% extends 'SfFrontBundle::frontTemplate.html.twig' %}
 {% block css %}
-   <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %} 
 {% block ariane %}
-PRESSE
+    PRESSE
 {% endblock %}
 {% block bandeauClass %}
-account
+    account
 {% endblock %}
 {% block body %}
-    <div id="main-content"  class="container">
+    <div id="main-content"  class="col-md-10">
 
 
         {{ form_start(form)}}
 
 
-        <div class="row">
+        <div class="col-md-12">
             <div class="col-md-6">
                 {{ form_row(form.active) }}
-               
+
                 {{ form_label(form.secondPicture) }}
                 <br/>
                 {% if form.vars.data.secondPictureUrl is not null %}
-                    <img src="{{ asset(['/uploads/press/', form.vars.data.secondPictureUrl]|join) }}" />
+                    <img width="100px" src="{{ asset(['/uploads/press/', form.vars.data.secondPictureUrl]|join) }}" />
                 {% endif %}
                 {{ form_widget(form.secondPicture) }}
                 {{ form_errors(form.secondPicture) }}
-                
-                 {{ form_label(form.mainPicture) }}
+
+                {{ form_label(form.mainPicture) }}
                 <br/>
                 {% if form.vars.data.mainPictureUrl is not null %}
-                    <img src="{{ asset(['/uploads/press/', form.vars.data.mainPictureUrl]|join) }}" />
+                    <img width="250px"  src="{{ asset(['/uploads/press/', form.vars.data.mainPictureUrl]|join) }}" />
                 {% endif %}
                 {{ form_widget(form.mainPicture) }}
                 {{ form_errors(form.mainPicture) }}
-                
-               
-               
+
+
+
                 {{ form_row(form.parutionTitle) }}
                 {{ form_row(form.parutionSubTitle) }}
 
             </div>
-           
+            <div class="col-md-6">
+                {{ form_row(form.text) }}
+            </div>
+
 
         </div>
 
@@ -61,4 +64,28 @@ account
 
         </div>
     </div>
+{% endblock %}
+{% block js %}
+
+    <script>
+        $(document).ready(function() {
+
+            tinymce.init({
+                plugins: "link",
+                forced_root_block: false,
+                force_br_newlines: true,
+                force_p_newlines: false,
+                selector: "textarea",
+                height: 200
+            });
+
+        
+
+
+        });
+      
+
+
+    </script>
+
 {% endblock %}

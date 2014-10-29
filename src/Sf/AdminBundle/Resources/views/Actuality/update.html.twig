@@ -31,8 +31,10 @@ account
 
             </div>
             <div class="col-md-6">
+               
                 {{ form_label(form.picture) }}
                 <br/>
+                 <div class="alert alert-info">Il est conseillé d'uploader une image d'un ratio de 4 (ex: 450px X 112px)</div>
                 {% if form.vars.data.pictureUrl is not null %}
                     <img src="{{ asset(['/uploads/actualities/', form.vars.data.pictureUrl]|join) }}" />
                 {% endif %}
@@ -41,6 +43,7 @@ account
                 
                  {{ form_label(form.pictureHome) }}
                 <br/>
+                <div class="alert alert-info">Il est conseillé d'uploader une image d'un ratio de 1.36 (ex: 385px X 282px)</div>
                 {% if form.vars.data.pictureHomeUrl is not null %}
                     <img style="width:250px" src="{{ asset(['/uploads/actualities/', form.vars.data.pictureHomeUrl]|join) }}" />
                 {% endif %}

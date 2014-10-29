@@ -80,6 +80,9 @@ class LastCatalog implements Translatable
    
     public function preUpload()
     {
+        if($this->id !=null){
+            $this->removeUpload();
+        }
         
         if (null !== $this->file) {
             $this->fileUrl = uniqid() . '.' . $this->file->guessExtension();
@@ -105,7 +108,7 @@ class LastCatalog implements Translatable
 
         $fs = new Filesystem();
        
-        if ($fs->exists($this->getAbsolutePath($this->fileUrl))) {
+        if ($this->file !=null && $fs->exists($this->getAbsolutePath($this->fileUrl))) {
             unlink($this->file);
         }
        

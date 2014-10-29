@@ -6,59 +6,160 @@
 {% block ariane %}PRODUITS<div class="sous-categorie">{{category.label}}</div>{% endblock %}
 {% block title %}Qwinsport - Les produits{% endblock %}
 {% block body %}
-  <div class="container">
-    <div class="col-sm-9 col-md-10">
+
+    <div id="main-content" class="col-md-10">
         <div class="product ">
             <div class="min-border"></div>
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-12">
                 <h5>{{intro.value is defined ? intro.value}}</h5>
-               
+
             </div>
-                 <div class="clearfix" ></div>
+            <div class="clearfix" ></div>
             <div class="min-border"></div><br/><br/>
             <hr/>
-            <a href="" title="">
+            <a href="javascript:void(0)"  data-toggle="modal" data-target="#filter">
                 <img src="{{asset('bundles/sffront/images/products/ico_filtre.png')}}" alt="">
             </a>
-            <a href="" title="">
+            <a href="javascript:void(0)"  data-toggle="modal" data-target="#sort">
                 <img src="{{asset('bundles/sffront/images/products/ico_tri.png')}}" alt="">
             </a>
             <hr/><br/>
 
             <!-- **** products **** -->
-         
+
             {% if products|length > 0 %}
-                {% for entity in products %}
-                    <div class="art col-xs-12 col-sm-12 col-md-4">
-                        {% if getStock(entity) > 0 %}
-                            <a href="{{path('front_product',{'slug' : entity.slug})}}" title="">
-                                <img style="width:90%" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
+                {% for key,entity in products %}
+                     {% if key <= 4  %}
+                          {% set div =  4 %}
+                           {% set k = key %}
+                    {% set modulo = k % div %}
+                     {% else %}
+                         {% set div =  6 %}
+                         {% set k =  key+2 %}
+                    {% set modulo = k % div %}
+                     {% endif %}
+                     
+                    {% if modulo == 0  and key > 0 and pubs[(k/div)-1] is defined %}
+                    <div class="hidden-xs art col-xs-12 col-sm-6 col-md-4">
+                        {% if pubs[(k/div)-1].link is not null %}
+                            <a target="_blank" href="{{pubs[(k/div)-1].link}}" title="{{pubs[(k/div)-1].title}}">
+                                <img style="width:262px;height: 314px" src="{{ asset(['/uploads/pubs/', pubs[(k/div)-1].pictureUrl]|join) }}" alt="">
                             </a>
                         {% else %}
-                            <img style="width:90%" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
+                            <img style="width:262px;height: 314px" src="{{ asset(['/uploads/pubs/', pubs[(k/div)-1].pictureUrl]|join) }}" alt="">
+                        {% endif %}
+                         <div style="height:80px" class="article-price">
+                            
+                        </div>
+                    </div>
+                    
+                    {% else %}
+                        
+                        <div class="art col-xs-12 col-sm-6 col-md-4">
+                        {% if getStock(entity) > 0 %}
+                            <a href="{{path('front_product',{'slug' : entity.slug})}}" title="{{entity.name}}">
+                                <img style="width:262px;height: 314px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
+                            </a>
+                        {% else %}
+                            <img style="width:262px;height: 314px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
                         {% endif %}
                         <div class="article-price">
                             <div class="border-price">
                                 <p class="price">{{ entity.priceTtc|number_format(2,',',' ') }} €</p>
                             </div>
                         </div>
-                                <h2>{{entity.name|truncate(20)}}</h2><hr/>
-                        <h6>
-                            {% if getStock(entity) > 0 %}
-                                Actuellement disponible
-                            {% else %}
-                                <span class="label label-danger">Indisponible</span>
-                            {% endif %}
-                        </h6>
+
+
+                        {% if getStock(entity) > 0 %}
+                            <a href="{{path('front_product',{'slug' : entity.slug})}}" title="{{entity.name}}"> 
+                                <h2>{{entity.name|truncate(20)}}</h2>
+                            </a>
+                            <hr/>
+                            <h6> Actuellement disponible </h6>
+                        {% else %}
+                            <h2>{{entity.name|truncate(20)}}</h2><hr/>
+                            <h6><span class="label label-danger">Indisponible</span> </h6>
+                        {% endif %}
+
                     </div>
+                        
+                    {% endif %}
+
+                    
                 {% endfor %}
-          
+
             {% else %}
-                <div class="alert alert-info">Aucun produit disponible pour cette catégorie</div>
+                <div class="alert alert-info">Aucun produit disponible pour ces critères</div>
             {% endif%}
-              </div>
-        
+        </div>
+
     </div>
-  </div>
+    <form action="{{path('front_products',{'categorySlug' : category.slug}) }}" method="post">
+        <div class="modal fade" id="sort" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <div class="ico_fleche_ferme"></div><b>TRIER</b>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-md-2"><input {{orderPrice == 1 ?'checked' }} id="price-asc" name="orderPrice" type="radio" value="1" /></div>
+                            <div class="col-md-10">
+                                <label for="price-asc">Du - cher au + cher</label>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2"><input {{orderPrice == 2 ?'checked' }} id="price-desc" name="orderPrice" type="radio" value="2" /></div>
+                            <div class="col-md-10">
+                                <label for="price-desc">Du + cher au - cher</label>
+                            </div>
+                        </div>
+                        <div class="clearfix" ></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="submit">TRIER</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="modal fade" id="filter" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <div class="ico_fleche_ferme"></div><b>FILTRER</b>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-md-2"><label>Prix</label></div>
+                            <div class="col-md-10">
+                                <select name="filterPrice">
+                                    <option value="0"></option>
+                                    <option {{filterPrice == 1 ?'selected' }} value="1">Moins de 10 €</option>
+                                    <option {{filterPrice == 2 ?'selected' }} value="2">De 10 à 20 €</option>
+                                    <option {{filterPrice == 3 ?'selected' }} value="3">De 20 à 50 €</option>
+                                    <option {{filterPrice == 4 ?'selected' }} value="4">Plus de 50 €</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="clearfix" ></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="submit">FILTRER</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
 {% endblock %}
 

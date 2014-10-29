@@ -45,6 +45,13 @@ class Press implements Translatable
    
     
      /**
+     * @var string
+     * @Gedmo\Translatable
+     * @ORM\Column(name="text", type="string")
+     */
+    private $text;
+    
+     /**
      *
      * @Assert\Image(maxSize="6000000")
      */
@@ -454,5 +461,28 @@ class Press implements Translatable
     public function getHdPictureUrl()
     {
         return $this->hdPictureUrl;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Press
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
     }
 }

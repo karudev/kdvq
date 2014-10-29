@@ -4,7 +4,7 @@
 {% endblock %}
 {% block bandeauClass %}presse{% endblock%}
 {% block ariane %} 
-    Presse
+    <div class="sous-categorie">Presse</div>
 {% endblock %}
 {% block title %}Qwinsport - Presse{% endblock %}
 
@@ -21,15 +21,17 @@
                     </h3><hr/><br/>
                     
                     {% for entity in entities %}
-                    <div class="col-md-3 center">
+                    <div class=" hidden-xs col-md-3 center">
                         <img style=""  src="{{ asset(['/uploads/press/', entity.secondPictureUrl]|join) }}" />        
                     </div>
-                    <div class="col-md-9">
-                        <a target="_blank" href="{{ asset(['/uploads/press/', entity.hdPictureUrl]|join) }}"><img style=""  src="{{ asset(['/uploads/press/', entity.mainPictureUrl]|join) }}" /> </a>       
+                    <div class="col-md-6">
+                        <a  target="_blank" href="{{ asset(['/uploads/press/', entity.hdPictureUrl]|join) }}"><img class="hover" style="width:100%"  src="{{ asset(['/uploads/press/', entity.mainPictureUrl]|join) }}" /> </a>       
           
                         <h5 class="red">{{entity.parutionTitle}}</h5>
                         <p class="date">{{entity.parutionSubTitle}}</p>
-                    </div><div class="clearfix"></div><hr/><br/>
+                    </div>
+                    <div class="col-md-3">{{entity.text|raw}}</div>
+                    <div class="clearfix"></div><hr/><br/>
                     {% endfor %}
                   
                   {% if catalog.fileUrl is defined %}

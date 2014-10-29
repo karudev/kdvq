@@ -23,23 +23,20 @@ class ProductRepository extends EntityRepository {
                         ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
                         ->getSingleResult();
     }
-    
-    public function getForSlideShow(){
+
+    public function getForSlideShow() {
         return $this->createQueryBuilder('e')
-                ->where('e.active = true')
-                ->andWhere('e.deleted = false')
-                ->andWhere('e.hdPictureUrl is not null')
-                ->orderBy('e.updatedAt', 'desc')
-                ->setMaxResults(10)
-                ->getQuery()
-                ->getResult();
-        
-      
-        
+                        ->where('e.active = true')
+                        ->andWhere('e.deleted = false')
+                        ->andWhere('e.hdPictureUrl is not null')
+                        ->orderBy('e.updatedAt', 'desc')
+                        ->setMaxResults(10)
+                        ->getQuery()
+                        ->getResult();
     }
-    
-    public function countByParentCategory(Category $category,Product $productToExclude){
-       $data = $this->createQueryBuilder('e')
+
+    public function countByParentCategory(Category $category, Product $productToExclude) {
+        $data = $this->createQueryBuilder('e')
                 ->select('count(e.id) as nb')
                 ->innerJoin('e.category', 'c')
                 ->where('c.category =:category')
@@ -50,37 +47,66 @@ class ProductRepository extends EntityRepository {
                 ->setParameter('category', $category->getId())
                 ->getQuery()
                 ->getSingleResult();
-      
-       return (int)$data['nb'];
-               
+
+        return (int) $data['nb'];
     }
-    
-     public function findByParentCategory(Category $category,Product $productToExclude,$maxResult = 3, $total){
-    
-         
+
+    public function findByParentCategory(Category $category, Product $productToExclude, $maxResult = 3, $total) {
+
+
         /* $t = ($total+1);
-         print_r($t); die();
-        */
-         if($total <= $maxResult ){ 
+          print_r($t); die();
+         */
+        if ($total <= $maxResult) {
             $first = 0;
-             
-         }else{
-             $first = rand(0,$total-$maxResult);
-         }
-     
-        
+        } else {
+            $first = rand(0, $total - $maxResult);
+        }
+
+
         return $this->createQueryBuilder('e')
-                ->innerJoin('e.category', 'c')
-                ->where('c.category =:category')
+                        ->innerJoin('e.category', 'c')
+                        ->where('c.category =:category')
+                        ->andWhere('e.active = true')
+                        ->andWhere('e.deleted = false')
+                        ->andWhere('e.id !=:product')
+                        ->setParameter('product', $productToExclude)
+                        ->setParameter('category', $category)
+                        ->setFirstResult($first)
+                        ->setMaxResults($maxResult)
+                        ->getQuery()
+                        ->getResult();
+    }
+
+    public function get(Category $category, $filterPrice = 0, $orderPrice = 0) {
+
+        $qb = $this->createQueryBuilder('e');
+        $qb->where('e.category =:category')
                 ->andWhere('e.active = true')
-                ->andWhere('e.deleted = false')
-                ->andWhere('e.id !=:product')
-                ->setParameter('product', $productToExclude)
-                ->setParameter('category', $category)
-                ->setFirstResult($first)
-                ->setMaxResults($maxResult)
-                ->getQuery()
-                ->getResult();
+                ->setParameter('category', $category->getId());
+
+        if ($filterPrice == 1) {
+            $qb->andWhere('e.priceTtc < 10');
+        } elseif ($filterPrice == 2) {
+            $qb->andWhere('e.priceTtc >= 10 and e.priceTtc < 20');
+        } elseif ($filterPrice == 3) {
+            $qb->andWhere('e.priceTtc >= 20 and e.priceTtc < 50');
+        } elseif ($filterPrice == 4) {
+            $qb->andWhere('e.priceTtc >= 50');
+        }
+
+        if ($orderPrice == 0) {
+            $qb->orderBy('e.updatedAt', 'desc');
+        } elseif ($orderPrice == 1) {
+            $qb->orderBy('e.priceTtc', 'asc');
+        } elseif ($orderPrice == 2) {
+            $qb->orderBy('e.priceTtc', 'desc');
+        }
+
+
+
+        return $qb->getQuery()
+                        ->getResult();
     }
 
 }

@@ -1,15 +1,17 @@
 
 {% for entity in actualities %}
     <div class="actu_{{entity.date|date('Y')}} box col-md-6">
-        <img class="full" src="{{ asset(['/uploads/actualities/', entity.pictureUrl]|join) }}" alt="">
+        <img class="col-md-12" src="{{ asset(['/uploads/actualities/', entity.pictureUrl]|join) }}" alt="">
+        <div class="clearfix"></div>
         <h2>{{entity.title}}</h2>
         <div>{{entity.text|raw}}</div>
         <p class="date">{{entity.date|date('d.m.Y')}}</p>
           {% if entity.link is not null and entity.link !=''  %}<p class="lire-plus">
           
-            <a target="_blank" href="{{entity.link}}"><img src="{{asset('bundles/sffront/images/actus/ico_lire_plus.jpg')}}" alt=""></a>
+            <a class="actus-link" target="_blank" href="{{entity.link}}"></a>
             
         </p>{% endif %}
+        <div class="clearfix"> </div>
         <hr/>
     </div>
 {% endfor %}

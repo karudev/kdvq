@@ -183,10 +183,10 @@ class Actuality implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($fs->exists($this->getAbsolutePath($this->pictureUrl))) {
+        if ($this->picture !=null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
             unlink($this->getAbsolutePath($this->pictureUrl));
         }
-        if ($fs->exists($this->getAbsolutePath($this->pictureHomeUrl))) {
+        if ($this->pictureHome !=null && $fs->exists($this->getAbsolutePath($this->pictureHomeUrl))) {
             unlink($this->getAbsolutePath($this->pictureHomeUrl));
         }
        

@@ -24,7 +24,7 @@ class PressType extends AbstractType
            // ->add('title')
             ->add('parutionTitle','text', array('required' => false))
             ->add('parutionSubTitle','text', array('required' => false))
-           // ->add('text','textarea', array('required' => false))
+            ->add('text','textarea', array('required' => false))
             ->add('active','checkbox', array('required' => false));
 
           
