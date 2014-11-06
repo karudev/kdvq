@@ -12,16 +12,22 @@
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }} </div>
         {% endif %}
         <div class="col-md-8 col-md-offset-2">
+            <div class="border">
             <h3>{{ 'Déja inscrit - Se connecter'|upper|trans }}</h3>
             <div class="col-md-8 col-md-offset-2">
                {{render(controller('SfUserBundle:User:formLogin'))}}
             </div>
+            <div class="clearfix"></div>
+            </div>
         </div>
         
             <div style="margin-top: 50px" class="col-md-8 col-md-offset-2">
+                <div class="border">
                 <h3>{{ 'Nouvelle Inscription'|upper|trans }}</h3>
                 <div id="registration" class="col-md-8 col-md-offset-2">
                     {{render(controller('SfUserBundle:User:registration'))}}
+                </div>
+                <div class="clearfix"></div>
                 </div>
             </div>
       

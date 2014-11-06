@@ -4,7 +4,7 @@
      <link href="{{asset('bundles/sffront/css/partner.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
 {% block ariane %}
-    Partenaires &amp; Clubs
+    <div class="sous-categorie">Partenaires &amp; Clubs</div>
 {% endblock %}
 {% block bandeauClass %}
     partners
@@ -33,7 +33,7 @@
                        
                     </div>
                         {% if catalog.fileUrl is defined %}
-                   <div class="col-md-6 col-md-offset-6">
+                   <div class="col-md-12">
                     <div class="bloc-separation">
                         <div class="separation"></div>
                         <h2>Catalogue des offres clubs {{'now'|date('Y')}}/{{'now'|date('Y')+1}}</h2>

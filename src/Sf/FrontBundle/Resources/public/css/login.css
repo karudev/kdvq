@@ -11,4 +11,7 @@ h3{
 #main-content{
     min-height: 650px;
 }
-
+.border{
+    border: 1px solid #848484;
+    padding: 20px;
+}

@@ -3,7 +3,10 @@
     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
     <link href="{{asset('bundles/sffront/css/products.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
-{% block ariane %}<a href="{{path('front_products',{'categorySlug' : product.category.slug})}}">PRODUITS</a><div class="sous-categorie">{{product.name}}</div>{% endblock %}
+{% block ariane %}
+    <div class="sous-categorie"><a href="{{path('front_products',{'categorySlug' : product.category.slug})}}">PRODUITS</a></div>
+    <div class="sous-categorie">{{product.name}}</div>
+{% endblock %}
 {% block title %}Qwinsport - {{product.name}}{% endblock %}
 {% block body %}
   
@@ -117,7 +120,7 @@
                                 </div>
 
                                 <input type="submit" value="" id="add-to-shopping-cart" class="ico_ajout" />
-
+                                <div class="clearfix"></div>
                             </form>
                         {% else %}
                             <p class="text-right"><span class="label label-danger">{{'Indisponible'|trans}}</span></p>

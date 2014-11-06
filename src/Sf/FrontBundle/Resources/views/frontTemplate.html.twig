@@ -30,70 +30,70 @@
         {{render(controller('SfFrontBundle:Nav:show',{'mobile' : true,'_route' :  app.request.attributes.get('_route')} ))}}
 
         <header class="header">
-           
-                <div class="container">
-                    <div class="header-all col-md-12">
-                        <div class="header-account">
-                            <div class="account-bloc">
-                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED")  and app.user is not null %} 
 
-                                    <div class="icon account-icon"></div>  
-                                    <a href="{{ path('account') }}" title="">
-                                        {{app.user.label}} 
-                                    </a>
-                                     <a  href="{{ path('logout_user') }}"><span class=" glyphicon glyphicon-off"></span> </a>
+            <div class="container">
+                <div class="header-all col-md-12">
+                    <div class="header-account">
+                        <div class="account-bloc">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED")  and app.user is not null %} 
 
-
-                                {% else %}
-                                    <a href="" title="" data-toggle="modal" data-target="#account">
-                                        <div class="icon account-icon"></div>Mon compte
-                                    </a>
-
-                                {% endif %}
-
-
-                            </div>
-                            <div class="account-bloc">
-                                <a id="total-shopping-cart" href="{{path('front_shopping_cart')}}" title="">
-                                    {{ render(controller('SfFrontBundle:ShoppingCart:totalShoppingCart')) }}
+                                <div class="icon account-icon"></div>  
+                                <a href="{{ path('account') }}" title="">
+                                    {{app.user.label}} 
                                 </a>
-                            </div>
+                                <a  href="{{ path('logout_user') }}"><span class=" glyphicon glyphicon-off"></span> </a>
+
+
+                            {% else %}
+                                <a href="" title="" data-toggle="modal" data-target="#account">
+                                    <div class="icon account-icon"></div>Mon compte
+                                </a>
+
+                            {% endif %}
+
+
                         </div>
-                        {#<div class="header-search hidden-xs">
-                            <form action="index.html" method="post">
-                                <div class="inner-addon right-addon">
-                                    <i class="glyphicon search-icon"></i>
-                                    <input type="text" class="form-control" />
-                                </div>
-                            </form>
-                        </div>#}
+                        <div class="account-bloc">
+                            <a id="total-shopping-cart" href="{{path('front_shopping_cart')}}" title="">
+                                {{ render(controller('SfFrontBundle:ShoppingCart:totalShoppingCart')) }}
+                            </a>
+                        </div>
                     </div>
+                    {#<div class="header-search hidden-xs">
+                        <form action="index.html" method="post">
+                            <div class="inner-addon right-addon">
+                                <i class="glyphicon search-icon"></i>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </form>
+                    </div>#}
                 </div>
-            
+            </div>
+
         </header>
-                    <div class="container">
-        <div class="{{app.request.attributes.get('_route') == 'front_home' ? 'col-md-12 col-sm-12' : 'col-md-10 col-sm-9' }}" >
-            {% block bandeau %}
-                <div class="categories {% block bandeauClass %}{% endblock%}">
-                    <div class="col-md-2">
-                        <a href="{{path('front_home')}}" title="">
-                            <div class="hidden-xs main-logo"></div>
-                        </a>
-                    </div>
+        <div class="container">
+            <div class="{{app.request.attributes.get('_route') == 'front_home' ? 'col-md-12 col-sm-12' : 'col-md-10 col-sm-9' }}" >
+                {% block bandeau %}
+                    <div class="categories {% block bandeauClass %}{% endblock%}">
+                        <div class="col-md-2">
+                            <a href="{{path('front_home')}}" title="">
+                                <div class="hidden-xs main-logo"></div>
+                            </a>
+                        </div>
                         {% if app.request.attributes.get('_route') == 'front_home' %}
-                             {{render(controller('SfFrontBundle:Nav:show',{'mobile' : false,'_route' :  app.request.attributes.get('_route')} ))}}
-                         
+                            {{render(controller('SfFrontBundle:Nav:show',{'mobile' : false,'_route' :  app.request.attributes.get('_route')} ))}}
+
                         {% endif %} 
-                         <div class="subcat">{% block ariane %}{% endblock%}</div>
-                    <div class="clearfix"></div>
-                </div>
-            {% endblock%}
-        </div>
-                  
-   {% if app.request.attributes.get('_route') != 'front_home' %}
-        {{render(controller('SfFrontBundle:Nav:show',{'mobile' : false,'_route' :  app.request.attributes.get('_route')} ))}}
-  {% endif %}
+                        <div class="subcat">{% block ariane %}{% endblock%}</div>
+                        <div class="clearfix"></div>
                     </div>
+                {% endblock%}
+            </div>
+
+            {% if app.request.attributes.get('_route') != 'front_home' %}
+                {{render(controller('SfFrontBundle:Nav:show',{'mobile' : false,'_route' :  app.request.attributes.get('_route')} ))}}
+            {% endif %}
+        </div>
 
         <div class="container">
             {% for type, messages in app.session.flashbag.all() %}
@@ -107,14 +107,14 @@
             {% endfor %}
             <div class="clearfix"></div>
         </div>
-            <div class="container">
-        {% block body %}
-
-            
+        <div class="container">
+            {% block body %}
 
 
-        {% endblock %}
-            </div>
+
+
+            {% endblock %}
+        </div>
 
 
 
@@ -127,25 +127,25 @@
                         <div class="ico_fleche_ferme"></div><b>DEJA INSCRIT - SE CONNECTER</b>
                     </div>
                     <div class="modal-body">
-                       {{render(controller('SfUserBundle:User:formLogin')) }}
+                        {{render(controller('SfUserBundle:User:formLogin')) }}
                     </div>
                     <div class="modal-header footer">
-                         <div style="padding-bottom:30px;padding-top: 0px" class="modal-header">
-                        <div class="ico_fleche_ferme"></div><b>NOUVELLE INSCRIPTION</b>
-                         </div>
-                        <div  id="registration" >
-                       {{render(controller('SfUserBundle:User:registration'))}}
+                        <div style="padding-bottom:30px;padding-top: 0px" class="modal-header">
+                            <div class="ico_fleche_ferme"></div><b>NOUVELLE INSCRIPTION</b>
                         </div>
-                    
+                        <div  id="registration" >
+                            {{render(controller('SfUserBundle:User:registration'))}}
+                        </div>
+
                     </div>
-                   
+
                 </div>
             </div>
         </div>
 
 
 
-         {{render(controller('SfFrontBundle:Footer:show'))}}
+        {{render(controller('SfFrontBundle:Footer:show'))}}
 
         <script src="{{asset('assets/jquery-ui/js/jquery-1.10.2.js')}}"></script>
         <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
@@ -153,13 +153,33 @@
         <script src="{{asset('bundles/sffront/js/main.js')}}?v={{version}}"></script>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
 
-        <script src="{{ asset('assets/tinymce/tinymce.js') }}"></script>
-    {% endif %}
+            <script src="{{ asset('assets/tinymce/tinymce.js') }}"></script>
+        {% endif %}
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         <script src="{{asset('bundles/sfuser/js/login.js')}}?v={{version}}"></script>
         {% block js %}
         {% endblock%}
+        {% if app.environment == 'prod' %}
+            <script>
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function() {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                ga('create', 'UA-55922938-1', 'auto');
+                ga('send', 'pageview');
+
+            </script>
+
+        {% endif %}
 
 
     </body>

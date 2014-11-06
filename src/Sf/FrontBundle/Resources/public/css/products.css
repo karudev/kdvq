@@ -103,10 +103,13 @@ img.full{
 	position: relative;
 }
 
-
+.product .border_ form{
+    margin-top: 65px;
+    margin-bottom: 20px;
+}
 .details-product label{
 	display: block;
-	margin: 10px 20px 20px 0;
+	//margin: 10px 20px 20px 0;
 	font-family: 'DINProLight', sans-serif;
 	font-weight: bold;
 	font-size: 16px;

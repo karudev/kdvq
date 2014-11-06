@@ -66,17 +66,19 @@
 }
 
 .categories .subcat{
-    border-left: 200px solid #52DDC6;
+   // border-left: 200px solid #52DDC6;
     color: #FFF;
     background-color: #52DDC6;
     position: absolute;
     bottom: 20px;
-    padding: 10px;
+    padding: 0 10px 0 50px;
     color:#000;
     font-family: 'DINAlternateBold', sans-serif;
-    font-weight: bold;
+    //font-weight: bold;
     font-size: 16px;
     text-transform: uppercase;
+    min-width: 370px;
+    text-align: right;
 }
 
 .cat{
@@ -120,10 +122,15 @@
 .sous-categorie{
     display: inline-block;
     border-left: 3px solid #FFF;
-    margin: 0 0 0 10px;
-    padding: 0 10px;
+    //margin: 0 0 0 10px;
+    padding:  7px 10px 7px;
 }
-
+.sous-categorie a {
+    color :#000
+}
+.sous-categorie a:hover {
+    text-decoration: underline;
+}
 .part h4{
     font-family: 'DINProLight', sans-serif;
     font-size: 16px;
@@ -310,4 +317,14 @@ button#achat{
         padding-left: 30px;
         padding-right: 30px;
     }
+}
+
+@media (max-width:400px){
+    .categories .subcat{
+   
+    min-width: 280px;
+    padding: 0 10px 0 0px;
+   
+}
+
 }
