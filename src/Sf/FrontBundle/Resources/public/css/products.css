@@ -107,6 +107,10 @@ img.full{
     margin-top: 65px;
     margin-bottom: 20px;
 }
+.product .border_  .form-group{
+   
+    margin-bottom: 5px;
+}
 .details-product label{
 	display: block;
 	//margin: 10px 20px 20px 0;
@@ -130,10 +134,10 @@ img.full{
 	height: 119px;
 	width: 144px;
 	position: absolute;
-	bottom: -95px;
-	left: -81px;
+	bottom: -130px;
+	left: -125px;
 	border: none;
-	margin: 0 auto;
+	
 }
 .ico_ajout:hover{
 	background-image: url('../images/ico/ico_ajout_roll.png');
@@ -205,4 +209,31 @@ img.full{
 
 .other-products h2{
 	text-align: center;
+}
+
+@media (max-width:768px){
+    .ico_ajout{
+	
+	
+	
+	left: 37%;
+	
+    }
+    
+}
+@media (max-width:991px){
+    
+    .product .border_ form{
+        margin-top: 0px;
+    }
+}
+
+@media (max-width:450px){
+    .ico_ajout{
+	
+	
+	left: 29%;
+	
+	
+}
 }

@@ -16,13 +16,13 @@
             </div>
             <div class="product col-md-12">
                 <div class="border_ col-md-12">
-                    <div class="col-sm-6 col-md-6 col-xs-6">
+                    <div class="col-sm-6 col-md-6 col-xs-12">
 
                         <a href="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" class="zoom">
                             <img style="width: 90%" id="mainPicture" src="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" /> 
                         </a>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-xs-6 details-product">
+                    <div class="col-sm-6 col-md-6 col-xs-12 details-product">
                         <h1>{{product.name}}<br/>{{ product.priceTtc|number_format(2,',',' ') }} €</h1>
                         {% if product.description is not null or product.details is not null or product.composition is not null
                         or product.boardMaintenance is not null %}
@@ -58,13 +58,14 @@
                         </form>#}
                         {% if stock > 0 %}
                             <form action="{{path('front_shopping_cart_add',{'product' : product.id})}}" method="post">
+                                
                                 <input type="hidden" id="product_id" value="{{product.id}}"/>
                                 {% if sizes|length > 0 %}
-                                    <div class=" col-md-12 form-group">
-                                        <div class=" col-md-3">
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 form-group">
+                                        <div class=" col-md-3 col-sm-4 col-xs-4">
                                             <label>{{'Taille'|trans}}</label>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-7 col-xs-7">
                                             <select id="size" name="params[size]"  >
                                                 <option value=""></option>
                                                 {% for s in sizes %}
@@ -75,11 +76,11 @@
                                     </div>
                                 {% endif %}
                                 {% if colors|length > 0 %}
-                                    <div class=" col-md-12 form-group">
-                                        <div class=" col-md-3">
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 form-group">
+                                        <div class=" col-md-3 col-sm-4 col-xs-4">
                                             <label>{{'Couleur'|trans}}</label>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-7 col-xs-7">
                                             <select id="color" name="params[color]"  >
                                                 <option value=""></option>
                                                 {% for c in colors %}
@@ -90,11 +91,11 @@
                                     </div>
                                 {% endif %}
                                 {% if materials|length > 0 %}
-                                    <div class=" col-md-12 form-group"> 
-                                        <div class=" col-md-3 form-group">
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 form-group"> 
+                                        <div class=" col-md-3 col-sm-4 col-xs-4 ">
                                             <label>{{'Matière'|trans}}</label>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-7 col-xs-7">
                                             <select id="material" name="params[material]"  >
                                                 <option value=""></option>
                                                 {% for m in materials %}
@@ -104,11 +105,11 @@
                                         </div>
                                     </div>
                                 {% endif %}
-                                <div class=" col-md-12 form-group">
-                                    <div class=" col-md-3">
+                                <div class=" col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <div class=" col-md-3 col-sm-4 col-xs-4">
                                         <label>{{'Quantité'|trans}}</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 col-sm-7 col-xs-7">
                                         <select id="quantity" style="width:60px" required name="params[quantity]" >
                                             {% for i in 1..100 %}
                                                 <option>{{i}}</option>
@@ -119,9 +120,13 @@
                                     <span id="no-stock" style="display:none" class="label label-danger">{{'Indisponible'|trans}}</span>
                                 </div>
 
-                                <input type="submit" value="" id="add-to-shopping-cart" class="ico_ajout" />
+                                
                                 <div class="clearfix"></div>
-                            </form>
+                           
+                                <div class="col-md-12 col-xs-12 btn-add">
+                                    <input type="submit" value="" id="add-to-shopping-cart" class="ico_ajout" />
+                                </div>
+                                 </form>
                         {% else %}
                             <p class="text-right"><span class="label label-danger">{{'Indisponible'|trans}}</span></p>
                             {% endif %}
