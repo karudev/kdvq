@@ -1,11 +1,4 @@
 
-
-
-front_actus_show:
-    path: /actualities/show/{year}
-    defaults: { _controller: SfFrontBundle:Actuality:show, year:null }
-    options:
-        expose: true
     
 fos_user_security_login:
     path:  /login
@@ -199,6 +192,17 @@ admin_actuality_update:
 admin_brand:
     path:     /admin/brand
     defaults: { _controller: "SfAdminBundle:Brand:index"}
+    
+admin_criterion:
+    path:     /critères
+    defaults: { _controller: "SfAdminBundle:Criterion:index"}
+    options: { i18n_prefix: admin }
+    
+
+admin_criterion_update:
+    path:     /critère/{type}/{id}
+    defaults: { _controller: "SfAdminBundle:Criterion:update", id:null, type:null}
+    options: { i18n_prefix: admin }
     
 
  

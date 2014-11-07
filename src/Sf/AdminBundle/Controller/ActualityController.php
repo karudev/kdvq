@@ -48,6 +48,7 @@ class ActualityController extends Controller {
             if ($form->isValid()) {
 
                 $actuality->setYear(date('Y',$actuality->getDate()->getTimestamp()));
+                $actuality->setMonth(date('Ym',$actuality->getDate()->getTimestamp()));
                 $actuality->preUpload();
                 $em->persist($actuality);
                 $actuality->upload();

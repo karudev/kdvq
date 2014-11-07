@@ -14,35 +14,44 @@
    
         <div id="main-content" class="col-sm-9 col-md-10">
 
-            <div class="product actualite col-sm-12 text-right">
-               {# <a href="">
-                    <div class="tri-month active">Sept</div>
+            <div class="product actualite col-sm-12 text-center">
+                <a href="javascript:void(0)">
+                    <div data-id="01" class="tri-month">Janv</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Aout</div>
+                <a href="javascript:void(0)">
+                    <div data-id="02" class="tri-month">Fev</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Juil</div>
+                <a href="javascript:void(0)">
+                    <div data-id="03" class="tri-month">Mars</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Juin</div>
+                <a href="javascript:void(0)">
+                    <div data-id="04" class="tri-month">Avr</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Mai</div>
+                <a href="javascript:void(0)">
+                    <div data-id="05" class="tri-month">Mai</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Avr</div>
+                <a href="javascript:void(0)">
+                    <div data-id="06" class="tri-month">Juin</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Mars</div>
+                 <a href="javascript:void(0)">
+                    <div data-id="07" class="tri-month">Juil</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Fev</div>
+                <a href="javascript:void(0)">
+                    <div data-id="08" class="tri-month">Août</div>
                 </a>
-                <a href="">
-                    <div class="tri-month">Janv</div>
-                </a>#}
-                <select  id="date"  class="date" style="width:70px;padding:2px">
+                <a href="javascript:void(0)">
+                    <div data-id="09" class="tri-month">Sept</div>
+                </a>
+                <a href="javascript:void(0)">
+                    <div data-id="10" class="tri-month">Oct</div>
+                </a>
+                <a href="javascript:void(0)">
+                    <div data-id="11" class="tri-month">Nov</div>
+                </a>
+                <a href="javascript:void(0)">
+                    <div data-id="12" class="tri-month">Dec</div>
+                </a>
+                <select  id="date"  class="date" style="width:70px;padding:2px;float: right">
                     {% for d in dates %}
                 <option>{{d['year']}}</option>
                 {% endfor %}

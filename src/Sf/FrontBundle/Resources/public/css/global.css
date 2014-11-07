@@ -720,8 +720,13 @@ input,textarea,select{
     line-height:400px;
     text-align:center;
 }
+}
 
 @media (min-width: 768px) and (max-width: 992px){
+     .content{margin-top: 0px;}
+     .navbar-nav {
+        margin: 0;
+    }
     .main-logo{
         margin-left: 20px;
         margin-top: 5px;

@@ -1,6 +1,6 @@
 
 {% for entity in actualities %}
-    <div class="actu_{{entity.date|date('Y')}} box col-md-6">
+    <div class="actu_{{entity.date|date('Y')}} actu_{{entity.date|date('Ym')}} box col-md-6">
         <img class="col-md-12" src="{{ asset(['/uploads/actualities/', entity.pictureUrl]|join) }}" alt="">
         <div class="clearfix"></div>
         <h2>{{entity.title}}</h2>

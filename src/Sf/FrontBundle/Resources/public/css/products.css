@@ -1,239 +1,306 @@
 .product h5{
-	font-family: 'DINProLight', sans-serif;
-	font-size: 16px;
-	line-height: 1.3;
-	text-align: justify;
-	font-weight: bold;
-	margin: 0 auto;
-	text-align: center;
+    font-family: 'DINProLight', sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: justify;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .product .min-border{
-	width: 30px;
-	height: 2px;
-	background-color: #000;
-	margin: 10px auto;
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+    margin: 10px auto;
 }
 
 .product{
-	/*padding-right: 30px;
-	padding-left: 30px;*/
-	text-align: center;
-        margin-top: 20px;
+    /*padding-right: 30px;
+    padding-left: 30px;*/
+    text-align: center;
+    margin-top: 20px;
 }
 
 .product hr{
-	border-top: 1px solid #000;
-	margin:10px 0;
+    border-top: 1px solid #000;
+    margin:10px 0;
 }
 
 .product .article-price{
-	margin-left: 0;
+    margin-left: 0;
 }
 
 .product hr{
-	margin-left: 20px;
-	margin-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .product h2{
-	font-family: 'DINProLight', sans-serif;
-	font-size: 16px;
-	line-height: 1.3;
-	font-weight: bold;
+    font-family: 'DINProLight', sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: bold;
 }
 
 .product h6{
-	font-family: 'DINProLight', sans-serif;
-	line-height: 1.3;
-	font-weight: bold;
-	color: #787878;
+    font-family: 'DINProLight', sans-serif;
+    line-height: 1.3;
+    font-weight: bold;
+    color: #787878;
 }
 
 .personnaliser{
-	background-image: url('../images/personnaliser.png');
-	height: 53px;
-	width: 122px;
-	position: absolute;
-	margin-top: 50px;
+    background-image: url('../images/personnaliser.png');
+    height: 53px;
+    width: 122px;
+    position: absolute;
+    margin-top: 50px;
 }
 
 .art{
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 a.personnalize{
-	display: block;
+    display: block;
 }
 
 img.full{
-	width: 100%;
+    width: 100%;
 }
 
 .details-product{
-	text-align: left;
-	padding: 20px;
+    text-align: left;
+    padding: 20px;
 }
 
 .details-product h1{
-	font-family: 'DINProLight', sans-serif;
-	font-size: 24px;
-	line-height: 1.3;
-	font-weight: bold;
-	margin-top: 0;
+    font-family: 'DINProLight', sans-serif;
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: bold;
+    margin-top: 0;
 }
 
 .details-product a{
-	font-family: 'DINProLight', sans-serif;
-	line-height: 1.3;
-	font-weight: bold;
-	text-transform: none;
-	color: #787878;
+    font-family: 'DINProLight', sans-serif;
+    line-height: 1.3;
+    font-weight: bold;
+    text-transform: none;
+    color: #787878;
 }
 
 .details-product hr{
-	border-top: 1px dotted #000;
-	margin:20px 0;
+    border-top: 1px dotted #000;
+    margin:20px 0;
 }
 
 .product .border_{
-	display: inline-block;
-	background-color: #fff;
-	border-bottom: 5px solid #000;
-	position: relative;
+    display: inline-block;
+    background-color: #fff;
+    border-bottom: 5px solid #000;
+    position: relative;
 }
 
-.product .border_ form{
+/*.product .border_ form{
     margin-top: 65px;
     margin-bottom: 20px;
-}
+}*/
 .product .border_  .form-group{
-   
+
     margin-bottom: 5px;
 }
 .details-product label{
-	display: block;
-	//margin: 10px 20px 20px 0;
-	font-family: 'DINProLight', sans-serif;
-	font-weight: bold;
-	font-size: 16px;
-	color: #000;
+    display: block;
+    //margin: 10px 20px 20px 0;
+    font-family: 'DINProLight', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
 }
 
 .details-product span{
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 .details-product select{
-	outline: none;
-	width: 100px;
+    outline: none;
+    width: 100px;
 }
 
 .ico_ajout{
-	background-image: url('../images/ico/ico_ajout.png');
-	height: 119px;
-	width: 144px;
-	position: absolute;
-	bottom: -130px;
-	left: -125px;
-	border: none;
-	
+    background-image: url('../images/ico/ico_ajout.png');
+    height: 119px;
+    width: 144px;
+    position: absolute;
+    bottom: -130px;
+    left: -125px;
+    border: none;
+
+}
+.ico_ajout.critere_3{
+    bottom: -170px;
+}
+.ico_ajout.critere_2{
+    bottom: -210px;
+}
+.ico_ajout.critere_1{
+    bottom: -250px;
+}
+.ico_ajout.critere_0{
+    bottom: -290px;
 }
 .ico_ajout:hover{
-	background-image: url('../images/ico/ico_ajout_roll.png');
-          -webkit-transition: all 0.5s ease;
+    background-image: url('../images/ico/ico_ajout_roll.png');
+    -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-	
+
 }
 
 .cover-top{
-	margin-top: 50px;
-	margin-bottom: 25px;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
 .product-information{
-	text-align: left;
+    text-align: left;
 }
 
 .product-information h2{
-	text-align: left;
-	/*font-family: 'DINAlternateBold', sans-serif;*/
-	font-size: 16px;
-	line-height: 1.3;
+    text-align: left;
+    /*font-family: 'DINAlternateBold', sans-serif;*/
+    font-size: 16px;
+    line-height: 1.3;
 }
 
 .product-information p{
-	text-align: left;
-	font-family: 'DINProLight', sans-serif;
-	font-size: 16px;
-	line-height: 1.3;
-	text-align: justify;
-	font-weight: bold;
+    text-align: left;
+    font-family: 'DINProLight', sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: justify;
+    font-weight: bold;
 }
 
 .product-information .more h3{
-	text-align: left;
-	font-family: 'DINAlternateBold', sans-serif;
-	font-size: 18px;
-	line-height: 1.3;
+    text-align: left;
+    font-family: 'DINAlternateBold', sans-serif;
+    font-size: 18px;
+    line-height: 1.3;
 }
 
 
 .product-information .more p{
-	text-align: left;
-	font-family: 'DINProLight', sans-serif;
-	font-size: 16px;
-	line-height: 1;
-	text-align: justify;
-	font-weight: bold;
+    text-align: left;
+    font-family: 'DINProLight', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    text-align: justify;
+    font-weight: bold;
 }
 
 .more{
-	padding-left: 40px;
+    padding-left: 40px;
 }
 
 .product-information hr{
-	border-top: 1px dotted #000;
-	margin-top: 20px;
-	margin-left: 0;
-	margin-right: 0;
+    border-top: 1px dotted #000;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 
 
 .other-products{
-	text-align: center;
+    text-align: center;
 }
 
 .other-products h2{
-	text-align: center;
+    text-align: center;
 }
 
+.zoom img{
+    width: 70%;
+}
 @media (max-width:768px){
-    .ico_ajout{
-	
-	
-	
-	left: 37%;
-	
+    .ico_ajout,.ico_ajout.critere_2,.ico_ajout.critere_1,.ico_ajout.critere_0,.ico_ajout.critere_3{
+
+        bottom: -125px;
+
+        left: 37%;
+
     }
-    
+   
+    .zoom img{
+        width: 100%;
+    }
+    .product .border_ form{
+
+        margin-bottom: 40px;
+    }
+
 }
 @media (max-width:991px){
-    
+
     .product .border_ form{
         margin-top: 0px;
     }
-}
 
+}
+@media (min-width:768px) and (max-width:991px){
+
+    .zoom img{
+        width: 80%;
+    }
+    .ico_ajout{
+
+        bottom: -75px;
+    }
+    .ico_ajout.critere_3{
+        bottom: -115px;
+    }
+    .ico_ajout.critere_2{
+        bottom: -155px;
+    }
+    .ico_ajout.critere_1{
+        bottom: -195px;
+    }
+    .ico_ajout.critere_0{
+        bottom: -235px;
+    }
+}
+@media (min-width:992px) and (max-width:1199px){
+
+    .zoom img{
+        width: 73%;
+    }
+    .ico_ajout{
+        bottom: -75px;
+    }
+    .ico_ajout.critere_3{
+        bottom: -115px;
+    }
+    .ico_ajout.critere_2{
+        bottom: -155px;
+    }
+    .ico_ajout.critere_1{
+        bottom: -195px;
+    }
+    .ico_ajout.critere_0{
+        bottom: -235px;
+    }
+
+}
 @media (max-width:450px){
     .ico_ajout{
-	
-	
-	left: 29%;
-	
-	
-}
+
+
+        left: 29%;
+
+
+    }
 }

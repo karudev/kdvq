@@ -1,0 +1,100 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+   <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %} 
+{% block ariane %}
+    <div class="sous-categorie">CRITERES</div>
+{% endblock %}
+{% block bandeauClass %}
+account
+{% endblock %}
+{% block body %}
+    <div id="main-content"  class="col-md-10">
+      <div class="col-md-12">
+            <div class="table-responsive col-md-4">
+                <h3>{{'Tailles'|trans}}</h3>
+                <table class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{'Nom'|trans}}</th>
+                            <th>{{'Actions'|trans}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in sizes %}
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-{% if  s.active %}ok{% else %}ban{%endif%}-circle"></span>
+                                </td>
+                                <td>{{s.name}}</td>
+                                <td>
+                                    <a title="Modifier" href="{{path('admin_criterion_update', {'type' : 'T','id' : s.id})}}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive col-md-4">
+                <h3>{{'Couleurs'|trans}}</h3>
+                <table class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{'Nom'|trans}}</th>
+                            <th>{{'Actions'|trans}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in colors %}
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-{% if  c.active %}ok{% else %}ban{%endif%}-circle"></span>
+                                </td>
+                                <td>{{c.name}}</td>
+                                <td>
+                                    <a title="Modifier" href="{{path('admin_criterion_update', {'type' : 'C','id' : c.id})}}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive col-md-4">
+                <h3>{{'Matériaux'|trans}}</h3>
+                <table class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{'Nom'|trans}}</th>
+                            <th>{{'Actions'|trans}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in materials %}
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-{% if  m.active %}ok{% else %}ban{%endif%}-circle"></span>
+                                </td>
+                                <td>{{m.name}}</td>
+                                <td>
+                                    <a title="Modifier" href="{{path('admin_criterion_update', {'type' : 'M','id' : m.id})}}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center">
+
+            <a href="{{path('admin_criterion_update')}}">
+                <button type="button" class="submit">
+                    Créer un critère
+                </button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

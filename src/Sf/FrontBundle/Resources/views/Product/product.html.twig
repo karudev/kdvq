@@ -5,27 +5,28 @@
 {% endblock %}
 {% block ariane %}
     <div class="sous-categorie"><a href="{{path('front_products',{'categorySlug' : product.category.slug})}}">PRODUITS</a></div>
-    <div class="sous-categorie">{{product.name}}</div>
+    <div class="sous-categorie">{{product.name|truncate(35)}}</div>
 {% endblock %}
 {% block title %}Qwinsport - {{product.name}}{% endblock %}
 {% block body %}
-  
-        <div style="margin-top: 30px;"  class="col-xs-12 col-sm-9 col-md-10">
+  {% set critere = 0 %}
+        <div style="margin-top: 30px;"  class="col-xs-12 col-sm-12 col-md-10">
             <div id="alert" class="col-md-12">
 
             </div>
             <div class="product col-md-12">
                 <div class="border_ col-md-12">
-                    <div class="col-sm-6 col-md-6 col-xs-12">
+                    <div class="col-sm-6 col-md-6 col-xs-12 text-left">
 
                         <a href="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" class="zoom">
-                            <img style="width: 90%" id="mainPicture" src="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" /> 
+                            <img  id="mainPicture" src="{{ asset(['/uploads/products/', product.hdPictureUrl]|join) }}" /> 
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-6 col-xs-12 details-product">
-                        <h1>{{product.name}}<br/>{{ product.priceTtc|number_format(2,',',' ') }} €</h1>
+                        <h1>{{product.name|truncate(35)}}<br/>{{ product.priceTtc|number_format(2,',',' ') }} €</h1>
                         {% if product.description is not null or product.details is not null or product.composition is not null
                         or product.boardMaintenance is not null %}
+                        {% set critere = critere + 1 %}
                         <h6><a href="#desc_produit" href="javascript:void(0)" title="">&raquo; Voir la description</a></h6><hr/>
                         {% endif %}
                         {#<form action="product.html" method="post">
@@ -60,22 +61,8 @@
                             <form action="{{path('front_shopping_cart_add',{'product' : product.id})}}" method="post">
                                 
                                 <input type="hidden" id="product_id" value="{{product.id}}"/>
-                                {% if sizes|length > 0 %}
-                                    <div class=" col-md-12 col-sm-12 col-xs-12 form-group">
-                                        <div class=" col-md-3 col-sm-4 col-xs-4">
-                                            <label>{{'Taille'|trans}}</label>
-                                        </div>
-                                        <div class="col-md-6 col-sm-7 col-xs-7">
-                                            <select id="size" name="params[size]"  >
-                                                <option value=""></option>
-                                                {% for s in sizes %}
-                                                    <option value="{{s.id}}">{{s.name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                                {% if colors|length > 0 %}
+                                 {% if colors|length > 0 %}
+                                      {% set critere = critere + 1 %}
                                     <div class=" col-md-12 col-sm-12 col-xs-12 form-group">
                                         <div class=" col-md-3 col-sm-4 col-xs-4">
                                             <label>{{'Couleur'|trans}}</label>
@@ -90,7 +77,25 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                                {% if sizes|length > 0 %}
+                                      {% set critere = critere + 1 %}
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 form-group">
+                                        <div class=" col-md-3 col-sm-4 col-xs-4">
+                                            <label>{{'Taille'|trans}}</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-7 col-xs-7">
+                                            <select id="size" name="params[size]"  >
+                                                <option value=""></option>
+                                                {% for s in sizes %}
+                                                    <option value="{{s.id}}">{{s.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                               
                                 {% if materials|length > 0 %}
+                                      {% set critere = critere + 1 %}
                                     <div class=" col-md-12 col-sm-12 col-xs-12 form-group"> 
                                         <div class=" col-md-3 col-sm-4 col-xs-4 ">
                                             <label>{{'Matière'|trans}}</label>
@@ -124,7 +129,7 @@
                                 <div class="clearfix"></div>
                            
                                 <div class="col-md-12 col-xs-12 btn-add">
-                                    <input type="submit" value="" id="add-to-shopping-cart" class="ico_ajout" />
+                                    <input type="submit" value="" id="add-to-shopping-cart" class="ico_ajout critere_{{critere}}" />
                                 </div>
                                  </form>
                         {% else %}

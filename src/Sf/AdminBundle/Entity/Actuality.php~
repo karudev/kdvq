@@ -124,6 +124,13 @@ class Actuality implements Translatable
      */
     private $year;
     
+    /**
+     * @var integer
+     * @ORM\Column(name="month", type="integer")
+     */
+    private $month;
+    
+    
     
 
      /**

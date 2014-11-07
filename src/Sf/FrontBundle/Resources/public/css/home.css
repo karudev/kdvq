@@ -41,9 +41,17 @@ body {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 459px) {
     .bg2 .main,.bg1 .main{
         height: 300px;
+    }
+    .container{
+        padding: 0px;
+    }
+}
+@media (min-width: 460px) and (max-width: 768px) {
+    .bg2 .main,.bg1 .main{
+        height: 440px;
     }
     .container{
         padding: 0px;

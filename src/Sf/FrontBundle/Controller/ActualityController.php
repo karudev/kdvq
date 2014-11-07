@@ -24,18 +24,23 @@ class ActualityController extends Controller {
     
      /**
      *
-     *  @Route("/actus/show/{year}",name="front_actus_show", options = {"expose" = true})
+     *  @Route("/actus/show/{year}/{month}",name="front_actus_show", options = {"expose" = true})
      * @Template()
      */
-    public function showAction(Request $request, $year = null) {
+    public function showAction(Request $request, $year = null,$month = null) {
         
         if($year == null){
             $year = date('Y');
         }
+        $params = array('year' => $year,'active' => true);
+        
+        if($month != null){
+            $params = array_merge($params, array('month' => $month));
+        }
+        
         $em = $this->get('doctrine')->getManager();
         
-        $actualities = $em->getRepository('SfAdminBundle:Actuality')->findBy(
-                array('year' => $year,'active' => true), array('date' => 'desc'));
+        $actualities = $em->getRepository('SfAdminBundle:Actuality')->findBy($params, array('date' => 'desc'));
 
      
     

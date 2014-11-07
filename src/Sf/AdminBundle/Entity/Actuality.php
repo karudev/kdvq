@@ -124,6 +124,13 @@ class Actuality implements Translatable
      */
     private $year;
     
+    /**
+     * @var integer
+     * @ORM\Column(name="month", type="integer")
+     */
+    private $month;
+    
+    
     
 
      /**
@@ -522,5 +529,28 @@ class Actuality implements Translatable
     public function getInHome()
     {
         return $this->inHome;
+    }
+
+    /**
+     * Set month
+     *
+     * @param integer $month
+     * @return Actuality
+     */
+    public function setMonth($month)
+    {
+        $this->month = $month;
+
+        return $this;
+    }
+
+    /**
+     * Get month
+     *
+     * @return integer 
+     */
+    public function getMonth()
+    {
+        return $this->month;
     }
 }

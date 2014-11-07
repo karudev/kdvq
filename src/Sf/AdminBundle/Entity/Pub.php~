@@ -101,7 +101,7 @@ class Pub
      * @ORM\PreUpdate()
      */
     public function updatedDateTime(){
-      $this->updatedAt = new \dateTime();
+      $this->updatedAt = new \DateTime();
     }
 
 
@@ -139,7 +139,7 @@ class Pub
     {
 
         $fs = new Filesystem();
-        if ($this->picture !=null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
+        if ($this->picture !=null && $this->pictureUrl != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
             unlink($this->getAbsolutePath($this->pictureUrl));
         }
        
@@ -189,4 +189,175 @@ class Pub
     
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Pub
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return Pub
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string 
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set pictureUrl
+     *
+     * @param string $pictureUrl
+     * @return Pub
+     */
+    public function setPictureUrl($pictureUrl)
+    {
+        $this->pictureUrl = $pictureUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureUrl
+     *
+     * @return string 
+     */
+    public function getPictureUrl()
+    {
+        return $this->pictureUrl;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Pub
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Pub
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Pub
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Pub
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
 }
