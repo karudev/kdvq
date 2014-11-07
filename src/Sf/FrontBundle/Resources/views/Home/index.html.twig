@@ -8,10 +8,10 @@
 {% block bandeauClass %}main {% endblock %}
 {% block title %}Qwinsport{% endblock %}
 {% block body %}
-    <section>
-        <div>
-            <div class="col-md-12 inline-block">
-                <div class="col-sm-4 col-md-4 news-bloc">
+    <section class="floater">
+        <div class="container row container-custom">
+            <div class="col-md-12 col-sm-12 col-xs-12 inline-block">
+                <div class="col-sm-4 col-md-4 col-xs-12 news-bloc">
                     <div class="last">
                     <h3>
                         Dernières<br/><span class="din-bold">Nouveautés</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
@@ -22,17 +22,13 @@
                             <div class="article">
                                 {% if getStock(p) > 0 %}
                                     <a href="{{path('front_product',{'slug' : p.slug})}}" title="">
-                                        <img class="bord" style="width:40%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
+                                        <img style="width:40%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
                                     </a>
                                 {% else %}
-                                    <img class="bord" style="width:40%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
+                                    <img  style="width:40%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
                                 {% endif %}
 
-                                <div class="article-price">
-                                    <div class="border-price">
-                                        <p class="price">{{ p.priceTtc|number_format(2,',',' ') }} €</p>
-                                    </div>
-                                </div>
+                               
                                 <div class="article-details">
                                     <h4>{{ p.name|truncate(22) }}</h4>
                                     <p class="cat">{{ p.category.category.name }}</p>
@@ -44,7 +40,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4 newsletter-bloc">
+                <div class="col-sm-4 col-md-4 col-xs-12 newsletter-bloc">
                     <div class="newsletter-details">
                         <h3>{{home_title.value is defined ? home_title.value}}</h3>
                         <div>{{home_text.value is defined ? home_text.value}}</div>
@@ -67,7 +63,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4 actu-bloc">
+                <div class="col-sm-4 col-md-4  col-xs-12 actu-bloc">
                     <div class="before hidden-xs"></div>
                     <div class="actu-bloc-news">
                         <h3>Les<br/><span class="din-bold">Actus</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt=""></h3>

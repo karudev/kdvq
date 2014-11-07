@@ -336,9 +336,7 @@ img.border{
 
 }
 
-.actu-bloc{
-    background-color: #E6E8E7;
-}
+
 
 .actu-bloc img.visuel{
     width: 100%;
@@ -383,6 +381,7 @@ p.actu-content{
 
 .actu-bloc-news{
     //padding: 20px;
+     background-color: #E6E8E7;
 }
 
 .bg_footer{
@@ -583,6 +582,7 @@ h3.big-title{
 
 .actu-bloc .before{
   height: 210px;
+  background:transparent;
 	
 }
 .press img.hover{
@@ -737,16 +737,5 @@ input,textarea,select{
     .inline-block{
         display: inline-block;
     }
-    .bg_footer {
-        background-image: url('../images/fond_footer.jpg');
-        width: 100%;
-        height: 430px;
-        background-repeat: no-repeat;
-        bottom: -80px;
-        left: 0;
-        right: 0;
-        background-size: 100% 100%;
-        position: absolute;
-        z-index: -1;
-    }
+   
 }

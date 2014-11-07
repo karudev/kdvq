@@ -8,7 +8,7 @@ $(document).ready(function() {
   if(ha > 800){
       h = ha-300;
   }
-   $('.newsletter-bloc').height(h)   ;
+   $('.newsletter-bloc').css('min-height',h)   ;
   
   
 });

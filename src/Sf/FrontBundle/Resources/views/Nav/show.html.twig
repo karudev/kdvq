@@ -35,7 +35,7 @@
                                 {% endfor %}
 
 
-                            <li class="ico_fleche_ferme"><a href="#">Personnaliser</a></li>
+                           
                             <li class="ico_fleche_ferme {{_route == 'front_actus' ? 'active'}}"><a href="{{path('front_actus')}}">Actus</a></li>
                             <li class="ico_fleche_ferme {{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs et Partenaires</a></li>
                             <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
@@ -99,7 +99,7 @@
                             <li class="ico_fleche_ferme"><a href="{{path('front_category',{'slug':c.slug})}}">{{c.name}}</a></li>
                             {% endif %}
                         {% endfor %}
-                    <li class="ico_fleche_ferme"><a href="#">Personnaliser</a></li>
+                    
                     <li class="ico_fleche_ferme {{_route == 'front_actus' ? 'active'}}"><a href="{{path('front_actus')}}">Actus</a></li>
                     <li class="ico_fleche_ferme {{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs / Partenaires</a></li>
                     <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
