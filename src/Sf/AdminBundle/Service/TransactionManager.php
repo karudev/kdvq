@@ -26,8 +26,10 @@ class TransactionManager {
 
 
         $order = $em->getRepository('SfAdminBundle:Order')->findOneBy(array('transaction' => $transaction->getId()));
+        if($order){
         $em->remove($order);
         $em->flush();
+        }
     }
 
     public function verified(Transaction $transaction, $payment_status) {
