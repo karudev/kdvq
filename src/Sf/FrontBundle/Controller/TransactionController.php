@@ -145,7 +145,7 @@ class TransactionController extends Controller {
 
         $transaction = $em->getRepository('SfAdminBundle:Transaction')->checkout(
                 array(
-                    'amountHt' => $payment_amount,
+                    'amountTtc' => $payment_amount,
                     'currency' => $payment_currency,
                     'tva' => $tax,
                     'shipping' => $shipping,
