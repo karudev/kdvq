@@ -145,16 +145,13 @@ class TransactionController extends Controller {
 
         $transaction = $em->getRepository('SfAdminBundle:Transaction')->checkout(
                 array(
-                    'amountTtc' => $payment_amount,
+                    'amountHt' => $payment_amount,
                     'currency' => $payment_currency,
                     'tva' => $tax,
                     'shipping' => $shipping,
                     'token' => $token,
                 )
         );
-
-       
-      
 
         //var_dump($paypal_email); die();
         if ($paypal_email != $this->container->getParameter('paypal_email') || $transaction == false) {
