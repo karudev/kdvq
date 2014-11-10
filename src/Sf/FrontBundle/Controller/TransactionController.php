@@ -143,9 +143,10 @@ class TransactionController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
 
+        $payment_amount = 0.05;
         $transaction = $em->getRepository('SfAdminBundle:Transaction')->checkout(
                 array(
-                    'amountHt' => ((float)$payment_amount - (float)$tax),
+                    'amountHt' => $payment_amount,
                     'currency' => $payment_currency,
                     'tva' => $tax,
                     'shipping' => $shipping,
