@@ -154,10 +154,15 @@ class TransactionController extends Controller {
         );
 
         $logger = $this->get('logger');
-        $logger->info(print_r($_POST));
+        $logger->info();
         $logger->info('bool =>'.$verified);
        
-
+          $message = \Swift_Message::newInstance()
+                    ->setSubject('debug')
+                    ->setFrom('renault@karudev.fr')
+                    ->setTo('renault@karudev.fr')
+                    ->setBody(print_r($_POST).'bool =>'.$verified, 'text/html');
+            $this->get('mailer')->send($message);
 
         //var_dump($paypal_email); die();
         if ($paypal_email != $this->container->getParameter('paypal_email') || $transaction == false) {
