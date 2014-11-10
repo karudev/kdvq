@@ -85,7 +85,7 @@ class TransactionController extends Controller {
         //include(__DIR__ .'/../Service/PaypalIpn/ipnlistener.php');  
         $listener = new IpnListener();
 
-        $listener->force_ssl_v3 = false;
+       // $listener->force_ssl_v3 = false;
 
         /*
           When you are testing your IPN script you should be using a PayPal "Sandbox"
