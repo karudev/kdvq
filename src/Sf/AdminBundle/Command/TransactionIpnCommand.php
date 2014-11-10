@@ -27,7 +27,7 @@ class TransactionIpnCommand extends ContainerAwareCommand {
 
 ////////// PARAMS
 // Complétez $url avec l'url cible (l'url de la page que vous voulez télécharger)
-        $url = "http://dev.fridging:8888/app_dev.php/transaction/ipn";
+        $url = "http://qwinsport.karudev.fr/transaction/ipn";
 
 // Complétez le tableau associatif $postFields avec les variables qui seront envoyées par POST au serveur
         $postFields = array(
