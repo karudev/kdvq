@@ -48,7 +48,7 @@ class TransactionManager {
             );
             # Send email
             if ($order) {
-              //  $this->container->get('sf_user.mail_helper')->confirmOrder($order);
+                $this->container->get('sf_user.mail_helper')->confirmOrder($order);
             }
         }
     }
