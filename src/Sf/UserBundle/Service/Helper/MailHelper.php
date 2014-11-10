@@ -47,12 +47,12 @@ class MailHelper {
         $this->send();
 
         # Send a copie for the factory
-       /* $factory = $this->container->get('doctrine')->getManager()->getRepository('SfAdminBundle:Config')->findOneBy(array('type' => 'factory_email'));
+        $factory = $this->container->get('doctrine')->getManager()->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'factory_email'));
         if ($factory) {
             $this->subject = '(Copie) ' . $this->subject;
             $this->setTo = $factory->getValue();
             $this->send(false);
-        }*/
+        }
 
        // $typeReceiver = $order->getAccount()->hasRole('ROLE_SHOP') ? 'shop' : 'customer';
         //$this->container->get('mail')->insert($order, $subject, $this->body, 'admin', null, $order->getAccount(), null, 'admin', $typeReceiver);
