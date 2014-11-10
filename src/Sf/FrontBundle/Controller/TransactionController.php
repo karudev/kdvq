@@ -153,6 +153,12 @@ class TransactionController extends Controller {
                 )
         );
 
+        $logger = $this->get('logger');
+        $logger->info(print_r($_POST));
+        $logger->info('bool =>'.$verified);
+       
+
+
         //var_dump($paypal_email); die();
         if ($paypal_email != $this->container->getParameter('paypal_email') || $transaction == false) {
             $transaction = $em->getRepository('SfAdminBundle:Transaction')->findOneBy(array('token' => $token));
