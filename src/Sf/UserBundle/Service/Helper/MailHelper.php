@@ -47,8 +47,8 @@ class MailHelper {
         $this->send();
 
         # Send a copie for the factory
-        $factory = $this->container->get('doctrine')->getManager()->getRepository('SfAdminBundle:Config')->findOneBy(array('type' => 'factory_email'));
-        /*if ($factory) {
+       /* $factory = $this->container->get('doctrine')->getManager()->getRepository('SfAdminBundle:Config')->findOneBy(array('type' => 'factory_email'));
+        if ($factory) {
             $this->subject = '(Copie) ' . $this->subject;
             $this->setTo = $factory->getValue();
             $this->send(false);
