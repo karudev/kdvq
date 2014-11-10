@@ -16,7 +16,7 @@ class TransactionRepository extends EntityRepository
       
      return  $this->createQueryBuilder('e')
               ->innerJoin('e.account', 'a')
-              ->where('e.amounTtc =:amountTtc')
+              ->where('e.amountTtc =:amountTtc')
               ->andWhere('e.currency =:currency')
               ->andWhere('e.tva =:tva')
               ->andWhere('e.shippingCosts =:shipping')
