@@ -143,7 +143,7 @@ class TransactionController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
 
-        $payment_amount = 0.05;
+        
         $transaction = $em->getRepository('SfAdminBundle:Transaction')->checkout(
                 array(
                     'amountHt' => $payment_amount,
@@ -153,6 +153,7 @@ class TransactionController extends Controller {
                     'token' => $token,
                 )
         );
+       // \Doctrine\Common\Util\Debug::dump($transaction); die('test');
 
         //var_dump($paypal_email); die();
         if ($paypal_email != $this->container->getParameter('paypal_email') || $transaction == false) {
