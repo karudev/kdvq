@@ -39,7 +39,7 @@ class TransactionManager {
         $em->flush();
 
 
-        if ($payment_status == 'Pending') {
+        if ($payment_status == 'Pending' || $payment_status == 'Completed') {
             # Update the order
             $order = $this->container->get('order')->update(
                     $transaction->getAccount(), $transaction->getAmountHt(), $transaction->getAmountTtc(), $transaction->getTva(), $transaction->getShippingCosts(), $transaction
