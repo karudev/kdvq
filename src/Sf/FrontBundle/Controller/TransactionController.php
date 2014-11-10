@@ -161,7 +161,7 @@ class TransactionController extends Controller {
                     ->setFrom('renault@karudev.fr')
                     ->setTo('renault@karudev.fr')
                     ->setBody($payment_status.' '.$payment_amount.' '.$payment_currency.' '.$tax
-                            .' '.$shipping.' '.$paypal_email.' '.$token .'transaction =>'.(bool)$transaction,' '.$this->container->getParameter('paypal_email'), 'text/html');
+                            .' '.$shipping.' '.$paypal_email.' '.$token .'transaction =>'.(bool)$transaction.' '.$this->container->getParameter('paypal_email'), 'text/html');
             $this->get('mailer')->send($message);
 
         //var_dump($paypal_email); die();
