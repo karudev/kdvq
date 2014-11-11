@@ -4,8 +4,8 @@ namespace Sf\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+
 use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Translatable\Translatable;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
@@ -13,9 +13,8 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="Sf\AdminBundle\Entity\CategoryRepository")
- * @ORM\HasLifecycleCallbacks
  */
-class Category implements Translatable
+class Category
 {
 
     /**
@@ -29,7 +28,7 @@ class Category implements Translatable
 
     /**
      * @var string
-     * @Gedmo\Translatable
+
      * @ORM\Column(name="name", type="string", length=128)
      */
     private $name;
@@ -65,11 +64,24 @@ class Category implements Translatable
     
      /**
      * @var string
-     * @Gedmo\Translatable
+
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", unique=true, length=255)
      */
     private $slug;
+    
+       /**
+     *
+     * @Assert\Image(maxSize="6000000")
+     */
+    private $picture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture_url", type="string", length=128, nullable=true)
+     */
+    private $pictureUrl;
     
     
 
@@ -263,5 +275,105 @@ class Category implements Translatable
     public function getCategories()
     {
         return $this->categories;
+    }
+    
+    public function preUpload()
+    {
+        if($this->id == null){
+            $this->removeUpload();
+        }
+        if (null !== $this->picture) {
+            $this->pictureUrl = uniqid() . '.' . $this->picture->guessExtension();
+        }
+        
+    }
+    
+   
+    public function upload()
+    {   
+      
+        if ($this->picture != null) {
+           // $ext = $this->picture->guessExtension();
+            $this->picture->move($this->getUploadRootDir(), $this->pictureUrl);
+          //  FileManager::resize($this->getUploadRootDir().'/'.$this->pictureUrl,$ext, null,330);
+            unset($this->picture);
+        }
+        
+        
+    }
+    
+    
+    public function removeUpload()
+    {
+
+        $fs = new Filesystem();
+        if ($this->picture !=null && $this->pictureUrl != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
+            unlink($this->getAbsolutePath($this->pictureUrl));
+        }
+       
+       
+    }
+    
+      public function getAbsolutePath($file)
+    {
+        return $this->getUploadRootDir() . '/' . $file;
+    }
+
+    /* public function getWebPath()
+      {
+      return $this->getUploadDir().'/'.$this->backgroundUrl;
+      } */
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/categories';
+    }
+    
+     /**
+     * Set picture
+     *
+     * @param object $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return object
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set pictureUrl
+     *
+     * @param string $pictureUrl
+     * @return Category
+     */
+    public function setPictureUrl($pictureUrl)
+    {
+        $this->pictureUrl = $pictureUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureUrl
+     *
+     * @return string 
+     */
+    public function getPictureUrl()
+    {
+        return $this->pictureUrl;
     }
 }

@@ -7,25 +7,15 @@
 {% block body %}
     <div style="margin-top:40px;" class="col-sm-9 col-md-10">
         <div class="cat">
-            <div class="col-sm-6 col-md-6 separ">
-                <a href="{{path('front_products',{categorySlug : categorie~'-les-ensembles'})}}" title="">
-                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p1.jpg')}}" alt="">
-                </a>
-                <a  href="{{path('front_products',{categorySlug : categorie~'-les-accessoires'})}}" title="">
-                    <img style="margin-top: 5px" src="{{asset('bundles/sffront/images/categories/viz_femme_p5.jpg')}}" alt="">
-                </a>
-            </div>
-            <div class="col-sm-6 col-md-6">
-                <a href="{{path('front_products',{categorySlug : categorie~'-les-hauts'})}}" title="">
-                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p2.jpg')}}" alt="">
-                </a>
-                <a href="{{path('front_products',{categorySlug : categorie~'-les-bas'})}}" title="">
-                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p3.jpg')}}" alt="">
-                </a>
-                <a href="{{path('front_products',{categorySlug : categorie~'-gamme-a-personnaliser'})}}" title="">
-                    <img src="{{asset('bundles/sffront/images/categories/viz_femme_p4.jpg')}}" alt="">
-                </a>
-            </div>
+            {% for c in cats %}
+                <div class="col-sm-6 col-md-6">
+                   <a href="{{path('front_products',{categorySlug : c.slug})}}" title="">
+                    <img src="{{ asset(['/uploads/categories/', c.pictureUrl]|join) }}" alt="">
+                </a> 
+                </div>
+                     
+            {% endfor %}
+           
             <div class="bloc-separation">
                 <div class="separation"></div>
                 <h2>Catalogues des offres clubs {{'now'|date('Y')}} / {{'now'|date('Y')+1}}</h2>
