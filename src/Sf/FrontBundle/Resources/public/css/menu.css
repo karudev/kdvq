@@ -7,6 +7,16 @@
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus{
+	 background: url('../images/ico/ico_fleche_ouvert.png') no-repeat #52DDC6 right top !important;
+	color:#000100;
+        // -webkit-transition: all 0.5s ease;
+    //-moz-transition: all 0.5s ease;
+   // -o-transition: all 0.5s ease;
+   // transition: all 0.5s ease;
+}
+.pc .navbar-default .navbar-nav > .open > a,
+.pc .navbar-default .navbar-nav > .open > a:hover,
+.pc .navbar-default .navbar-nav > .open > a:focus{
 	 background: url('../images/ico/ico_fleche_ouvert.png') no-repeat #52DDC6 142px 10px !important;
 	color:#000100;
         // -webkit-transition: all 0.5s ease;
@@ -136,6 +146,11 @@
    
 }
 .ico_fleche_ouvert.open,.ico_fleche_ouvert.open:hover{
+  
+    background: url('../images/ico/ico_fleche_ouvert.png') no-repeat right top !important;
+   
+}
+.pc .ico_fleche_ouvert.open,.pc .ico_fleche_ouvert.open:hover{
   
     background: url('../images/ico/ico_fleche_ouvert.png') no-repeat 142px 10px !important;
    

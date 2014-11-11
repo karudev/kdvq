@@ -18,7 +18,7 @@ class CategoryController extends Controller
         $em = $this->getDoctrine()->getManager();
         $catalog = $em->getRepository("SfAdminBundle:LastCatalog")->findOneBy(array('type' => 'club'),array('id'=>'desc'));
         $c = $em->getRepository("SfAdminBundle:Category")->findOneBy(array('slug' => $slug));
-        $cats = $em->getRepository("SfAdminBundle:Category")->findBy(array('category' => $c->getId()),array('id' => 'asc'));
+        $cats = $em->getRepository("SfAdminBundle:Category")->findBy(array('active' => true,'category' => $c->getId()),array('id' => 'asc'));
        
         return array('cats' => $cats, 'categorie' => $slug,'catalog'=>$catalog);
     }
