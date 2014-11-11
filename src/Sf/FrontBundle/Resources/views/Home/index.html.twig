@@ -8,6 +8,11 @@
 {% block bandeauClass %}main {% endblock %}
 {% block title %}Qwinsport{% endblock %}
 {% block body %}
+    
+    {% for p in carrousel %}
+            <div style="display:none"  class="vegas vegas_{{ ( loop.index  -1 )}}" data-bg="{{ asset(['/uploads/carrousel/', p.pictureUrl]|join) }}"></div>
+    {% endfor %}
+        
     <section class="floater">
         <div class="container row container-custom">
             <div class="col-md-12 col-sm-12 col-xs-12 inline-block">
@@ -87,5 +92,6 @@
     </section>
 {% endblock %}
 {% block js %}
+    <script src="{{asset('bundles/sffront/js/vegas/jquery.vegas.js')}}?v={{version}}"></script>
      <script src="{{asset('bundles/sffront/js/home.js')}}?v={{version}}"></script>
 {% endblock %}

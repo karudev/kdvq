@@ -16,6 +16,7 @@ class HomeController extends Controller {
      */
     public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
+        $carrousel = $em->getRepository('SfAdminBundle:Carrousel')->findBy(array('active'=>true),array('position' => 'asc'));
         $home_title = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_title'));
         $home_text = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_text'));
         $products = $em->getRepository('SfAdminBundle:Product')->findBy(array('inHome' => true,'deleted' => false, 'active' => true), array('id' => 'desc'), 3);
@@ -69,7 +70,7 @@ class HomeController extends Controller {
                 $this->get('session')->getFlashBag()->add('success', 'Votre demande d\'inscription à la newsletter a été envoyé');
             }
         }
-        return array('products' => $products, 'actualities' => $actualities,'home_title' => $home_title,'home_text' => $home_text);
+        return array('carrousel' => $carrousel, 'products' => $products, 'actualities' => $actualities,'home_title' => $home_title,'home_text' => $home_text);
     }
 
 }

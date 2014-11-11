@@ -40,13 +40,14 @@
                             <li class="ico_fleche_ferme {{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs et Partenaires</a></li>
                             <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
                                 {% if is_granted('ROLE_ADMIN') %}
-                                <li class="dropdown">
+                                <li class="dropdown ico_fleche_ouvert">
                                     <a href="#" class="admin dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="{{path('admin_accounts')}}">Les comptes</a></li>
                                         <li><a href="{{path('orders')}}">Les commandes</a></li>
                                         <li><a href="{{path('admin_product')}}">Les Produits</a></li>
                                         <li><a href="{{path('admin_criterion')}}">Les Critères</a></li>
+                                        <li><a href="{{path('admin_carrousel')}}">Le Carrousel</a></li>
                                         <li><a href="{{path('admin_pub')}}">Les Pubs</a></li>
                                         <li><a href="{{path('admin_press')}}">La Presse</a></li>
                                         <li><a href="{{path('admin_actuality')}}">Les Actus</a></li>
@@ -105,13 +106,14 @@
                     <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
 
                     {% if is_granted('ROLE_ADMIN') %}
-                        <li class="dropdown">
+                        <li class="dropdown ico_fleche_ouvert">
                             <a href="#" class="admin dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{path('admin_accounts')}}">Les comptes</a></li>
                                 <li><a href="{{path('orders')}}">Les commandes</a></li>
                                 <li><a href="{{path('admin_product')}}">Les Produits</a></li>
                                 <li><a href="{{path('admin_criterion')}}">Les Critères</a></li>
+                                <li><a href="{{path('admin_carrousel')}}">Le Carrousel</a></li>
                                 <li><a href="{{path('admin_pub')}}">Les Pubs</a></li>
                                 <li><a href="{{path('admin_press')}}">La Presse</a></li>
                                 <li><a href="{{path('admin_actuality')}}">Les Actus</a></li>

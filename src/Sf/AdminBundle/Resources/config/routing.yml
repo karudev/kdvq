@@ -168,6 +168,14 @@ admin_pub:
 admin_pub_update:
     path:     /admin/pub/update/{pub}
     defaults: { _controller: "SfAdminBundle:Pub:update",pub:null}
+    
+admin_carrousel:
+    path:     /admin/carrousel
+    defaults: { _controller: "SfAdminBundle:Carrousel:index"}
+    
+admin_carrousel_update:
+    path:     /admin/carrousel/update/{carrousel}
+    defaults: { _controller: "SfAdminBundle:Carrousel:update",carrousel:null}
 
 admin_catalog:
     path:     /admin/catalogue

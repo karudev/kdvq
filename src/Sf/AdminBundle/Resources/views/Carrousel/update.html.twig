@@ -1,0 +1,51 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %} 
+{% block ariane %}
+    <div class="sous-categorie">CARROUSEL</div>
+{% endblock %}
+{% block bandeauClass %}
+    account
+{% endblock %}
+{% block body %}
+    <div id="main-content"  class="col-md-10">
+
+
+        {{ form_start(form)}}
+
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+                {{ form_row(form.active) }}
+                 {{ form_label(form.picture) }}
+                <br/>
+                {% if form.vars.data.pictureUrl is not null %}
+                    <img width="300px" src="{{ asset(['/uploads/carrousel/', form.vars.data.pictureUrl]|join) }}" />
+                {% endif %}
+                {{ form_widget(form.picture) }}
+                {{ form_errors(form.picture) }}
+                {{ form_row(form.position) }}
+            </div>
+           
+
+
+        </div>
+
+        <div class="col-md-12">
+            <a href="{{ path('admin_carrousel') }}" style="color:black">
+                <button type="button" class="submit" style="margin-right:10px">
+                    {{'Retour'|trans}}
+                </button>
+            </a>
+            <div class="pull-right">
+                <button type="submit" class="submit" style="margin-right:10px">
+                    {{'Enregistrer'|trans}}
+                </button>
+                {{ form_rest(form) }}
+            </div>
+            {{ form_end(form)}}
+
+        </div>
+    </div>
+{% endblock %}

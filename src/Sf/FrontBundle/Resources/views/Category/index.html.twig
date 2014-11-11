@@ -3,7 +3,7 @@
     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
 {% block title %}Qwinsport - La catégorie {{categorie}} {% endblock %}
-{% block ariane %}{{categorie|upper}}{% endblock %}
+{% block ariane %}<div class="sous-categorie">{{categorie|upper}}</div>{% endblock %}
 {% block body %}
     <div style="margin-top:40px;" class="col-sm-9 col-md-10">
         <div class="cat">

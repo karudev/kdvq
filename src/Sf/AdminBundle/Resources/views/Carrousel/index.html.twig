@@ -1,0 +1,49 @@
+{% extends 'SfFrontBundle::frontTemplate.html.twig' %}
+{% block css %}
+   <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %} 
+{% block ariane %}
+    <div class="sous-categorie">CARROUSEL</div>
+{% endblock %}
+{% block bandeauClass %}
+account
+{% endblock %}
+{% block body %}
+    <div id="main-content"  class=" col-md-10">
+        <div class="table-responsive">
+            <table class="table table-condensed table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Position</th>
+                        <th>Actif ?</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                          
+                            <td>
+                                {% if entity.pictureUrl is not null %}
+                                    <img style="max-width:300px"  src="{{ asset(['/uploads/carrousel/', entity.pictureUrl]|join) }}" />
+                                {% endif %}
+                            </td>
+                           
+                            <td>{{ entity.position }}</td>
+                            <td>
+                                <span class="glyphicon glyphicon-{% if  entity.active %}ok{% else %}ban{%endif%}-circle"></span>
+                            </td>
+                            <td> 
+                                <a title="Modifier" href="{{ path('admin_carrousel_update', { 'carrousel' : entity.id }) }}"><span class="glyphicon glyphicon-pencil"></span> </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ path('admin_carrousel_update') }}">
+            <button type="button" class="submit">Créer une image</button>
+        </a>
+    </div>
+{% endblock %}

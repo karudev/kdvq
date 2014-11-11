@@ -25,7 +25,7 @@
         {% block css %}
         {% endblock %}
     </head>
-    <body class="bg{{random([1,2])}}">
+    <body class="bg">
 
         {{render(controller('SfFrontBundle:Nav:show',{'mobile' : true,'_route' :  app.request.attributes.get('_route')} ))}}
 
