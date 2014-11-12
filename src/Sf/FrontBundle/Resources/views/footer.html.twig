@@ -8,7 +8,7 @@
             {% for c in categories %}
             <a href="{{path('front_category',{slug:c.slug})}}" title="">{{c.name}}</a>
             {% endfor %}
-            <a href="" title="">Personnaliser</a>
+           {# <a href="" title="">Personnaliser</a>#}
         </div>
         <div class="col-xs-6 col-md-2 cat_">
             <h4>Communications</h4>
@@ -27,7 +27,7 @@
             <a href="{{path('account')}}" title="">Mon compte</a>
             <a href="{{path('front_contact')}}" title="">Contact</a>
             <a href="{{path('front_legals')}}" title="">Mentions légales</a>
-            <a href="" title="">Plan du site</a>
+            {#<a href="" title="">Plan du site</a>#}
         </div>
         <div class="col-xs-6 col-md-2">
             <h4>Suivez-nous</h4><br/>

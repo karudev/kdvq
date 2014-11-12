@@ -25,10 +25,17 @@ class ShoppingCartManager {
         $ttcBybrand = array();
         $infos = array();
         $promos = array();
-        $shippingCosts = 0;
+       
         $bool = false;
       
+       $shipping_costs = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'shipping_costs'));
+       if(!$shipping_costs){
+            $shippingCosts = 0;
+       }else{
+           $shippingCosts = $shipping_costs->getValue();
+       }
      
+       
 
         foreach ($products as $key => $value) {
 
@@ -50,10 +57,10 @@ class ShoppingCartManager {
         // die($ttc - $ht);
         return array(
             'ht' => $ht,
-            'ttc' => $ttc,
+            'ttc' => $ttc + $shippingCosts,
             'tva' => $tva,
             'currency' => 'EUR',
-            'shippingCosts' => 0,
+            'shippingCosts' => $shippingCosts,
             'infos' => $infos,
             'promos' => $promos);
     }

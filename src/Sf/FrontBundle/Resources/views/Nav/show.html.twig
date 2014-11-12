@@ -39,7 +39,8 @@
                             <li class="ico_fleche_ferme {{_route == 'front_actus' ? 'active'}}"><a href="{{path('front_actus')}}">Actus</a></li>
                             <li class="ico_fleche_ferme {{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs et Partenaires</a></li>
                             <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
-                                {% if is_granted('ROLE_ADMIN') %}
+                            <li class="ico_fleche_ferme {{_route == 'front_contact' ? 'active'}}" ><a href="{{path('front_contact')}}">Contact</a></li>
+                            {% if is_granted('ROLE_ADMIN') %}
                                 <li class="dropdown ico_fleche_ouvert">
                                     <a href="#" class="admin dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -105,6 +106,7 @@
                     <li class="ico_fleche_ferme {{_route == 'front_actus' ? 'active'}}"><a href="{{path('front_actus')}}">Actus</a></li>
                     <li class="ico_fleche_ferme {{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs / Partenaires</a></li>
                     <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
+                    <li class="ico_fleche_ferme {{_route == 'front_contact' ? 'active'}}" ><a href="{{path('front_contact')}}">Contact</a></li>
 
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="dropdown ico_fleche_ouvert">

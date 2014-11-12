@@ -29,6 +29,7 @@ class ConfigController extends Controller {
         $home_title = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_title'));
         $home_text = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_text'));
         $products_intro = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'products_intro'));
+        $shipping_costs = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'shipping_costs'));
         if (!$google) {
             $google = new Config();
             $google->setName('google');
@@ -81,6 +82,13 @@ class ConfigController extends Controller {
             $em->persist($products_intro);
             
         }
+        if (!$shipping_costs) {
+            $shipping_costs = new Config();
+            $shipping_costs->setName('shipping_costs');
+            $shipping_costs->setValue(0);
+            $em->persist($shipping_costs);
+            
+        }
         
         if ($request->getMethod() == 'POST') {
             $googleValue = $request->get('google', 0);
@@ -111,6 +119,10 @@ class ConfigController extends Controller {
             $products_intro_value = $request->get('products_intro');
             $products_intro->setValue($products_intro_value);
             $em->persist($products_intro);
+            
+            $shipping_costs_value = $request->get('shipping_costs');
+            $shipping_costs->setValue($shipping_costs_value);
+            $em->persist($shipping_costs);
            
         }
         
@@ -123,7 +135,8 @@ class ConfigController extends Controller {
             'factory_email' => $factory_email,
             'home_title' => $home_title,
             'home_text' => $home_text,
-            'products_intro' => $products_intro);
+            'products_intro' => $products_intro,
+            'shipping_costs' => $shipping_costs);
 
     }
 

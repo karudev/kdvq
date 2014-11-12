@@ -67,7 +67,7 @@
                         <a target="_blank" href="{{path('invoice_download',{invoice : order.invoice.id})}}" ><button class="submit">{{'Editer la facture'|trans()}}</button></a>
                         {% endif %}
                         {% if app.user.hasRole('ROLE_ADMIN') and order.status != 'Completed' %}
-                        <button  data-id="{{order.id}}" data-toggle="modal" data-target="#order" class="update submit">{{'Mettre à jours'|trans()}}</button>
+                        <button  data-id="{{order.id}}" data-toggle="modal" data-target="#order" class="update submit">{{'Mettre à jour'|trans()}}</button>
                     {% endif %}
                 </div>
                {# {% if  haveShoppingCartHistory(order) == true %}
