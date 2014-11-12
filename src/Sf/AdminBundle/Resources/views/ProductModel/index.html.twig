@@ -31,6 +31,7 @@ account
                             <th>Taille</th>
                             <th>Couleur</th>
                             <th>Matière</th>
+                            <th>Numéro</th>
 
                             <th>Actions</th>
                         </tr>
@@ -45,7 +46,7 @@ account
                                 <td>{{ entity['size'] is not null ? entity['size']  }}</td>
                                 <td>{{ entity['color']  is not null ? entity['color']  }}</td>
                                 <td>{{ entity['material']  is not null ? entity['material'] }} </td>
-
+                                <td>{{ entity['numberEntity']  is not null ? entity['numberEntity'] }} </td>
                                 <td>
                                     <a title="Modifier" href="{{ path('admin_product_model_update', {'number': entity['number'] }) }}"><span class="glyphicon glyphicon-pencil"></span> </a>
                                     <a class="del" data-toggle="modal" data-productId ="{{ entity['productId'] }}" data-number="{{ entity['number'] }}" data-target="#del" title="Supprimer" href="javascript:void(0)"><span class="glyphicon glyphicon-trash"></span> </a>

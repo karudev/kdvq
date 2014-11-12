@@ -182,7 +182,8 @@ class OrderController extends Controller {
                         'quantity' => $value->getQuantity(),
                         'color' => $value->getColor(),
                         'material' => $value->getMaterial(),
-                        'size' => $value->getSize()
+                        'size' => $value->getSize(),
+                        'number' => $value->getNumberEntity()
                             );
 
                     $stock = $em->getRepository('SfAdminBundle:ProductModel')->getStockByCriterion($value->getProduct(), $params);
@@ -195,6 +196,7 @@ class OrderController extends Controller {
 
                     $products[$key]['color'] = $value->getColor();
                     $products[$key]['material'] = $value->getMaterial();
+                    $products[$key]['number'] = $value->getNumberEntity();
                     $products[$key]['size'] = $value->getSize();
                     $products[$key]['product'] = $value->getProduct();
                 }

@@ -58,13 +58,15 @@ class ProductController extends Controller {
         $sizes = $em->getRepository('SfAdminBundle:ProductModel')->getSizes($product);
         $colors = $em->getRepository('SfAdminBundle:ProductModel')->getColors($product);
         $materials = $em->getRepository('SfAdminBundle:ProductModel')->getMaterials($product);
-
+        $numbers = $em->getRepository('SfAdminBundle:ProductModel')->getNumbers($product);
+        
         if (!$product) {
             throw $this->createNotFoundException('This is product doesn\'t exist');
         }
         return array('sizes' => $sizes,
             'colors' => $colors,
             'materials' => $materials,
+            'numbers' => $numbers,
             'stock' => $stock, 'product' => $product, 'moreProducts' => $moreProducts);
     }
 

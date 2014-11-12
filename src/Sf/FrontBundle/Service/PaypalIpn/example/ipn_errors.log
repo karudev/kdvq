@@ -21,3 +21,4 @@
 [22-Sep-2014 15:27:53 UTC] Invalid HTTP request method.
 [08-Oct-2014 10:52:57 UTC] PHP Fatal error:  Call to undefined method Proxies\__CG__\Sf\AdminBundle\Entity\Product::getGroup() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/OrderManager.php on line 115
 [08-Oct-2014 10:53:48 UTC] PHP Fatal error:  Call to undefined method Proxies\__CG__\Sf\AdminBundle\Entity\Product::getGroup() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/OrderManager.php on line 115
+[12-Nov-2014 16:52:59 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Entity\ShoppingCart::getNumberEntity() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/OrderManager.php on line 108

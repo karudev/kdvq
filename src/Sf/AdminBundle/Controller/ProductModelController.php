@@ -23,6 +23,7 @@ class ProductModelController extends Controller {
      *
      */
     public function indexAction(Product $product) {
+       
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository('SfAdminBundle:ProductModel')->getProductModelsGroupByRef(null, $product);
 
@@ -37,6 +38,7 @@ class ProductModelController extends Controller {
      */
     public function updateAction(Request $request, $number) {
 
+        
         $em = $this->getDoctrine()->getManager();
         $productModel = $em->getRepository('SfAdminBundle:ProductModel')->findOneBy(array('number' => $number,'deleted' => false, 'order' => null));
         $form = $this->createForm(new ProductModelType, $productModel);
@@ -54,6 +56,7 @@ class ProductModelController extends Controller {
                     $value->setSize($productModel->getSize())
                             ->setColor($productModel->getColor())
                             ->setMaterial($productModel->getMaterial())
+                            ->setNumberEntity($productModel->getNumberEntity())
                             ->setNumber();
                     $em->persist($value);
                 }
@@ -78,10 +81,12 @@ class ProductModelController extends Controller {
         $productModel = new ProductModel();
 
 
+        
         if ($product != null) {
             $productModel->setProduct($product);
         }
-        $form = $this->createForm(new ProductModelType(), $productModel);
+        $form = $this->createForm(new ProductModelType(), $productModel,
+                array('action' => $this->generateUrl('admin_product_model_stock',array('product' =>$product->getId() ))));
 
 
         if ($request->getMethod() == 'POST') {
@@ -89,13 +94,14 @@ class ProductModelController extends Controller {
             if ($form->isValid()) {
                 $quantity = $request->get('quantity');
                 for ($i = 0; $i < $quantity; $i++) {
-                    $productModel->setNumber();
+                   $productModel->setNumber();
                     $pm = clone $productModel;
-                    //  \Doctrine\Common\Util\Debug::dump($pm); die();
+                 
                     $em->persist($pm);
                     $em->flush();
                 }
             }
+              // \Doctrine\Common\Util\Debug::dump($productModel); die();
             return $this->redirect($this->generateUrl('admin_product_model', array('product' => $productModel->getProduct()->getId())));
         }
 

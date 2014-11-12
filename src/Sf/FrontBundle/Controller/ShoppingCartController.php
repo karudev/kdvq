@@ -26,17 +26,17 @@ class ShoppingCartController extends Controller {
      */
     public function shoppingCartAction(Request $request) {
 
-        $token = $request->get('token',null);
-          
+        $token = $request->get('token', null);
+
         $session = $request->getSession();
 
         $products = $session->get('products', array());
 
         $em = $this->getDoctrine()->getManager();
 
-        $user = $this->getUser();  
-       
-       // $token = null;
+        $user = $this->getUser();
+
+        // $token = null;
         $order = null;
 
         $shippingAddress = $em->getRepository('SfUserBundle:Address')->getPriorityAddress($user);
@@ -44,39 +44,38 @@ class ShoppingCartController extends Controller {
         # Add transaction
         $data = $this->get('shoppingcart')->getTotalAmount($user);
 
-      // print_r($data); die();
-        
+        // print_r($data); die();
+
         if ($user != null && $shippingAddress && $data['ttc'] > 0) {
 
-          
 
-               
-                if ($token != null) {
-                    $transaction = $em->getRepository('SfAdminBundle:Transaction')->findOneBy(array('token' => $token));
-                } else {
-                    $token = md5(time() . $user->getId());
-                    $transaction = new Transaction();
-                }
 
-                $transaction->setAccount($user)
-                        ->setAmountHt($data['ht'])
-                        ->setAmountTtc($data['ttc'])
-                        ->setTva($data['tva'])
-                        ->setShippingCosts($data['shippingCosts'])
-                        ->setCurrency('EUR')
-                        ->setDate(new \DateTime())
-                        ->setState('New')
-                        ->setToken($token);
 
-                $em->persist($transaction);
-                $em->flush();
+            if ($token != null) {
+                $transaction = $em->getRepository('SfAdminBundle:Transaction')->findOneBy(array('token' => $token));
+            } else {
+                $token = md5(time() . $user->getId());
+                $transaction = new Transaction();
+            }
 
-                $order = $this->get('order')->prepare($user, $transaction);
-            
+            $transaction->setAccount($user)
+                    ->setAmountHt($data['ht'])
+                    ->setAmountTtc($data['ttc'])
+                    ->setTva($data['tva'])
+                    ->setShippingCosts($data['shippingCosts'])
+                    ->setCurrency('EUR')
+                    ->setDate(new \DateTime())
+                    ->setState('New')
+                    ->setToken($token);
+
+            $em->persist($transaction);
+            $em->flush();
+
+            $order = $this->get('order')->prepare($user, $transaction);
         }
         $paypalEmail = $this->container->getParameter('paypal_email');
-        
-       
+
+
         return array(
             'user' => $user,
             'products' => $products,
@@ -87,9 +86,6 @@ class ShoppingCartController extends Controller {
             'address' => $shippingAddress,
             'order' => $order
         );
-         
-         
-        
     }
 
     /**
@@ -110,7 +106,8 @@ class ShoppingCartController extends Controller {
 
             foreach ($products as $key => $p) {
 
-                if ($p['product']->getId() == $product->getId()) {
+                // \Doctrine\Common\Util\Debug::dump($p); die();
+                if ($p['product']->getId() == $product->getId() && ( isset($p['material']) && isset($params['material']) && $p['material'] == $params['material'] ) && ( isset($p['color']) && isset($params['color']) && $p['color'] == $params['color'] ) && ( isset($p['size']) && isset($params['size']) && $p['size'] == $params['size'] ) && ( isset($p['number']) && isset($params['number']) && $p['number'] == $params['number'] )) {
                     $products[$key]['quantity'] = $p['quantity'] + $params['quantity'];
                     $isSameProduct = true;
                 }
@@ -139,10 +136,17 @@ class ShoppingCartController extends Controller {
 
         $session = $request->getSession();
         $products = $session->get('products', array());
+        $params = $request->get('params', array());
         //   \Doctrine\Common\Util\Debug::dump($products); die();
         foreach ($products as $key => $value) {
 
-            if ($value['product']->getId() == $product->getId()) {
+            $value['material'] = !isset($value['material']) ? null : $value['material'];
+            $value['color'] = !isset($value['color']) ? null : $value['color'];
+            $value['size'] = !isset($value['size']) ? null : $value['size'];
+            $value['number'] = !isset($value['number']) ? null : $value['number'];
+
+            if ($value['product']->getId() == $product->getId() && ( $value['material'] == $params['material'] ) && ( $value['color'] == $params['color'] ) && ( $value['size'] == $params['size'] ) && ( $value['number'] == $params['number'] )
+            ) {
                 unset($products[$key]);
             }
         }
@@ -165,9 +169,10 @@ class ShoppingCartController extends Controller {
      */
     public function update(Request $request, Product $product = null, $quantity = 1) {
 
-        $token = $request->get('token',null);
+        $token = $request->get('token', null);
         $success = true;
 
+        $params = $request->get('params', array());
         if ($product != null) {
             $em = $this->getDoctrine()->getManager();
             $session = $request->getSession();
@@ -176,9 +181,16 @@ class ShoppingCartController extends Controller {
 
             foreach ($products as $key => $value) {
 
-                if ($value['product']->getId() == $product->getId()) {
-                    $params = $value;
-                    unset($params['product']);
+                $value['material'] = !isset($value['material']) ? null : $value['material'];
+                $value['color'] = !isset($value['color']) ? null : $value['color'];
+                $value['size'] = !isset($value['size']) ? null : $value['size'];
+                $value['number'] = !isset($value['number']) ? null : $value['number'];
+                //unset($value['product']);
+                // print_r($value); die();
+                if ($value['product']->getId() == $product->getId() && ( $value['material'] == $params['material'] ) && ( $value['color'] == $params['color'] ) && ( $value['size'] == $params['size'] ) && ( $value['number'] == $params['number'] )
+                ) {
+                    // $params = $value;
+                    // unset($params['product']);
                     $stock = $em->getRepository('SfAdminBundle:ProductModel')->getStockByCriterion($value['product'], $params);
                     if ($stock < $quantity) {
                         $products[$key]['quantity'] = $stock;
@@ -194,13 +206,14 @@ class ShoppingCartController extends Controller {
 
         return new JsonResponse(array(
             'success' => $success,
-            'html' => $this->forward('SfFrontBundle:ShoppingCart:shoppingCart',array('token' => $token))->getContent()));
+            'html' => $this->forward('SfFrontBundle:ShoppingCart:shoppingCart', array('token' => $token))->getContent()));
     }
+
     /**
      * @Route("shopping-cart/total",name="front_shopping_cart_total",options = {"expose" = true})
      * @Template()
      */
-    public function totalShoppingCartAction(){
+    public function totalShoppingCartAction() {
         $data = $this->get('shoppingcart')->getTotalAmount($this->getUser());
         return array('total' => $data['ttc']);
     }

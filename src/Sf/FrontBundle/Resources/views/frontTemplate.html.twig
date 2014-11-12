@@ -38,7 +38,7 @@
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED")  and app.user is not null %} 
 
                                 <div class="icon account-icon"></div>  
-                                <a href="{{ path('account') }}" title="">
+                                <a class="account-mail" href="{{ path('account') }}" title="">
                                     {{app.user.label}} 
                                 </a>
                                 <a  href="{{ path('logout_user') }}"><span class=" glyphicon glyphicon-off"></span> </a>

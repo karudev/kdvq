@@ -20,6 +20,9 @@
                     {% if p['material'] is not null %}
                         {{p['material']}};
                     {% endif %}
+                    {% if p['numberEntity'] is not null %}
+                        Num:{{p['numberEntity']}};
+                    {% endif %}
                 </td>
                 <td>{{p['quantity']}}</td>
             </tr>

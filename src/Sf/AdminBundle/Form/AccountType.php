@@ -17,13 +17,14 @@ class AccountType extends AbstractType
     {
         $builder
             ->add('civility','choice',array(
+                'label' => 'Civilité',
                 'choices' => array('M' => 'Mr', 'MME' => 'Mme', 'MLLE' => 'Mlle'),
                 'expanded' => true,
                 'required' => false,
                 ))
-            ->add('firstname')
-            ->add('lastname')
-            ->add('phone','text',array('required' => false))
+            ->add('firstname','text',array('label' => 'Prénom'))
+            ->add('lastname','text',array('label' => 'Nom'))
+            ->add('phone','text',array('label' => 'Téléphone','required' => false))
             ;
             
           

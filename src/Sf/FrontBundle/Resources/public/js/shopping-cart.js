@@ -13,7 +13,17 @@ function updateQuantity() {
         if (xhr) {
             xhr.abort();
         }
-        xhr = $.post(Routing.generate('front_shopping_cart_update', {product: $(this).attr('data-id'), quantity: $(this).val()}), {token: $('#tok').val()}, function(json) {
+        var params = {};
+        if( $(this).attr('data-material')) params.push();
+        xhr = $.post(Routing.generate('front_shopping_cart_update', {product: $(this).attr('data-id'), quantity: $(this).val()}), {
+            token: $('#tok').val(),
+            params : { 
+                material : $(this).attr('data-material'),
+                color : $(this).attr('data-color'),
+                number : $(this).attr('data-number'),
+                size : $(this).attr('data-size')
+        }
+        }, function(json) {
             if (json.success) {
                 $('.shopping-cart').html(json.html);
                 updateQuantity();
@@ -27,7 +37,12 @@ function updateQuantity() {
 }
 function remove() {
     $('.remove').click(function() {
-        $.post(Routing.generate('front_shopping_cart_remove', {product: $(this).attr('data-id')}), function(json) {
+        $.post(Routing.generate('front_shopping_cart_remove', {product: $(this).attr('data-id')}),{params : { 
+                material : $(this).attr('data-material'),
+                color : $(this).attr('data-color'),
+                number : $(this).attr('data-number'),
+                size : $(this).attr('data-size')}
+        }, function(json) {
             if (json.success) {
                 $('.shopping-cart').html(json.html);
                 updateQuantity();

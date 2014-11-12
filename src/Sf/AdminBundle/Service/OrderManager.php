@@ -66,13 +66,16 @@ class OrderManager {
 
             # update shopping cart
             if ($order->getTransaction() != null) {
-                $sp = $em->getRepository('SfAdminBundle:ShoppingCart')->findOneBy(array('transaction' => $order->getTransaction()));
+                $sp = $em->getRepository('SfAdminBundle:ShoppingCart')->findBy(array('transaction' => $order->getTransaction()));
             }elseif ($token!= null) {
-                $sp = $em->getRepository('SfAdminBundle:ShoppingCart')->findOneBy(array('token' => $token));
+                $sp = $em->getRepository('SfAdminBundle:ShoppingCart')->findBy(array('token' => $token));
             }
-            $sp->setOrder($order);
-                $em->persist($sp);
+            foreach ($sp as $p_){
+                 $p_->setOrder($order);
+                $em->persist($p_);
                 $em->flush();
+            }
+           
 
             $this->linkProductsModel($order, $token);
 
@@ -104,6 +107,9 @@ class OrderManager {
             }
             if ($value->getMaterial() != null && $value->getMaterial() != 0) {
                 $params['material'] = $value->getMaterial();
+            }
+            if ($value->getNumber() != null && $value->getNumber() != 0) {
+                $params['numberEntity'] = $value->getNumber();
             }
             for ($i = 0; $i < (int) $value->getQuantity(); $i++) {
                 $productModel = $em->getRepository('SfAdminBundle:ProductModel')->findOneBy($params);

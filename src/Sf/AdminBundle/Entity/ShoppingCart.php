@@ -71,6 +71,13 @@ class ShoppingCart
      * @ORM\Column(name="material", type="integer", nullable = true)
      */
     private $material;
+    
+    
+    /**
+     * @var integer
+     * @ORM\Column(name="number", type="integer", nullable = true)
+     */
+    private $number;
 
     
      /**
@@ -330,5 +337,28 @@ class ShoppingCart
     public function getOrder()
     {
         return $this->order;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     * @return ShoppingCart
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer 
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }

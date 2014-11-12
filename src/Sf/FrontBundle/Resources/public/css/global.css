@@ -146,6 +146,11 @@ a:hover, a:focus{
     display: inline-block;
     margin-right: 10px;
 }
+.account-mail{
+    font-family: "Tahoma";
+    font-weight: bold;
+    margin-right: 7px;
+}
 
 /**** Main bloc ****/
 

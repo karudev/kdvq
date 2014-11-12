@@ -15,14 +15,12 @@ class ProductModelType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                
-               
                 ->add('size', 'entity', array(
-                   
                     'property' => 'name',
                     'class' => 'SfAdminBundle:Size',
                     'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('e')
+                        ->where('e.active = true')
                         ->orderBy('e.name', 'ASC');
             },
                     'required' => false))
@@ -30,16 +28,24 @@ class ProductModelType extends AbstractType {
                     'property' => 'name',
                     'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('e')
+                        ->where('e.active = true')
                         ->orderBy('e.name', 'ASC');
-            },'class' => 'SfAdminBundle:Color', 'required' => false))
+            }, 'class' => 'SfAdminBundle:Color', 'required' => false))
                 ->add('material', 'entity', array(
                     'property' => 'name',
                     'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('e')
+                        ->where('e.active = true')
                         ->orderBy('e.name', 'ASC');
-            },'class' => 'SfAdminBundle:Material', 'required' => false))
+            }, 'class' => 'SfAdminBundle:Material', 'required' => false))
+                ->add('numberEntity', 'entity', array(
+                    'property' => 'name',
+                    'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('e')
+                        ->where('e.active = true')
+                        ->orderBy('e.name', 'ASC');
+            }, 'class' => 'SfAdminBundle:Number', 'required' => false))
                 ->add('product', 'entity', array(
-                    
                     'property' => 'name',
                     'class' => 'SfAdminBundle:Product',
                     'required' => false))

@@ -57,7 +57,7 @@ class ShoppingCartManager {
         // die($ttc - $ht);
         return array(
             'ht' => $ht,
-            'ttc' => $ttc + $shippingCosts,
+            'ttc' => $ttc > 0 ?  $ttc + $shippingCosts : 0,
             'tva' => $tva,
             'currency' => 'EUR',
             'shippingCosts' => $shippingCosts,
@@ -85,6 +85,9 @@ class ShoppingCartManager {
 
             if (isset($value['material'])) {
                 $s->setMaterial($value['material']);
+            }
+            if (isset($value['number'])) {
+                $s->setNumber($value['number']);
             }
 
             $s->setTransaction($transaction)

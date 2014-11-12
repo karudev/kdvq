@@ -103,13 +103,12 @@ admin_product_model:
         { _method: get, product:  \d+ }
 
 admin_product_model_expose:
-    path:  /admin/en/product-model/{product}
+    path:  /admin/product-model/{product}
     defaults: { _controller: "SfAdminBundle:ProductModel:index"}
     requirements:
         { _method: get, product:  \d+ }
     options:
         expose: true
-        i18n: false
 
 admin_product_model_stock:
     path:  /admin/modèles-du-produit/stock/{product}
@@ -124,7 +123,7 @@ admin_product_model_update:
         productModel:  \d+
            
 admin_product_model_delete:
-    path:  /admin/en/product-model/delete
+    path:  /admin/product-model/delete
     defaults: { _controller: "SfAdminBundle:ProductModel:delete", _locale: fr}
     options:
         expose: true

@@ -71,6 +71,13 @@ class ShoppingCart
      * @ORM\Column(name="material", type="integer", nullable = true)
      */
     private $material;
+    
+    
+    /**
+     * @var integer
+     * @ORM\Column(name="number", type="integer", nullable = true)
+     */
+    private $number;
 
     
      /**

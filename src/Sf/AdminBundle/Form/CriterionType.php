@@ -23,7 +23,8 @@ class CriterionType extends AbstractType
                 'mapped' => false,'choices' => 
                 array('T' => 'Tailles',
                     'C' => 'Couleurs',
-                    'M' => 'Matériaux'
+                    'M' => 'Matériaux',
+                    'N' => 'Numéros'
                     )))
             ->add('name','text', array( 'data' => $options['data']['name'],'required' => true))
             ->add('active','checkbox', array( 'data' => $options['data']['active'],'attr' => array('checked' => true),'required' => false));

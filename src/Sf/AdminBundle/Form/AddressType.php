@@ -14,12 +14,12 @@ class AddressType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                ->add('title')
-                ->add('address')
-                ->add('additionalAddress', 'text', array('required' => false))
-                ->add('zipCode')
-                ->add('city')
-                ->add('country')
+                ->add('title','text',array('label' => 'Titre'))
+                ->add('address','text',array('label' => 'Adresse'))
+                ->add('additionalAddress', 'text', array('label' => 'Complément d\'adresse','required' => false))
+                ->add('zipCode','text',array('label' => 'Code postal'))
+                ->add('city','text',array('label' => 'Ville'))
+                ->add('country','text',array('label' => 'Pays'))
                 ->add('type','hidden')
         ;
     }

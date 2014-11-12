@@ -37,6 +37,7 @@ function criterion() {
         var params = {params: {
                 size: $('#size').val(),
                 material: $('#material').val(),
+                number: $('#number').val(),
                 color: $('#color').val()
             }};
         $.post(Routing.generate('product_criterion', {product: $('#product_id').val()}), params, function(json) {

@@ -9,6 +9,7 @@ use Sf\AdminBundle\Form\CriterionType;
 use Sf\AdminBundle\Entity\Size;
 use Sf\AdminBundle\Entity\Color;
 use Sf\AdminBundle\Entity\Material;
+use Sf\AdminBundle\Entity\Number;
 
 class CriterionController extends Controller {
 
@@ -23,11 +24,11 @@ class CriterionController extends Controller {
         $sizes = $em->getRepository('SfAdminBundle:Size')->findBy(array(), array('name' => 'asc'));
         $colors = $em->getRepository('SfAdminBundle:Color')->findBy(array(), array('name' => 'asc'));
         $materials = $em->getRepository('SfAdminBundle:Material')->findBy(array(), array('name' => 'asc'));
+        $numbers = $em->getRepository('SfAdminBundle:Number')->findBy(array(), array('name' => 'asc'));
+        
 
 
-
-
-        return array('sizes' => $sizes, 'colors' => $colors, 'materials' => $materials);
+        return array('sizes' => $sizes, 'colors' => $colors, 'materials' => $materials,'numbers' => $numbers);
     }
 
     /**
@@ -52,6 +53,9 @@ class CriterionController extends Controller {
         } elseif ($type == 'M') {
             $entity = 'Material';
         }
+        elseif ($type == 'N') {
+            $entity = 'Number';
+        }
            
 
         if ($id > 0) {
@@ -63,6 +67,8 @@ class CriterionController extends Controller {
                 $c = new Color;
             elseif ($entity == 'Material')
                 $c = new Material;
+            elseif ($entity == 'Number')
+                $c = new Number;
             
           
         }

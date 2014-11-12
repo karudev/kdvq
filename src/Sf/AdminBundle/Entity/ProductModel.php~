@@ -48,6 +48,13 @@ class ProductModel {
     private $material;
     
      /**
+     * @ORM\ManyToOne(targetEntity="Number")
+      * @ORM\JoinColumn(name="number_id", referencedColumnName="id", nullable = true)
+     */
+    private $numberEntity;
+    
+    
+     /**
      * @ORM\ManyToOne(targetEntity="Order", inversedBy="productModels" )
       * @ORM\JoinColumn(name="order_id", referencedColumnName="id", nullable = true)
      */
@@ -176,14 +183,7 @@ class ProductModel {
 
 
  
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->taxonomies = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
+   
  
 
     
@@ -365,8 +365,8 @@ class ProductModel {
         $size = str_pad(($this->getSize() == null ? 0 : $this->getSize()->getId()) ,2,"0",STR_PAD_LEFT);
         $color = str_pad(($this->getColor() == null ? 0 : $this->getColor()->getId()),2,"0",STR_PAD_LEFT);
         $material = str_pad(($this->getMaterial() == null ? 0 : $this->getMaterial()->getId()),2,"0",STR_PAD_LEFT);
-        
-        $this->number = 'P.'.$size.'.'.$color.'.'.$material.'.'.str_pad($this->getProduct()->getId(),6,"0",STR_PAD_LEFT);
+        $number = str_pad(($this->getNumberEntity() == null ? 0 : $this->getNumberEntity()->getId()),2,"0",STR_PAD_LEFT);
+        $this->number = 'P.'.$size.'.'.$color.'.'.$material.'.'.$number.'.'.str_pad($this->getProduct()->getId(),6,"0",STR_PAD_LEFT);
 
         return $this;
     }
@@ -403,5 +403,28 @@ class ProductModel {
     public function getInvoice()
     {
         return $this->invoice;
+    }
+
+    /**
+     * Set numberEntity
+     *
+     * @param \Sf\AdminBundle\Entity\Number $numberEntity
+     * @return ProductModel
+     */
+    public function setNumberEntity(\Sf\AdminBundle\Entity\Number $numberEntity = null)
+    {
+        $this->numberEntity = $numberEntity;
+
+        return $this;
+    }
+
+    /**
+     * Get numberEntity
+     *
+     * @return \Sf\AdminBundle\Entity\Number 
+     */
+    public function getNumberEntity()
+    {
+        return $this->numberEntity;
     }
 }

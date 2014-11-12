@@ -110,6 +110,22 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                                {% if numbers|length > 0 %}
+                                      {% set critere = critere + 1 %}
+                                    <div class=" col-md-12 col-sm-12 col-xs-12 form-group"> 
+                                        <div class=" col-md-3 col-sm-4 col-xs-4 ">
+                                            <label>{{'Numéro'|trans}}</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-7 col-xs-7">
+                                            <select id="number" name="params[number]"  >
+                                                <option value=""></option>
+                                                {% for n in numbers %}
+                                                    <option value="{{n.id}}">{{n.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                {% endif %}
                                 <div class=" col-md-12 col-sm-12 col-xs-12 form-group">
                                     <div class=" col-md-3 col-sm-4 col-xs-4">
                                         <label>{{'Quantité'|trans}}</label>

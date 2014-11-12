@@ -219,6 +219,9 @@
                     {% if d['material'] is not null %}
                         {{d['material']}};
                     {% endif %}
+                    {% if d['numberEntity'] is not null %}
+                        Num:{{d['numberEntity']}};
+                    {% endif %}
                     </span></td>
                     <td >{{d['quantity']}}</td>
                    

@@ -20,16 +20,28 @@
                                 {{getEntityName('Color',p.color,';')}}
                             {% endif %}
                             {% if p.material is defined and p.material is not null %}
-                                {{getEntityName('Material',p.material)}}
+                                {{getEntityName('Material',p.material,';')}}
+                            {% endif %}
+                           {% if p.number is defined and p.number is not null and p.number !='' %}
+                                Num:{{getEntityName('Number',p.number)}}
                             {% endif %}</span><br/>
-                        <a data-id="{{p.product.id}}" class="remove" href="javascript:void(0)">{{'Supprimer'|trans}}</a>
+                        <a data-size="{{p.size is defined ? p.size  }}" 
+                                     data-color="{{p.color is defined ? p.color  }}"
+                                     data-material="{{p.material is defined ? p.material  }}" 
+                                    
+                                     data-number="{{p.number is defined ? p.number  }}" data-id="{{p.product.id}}" class="remove" href="javascript:void(0)">{{'Supprimer'|trans}}</a>
 
                     </div>
                     <div class="col-md-3inline-block">
                         <p class="panier-price">{{p.product.priceTtc * p.quantity|number_format(2,',',' ') }} € TTC</p>
                         <p>Dont Tva : {{p.product.tva * p.quantity|number_format(2,',',' ') }} €</p>
 
-                        <div> <input style="width: 50px" maxlength="4" class="quantity" data-id="{{p.product.id}}" type="text" value="{{p.quantity}}" /> </div>
+                        <div> <input data-size="{{p.size is defined ? p.size  }}" 
+                                     data-color="{{p.color is defined ? p.color  }}"
+                                     data-material="{{p.material is defined ? p.material  }}" 
+                                    
+                                     data-number="{{p.number is defined ? p.number  }}" 
+                                     style="width: 50px" maxlength="4" class="quantity" data-id="{{p.product.id}}" type="text" value="{{p.quantity}}" /> </div>
 
                     </div>
                 </div>

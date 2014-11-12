@@ -86,6 +86,20 @@ class ProductModelRepository extends EntityRepository {
                         ->getQuery()
                         ->getResult();
     }
+    
+     public function getNumbers(Product $product) {
+        return $this->createQueryBuilder('e')
+                        ->select('s.id,s.name')
+                        ->distinct('s.id')
+                        ->innerJoin('e.numberEntity', 's')
+                        ->where('e.product =:product')
+                        ->andWhere('e.order is null')
+                        ->andWhere('e.deleted = false')
+                        ->setParameter('product', $product->getId())
+                        ->orderBy('s.name', 'asc')
+                        ->getQuery()
+                        ->getResult();
+    }
 
     public function getStockByCriterion(Product $product, $params = array()) {
 
@@ -94,6 +108,7 @@ class ProductModelRepository extends EntityRepository {
                 ->leftJoin('e.size', 's')
                 ->leftJoin('e.material', 'm')
                 ->leftJoin('e.color', 'c')
+                ->leftJoin('e.numberEntity', 'n')
                 ->where('e.product =:product')
                 ->andWhere('e.order is null')
                 ->andWhere('e.deleted = false')
@@ -111,6 +126,10 @@ class ProductModelRepository extends EntityRepository {
         if (isset($params['material']) && $params['material'] > 0) {
             $qb->andWhere('m.id=:material')
                     ->setParameter('material', (int) $params['material']);
+        }
+        if (isset($params['number']) && $params['number'] > 0) {
+            $qb->andWhere('n.id=:number')
+                    ->setParameter('number', (int) $params['number']);
         }
 
         $data = $qb->getQuery()
@@ -134,13 +153,15 @@ class ProductModelRepository extends EntityRepository {
                 ->addSelect('s.name as size')
                 ->addSelect('c.name as color')
                 ->addSelect('m.name as material')
+                ->addSelect('n.name as numberEntity')
                 ->addSelect('p.name as name')
                 ->innerJoin('e.product', 'p')
                // ->innerJoin('p.group', 'g')
                // ->innerJoin('g.brand', 'b')
                 ->leftJoin('e.size', 's')
                 ->leftJoin('e.color', 'c')
-                ->leftJoin('e.material', 'm');
+                ->leftJoin('e.material', 'm')
+                ->leftJoin('e.numberEntity', 'n');
         if ($order != null) {
             $qb->where('e.order =:order')->setParameter('order', $order->getId());
         }
@@ -161,7 +182,8 @@ class ProductModelRepository extends EntityRepository {
                 ->addGroupBy('p.id')
                 ->addGroupBy('p.name')
                 ->addGroupBy('c.name')
-                ->addGroupBy('m.name');
+                ->addGroupBy('m.name')
+                ->addGroupBy('n.name');
 
         return $qb->getQuery()
                         ->getResult();

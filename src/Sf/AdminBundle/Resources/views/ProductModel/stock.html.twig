@@ -13,7 +13,7 @@ account
     <div id="main-content" class=" col-md-10">
 
     <div class="row">
-        <form action="{{path('admin_product_model_stock')}}" method="post">
+         {{ form_start(form) }}
             <div class="col-xs-12">
                 <div class="col-xs-6">
                     <div class="text-center">
@@ -34,6 +34,7 @@ account
                      {{ form_row(form.size) }}
                      {{ form_row(form.color) }}
                      {{ form_row(form.material) }}
+                     {{ form_row(form.numberEntity) }}
                     
                 </div>
             </div>
@@ -45,7 +46,7 @@ account
                      <div class="hidden">
             {{ form_rest(form) }}
                      </div>
-        </form>
+         {{ form_end(form) }}
         <div style="margin-top:50px;" class="col-xs-12">
             <a href="{{path('admin_product_model',{product:product.id})}}"><button class="submit">Retour</button></a>
         </div>
