@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManager;
 use Sf\AdminBundle\Entity\Product;
 use Sf\UserBundle\Entity\User;
 use Sf\AdminBundle\Entity\Order;
-
+use Sf\AdminBundle\Entity\Category;
 class SfExtension extends \Twig_Extension {
 
     private $_em;
@@ -31,7 +31,8 @@ class SfExtension extends \Twig_Extension {
             new \Twig_SimpleFunction('getProductModelsGroupByRef', array($this, 'getProductModelsGroupByRef')),
             new \Twig_SimpleFunction('getEntityName', array($this, 'getEntityName')),
             new \Twig_SimpleFunction('hasRole', array($this, 'hasRole')),
-            new \Twig_SimpleFunction('haveShoppingCartHistory', array($this, 'haveShoppingCartHistory'))
+            new \Twig_SimpleFunction('haveShoppingCartHistory', array($this, 'haveShoppingCartHistory')),
+            new \Twig_SimpleFunction('getCategories', array($this, 'getCategories'))
         );
     }
 
@@ -135,6 +136,9 @@ class SfExtension extends \Twig_Extension {
         }  else {
          return false;   
         }
+    }
+     public function getCategories(Category $category){
+         return $this->_em->getRepository('SfAdminBundle:Category')->findBy(array('category' => $category->getId(),'active' => true),array('position' => 'asc'));
     }
 
     public function getName() {

@@ -83,6 +83,12 @@ class Category
      */
     private $pictureUrl;
     
+    /**
+     * @var integer
+     * @ORM\Column(name="position", type="integer")
+     */
+    private $position = 0;
+    
     
 
 
@@ -375,5 +381,28 @@ class Category
     public function getPictureUrl()
     {
         return $this->pictureUrl;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Category
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

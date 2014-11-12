@@ -17,6 +17,7 @@ account
                         <th></th>
                         <th>Parent</th>
                         <th>Nom</th>
+                        <th>Position</th>
                         <th>Actif ?</th>
                         <th>Actions</th>
                     </tr>
@@ -32,6 +33,7 @@ account
                             </td>
                             <td>{{ entity.category is not null ? entity.category.name }}</td>
                             <td>{{ entity.name }}</td>
+                            <td>{{ entity.position }}</td>
                             <td>
                                 <span class="glyphicon glyphicon-{% if  entity.active %}ok{% else %}ban{%endif%}-circle"></span>
                             </td>

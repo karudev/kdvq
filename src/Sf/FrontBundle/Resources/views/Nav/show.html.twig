@@ -22,7 +22,7 @@
                                     <li class="dropdown ico_fleche_ouvert">
                                         <a href="{{path('front_category',{'slug':c.slug})}}" class="dropdown-toggle">{{c.name}} </a>
                                         <ul class="dropdown-menu submenu">
-                                            {% for sc in c.categories %}
+                                            {% for sc in getCategories(c) %}
                                                 {% if sc.custom == false %}
                                                     <li class="ico_fleche_ferme"><a href="{{path('front_products',{'categorySlug':sc.slug})}}">{{sc.name}}</a></li>
                                                     {% endif %}
@@ -90,7 +90,7 @@
                             <li class="dropdown ico_fleche_ouvert">
                                 <a href="{{path('front_category',{'slug':c.slug})}}" class="dropdown-toggle" >{{c.name}}</a>
                                 <ul class="dropdown-menu submenu ">
-                                    {% for sc in c.categories %}
+                                    {% for sc in getCategories(c) %}
                                         {% if sc.custom == false %}
                                             <li class="ico_fleche_ferme"><a href="{{path('front_products',{'categorySlug':sc.slug})}}">{{sc.name}}</a></li>
                                             {% endif %}
