@@ -39,7 +39,7 @@ function slide(number) {
             slide(0);
              
         }
-    }, 10000);
+    }, 5000);
    
 }
 
