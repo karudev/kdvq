@@ -82,7 +82,7 @@
         </div> 
         <div class="col-xs-6 mail">
            {# <div class="btn-mail"><button  data-order-id="{{order.id}}" data-toggle="modal" data-target="#mail"  class="update-mail btn-fridging">{{'Envoyer un mail'|trans()}}</button></div>
-
+#}
             {% for m in getMails(order) %}
                 <div class="{{m.type}}">
                     <span class="title">
@@ -95,7 +95,7 @@
                 </div>
             {% endfor %}
 
-#}
+
         </div>
         <div class="clearfix"></div> 
     </div>               

@@ -22,3 +22,6 @@
 [08-Oct-2014 10:52:57 UTC] PHP Fatal error:  Call to undefined method Proxies\__CG__\Sf\AdminBundle\Entity\Product::getGroup() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/OrderManager.php on line 115
 [08-Oct-2014 10:53:48 UTC] PHP Fatal error:  Call to undefined method Proxies\__CG__\Sf\AdminBundle\Entity\Product::getGroup() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/OrderManager.php on line 115
 [12-Nov-2014 16:52:59 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Entity\ShoppingCart::getNumberEntity() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/OrderManager.php on line 108
+[13-Nov-2014 10:42:41 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Entity\Mail::setReceiverBrand() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/MailManager.php on line 27
+[13-Nov-2014 10:42:52 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Entity\Mail::setReceiverBrand() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/MailManager.php on line 27
+[13-Nov-2014 10:47:05 UTC] PHP Fatal error:  Call to undefined method Sf\AdminBundle\Entity\Mail::setReceiverBrand() in /Applications/MAMP/htdocs/qwinsport/src/Sf/AdminBundle/Service/MailManager.php on line 27

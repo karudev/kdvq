@@ -54,8 +54,8 @@ class MailHelper {
             $this->send(false);
         }
 
-       // $typeReceiver = $order->getAccount()->hasRole('ROLE_SHOP') ? 'shop' : 'customer';
-        //$this->container->get('mail')->insert($order, $subject, $this->body, 'admin', null, $order->getAccount(), null, 'admin', $typeReceiver);
+        $typeReceiver = $order->getAccount()->hasRole('ROLE_SHOP') ? 'shop' : 'customer';
+        $this->container->get('mail')->insert($order, $subject, $this->body, 'admin', null, $order->getAccount(), null, 'admin', $typeReceiver);
     }
 
     public function changeOrder(Order $order) {

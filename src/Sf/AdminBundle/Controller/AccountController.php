@@ -115,12 +115,19 @@ class AccountController extends Controller {
      * 
      *
      */
-    public function controlAction() {
+    public function controlAction(Request $request) {
 
         if ($this->getUser()->hasRole('ROLE_ADMIN')) {
             return $this->redirect($this->generateUrl('orders'));
         } elseif ($this->getUser()->hasRole('ROLE_CUSTOMER') || $this->getUser()->hasRole('ROLE_SHOP')) {
-            return $this->redirect($this->generateUrl('account'));
+            $session = $request->getSession();
+            if($session->get('cartRedirect')){
+                return $this->redirect($this->generateUrl('front_shopping_cart'));
+                $session->set('cartRedirect',false);
+            }else{
+                return $this->redirect($this->generateUrl('account'));
+            }
+            
         }
     }
 

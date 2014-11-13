@@ -35,6 +35,11 @@ class ShoppingCartController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $user = $this->getUser();
+        if($user == null){
+            $session->set('cartRedirect', true);
+        }else{
+             $session->set('cartRedirect', false); 
+        }
 
         // $token = null;
         $order = null;
@@ -97,6 +102,8 @@ class ShoppingCartController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $params = $request->get('params', array());
         $stock = $em->getRepository('SfAdminBundle:ProductModel')->getStockByCriterion($product, $params);
+        $productModelParams = $em->getRepository('SfAdminBundle:ProductModel')->getProductModelByCriterion($product, $params);
+        //print_r($productModelParams);die();
         $isSameProduct = false;
         $data = array();
         if ($params['quantity'] <= $stock) {
@@ -106,16 +113,28 @@ class ShoppingCartController extends Controller {
 
             foreach ($products as $key => $p) {
 
-                // \Doctrine\Common\Util\Debug::dump($p); die();
-                if ($p['product']->getId() == $product->getId() && ( isset($p['material']) && isset($params['material']) && $p['material'] == $params['material'] ) && ( isset($p['color']) && isset($params['color']) && $p['color'] == $params['color'] ) && ( isset($p['size']) && isset($params['size']) && $p['size'] == $params['size'] ) && ( isset($p['number']) && isset($params['number']) && $p['number'] == $params['number'] )) {
+                 //\Doctrine\Common\Util\Debug::dump($productModelParams); die();
+                if ($p['product']->getId() == $product->getId() 
+                       // && ( isset($p['material']) && isset($productModelParams['material'])
+                        && $p['material'] == $productModelParams['material']  
+                      //  && ( isset($p['color']) && isset($productModelParams['color']) 
+                        && $p['color'] == $productModelParams['color'] 
+                       // && ( isset($p['size']) && isset($productModelParams['size']) 
+                        && $p['size'] == $productModelParams['size'] 
+                       // && ( isset($p['number']) && isset($params['number'])
+                        && $p['number'] == $productModelParams['number'] ) {
                     $products[$key]['quantity'] = $p['quantity'] + $params['quantity'];
                     $isSameProduct = true;
                 }
             }
 
             if (!$isSameProduct) {
-                $data = array(array_merge(array('product' => $product), $params));
+             
+                $productModelParams['quantity'] = $params['quantity'];
+                $data = array(array_merge(array('product' => $product),$productModelParams));
             }
+           // unset($data['product']);
+           // \Doctrine\Common\Util\Debug::dump($data);die();
             $session->set('products', array_merge($products, $data));
 
             $message = $this->container->get('translator')->trans('Ce produit a été ajouté au panier');

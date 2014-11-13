@@ -24,12 +24,12 @@ class MailManager {
         $m = new Mail();
         $m->setSendAt(new \DateTime)
                 ->setOrder($order)
-                ->setReceiverBrand($receiverBrand)
+               // ->setReceiverBrand($receiverBrand)
                 ->setReceiverUser($receiverUser)
                 ->setSubject($subject)
                 ->setText($text)
                 ->setSenderUser($senderUser)
-                ->setSenderBrand($senderBrand)
+               // ->setSenderBrand($senderBrand)
                 ->setType($type)
                 ->setTypeReceiver($typeReceiver);
         $em->persist($m);

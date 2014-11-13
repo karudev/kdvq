@@ -141,6 +141,43 @@ class ProductModelRepository extends EntityRepository {
             return 0;
         }
     }
+    
+    public function getProductModelByCriterion(Product $product, $params = array()) {
+
+        $qb = $this->createQueryBuilder('e');
+        $qb->select('s.id as size,m.id as material,c.id as color,n.id as number')
+                ->leftJoin('e.size', 's')
+                ->leftJoin('e.material', 'm')
+                ->leftJoin('e.color', 'c')
+                ->leftJoin('e.numberEntity', 'n')
+                ->where('e.product =:product')
+                ->andWhere('e.order is null')
+                ->andWhere('e.deleted = false')
+                ->setParameter('product', $product->getId())
+                ->orderBy('s.name', 'asc');
+
+        if (isset($params['size']) && $params['size'] > 0) {
+            $qb->andWhere('s.id=:size')
+                    ->setParameter('size', (int) $params['size']);
+        }
+        if (isset($params['color']) && $params['color'] > 0) {
+            $qb->andWhere('c.id=:color')
+                    ->setParameter('color', (int) $params['color']);
+        }
+        if (isset($params['material']) && $params['material'] > 0) {
+            $qb->andWhere('m.id=:material')
+                    ->setParameter('material', (int) $params['material']);
+        }
+        if (isset($params['number']) && $params['number'] > 0) {
+            $qb->andWhere('n.id=:number')
+                    ->setParameter('number', (int) $params['number']);
+        }
+        $qb->setMaxResults(1);
+        $data = $qb->getQuery()
+                ->getResult();
+
+        return count($data) > 0 ? $data[0] : false;
+    }
 
     public function getProductModelsGroupByRef(Order $order = null, Product $product = null, Invoice $invoice = null) {
         $qb = $this->createQueryBuilder('e');
