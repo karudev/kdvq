@@ -106,11 +106,11 @@ class ShoppingCartController extends Controller {
         //print_r($productModelParams);die();
         $isSameProduct = false;
         $data = array();
-        if ($params['quantity'] <= $stock) {
-
-            $session = $request->getSession();
-            $products = $session->get('products', array());
-
+        
+        $session = $request->getSession();
+        $products = $session->get('products', array());
+        
+        
             foreach ($products as $key => $p) {
 
                  //\Doctrine\Common\Util\Debug::dump($productModelParams); die();
@@ -125,8 +125,16 @@ class ShoppingCartController extends Controller {
                         && $p['number'] == $productModelParams['number'] ) {
                     $products[$key]['quantity'] = $p['quantity'] + $params['quantity'];
                     $isSameProduct = true;
+                    
+                     $stock = $stock - $p['quantity'];
                 }
             }
+            
+            
+        if ($params['quantity'] <= $stock) {
+
+           
+
 
             if (!$isSameProduct) {
              
