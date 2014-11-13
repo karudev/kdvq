@@ -20,6 +20,7 @@ class PartnerType extends AbstractType
                 'class' => 'SfAdminBundle:Brand',
                 'property' => 'name'))*/
             ->add('picture','file',array('required' => false))
+            ->add('pictureHd','file',array('required' => false))
            
            // ->add('title')
             ->add('title','text', array('required' => false))

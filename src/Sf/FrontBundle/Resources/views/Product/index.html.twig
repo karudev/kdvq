@@ -34,8 +34,8 @@
                            {% set k = key %}
                     {% set modulo = k % div %}
                      {% else %}
-                         {% set div =  6 %}
-                         {% set k =  key+2 %}
+                         {% set div =  5 %}
+                         {% set k =  key+1 %}
                     {% set modulo = k % div %}
                      {% endif %}
                      
@@ -52,8 +52,8 @@
                             
                         </div>
                     </div>
+                    {% endif %}
                     
-                    {% else %}
                         
                         <div class="art col-xs-12 col-sm-6 col-md-4">
                         {% if getStock(entity) > 0 %}
@@ -83,7 +83,7 @@
 
                     </div>
                         
-                    {% endif %}
+                    
 
                     
                 {% endfor %}

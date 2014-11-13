@@ -361,7 +361,7 @@ class ProductModel {
      */
     public function setNumber($number = null)
     {
-        
+     
         $size = str_pad(($this->getSize() == null ? 0 : $this->getSize()->getId()) ,2,"0",STR_PAD_LEFT);
         $color = str_pad(($this->getColor() == null ? 0 : $this->getColor()->getId()),2,"0",STR_PAD_LEFT);
         $material = str_pad(($this->getMaterial() == null ? 0 : $this->getMaterial()->getId()),2,"0",STR_PAD_LEFT);

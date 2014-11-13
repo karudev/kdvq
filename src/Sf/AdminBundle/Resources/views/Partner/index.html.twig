@@ -14,7 +14,8 @@ account
             <table class="table table-condensed table-hover table-striped">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>Photo</th>
+                        <th>Photo HD</th>
                         <th>Titre</th>
                         <th>Type</th>
                         <th>Actif ?</th>
@@ -27,7 +28,12 @@ account
                           
                             <td>
                                 {% if entity.pictureUrl is not null %}
-                                    <img  src="{{ asset(['/uploads/partners/', entity.pictureUrl]|join) }}" />
+                                    <img  width="100px" src="{{ asset(['/uploads/partners/', entity.pictureUrl]|join) }}" />
+                                {% endif %}
+                            </td>
+                             <td>
+                                {% if entity.pictureHdUrl is not null %}
+                                    <img  width="200px" src="{{ asset(['/uploads/partners/', entity.pictureHdUrl]|join) }}" />
                                 {% endif %}
                             </td>
                           

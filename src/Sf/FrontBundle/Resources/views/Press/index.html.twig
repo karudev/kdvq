@@ -22,10 +22,16 @@
                     
                     {% for entity in entities %}
                     <div class=" hidden-xs col-md-3 center">
-                        <img style=""  src="{{ asset(['/uploads/press/', entity.secondPictureUrl]|join) }}" />        
+                        {% if entity.secondPictureUrl is not null %}
+                        <img style=""  src="{{ asset(['/uploads/press/', entity.secondPictureUrl]|join) }}" />  
+                        {% endif %}
                     </div>
                     <div class="col-md-6">
-                        <a  target="_blank" href="{{ asset(['/uploads/press/', entity.hdPictureUrl]|join) }}"><img class="hover" style="width:100%"  src="{{ asset(['/uploads/press/', entity.mainPictureUrl]|join) }}" /> </a>       
+                         {% if entity.hdPictureUrl is not null %}
+                        <a  target="_blank" href="{{ asset(['/uploads/press/', entity.hdPictureUrl]|join) }}">
+                            <img class="hover" style="width:100%"  src="{{ asset(['/uploads/press/', entity.mainPictureUrl]|join) }}" />
+                        </a> 
+                        {% endif %}
           
                         <h5 class="red">{{entity.parutionTitle}}</h5>
                         <p class="date">{{entity.parutionSubTitle}}</p>

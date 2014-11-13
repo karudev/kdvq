@@ -33,7 +33,7 @@ class ProductType extends AbstractType {
                 ->add('priceHt','text',array('attr' => array('class' => 'col-xs-3' )))
                 ->add('tva','text',array('attr' => array('class' => 'col-xs-3' )))
                 ->add('youtubeId','text',array('required' => false))
-                //->add('mainPicture', 'file', array('required' => false))
+                ->add('mainPicture', 'file', array('required' => false))
                 ->add('hdPicture', 'file', array('required' => false))
                 ->add('productPictures', 'collection', array(
                 'label' => 'Photos supplémentaires du produit',

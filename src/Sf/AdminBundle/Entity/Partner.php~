@@ -54,6 +54,19 @@ class Partner implements Translatable
      */
     private $pictureUrl;
     
+    /**
+     *
+     * @Assert\Image(maxSize="8000000")
+     */
+    private $pictureHd;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture_hd_url", type="string", length=128, nullable=true)
+     */
+    private $pictureHdUrl;
+    
 
      /**
      * @var boolean
@@ -77,6 +90,10 @@ class Partner implements Translatable
         if (null !== $this->picture) {
             $this->pictureUrl = uniqid() . '.' . $this->picture->guessExtension();
         }
+         if (null !== $this->pictureHd) {
+            $this->pictureHdUrl = uniqid() . '.' . $this->pictureHd->guessExtension();
+        }
+      
       
     }
     
@@ -90,18 +107,25 @@ class Partner implements Translatable
              FileManager::resize($this->getUploadRootDir().'/'.$this->pictureUrl,$ext, $this->type == 'club' ? 93 : 100);
             unset($this->picture);
         }
+        if ($this->pictureHd != null) {
+           
+            $this->pictureHd->move($this->getUploadRootDir(), $this->pictureHdUrl);
+            
+            unset($this->pictureHd);
+        }
        
     }
     
-    /**
-     * @ORM\PostRemove()
-     */
+   
     public function removeUpload()
     {
 
         $fs = new Filesystem();
         if ($this->picture != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
             unlink($this->getAbsolutePath($this->pictureUrl));
+        }
+        if ($this->pictureHd != null && $fs->exists($this->getAbsolutePath($this->pictureHdUrl))) {
+            unlink($this->getAbsolutePath($this->pictureHdUrl));
         }
        
        
@@ -146,6 +170,27 @@ class Partner implements Translatable
     {
         return $this->picture;
     }
+    
+     /**
+     * Set pictureHd
+     *
+     * @param object $pictureHd
+     */
+    public function setPictureHd($pictureHd)
+    {
+        $this->pictureHd = $pictureHd;
+    }
+
+    /**
+     * Get PictureHd
+     *
+     * @return object
+     */
+    public function getPictureHd()
+    {
+        return $this->pictureHd;
+    }
+    
     
    
 

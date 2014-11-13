@@ -19,7 +19,7 @@ class HomeController extends Controller {
         $carrousel = $em->getRepository('SfAdminBundle:Carrousel')->findBy(array('active'=>true),array('position' => 'asc'));
         $home_title = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_title'));
         $home_text = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_text'));
-        $products = $em->getRepository('SfAdminBundle:Product')->findBy(array('inHome' => true,'deleted' => false, 'active' => true), array('id' => 'desc'), 3);
+        $products = $em->getRepository('SfAdminBundle:Product')->findBy(array('inHome' => true,'deleted' => false, 'active' => true), array('updatedAt' => 'desc'), 3);
         $actualities = $em->getRepository('SfAdminBundle:Actuality')->findBy(
                 array('active' => true,'inHome' => true), array('date' => 'desc'), 2);
 

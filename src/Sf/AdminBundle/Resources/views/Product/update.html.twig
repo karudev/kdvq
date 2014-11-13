@@ -21,11 +21,20 @@ account
             <div class="col-md-6">  {{ form_row(form.active) }}</div>
             <div class="col-md-6">  {{ form_row(form.inHome) }}</div>
            
-             {{ form_label(form.hdPicture) }}
+              {{ form_label(form.mainPicture) }}
              <div class="alert alert-info">Il est conseillé d'uploader une photo d'un ratio de 0.83 (ex: 890px X 1070px)</div>
             <br/>
+            {% if entity.mainPictureUrl is not null %}
+                <img height="250px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" />
+            {% endif %}
+            {{ form_widget(form.mainPicture) }}
+            {{ form_errors(form.mainPicture) }}
+            <br/>
+            
+            {{ form_label(form.hdPicture) }}
+            <br/>
             {% if entity.hdPictureUrl is not null %}
-                <img height="250px" src="{{ asset(['/uploads/products/', entity.hdPictureUrl]|join) }}" />
+                <img height="400px" src="{{ asset(['/uploads/products/', entity.hdPictureUrl]|join) }}" />
             {% endif %}
             {{ form_widget(form.hdPicture) }}
             {{ form_errors(form.hdPicture) }}

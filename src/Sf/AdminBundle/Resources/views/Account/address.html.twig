@@ -4,7 +4,12 @@
 
     <div class="shipping">
         {{form_start(form)}}
-        {{form_row(form)}}
+        {{form_row(form.title)}}
+        {{form_row(form.address)}}
+        {{form_row(form.additionalAddress)}}
+        {{form_row(form.zipCode)}}
+        {{form_row(form.city)}}
+        {{form_row(form.country)}}
     </div>
     <div class="hidden">
     {{form_rest(form)}}
@@ -27,7 +32,12 @@
     {% endif %}
     <div style="display:{{style}}" class="billing">
         {{form_start(form)}}
-        {{form_row(form)}}
+        {{form_row(form.title)}}
+        {{form_row(form.address)}}
+        {{form_row(form.additionalAddress)}}
+        {{form_row(form.zipCode)}}
+        {{form_row(form.city)}}
+        {{form_row(form.country)}}
         <div class="hidden">
     {{form_rest(form)}}
 </div>

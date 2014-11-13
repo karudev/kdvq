@@ -30,6 +30,7 @@ class ConfigController extends Controller {
         $home_text = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'home_text'));
         $products_intro = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'products_intro'));
         $shipping_costs = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'shipping_costs'));
+        $contact_text = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'contact_text'));
         if (!$google) {
             $google = new Config();
             $google->setName('google');
@@ -89,6 +90,13 @@ class ConfigController extends Controller {
             $em->persist($shipping_costs);
             
         }
+        if (!$contact_text) {
+            $contact_text = new Config();
+            $contact_text->setName('contact_text');
+            $contact_text->setValue('Pour toute information sur nos produits, utilisez le formulaire de contact ou contactez nous au 07.51.65.94.87');
+            $em->persist($contact_text);
+            
+        }
         
         if ($request->getMethod() == 'POST') {
             $googleValue = $request->get('google', 0);
@@ -123,6 +131,10 @@ class ConfigController extends Controller {
             $shipping_costs_value = $request->get('shipping_costs');
             $shipping_costs->setValue($shipping_costs_value);
             $em->persist($shipping_costs);
+            
+            $contact_text_value = $request->get('contact_text');
+            $contact_text->setValue($contact_text_value);
+            $em->persist($contact_text);
            
         }
         
@@ -135,6 +147,7 @@ class ConfigController extends Controller {
             'factory_email' => $factory_email,
             'home_title' => $home_title,
             'home_text' => $home_text,
+            'contact_text' => $contact_text,
             'products_intro' => $products_intro,
             'shipping_costs' => $shipping_costs);
 

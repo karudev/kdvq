@@ -18,7 +18,7 @@ class PressController extends Controller {
     public function indexAction(Request $request) {
 
         $em = $this->get('doctrine')->getManager();
-        $entities = $em->getRepository('SfAdminBundle:Press')->findBy(array('active' => true), array('updatedAt' => 'desc'));
+        $entities = $em->getRepository('SfAdminBundle:Press')->findBy(array(), array('updatedAt' => 'desc'));
 
 
 

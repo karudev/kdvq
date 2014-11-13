@@ -26,7 +26,13 @@
                     <div class="col-md-10 col-md-offset-1 cl">
                         {% for c in clubs %}
                         <div class="col-md-4 text-center club">
+                            {% if c.pictureHdUrl is not null %}
+                                <a target="_blank" href="{{ asset(['/uploads/partners/', c.pictureHdUrl]|join) }}">
+                            {% endif %}
                             <img style="width: 194px;height: 93px" src="{{ asset(['/uploads/partners/', c.pictureUrl]|join) }}" />
+                            {% if c.pictureHdUrl is not null %}
+                                </a>
+                            {% endif %}
                             <h4>{{c.title}}</h4>
                         </div>
                         {% endfor %}
@@ -54,8 +60,14 @@
                       <div class="col-md-8 col-md-offset-2">
                         {% for p in partners %}
                         <div class="col-md-4 text-center club">
+                            {% if p.pictureHdUrl is not null %}
+                                <a target="_blank" href="{{ asset(['/uploads/partners/', p.pictureHdUrl]|join) }}">
+                            {% endif %}
                             <img style="width:129px;height: 92px" src="{{ asset(['/uploads/partners/', p.pictureUrl]|join) }}" />
                             <h4>{{p.title}}</h4>
+                             {% if p.pictureHdUrl is not null %}
+                                </a>
+                            {% endif %}
                         </div>
                         {% endfor %}
                         <div style="padding:0px;border-right: 1px dashed #000;" class="col-md-4 text-center club">

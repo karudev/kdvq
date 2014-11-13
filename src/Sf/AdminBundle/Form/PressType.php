@@ -19,13 +19,13 @@ class PressType extends AbstractType
            /* ->add('brand','entity',array(
                 'class' => 'SfAdminBundle:Brand',
                 'property' => 'name'))*/
-            ->add('mainPicture','file',array('required' => false))
-            ->add('secondPicture','file',array('required' => false))
+            ->add('mainPicture','file',array('label' => 'Photo principale','required' => false))
+            ->add('secondPicture','file',array('label' => 'Photo secondaire','required' => false))
            // ->add('title')
-            ->add('parutionTitle','text', array('required' => false))
-            ->add('parutionSubTitle','text', array('required' => false))
-            ->add('text','textarea', array('required' => false))
-            ->add('active','checkbox', array('required' => false));
+            ->add('parutionTitle','text', array('label' => 'Titre de la parution','required' => false))
+            ->add('parutionSubTitle','text', array('label' => 'Sous-titre de la parution','required' => false))
+            ->add('text','textarea', array('label' => 'Texte','required' => false))
+            ->add('active','checkbox', array('label' => 'Actif ?','required' => false));
 
           
           

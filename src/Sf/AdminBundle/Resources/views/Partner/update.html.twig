@@ -28,6 +28,15 @@ account
                 {% endif %}
                 {{ form_widget(form.picture) }}
                 {{ form_errors(form.picture) }}
+                 <br/>
+                {{ form_label(form.pictureHd) }}
+                <br/>
+                 
+                {% if form.vars.data.pictureHdUrl is not null %}
+                    <img src="{{ asset(['/uploads/partners/', form.vars.data.pictureHdUrl]|join) }}" />
+                {% endif %}
+                {{ form_widget(form.pictureHd) }}
+                {{ form_errors(form.pictureHd) }}
                 {{ form_row(form.title) }}
                 {{ form_row(form.type) }}
 

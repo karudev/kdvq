@@ -18,8 +18,9 @@ class ContactController extends Controller {
 
         $errors = array();
         $success = false;
+        $em = $this->getDoctrine()->getManager();
 
-
+        $contact_text = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'contact_text'));
         if ($request->getMethod() == 'POST') {
             $firstname = $request->get('firstname', null);
             $lastname = $request->get('lastname', null);
@@ -84,7 +85,7 @@ class ContactController extends Controller {
             }
         }
 
-        return array();
+        return array('contact_text' => $contact_text);
     }
 
 }

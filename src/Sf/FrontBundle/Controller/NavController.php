@@ -14,7 +14,7 @@ class NavController extends Controller {
     public function showAction(Request $request) {
 
         $em = $this->get('doctrine')->getManager();
-        $categories = $em->getRepository('SfAdminBundle:Category')->findBy(array('active' => true, 'category' => null));
+        $categories = $em->getRepository('SfAdminBundle:Category')->findBy(array('active' => true, 'category' => null),array('position' => 'asc'));
         return array('categories' => $categories, 
             '_route' => $request->attributes->get('_route'),
             'mobile' =>$request->attributes->get('mobile')

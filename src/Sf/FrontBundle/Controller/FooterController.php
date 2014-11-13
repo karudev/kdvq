@@ -19,7 +19,7 @@ class FooterController extends Controller {
         $facebook = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'facebook'));
         $twitter = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'twitter'));
         $google = $em->getRepository('SfAdminBundle:Config')->findOneBy(array('name' => 'google'));
-        $categories = $em->getRepository('SfAdminBundle:Category')->findBy(array('active' => true, 'category' => null));
+        $categories = $em->getRepository('SfAdminBundle:Category')->findBy(array('active' => true, 'category' => null),array('position' => 'asc'));
         return $this->render('SfFrontBundle::footer.html.twig', array(
                     'facebook' => $facebook,
                     'twitter' => $twitter,

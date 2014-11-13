@@ -212,21 +212,31 @@ class Product implements Translatable
         
         if (null !== $this->hdPicture) {
             $this->hdPictureUrl = uniqid() . '.' . $this->hdPicture->guessExtension();
-            $this->mainPictureUrl = 'sm_'.$this->hdPictureUrl;
+           
+        }
+        if (null !== $this->mainPicture) {
+            $this->mainPictureUrl = uniqid() . '.' . $this->mainPicture->guessExtension();
+           
         }
     }
 
   
     public function upload()
     {
-       
+        if ($this->mainPicture != null) {
+             //$ext = $this->hdPicture->guessExtension(); 
+            $this->mainPicture->move($this->getUploadRootDir(), $this->mainPictureUrl);
+           
+          //  FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, 314,null,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
+            unset($this->mainPicture);
+        }
            
       
         if ($this->hdPicture != null) {
-             $ext = $this->hdPicture->guessExtension(); 
+             //$ext = $this->hdPicture->guessExtension(); 
             $this->hdPicture->move($this->getUploadRootDir(), $this->hdPictureUrl);
            
-            FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, 314,null,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
+          //  FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, 314,null,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
             unset($this->hdPicture);
         }
     }

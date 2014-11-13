@@ -18,7 +18,15 @@
         <div class="col-md-12">
             <div class="col-md-6">
                 {{ form_row(form.active) }}
-
+                
+                {{ form_label(form.mainPicture) }}
+                <br/>
+                {% if form.vars.data.mainPictureUrl is not null %}
+                    <img width="250px"  src="{{ asset(['/uploads/press/', form.vars.data.mainPictureUrl]|join) }}" />
+                {% endif %}
+                {{ form_widget(form.mainPicture) }}
+                {{ form_errors(form.mainPicture) }}
+                 <br/>
                 {{ form_label(form.secondPicture) }}
                 <br/>
                 {% if form.vars.data.secondPictureUrl is not null %}
@@ -27,14 +35,8 @@
                 {{ form_widget(form.secondPicture) }}
                 {{ form_errors(form.secondPicture) }}
 
-                {{ form_label(form.mainPicture) }}
-                <br/>
-                {% if form.vars.data.mainPictureUrl is not null %}
-                    <img width="250px"  src="{{ asset(['/uploads/press/', form.vars.data.mainPictureUrl]|join) }}" />
-                {% endif %}
-                {{ form_widget(form.mainPicture) }}
-                {{ form_errors(form.mainPicture) }}
-
+                
+ <br/>
 
 
                 {{ form_row(form.parutionTitle) }}

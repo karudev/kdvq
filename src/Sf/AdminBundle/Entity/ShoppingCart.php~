@@ -338,4 +338,27 @@ class ShoppingCart
     {
         return $this->order;
     }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     * @return ShoppingCart
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer 
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
 }
