@@ -49,7 +49,25 @@ class AccountController extends Controller {
         if ($user == null) {
             $user = new User;
             $new = true;
+        }else{
+            if(!$em->getRepository('SfUserBundle:Address')->findOneBy(array('type'=>'shipping','account' => $user->getId()))){
+            $a = new Address;
+            $a->setAccount($user)
+                    ->setType('shipping');
+            $user->addAddress($a);
+            }
+            if(!$em->getRepository('SfUserBundle:Address')->findOneBy(array('type'=>'billing','account' => $user->getId()))){
+            
+            $a2 = new Address;
+            $a2->setAccount($user)
+                    ->setType('billing');
+            $user->addAddress($a2);
+            }
+           
+        
         }
+        
+        
 
         $form = $this->createForm(new ShopType, $user, array('action' =>
             $this->generateUrl('admin_account_update', array('user' => $user->getId()))));
@@ -101,6 +119,7 @@ class AccountController extends Controller {
                     )));
                 }
             } else {
+                \Doctrine\Common\Util\Debug::dump($form->getErrorsAsString()); die();
                 return new JsonResponse(array(
                     'success' => false,
                     'form' => $this->renderView('SfAdminBundle:Account:update.html.twig', array('form' => $form->createView())

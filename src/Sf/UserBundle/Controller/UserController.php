@@ -9,6 +9,7 @@ use Sf\UserBundle\Form\Type\RegistrationType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Form\FormError;
 
 /**
  * User controller.
@@ -48,8 +49,16 @@ class UserController extends Controller {
                 
                 $user->setRoles(array('ROLE_CUSTOMER'));
                // $user->setUsername($data->getEmail());
-                $this->container->get('sf_user.user_manager')->updateUser($user);
-
+                $data = $this->container->get('sf_user.user_manager')->updateUser($user);
+                
+                if($data['success'] == false){
+                  //  print_r($data['message']); die();
+                    $form->addError(new FormError($data['message']));
+                    return new JsonResponse(array(
+                    'form' => $this->renderView('SfUserBundle:User:registration.html.twig', array('form' => $form->createView())
+                )));
+                }
+                
                 return new JsonResponse(array(
                     'success' => true,
                     'redirect' => $this->generateUrl('fos_user_security_login', array(), true)

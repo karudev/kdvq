@@ -16,15 +16,18 @@ class ShopType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                ->add('tradeName','text',array('required' => true))
-                ->add('socialName','text',array('required' => true))
-                ->add('siret','text', array('required' => false))
+               // ->add('tradeName','text',array('required' => true))
+                //->add('socialName','text',array('required' => true))
+              //  ->add('siret','text', array('required' => false))
+                ->add('firstname','text',array('label' => 'Prénom'))
+            ->add('lastname','text',array('label' => 'Nom'))
                 ->add('email','email', array('required' => true))
-                ->add('country','text', array('required' => false))
+                //->add('country','text', array('required' => false))
                 ->add('phone', 'text', array('required' => false))
-                ->add('background','textarea', array('required' => false))
-                ->add('tva')
-                ->add('autoEntrepreneur','checkbox',array('required' => false))
+                 ->add('locked', 'checkbox', array('required' => false))
+               // ->add('background','textarea', array('required' => false))
+              //  ->add('tva')
+              //  ->add('autoEntrepreneur','checkbox',array('required' => false))
                 ->add('addresses', 'collection', array(
                 
                       'type' => new AddressType(),

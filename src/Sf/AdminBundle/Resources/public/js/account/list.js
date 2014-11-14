@@ -19,7 +19,7 @@ function newAccount() {
                 $('#account').modal('hide');
             } else {
                 $('#form').html(json.form);
-              newAccount();
+            // newAccount();
             }
         });
     });
@@ -36,6 +36,7 @@ function addresses() {
         $('#account_addresses_0_type').val('shipping');
         $('#account_addresses_1_type').val('billing');
     }, 1000);
+
 
 
 
