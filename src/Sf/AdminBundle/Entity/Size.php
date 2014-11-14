@@ -5,7 +5,6 @@ namespace Sf\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Translatable\Translatable;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
@@ -13,9 +12,8 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @ORM\Table(name="size")
  * @ORM\Entity(repositoryClass="Sf\AdminBundle\Entity\SizeRepository")
- * @ORM\HasLifecycleCallbacks
  */
-class Size implements Translatable
+class Size
 {
 
     /**
@@ -29,7 +27,6 @@ class Size implements Translatable
 
     /**
      * @var string
-     * @Gedmo\Translatable
      * @ORM\Column(name="name", type="string", length=128)
      */
     private $name;

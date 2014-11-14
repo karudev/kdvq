@@ -172,7 +172,11 @@ class ShoppingCartController extends Controller {
             $value['size'] = !isset($value['size']) ? null : $value['size'];
             $value['number'] = !isset($value['number']) ? null : $value['number'];
 
-            if ($value['product']->getId() == $product->getId() && ( $value['material'] == $params['material'] ) && ( $value['color'] == $params['color'] ) && ( $value['size'] == $params['size'] ) && ( $value['number'] == $params['number'] )
+            if ($value['product']->getId() == $product->getId() &&
+                    ( $value['material'] == $params['material'] ) &&
+                    ( $value['color'] == $params['color'] ) && 
+                    ( $value['size'] == $params['size'] ) &&
+                    ( $value['number'] == $params['number'] )
             ) {
                 unset($products[$key]);
             }
