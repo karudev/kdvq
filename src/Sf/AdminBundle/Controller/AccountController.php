@@ -56,13 +56,13 @@ class AccountController extends Controller {
                     ->setType('shipping');
             $user->addAddress($a);
             }
-            if(!$em->getRepository('SfUserBundle:Address')->findOneBy(array('type'=>'billing','account' => $user->getId()))){
+            /*if(!$em->getRepository('SfUserBundle:Address')->findOneBy(array('type'=>'billing','account' => $user->getId()))){
             
             $a2 = new Address;
             $a2->setAccount($user)
                     ->setType('billing');
             $user->addAddress($a2);
-            }
+            }*/
            
         
         }
