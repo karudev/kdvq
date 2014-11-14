@@ -1,4 +1,4 @@
-{% if mobile == true %}
+{% if mobile is defined and mobile == true %}
 <nav class="container hidden-md hidden-lg">
     <div class="">
         <div class="col-md-12 col-sm-12 content">
@@ -40,7 +40,7 @@
                             <li class="ico_fleche_ferme {{_route == 'front_partners' ? 'active'}}"><a href="{{path('front_partners')}}">Clubs et Partenaires</a></li>
                             <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
                             <li class="ico_fleche_ferme {{_route == 'front_contact' ? 'active'}}" ><a href="{{path('front_contact')}}">Contact</a></li>
-                            {% if is_granted('ROLE_ADMIN') %}
+                            {% if hasRole(app.user,'ROLE_ADMIN') %}
                                 <li class="dropdown ico_fleche_ouvert">
                                     <a href="#" class="admin dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -108,7 +108,7 @@
                     <li class="ico_fleche_ferme {{_route == 'front_press' ? 'active'}}" ><a href="{{path('front_press')}}">Presse</a></li>
                     <li class="ico_fleche_ferme {{_route == 'front_contact' ? 'active'}}" ><a href="{{path('front_contact')}}">Contact</a></li>
 
-                    {% if is_granted('ROLE_ADMIN') %}
+                    {% if hasRole(app.user,'ROLE_ADMIN') %}
                         <li class="dropdown ico_fleche_ouvert">
                             <a href="#" class="admin dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                             <ul class="dropdown-menu">

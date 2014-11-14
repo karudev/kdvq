@@ -1,0 +1,28 @@
+{% extends "SfFrontBundle::frontTemplate.html.twig" %}
+
+{% block css %}
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sffront/css/contact.css')}}?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block ariane %}
+    <div class="sous-categorie">Page non trouvée</div>
+{% endblock %}
+{% block bandeauClass %}
+    contact
+{% endblock %}
+{% block body %}
+
+    <div id="main-content" class="container">
+        <div class="col-md-8 col-md-offset-2 contact-info">
+            <h3 class="big-title">
+                Page<br><span class="din-bold">Non trouvée</span><img src="{{asset('bundles/sffront/images/border.png')}}" class="border" alt="">
+            </h3>
+            <div class="text-center">
+                <img src="{{asset('bundles/sffront/images/404.png')}}" />
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -35,7 +35,7 @@
                 <div class="header-all col-md-12">
                     <div class="header-account">
                         <div class="account-bloc">
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED")  and app.user is not null %} 
+                             {% if app.user.id is defined %}
 
                                 <div class="icon account-icon"></div>  
                                 <a class="account-mail" href="{{ path('account') }}" title="">
@@ -151,7 +151,7 @@
         <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/jquery-ui-1.11.0/jquery-ui.js')}}"></script>
         <script src="{{asset('bundles/sffront/js/main.js')}}?v={{version}}"></script>
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+          {% if app.user.id is defined %}
 
             <script src="{{ asset('assets/tinymce/tinymce.js') }}"></script>
         {% endif %}
