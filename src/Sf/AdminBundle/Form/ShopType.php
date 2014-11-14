@@ -5,7 +5,7 @@ namespace Sf\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Sf\AdminBundle\Form\AddressType;
+use Sf\AdminBundle\Form\Address2Type;
 
 
 class ShopType extends AbstractType {
@@ -30,7 +30,7 @@ class ShopType extends AbstractType {
               //  ->add('autoEntrepreneur','checkbox',array('required' => false))
                 ->add('addresses', 'collection', array(
                 
-                      'type' => new AddressType(),
+                      'type' => new Address2Type(),
                     'allow_add' => true,
                     'by_reference' =>false,
                       ))

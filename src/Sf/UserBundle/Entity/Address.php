@@ -25,7 +25,7 @@ class Address
     
      /**
      * @var string
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255,nullable=true)
      */
     private $address;
     
@@ -37,19 +37,19 @@ class Address
     
     /**
      * @var string
-     * @ORM\Column(name="zip_code", type="string", length=32)
+     * @ORM\Column(name="zip_code", type="string", length=32,nullable=true)
      */
     private $zipCode;
     
      /**
      * @var string
-     * @ORM\Column(name="city", type="string", length=128)
+     * @ORM\Column(name="city", type="string", length=128,nullable=true)
      */
     private $city;
     
      /**
      * @var string
-     * @ORM\Column(name="country", type="string", length=128)
+     * @ORM\Column(name="country", type="string", length=128,nullable=true)
      */
     private $country;
     
