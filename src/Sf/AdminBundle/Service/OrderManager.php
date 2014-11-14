@@ -31,7 +31,7 @@ class OrderManager {
         $em = $this->container->get('doctrine')->getManager();
         $now = new \DateTime;
         $estimated = clone $now;
-        $estimated->modify('+2 weeks');
+        $estimated->modify('+5 days');
 
         $address = $em->getRepository('SfUserBundle:Address')->getPriorityAddress($user);
         if ($address != null) {
