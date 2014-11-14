@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sf\AdminBundle\Form\AccountType;
 use Sf\AdminBundle\Form\Address2Type;
+use Sf\AdminBundle\Form\AddressType;
 use Sf\UserBundle\Entity\Address;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sf\AdminBundle\Form\ShopType;
