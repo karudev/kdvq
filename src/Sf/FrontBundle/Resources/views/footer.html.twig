@@ -32,19 +32,13 @@
         <div class="col-xs-6 col-md-2">
             <h4>Suivez-nous</h4><br/>
             {% if facebook.value is defined %}
-                <a target="_blank" href="{{facebook.value}}" title="">
-                    <div class="ico_social_f"></div>
-                </a>
+                <a class="ico_social_f" target="_blank" href="{{facebook.value}}" title=""></a>
             {% endif %}
             {% if twitter.value is defined %}
-                <a target="_blank" href="{{twitter.value}}" title="">
-                    <div class="ico_social_t"></div>
-                </a>
+                <a class="ico_social_t" target="_blank" href="{{twitter.value}}" title=""></a>
             {% endif %}
             {% if google.value is defined %}
-                <a target="_blank" href="{{google.value}}" title="">
-                    <div class="ico_social_g"></div>
-                </a>
+                <a class="ico_social_g" target="_blank" href="{{google.value}}" title=""> </a>
             {% endif %}
         </div>
         
