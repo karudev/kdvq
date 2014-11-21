@@ -2,6 +2,9 @@
 {% block css %}
     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
+{% if entity.pictureUrl is not null %}
+    {% block bandeauStyle %}background-image:url({{ asset(['/uploads/categories/', entity.pictureUrl]|join) }}){% endblock %}
+ {% endif %}
 {% block title %}Qwinsport - La catégorie {{categorie}} {% endblock %}
 {% block ariane %}<div class="sous-categorie">{{categorie|upper}}</div>{% endblock %}
 {% block body %}

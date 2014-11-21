@@ -3,6 +3,9 @@
     <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
     <link href="{{asset('bundles/sffront/css/products.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
+{% if product.category.category is not null and product.category.category.pictureUrl is not null %}
+    {% block bandeauStyle %}background-image:url({{ asset(['/uploads/categories/', product.category.category.pictureUrl]|join) }}){% endblock %}
+ {% endif %}
 {% block ariane %}
     <div class="sous-categorie"><a href="{{path('front_products',{'categorySlug' : product.category.slug})}}">PRODUITS</a></div>
     <div class="sous-categorie">{{product.name|truncate(35)}}</div>

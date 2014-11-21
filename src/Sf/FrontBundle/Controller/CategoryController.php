@@ -20,7 +20,7 @@ class CategoryController extends Controller
         $c = $em->getRepository("SfAdminBundle:Category")->findOneBy(array('slug' => $slug));
         $cats = $em->getRepository("SfAdminBundle:Category")->findBy(array('active' => true,'category' => $c->getId()),array('position' => 'asc'));
        
-        return array('cats' => $cats, 'categorie' => $slug,'catalog'=>$catalog);
+        return array('entity' => $c,'cats' => $cats, 'categorie' => $slug,'catalog'=>$catalog);
     }
 
 }

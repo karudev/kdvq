@@ -4,6 +4,9 @@
     <link href="{{asset('bundles/sffront/css/products.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
 {% block ariane %}<div class="sous-categorie">PRODUITS</div><div class="sous-categorie">{{category.label}}</div>{% endblock %}
+{% if category.category is not null and category.category.pictureUrl is not null %}
+    {% block bandeauStyle %}background-image:url({{ asset(['/uploads/categories/', category.category.pictureUrl]|join) }}){% endblock %}
+ {% endif %}
 {% block title %}Qwinsport - Les produits{% endblock %}
 {% block body %}
 

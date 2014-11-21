@@ -1,9 +1,12 @@
 {% extends "SfFrontBundle::frontTemplate.html.twig" %}
 {% block css %}
- <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
+    <link href="{{asset('bundles/sffront/css/categories.css')}}?v={{version}}" rel="stylesheet">
 {% endblock %}
 {% block ariane %}
     <div class="sous-categorie">Mentions Légales</div>
+{% endblock %}
+{% block bandeauClass %}
+    legal
 {% endblock %}
 {% block title %}Qwinsport - Mentions Légales{% endblock %}
 

@@ -75,7 +75,7 @@
         <div class="container">
             <div class="{{app.request.attributes.get('_route') == 'front_home' ? 'col-md-12 col-sm-12' : 'col-md-10 col-sm-12' }}" >
                 {% block bandeau %}
-                    <div class="categories {% block bandeauClass %}{% endblock%}">
+                    <div style="{% block bandeauStyle %}{% endblock%}" class="categories {% block bandeauClass %}{% endblock%}">
                         <div class="col-md-2">
                             <a href="{{path('front_home')}}" title="">
                                 <div class="hidden-xs hidden-sm main-logo"></div>
