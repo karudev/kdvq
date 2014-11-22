@@ -75,7 +75,7 @@
                             {% for a in actualities %}
                             <div class="actu-info">
                                 <div class="actu-date">{{a.date|date('d/m/Y')}}</div><hr/>
-                                <div class="actu-title"><h1>{{a.title}}</h1></div>
+                                <div class="actu-title"><a style="color:#333333" href="{{path('front_actus')}}"><h1>{{a.title}}</h1></a></div>
                                 <div class="actu-content">
                                     {{a.text|truncate(150)|raw}}..
                                 </div>

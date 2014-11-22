@@ -122,7 +122,8 @@ account
                 });
                 $(document).on('click', '.remove_image', function(event) {
                     event.preventDefault();
-                    $(this).parent().remove();
+                   // console.debug($($(this).parent()).parent('.form-group'));
+                    $($(this).parent()).parent('.form-group').remove();
                 });
             });
         </script>
