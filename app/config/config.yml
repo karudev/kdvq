@@ -109,7 +109,7 @@ fos_user:
 
 stof_doctrine_extensions:
     default_locale: fr_FR
-    translation_fallback: true
+    translation_fallback: false
     orm:
         default:
             sluggable: true
