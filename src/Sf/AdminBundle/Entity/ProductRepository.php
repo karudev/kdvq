@@ -20,7 +20,7 @@ class ProductRepository extends EntityRepository {
                         ->andWhere('e.deleted = false')
                         ->setParameter('slug', $slug)
                         ->getQuery()
-                        ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
+                     //   ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
                         ->getSingleResult();
     }
 
