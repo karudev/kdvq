@@ -29,7 +29,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        version: 0.9.5
+        version: 0.9.6
         mailer_name: "%mailer_name%"
     form:
       resources:
@@ -113,7 +113,7 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
-            translatable: true
+            translatable: false
 
 
 
