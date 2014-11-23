@@ -5,6 +5,7 @@ namespace Sf\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Translatable\Translatable;
 use Symfony\Component\Filesystem\Filesystem;
 
 
@@ -13,8 +14,9 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @ORM\Table(name="brand")
  * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks
  */
-class Brand {
+class Brand implements Translatable {
 
     /**
      * @var integer
@@ -27,24 +29,28 @@ class Brand {
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="title", type="string", length=128)
      */
     private $title;
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="subtitle", type="string", length=128)
      */
     private $subtitle;
     
       /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="text", type="text")
      */
     private $text;
     
       /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="text2", type="text")
      */
     private $text2;
@@ -77,12 +83,14 @@ class Brand {
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="title2", type="string", length=128)
      */
     private $title2;
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="sub_title2", type="string", length=128)
      */
     private $subtitle2;

@@ -5,7 +5,7 @@ namespace Sf\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Gedmo\Translatable\Translatable;
 use Symfony\Component\Filesystem\Filesystem;
 use Sf\AdminBundle\Service\FileManager;
 
@@ -14,8 +14,9 @@ use Sf\AdminBundle\Service\FileManager;
  *
  * @ORM\Table(name="press")
  * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks
  */
-class Press
+class Press implements Translatable
 {
 
     /**
@@ -29,14 +30,14 @@ class Press
 
      /**
      * @var string
-
+     * @Gedmo\Translatable
      * @ORM\Column(name="parution_title", type="string", length=128, nullable=true)
      */
     private $parutionTitle;
     
      /**
      * @var string
-
+     * @Gedmo\Translatable
      * @ORM\Column(name="parution_subtitle", type="string", length=128, nullable=true)
      */
     private $parutionSubtitle;
@@ -45,7 +46,7 @@ class Press
     
      /**
      * @var string
-
+     * @Gedmo\Translatable
      * @ORM\Column(name="text", type="string", nullable=true)
      */
     private $text;
