@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2014-10-08T15:18:06Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2014-11-20T10:00:35Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -8,62 +8,67 @@
     <body>
       <trans-unit id="7e6b12a7deb5f7315f025b8c49121130cd7798ad" resname="form.email">
         <source>form.email</source>
-        <target>form.email</target>
+        <target>email</target>
         <jms:reference-file line="47">Form/Type/ProfileFormType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="dff086700fdd62e031af5de308be31fcada4d7c7" resname="form.username">
         <source>form.username</source>
-        <target>form.username</target>
+        <target>Login</target>
         <jms:reference-file line="46">Form/Type/ProfileFormType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="6f2b87ab0da336a9cb633f397ff7f86ab7ea522b" resname="profile.show.email">
         <source>profile.show.email</source>
-        <target>profile.show.email</target>
+        <target>Email</target>
         <jms:reference-file line="5">views/Profile/show_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0d6307def2ec4ecb26978118bb2deca9d566945c" resname="profile.show.username">
         <source>profile.show.username</source>
-        <target>profile.show.username</target>
+        <target>Email</target>
         <jms:reference-file line="4">views/Profile/show_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="40c1a483571045e24d606bf00361cfd4d021ba05" resname="resetting.check_email">
         <source>resetting.check_email</source>
-        <target>resetting.check_email</target>
-        <jms:reference-file line="12">views/Resetting/checkEmail.html.twig</jms:reference-file>
+        <target>Un e-mail a été envoyé à l'adresse %email%. Il contient un lien sur lequel il vous faudra cliquer afin de réinitialiser votre mot de passe.</target>
+        <jms:reference-file line="6">views/Resetting/checkEmail.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="70c8836a0e3b8dadb494b8de56ebed18939359b5" resname="resetting.email.message">
         <source>resetting.email.message</source>
-        <target>resetting.email.message</target>
+        <target>Bonjour %username% !
+
+Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
+
+Cordialement,
+Fridging.</target>
         <jms:reference-file line="9">views/Resetting/email.txt.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="126cf13058808d8948cc673c7933c6c1ce27841d" resname="resetting.email.subject">
         <source>resetting.email.subject</source>
-        <target state="new">resetting.email.subject</target>
+        <target>Réinitialisation de votre mot de passe</target>
         <jms:reference-file line="4">views/Resetting/email.txt.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f0b3476bec045fac67c256d17a54e4f8a8d05335" resname="resetting.password_already_requested">
         <source>resetting.password_already_requested</source>
-        <target state="new">resetting.password_already_requested</target>
-        <jms:reference-file line="12">views/Resetting/passwordAlreadyRequested.html.twig</jms:reference-file>
+        <target>Un nouveau mot de passe a déjà été demandé pour cet utilisateur dans les dernières 24 heures.</target>
+        <jms:reference-file line="6">views/Resetting/passwordAlreadyRequested.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c3474ad1b73a0d0db019eec986ee675e8afaf640" resname="resetting.request.invalid_username">
         <source>resetting.request.invalid_username</source>
-        <target state="new">resetting.request.invalid_username</target>
-        <jms:reference-file line="7">views/Resetting/request_content.html.twig</jms:reference-file>
+        <target>Le nom d'utilisateur ou l'adresse e-mail "%username%" n'existe pas.</target>
+        <jms:reference-file line="6">views/Resetting/request_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e1470b3c202d9a4fa8e1afa7ed8695917f060ccd" resname="resetting.request.submit">
         <source>resetting.request.submit</source>
-        <target state="new">resetting.request.submit</target>
-        <jms:reference-file line="13">views/Resetting/request_content.html.twig</jms:reference-file>
+        <target>Réinitialiser le mot de passe</target>
+        <jms:reference-file line="12">views/Resetting/request_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="7ad41bf8fb30013eb0f31ca027ca8d1dc7a3d96f" resname="resetting.request.username">
         <source>resetting.request.username</source>
-        <target state="new">resetting.request.username</target>
-        <jms:reference-file line="9">views/Resetting/request_content.html.twig</jms:reference-file>
+        <target>Email :</target>
+        <jms:reference-file line="8">views/Resetting/request_content.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="921fd7a5cc7f9e46eab31822855a22d9808b0477" resname="resetting.reset.submit">
         <source>resetting.reset.submit</source>
-        <target state="new">resetting.reset.submit</target>
+        <target>Modifier le mot de passe</target>
         <jms:reference-file line="6">views/Resetting/reset_content.html.twig</jms:reference-file>
       </trans-unit>
     </body>
