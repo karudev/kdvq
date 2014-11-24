@@ -8,9 +8,9 @@
 {% block bandeauClass %}main {% endblock %}
 {% block title %}Qwinsport{% endblock %}
  {% block flash %}
-        <div style="position:absolute;top:250px;left:20%" class="container" >
+        <div style="position:absolute;top:250px;left:20%" class="" >
             {% for type, messages in app.session.flashbag.all() %}
-                <div class="col-md-5 alert alert-{{ type }}">
+                <div class="col-md-12 alert alert-{{ type }}">
                     {% for key,message in messages %}
 
                         - {{ message }}<br/>
