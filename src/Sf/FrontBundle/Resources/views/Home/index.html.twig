@@ -7,6 +7,20 @@
 {% endblock %}
 {% block bandeauClass %}main {% endblock %}
 {% block title %}Qwinsport{% endblock %}
+ {% block flash %}
+        <div style="position:absolute;top:250px;left:20%" class="container" >
+            {% for type, messages in app.session.flashbag.all() %}
+                <div class="col-md-5 alert alert-{{ type }}">
+                    {% for key,message in messages %}
+
+                        - {{ message }}<br/>
+
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    {% endblock %}
 {% block body %}
     
     {% for p in carrousel %}

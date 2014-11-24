@@ -95,7 +95,7 @@
                 {{render(controller('SfFrontBundle:Nav:show',{'mobile' : false,'_route' :  app.request.attributes.get('_route')} ))}}
             {% endif %}
         </div>
-
+ {% block flash %}
         <div class="container">
             {% for type, messages in app.session.flashbag.all() %}
                 <div class="col-md-10 alert alert-{{ type }}">
@@ -108,6 +108,7 @@
             {% endfor %}
             <div class="clearfix"></div>
         </div>
+    {% endblock %}
         <div class="container">
             {% block body %}
 
