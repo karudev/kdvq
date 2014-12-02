@@ -91,7 +91,7 @@
                                 <div class="actu-date">{{a.date|date('d/m/Y')}}</div><hr/>
                                 <div class="actu-title"><a style="color:#333333" href="{{path('front_actus')}}"><h1>{{a.title}}</h1></a></div>
                                 <div class="actu-content">
-                                    {{a.text|truncate(150)|raw}}..
+                                    {{a.text[:150]|striptags|raw}}..
                                 </div>
                             </div>
                             <img class="visuel" src="{{ asset(['/uploads/actualities/', a.pictureHomeUrl]|join) }}" alt="">
