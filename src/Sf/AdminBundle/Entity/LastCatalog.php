@@ -31,7 +31,7 @@ class LastCatalog implements Translatable
     
      /**
      *
-     * @Assert\File(maxSize="6000000",mimeTypes={"application/pdf"})
+     * @Assert\File(maxSize="10000000",mimeTypes={"application/pdf"})
      */
     private $file;
 

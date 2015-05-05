@@ -287,7 +287,9 @@ button#achat{
     display: inline-block;
 }
 
-
+#grid{
+    font-size: 11px;
+}
 @media (max-width: 768px) {
     .categories .subcat{
         border-left: 1px solid #52DDC6;
