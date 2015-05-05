@@ -2,3 +2,19 @@ Sf\AdminBundle\Entity\Mail:
    properties:
       text:
         - NotBlank: ~
+Sf\AdminBundle\Entity\Product:
+   properties:
+      metaDescription:
+        - Length:
+                max : 200
+      metaKeywords:
+        - Length:
+                max : 200
+Sf\AdminBundle\Entity\Category:
+   properties:
+      metaDescription:
+        - Length:
+                max : 200
+      metaKeywords:
+        - Length:
+                max : 200

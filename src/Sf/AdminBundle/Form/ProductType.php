@@ -25,6 +25,8 @@ class ProductType extends AbstractType {
                 ))
                 ->add('name')
                 //->add('subTitle','text',array('required' => false))
+                ->add('metaKeywords','text',array('required' => false))
+                ->add('metaDescription','textarea',array('required' => false))
                 ->add('description','textarea',array('required' => false))
                 ->add('details','textarea',array('required' => false))
                 ->add('composition','textarea',array('required' => false))

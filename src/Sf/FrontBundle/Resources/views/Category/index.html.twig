@@ -5,6 +5,16 @@
 {% if entity.pictureUrl is not null %}
     {% block bandeauStyle %}background-image:url({{ asset(['/uploads/categories/', entity.pictureUrl]|join) }}){% endblock %}
  {% endif %}
+ {% if entity.metaKeywords !=null %}
+    {% block meta_keywords %}
+        <meta name="keywords" content="{{entity.metaKeywords}}">
+    {% endblock %}
+{% endif %}
+{% if entity.metaDescription !=null %}
+    {% block meta_description %}
+        <meta name="description" content="{{entity.metaDescription|raw}}">
+    {% endblock %}
+{% endif %}
 {% block title %}Qwinsport - La catégorie {{categorie}} {% endblock %}
 {% block ariane %}<div class="sous-categorie">{{categorie|upper}}</div>{% endblock %}
 {% block body %}

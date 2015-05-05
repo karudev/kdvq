@@ -109,8 +109,10 @@ class LastCatalog implements Translatable
         $fs = new Filesystem();
        
         if ($this->file !=null && $fs->exists($this->getAbsolutePath($this->fileUrl))) {
-            unlink($this->file);
+            unlink($this->getAbsolutePath($this->fileUrl));
         }
+        
+       
        
     }
        public function getAbsolutePath($file)

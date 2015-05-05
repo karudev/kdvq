@@ -27,13 +27,26 @@ class Product implements Translatable
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
     /**
      * @var string
      * @Gedmo\Translatable
      * @ORM\Column(name="name", type="string", length=128)
      */
     private $name;
+    
+     /**
+     * @var string
+     * @ORM\Column(name="meta_keywords", type="string", length=255, nullable=true)
+     */
+    private $metaKeywords;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="meta_description", type="text", nullable=true)
+     */
+    private $metaDescription;
+
 
     /**
      * @var string
@@ -212,21 +225,31 @@ class Product implements Translatable
         
         if (null !== $this->hdPicture) {
             $this->hdPictureUrl = uniqid() . '.' . $this->hdPicture->guessExtension();
-            $this->mainPictureUrl = 'sm_'.$this->hdPictureUrl;
+           
+        }
+        if (null !== $this->mainPicture) {
+            $this->mainPictureUrl = uniqid() . '.' . $this->mainPicture->guessExtension();
+           
         }
     }
 
   
     public function upload()
     {
-       
+        if ($this->mainPicture != null) {
+             //$ext = $this->hdPicture->guessExtension(); 
+            $this->mainPicture->move($this->getUploadRootDir(), $this->mainPictureUrl);
+           
+          //  FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, 314,null,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
+            unset($this->mainPicture);
+        }
            
       
         if ($this->hdPicture != null) {
-             $ext = $this->hdPicture->guessExtension(); 
+             //$ext = $this->hdPicture->guessExtension(); 
             $this->hdPicture->move($this->getUploadRootDir(), $this->hdPictureUrl);
            
-            FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, 314,null,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
+          //  FileManager::resize($this->getUploadRootDir().'/'.$this->hdPictureUrl,$ext, 314,null,$this->getUploadRootDir().'/'.$this->mainPictureUrl);
             unset($this->hdPicture);
         }
     }
@@ -855,5 +878,51 @@ class Product implements Translatable
     public function getInHome()
     {
         return $this->inHome;
+    }
+
+    /**
+     * Set metaKeywords
+     *
+     * @param string $metaKeywords
+     * @return Product
+     */
+    public function setMetaKeywords($metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * Get metaKeywords
+     *
+     * @return string 
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords;
+    }
+
+    /**
+     * Set metaDescription
+     *
+     * @param string $metaDescription
+     * @return Product
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get metaDescription
+     *
+     * @return string 
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
     }
 }

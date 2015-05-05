@@ -31,14 +31,14 @@ class Press implements Translatable
      /**
      * @var string
      * @Gedmo\Translatable
-     * @ORM\Column(name="parution_title", type="string", length=128)
+     * @ORM\Column(name="parution_title", type="string", length=128, nullable=true)
      */
     private $parutionTitle;
     
      /**
      * @var string
      * @Gedmo\Translatable
-     * @ORM\Column(name="parution_subtitle", type="string", length=128)
+     * @ORM\Column(name="parution_subtitle", type="string", length=128, nullable=true)
      */
     private $parutionSubtitle;
     
@@ -47,7 +47,7 @@ class Press implements Translatable
      /**
      * @var string
      * @Gedmo\Translatable
-     * @ORM\Column(name="text", type="string")
+     * @ORM\Column(name="text", type="string", nullable=true)
      */
     private $text;
     
@@ -193,14 +193,14 @@ class Press implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($this->mainPicture != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
+        if ($this->mainPictureUrl != null && $this->mainPicture != null && $fs->exists($this->getAbsolutePath($this->mainPictureUrl))) {
             unlink($this->getAbsolutePath($this->mainPictureUrl));
         }
-         if ($this->hdPicture !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
+         if ($this->hdPictureUrl !=null && $this->hdPicture !=null && $fs->exists($this->getAbsolutePath($this->hdPictureUrl))) {
             unlink($this->getAbsolutePath($this->hdPictureUrl));
         }
         
-        if ($this->secondPicture !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
+        if ($this->secondPictureUrl !=null && $this->secondPicture !=null && $fs->exists($this->getAbsolutePath($this->secondPictureUrl))) {
             unlink($this->getAbsolutePath($this->secondPictureUrl));
         }
        

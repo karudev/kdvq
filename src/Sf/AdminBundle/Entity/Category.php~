@@ -26,6 +26,18 @@ class Category
      */
     private $id;
 
+     /**
+     * @var string
+     * @ORM\Column(name="meta_keywords", type="string", length=255, nullable=true)
+     */
+    private $metaKeywords;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="meta_description", type="text", nullable=true)
+     */
+    private $metaDescription;
+    
     /**
      * @var string
 

@@ -28,6 +28,8 @@ class CategoryType extends AbstractType {
                     )
                 //->add('picture', 'file', array('required' => false))
                 ->add('name', 'text', array('required' => false))
+                ->add('metaKeywords','text',array('required' => false))
+                ->add('metaDescription','textarea',array('required' => false))
                 ->add('position', 'text')
                 ->add('active', 'checkbox', array('required' => false))
 

@@ -121,10 +121,10 @@ class Partner implements Translatable
     {
 
         $fs = new Filesystem();
-        if ($this->picture != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
+        if ($this->pictureUrl != null && $this->picture != null && $fs->exists($this->getAbsolutePath($this->pictureUrl))) {
             unlink($this->getAbsolutePath($this->pictureUrl));
         }
-        if ($this->pictureHd != null && $fs->exists($this->getAbsolutePath($this->pictureHdUrl))) {
+        if ($this->pictureHdUrl != null && $this->pictureHd != null && $fs->exists($this->getAbsolutePath($this->pictureHdUrl))) {
             unlink($this->getAbsolutePath($this->pictureHdUrl));
         }
        
@@ -297,5 +297,28 @@ class Partner implements Translatable
     public function getPictureUrl()
     {
         return $this->pictureUrl;
+    }
+
+    /**
+     * Set pictureHdUrl
+     *
+     * @param string $pictureHdUrl
+     * @return Partner
+     */
+    public function setPictureHdUrl($pictureHdUrl)
+    {
+        $this->pictureHdUrl = $pictureHdUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get pictureHdUrl
+     *
+     * @return string 
+     */
+    public function getPictureHdUrl()
+    {
+        return $this->pictureHdUrl;
     }
 }

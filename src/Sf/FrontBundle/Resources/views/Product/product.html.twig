@@ -10,6 +10,18 @@
     <div class="sous-categorie"><a href="{{path('front_products',{'categorySlug' : product.category.slug})}}">PRODUITS</a></div>
     <div class="sous-categorie">{{product.name|truncate(35)}}</div>
 {% endblock %}
+
+{% if product.metaKeywords !=null %}
+    {% block meta_keywords %}
+        <meta name="keywords" content="{{product.metaKeywords}}">
+    {% endblock %}
+{% endif %}
+{% if product.metaDescription !=null %}
+    {% block meta_description %}
+        <meta name="description" content="{{product.metaDescription|raw}}">
+    {% endblock %}
+{% endif %}
+
 {% block title %}Qwinsport - {{product.name}}{% endblock %}
 {% block body %}
   {% set critere = 0 %}

@@ -8,10 +8,15 @@
         <meta charset="utf-8">
 
         <title>{% block title %}Qwinsport{% endblock %}</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
+        {% block meta_description %}<meta name="description" content="Mélange de queen, win et sport.
+              L’idée qu’au travers d’une tenue de football au féminin, les femmes et jeunes filles s’autorisent à pratiquer le football quelque soit leur taille, leur look, leur coupe de cheveux est un souhait de Qwinsport.">{% endblock %}
+        {% block meta_keywords %}<meta name="keywords" content="sport, femme, football, vente, t-shirt, haut, bas, chaussette">{% endblock %}
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="generator" content="Qwinsport, site e-commerce" />
+        <meta name="author" content="Audrey Parcineau" />
+        <meta name="copyright" content="© Qwinsport.com" />
+        <meta http-equiv="Content-Language" content="fr-FR" />
 
         <link href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('assets/jquery-ui-1.11.0/jquery-ui.css')}}" rel="stylesheet">

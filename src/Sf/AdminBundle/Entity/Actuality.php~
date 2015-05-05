@@ -38,7 +38,7 @@ class Actuality implements Translatable
     /**
      * @var string
      * @Gedmo\Translatable
-     * @ORM\Column(name="link", type="string", length=128)
+     * @ORM\Column(name="link", type="string", length=128,nullable=true)
      */
     private $link;
 
