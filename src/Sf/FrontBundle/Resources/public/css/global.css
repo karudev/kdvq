@@ -452,6 +452,7 @@ p.actu-content{
     font-size: 16px;
     line-height: 1.3;
     font-weight: bold;
+    margin-top: 3px;
 }
 
 .actualite p{
