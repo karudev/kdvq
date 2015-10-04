@@ -213,7 +213,7 @@
                         {% for m in moreProducts %}
                             <div style="padding-bottom: 10px" class="col-md-4 col-sm-4 col-xs-6">
                                 {% if getStock(m) > 0 %}
-                                    <a href="{{path('front_product',{'slug' : m.slug} )}}" title="">
+                                    <a href="{{path('front_product',{'slug' : m.uniqueSlug} )}}" title="">
                                         <img style="width: 90%;" src="{{ asset(['/uploads/products/', m.mainPictureUrl]|join) }}" alt="">
                                     </a>
                                 {% else %}
@@ -229,7 +229,7 @@
                                         <h2>{{ m.name|truncate(20)}}</h2>
                                     <div><span class="label label-danger">Indisponible</span></div>
                                 {% else %}
-                                    <a href="{{path('front_product',{'slug' : m.slug} )}}" title="{{m.name}}"> 
+                                    <a href="{{path('front_product',{'slug' : m.uniqueSlug} )}}" title="{{m.name}}"> 
                                         <h2>{{ m.name|truncate(20)}}</h2>
                                     </a>
                                 {% endif %}

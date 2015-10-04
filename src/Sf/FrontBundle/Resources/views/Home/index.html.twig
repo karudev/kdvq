@@ -40,7 +40,7 @@
                         {% for p in products %}
                             <div class="article">
                                 {% if getStock(p) > 0 %}
-                                    <a href="{{path('front_product',{'slug' : p.slug})}}" title="">
+                                    <a href="{{path('front_product',{'slug' : p.uniqueSlug})}}" title="">
                                         <img style="width:40%" src="{{ asset(['/uploads/products/', p.mainPictureUrl]|join) }}" alt="">
                                     </a>
                                 {% else %}

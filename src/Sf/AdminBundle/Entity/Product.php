@@ -211,6 +211,12 @@ class Product implements Translatable
      */
     private $category;
     
+    
+    public function uniqueSlug()
+    {
+        return $this->id.'-'.$this->slug;
+    }    
+    
 
 
     

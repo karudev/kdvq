@@ -47,10 +47,12 @@ class ProductController extends Controller {
     public function productAction($slug) {
 
         $em = $this->getDoctrine()->getManager();
-        $value = explode('-', $slug, 2);
+        $value = explode('-', $slug, 1);
         $id =  $value[0];
+
+print_r($value); die();
         
-        $product = $em->getRepository('SfAdminBundle:Product')->find($id);
+        $product = $em->getRepository('SfAdminBundle:Product')->findOneBy(array('id'=> $id,'slug' => $value[1]));
 
         $parentCategory = $product->getCategory()->getCategory();
 

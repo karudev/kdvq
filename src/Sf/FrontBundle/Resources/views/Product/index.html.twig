@@ -70,7 +70,7 @@
                         
                         <div class="art col-xs-12 col-sm-6 col-md-4">
                         {% if getStock(entity) > 0 %}
-                            <a href="{{path('front_product',{'slug' : entity.slug})}}" title="{{entity.name}}">
+                            <a href="{{path('front_product',{'slug' : entity.uniqueSlug})}}" title="{{entity.name}}">
                                 <img style="width:262px;height: 314px" src="{{ asset(['/uploads/products/', entity.mainPictureUrl]|join) }}" alt="">
                             </a>
                         {% else %}
@@ -84,7 +84,7 @@
 
 
                         {% if getStock(entity) > 0 %}
-                            <a href="{{path('front_product',{'slug' : entity.slug})}}" title="{{entity.name}}"> 
+                            <a href="{{path('front_product',{'slug' : entity.uniqueSlug})}}" title="{{entity.name}}"> 
                                 <h2>{{entity.name|truncate(20)}}</h2>
                             </a>
                             <hr/>
